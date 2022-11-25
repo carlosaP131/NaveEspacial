@@ -15,6 +15,7 @@ public class Logueo extends javax.swing.JFrame {
      */
     public Logueo() {
         initComponents();
+       this.setLocationRelativeTo(this);
     }
 
     /**
@@ -27,6 +28,10 @@ public class Logueo extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        Contraseña = new javax.swing.JPasswordField();
+        Usuario = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -36,6 +41,29 @@ public class Logueo extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Contraseña.setBackground(new java.awt.Color(61, 76, 140));
+        Contraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContraseñaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 140, -1));
+
+        Usuario.setBackground(new java.awt.Color(46, 54, 124));
+        Usuario.setText("Ingrese su nombre ");
+        Usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsuarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 140, -1));
+
+        jLabel2.setText("Contraseña");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+
+        jLabel1.setText("Usuario");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Liberation Sans", 0, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 0, 51));
@@ -82,6 +110,14 @@ public class Logueo extends javax.swing.JFrame {
        System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioActionPerformed
+
+    private void ContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContraseñaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -118,8 +154,12 @@ public class Logueo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField Contraseña;
     private javax.swing.JLabel Fondo;
+    private javax.swing.JTextField Usuario;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
