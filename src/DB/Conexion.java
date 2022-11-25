@@ -24,7 +24,7 @@ public class Conexion {
         this.url = "jdbc:mysql://";
         this.ip = "172.17.0.2";
         this.puerto = "3306";
-        this.basedatos = "juego";
+        this.basedatos = "nave_espacial";
     }
 
     public Connection getConnection() throws ClassNotFoundException {
