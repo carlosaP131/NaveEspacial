@@ -15,11 +15,15 @@ public class Principal extends javax.swing.JFrame {
      */
     InicioView inicio;
     Portada portada;
+    Registrar regis;
+    Tabla_Usuario tUsuario;
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(this);
         portada = new Portada();
          inicio = new InicioView();
+         regis = new Registrar();
+         tUsuario = new Tabla_Usuario();
          Pprincipal.add(portada);
          inicio.setVisible(false);
          portada.setVisible(true);
@@ -87,12 +91,22 @@ public class Principal extends javax.swing.JFrame {
         Bregistrar.setForeground(new java.awt.Color(233, 74, 218));
         Bregistrar.setText("Registrar Usuario");
         Bregistrar.setBorderPainted(false);
+        Bregistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BregistrarMouseClicked(evt);
+            }
+        });
 
         Bconsultar.setBackground(new java.awt.Color(1, 39, 61));
         Bconsultar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Bconsultar.setForeground(new java.awt.Color(233, 74, 218));
         Bconsultar.setText("Consultar Usuario");
         Bconsultar.setBorderPainted(false);
+        Bconsultar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BconsultarMouseClicked(evt);
+            }
+        });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/FONDO3.png"))); // NOI18N
 
@@ -185,6 +199,23 @@ public class Principal extends javax.swing.JFrame {
 
         System.exit(0);
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void BregistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BregistrarMouseClicked
+       Pprincipal.add(regis);
+        inicio.setVisible(false);
+        portada.setVisible(false);
+        regis.setVisible(true);
+        Pprincipal.validate();
+    }//GEN-LAST:event_BregistrarMouseClicked
+
+    private void BconsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BconsultarMouseClicked
+      Pprincipal.add(tUsuario);
+        inicio.setVisible(false);
+        portada.setVisible(false);
+        regis.setVisible(false);
+        tUsuario.setVisible(true);
+        Pprincipal.validate();
+    }//GEN-LAST:event_BconsultarMouseClicked
 
     /**
      * @param args the command line arguments

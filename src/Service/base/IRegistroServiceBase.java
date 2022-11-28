@@ -4,22 +4,22 @@
  */
 package Service.base;
 
-import entity.Rol;
+import entity.Usuario;
 import java.util.List;
 
 /**
  *
  * @author labdessw09
  */
-public interface IRegistroServiceBase<T> {
+public interface IRegistroServiceBase<Usuario> {
 
-    public void InsertarRegistro(T Registro);
+    public void InsertarRegistro(Usuario Registro);
 
-    public List<T> ObtenerRegistro();
+    public List<Usuario> ObtenerRegistro();
 
-    public void ActualizarRegistro(T idRegistro);
+    public void ActualizarRegistro(Usuario idRegistro);
 
     public void EliminarRegistro(int id);
 
-    public T BuscarRegistro(int id);
+    public Usuario BuscarRegistro(int id);
 }

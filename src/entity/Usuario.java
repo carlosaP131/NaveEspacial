@@ -46,6 +46,6 @@ public class Usuario implements IRegistroEntityBase{
 
     @Override
     public void setId(int id) {
-        setId(id);
+        setIdUsuario(id);
     }
 }

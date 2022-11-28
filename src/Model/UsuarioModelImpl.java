@@ -19,11 +19,11 @@ public class UsuarioModelImpl implements IUsuarioModel {
     private Statement stm;
 
     @Override
-    public void insertarregistro(Usuario rol) {
+    public void insertarregistro(Usuario usuario) {
         try {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
-            String query = "call Guardar('"+rol.getUser()+"');";
+            String query = "insert into usuario(usuario) values('" + usuario.getUser()+"');";
             stm = connection.createStatement();
             stm.execute(query);
             stm.close();
@@ -42,14 +42,14 @@ public class UsuarioModelImpl implements IUsuarioModel {
             ResultSet rs;
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
-            String query = "call Mostrar;";
+            String query = "select * from usuario;";
             stm = connection.createStatement();
             rs = stm.executeQuery(query);
             while (rs.next()) {
-                Usuario rol = new Usuario();
-                rol.setId(rs.getInt("idRol"));
-                rol.setUser(rs.getString("rol"));
-                listarol.add(rol);
+                Usuario usuario = new Usuario();
+                usuario.setId(rs.getInt("idusuario"));
+                usuario.setUser(rs.getString("usuario"));
+                listarol.add(usuario);
             }
             stm.close();
             connection.close();
@@ -126,19 +126,19 @@ public class UsuarioModelImpl implements IUsuarioModel {
         return null;
     }
 
-    public static void main(String[] args) throws ClassNotFoundException {
+//    public static void main(String[] args) throws ClassNotFoundException {
 //        IUsuarioModel model = new UsuarioModelImpl();
-//        Rol rol = new Rol();
-//        rol.setRol("arbol");
+//        Usuario rol = new Usuario();
+//        rol.setUser("arbol");
 //        model.insertarregistro(rol);
-//        List<Rol> lista = model.ObtenerRegistro();
+//        List<Usuario> lista = model.ObtenerRegistro();
 //        for (int i = 0; i < lista.size(); i++) {
-//            System.out.println(lista.get(i).getRol());
+//            System.out.println(lista.get(i).getUser());
 //        }
-//        Rol rol2 = new Rol();
-//        rol2.setRol("arbol2");
-//        model.ActualizarRegistro(rol, rol2);
-//         model.EliminarRegistro(rol);
-    }
+//        Usuario rol2 = new Usuario();
+//        rol2.setUser("arbol2");
+//        model.ActualizarRegistro(rol2);
+//         model.EliminarRegistro(1);
+//    }
 
 }

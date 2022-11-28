@@ -8,6 +8,8 @@ import Controller.base.RegistroControllerBase;
 import Service.IUsuarioService;
 import Service.UsuarioServiceImpl;
 import entity.Usuario;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,4 +28,18 @@ public class UsuarioController  extends RegistroControllerBase<Usuario> {
         super.setRegistro(usuario);
         super.crearActualizarRegistro();
     }
+  public void mostrar(DefaultTableModel modelo){
+      service = new UsuarioServiceImpl();
+       List<Usuario> listausuario = service.ObtenerRegistro();
+        modelo.setRowCount(0);
+        for (Usuario usuario : listausuario) {
+            Object[] fila = new Object[2];
+            fila[0] =String.valueOf(usuario.getIdUsuario());
+            fila[1] = usuario.getUser();
+            modelo.addRow(fila);
+          
+        }
+      
+  } 
+  
 }
