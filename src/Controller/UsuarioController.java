@@ -8,6 +8,7 @@ import Controller.base.RegistroControllerBase;
 import Service.IUsuarioService;
 import Service.UsuarioServiceImpl;
 import entity.Usuario;
+import entity.Jugador;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class UsuarioController  extends RegistroControllerBase<Usuario> {
      private IUsuarioService service;
-
+  
 //instancia a servicio 
 //    IRolService service = new RolServiceImpl();
 //    
@@ -33,13 +34,16 @@ public class UsuarioController  extends RegistroControllerBase<Usuario> {
        List<Usuario> listausuario = service.ObtenerRegistro();
         modelo.setRowCount(0);
         for (Usuario usuario : listausuario) {
-            Object[] fila = new Object[2];
+            Object[] fila = new Object[3];
             fila[0] =String.valueOf(usuario.getIdUsuario());
             fila[1] = usuario.getUser();
+            fila[2] = usuario.getIdJugador();
             modelo.addRow(fila);
           
         }
+       
       
-  } 
+   
   
+}
 }

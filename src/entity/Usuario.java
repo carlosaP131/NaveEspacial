@@ -13,7 +13,8 @@ import entity.base.IRegistroEntityBase;
 public class Usuario implements IRegistroEntityBase{
     private int idUsuario;
     private String User;
-    private String Pwd;           
+    private String Pwd;
+    private int idJugador;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -39,13 +40,23 @@ public class Usuario implements IRegistroEntityBase{
         this.Pwd = Pwd;
     }
 
+    public int getIdJugador() {
+        return idJugador;
+    }
+
+    public void setIdJugador(int idJugador) {
+        this.idJugador = idJugador;
+    }
+
     @Override
     public int getId() {
-        return getId();
+        return getIdUsuario();
     }
 
     @Override
     public void setId(int id) {
         setIdUsuario(id);
     }
+
+    
 }

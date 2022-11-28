@@ -126,19 +126,19 @@ public class RolModelImpl implements IRolModel {
         return null;
     }
 
-//    public static void main(String[] args) throws ClassNotFoundException {
-//        IRolModel model = new RolModelImpl();
-//        Rol rol = new Rol();
-//        rol.setRol("arbol");
-//        model.insertarregistro(rol);
-//        List<Rol> lista = model.ObtenerRegistro();
-//        for (int i = 0; i < lista.size(); i++) {
-//            System.out.println(lista.get(i).getRol());
-//        }
-//        Rol rol2 = new Rol();
-//        rol2.setRol("arbol2");
-//        model.ActualizarRegistro( rol2);
-//         model.EliminarRegistro(rol);
-//    }
+    public static void main(String[] args) throws ClassNotFoundException {
+        IRolModel model = new RolModelImpl();
+        Rol rol = new Rol();
+        rol.setRol("arbol");
+        model.insertarregistro(rol);
+        List<Rol> lista = model.ObtenerRegistro();
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.get(i).getRol());
+        }
+        Rol rol2 = new Rol();
+        rol2.setRol("arbol2");
+        model.ActualizarRegistro( rol2);
+         model.EliminarRegistro(rol);
+    }
 
 }

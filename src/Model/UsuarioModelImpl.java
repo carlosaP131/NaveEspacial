@@ -23,7 +23,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
         try {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
-            String query = "insert into usuario(usuario) values('" + usuario.getUser()+"');";
+            String query = "insert into usuario(usuario,pdw,jugador_id) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"','1');";
             stm = connection.createStatement();
             stm.execute(query);
             stm.close();
@@ -47,8 +47,9 @@ public class UsuarioModelImpl implements IUsuarioModel {
             rs = stm.executeQuery(query);
             while (rs.next()) {
                 Usuario usuario = new Usuario();
-                usuario.setId(rs.getInt("idusuario"));
+                usuario.setId(rs.getInt("id_usuario"));
                 usuario.setUser(rs.getString("usuario"));
+                usuario.setIdJugador(rs.getInt("jugador_id"));
                 listarol.add(usuario);
             }
             stm.close();
