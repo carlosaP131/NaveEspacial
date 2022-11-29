@@ -4,9 +4,11 @@
  */
 package view;
 
+import Controller.JugadorController;
 import entity.Jugador;
 import entity.Usuario;
 import Controller.UsuarioController;
+import Model.UsuarioModelImpl;
 
 /**
  *
@@ -18,9 +20,11 @@ public class Registrar extends javax.swing.JPanel {
      * Creates new form InicioView
      */
     private UsuarioController usuariocontroller;
+    private JugadorController jugadorcontroller;
     public Registrar() {
         initComponents();
        usuariocontroller = new UsuarioController();
+       jugadorcontroller =  new JugadorController();
     }
 
     /**
@@ -129,16 +133,17 @@ public class Registrar extends javax.swing.JPanel {
     private void registrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarMouseClicked
         Usuario usuario = new Usuario();
         Jugador jugador = new Jugador();
-     
-        usuario.setUser(this.jTextField1.getText());
-        usuario.setPwd(this.jPasswordField1.getPassword().toString());
-        usuario.setIdUsuario(jugador.getIdJugador());
+        UsuarioModelImpl usuarioid = new UsuarioModelImpl();
+        
         jugador.setSexo(this.Sexo.getText());
         jugador.setNombre(this.Nickname.getText());
         jugador.setEdad(Integer.parseInt(this.Edad.getText()));
         jugador.setDireccion(this.Direccion.getText());
         jugador.setCorreo(this.Correo.getText());
         jugador.setTelefono(this.Telefono.getText());
+        jugadorcontroller.InsertarRegistro(jugador);
+        usuario.setUser(this.jTextField1.getText());
+        usuario.setPwd(this.jPasswordField1.getPassword().toString());
         
         usuariocontroller.InsertarRegistro(usuario);
         

@@ -1,6 +1,7 @@
 package Model;
 
 import DB.Conexion;
+import entity.Jugador;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.ResultSet;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 public class UsuarioModelImpl implements IUsuarioModel {
@@ -20,10 +22,11 @@ public class UsuarioModelImpl implements IUsuarioModel {
 
     @Override
     public void insertarregistro(Usuario usuario ) {
+       
         try {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
-            String query = "insert into usuario(usuario,pdw,jugador_id) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"','"+usuario.getIdJugador()+"');";
+            String query = "insert into usuario(usuario,pdw,jugador_id) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"',5);";
             stm = connection.createStatement();
             stm.execute(query);
             stm.close();
@@ -126,6 +129,28 @@ public class UsuarioModelImpl implements IUsuarioModel {
         }
         return null;
     }
+    
+//    public int idusuario(Jugador jugador){
+//        try {
+//            int id; 
+//            ResultSet rs;
+//            conexion = new Conexion();//se establece la conexion
+//            connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
+//            String query = "select id_jugador from jugador where nombre='"+jugador.getNombre()+"';";
+//            stm = connection.createStatement();
+//            rs = stm.executeQuery(query);
+//            rs.next();
+//            id = rs.getInt(1);
+//            stm.close();
+//            connection.close();
+//            return id;
+//        } catch (SQLException e) {
+//            System.err.println("Error:");
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(UsuarioModelImpl.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return 0;
+//    }
 
 //    public static void main(String[] args) throws ClassNotFoundException {
 //        IUsuarioModel model = new UsuarioModelImpl();

@@ -132,6 +132,12 @@ public class JugadorModelImpl implements IJugadorModel {
 //        IJugadorModel model = new JugadorModelImpl();
 //        Jugador jugador = new Jugador();
 //        jugador.setNombre("arbol");
+//        jugador.setCorreo("hjdkasuyakda");
+//        jugador.setEdad(15);
+//        jugador.setDireccion("hjdkasuyakda");
+//        jugador.setSexo("masculino");
+//        jugador.setTelefono("8446984984");
+//        
 //        model.insertarregistro(jugador);
 //        List<Jugador> lista = model.ObtenerRegistro();
 //        for (int i = 0; i < lista.size(); i++) {
@@ -139,8 +145,8 @@ public class JugadorModelImpl implements IJugadorModel {
 //        }
 //        Jugador jugador2 = new Jugador();
 //        jugador2.setNombre("arbol2");
-//        //model.ActualizarRegistro(jugador.getId(), jugador2);
-//         //model.EliminarRegistro(jugador);
+//        model.ActualizarRegistro(jugador.getId(), jugador2);
+//         model.EliminarRegistro(jugador);
 //    }
 
 }

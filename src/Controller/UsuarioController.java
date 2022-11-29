@@ -42,8 +42,9 @@ public class UsuarioController  extends RegistroControllerBase<Usuario> {
           
         }
        
-      
+   
    
   
 }
+   
 }
