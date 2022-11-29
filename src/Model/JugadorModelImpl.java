@@ -24,7 +24,8 @@ public class JugadorModelImpl implements IJugadorModel {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "insert into jugador(nombre,edad,sexo,telefono,correo,direccion,puntos)values('"
-                    +jugador.getNombre()+"',null,null,null,null,null,null);";
+                    +jugador.getNombre()+"',"+jugador.getEdad()+",'"+jugador.getSexo()+"',"
+                    + "'"+jugador.getTelefono()+"','"+jugador.getCorreo()+"','"+jugador.getDireccion()+"',"+jugador.getPuntos()+");";
             stm = connection.createStatement();
             stm.execute(query);
             stm.close();
