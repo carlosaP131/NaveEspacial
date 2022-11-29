@@ -126,20 +126,20 @@ public class JugadorModelImpl implements IJugadorModel {
         }
         return null;
     }
-//
+
 //    public static void main(String[] args) throws ClassNotFoundException {
 //        IJugadorModel model = new JugadorModelImpl();
 //        Jugador jugador = new Jugador();
-//        jugador.setjugador("arbol");
+//        jugador.setNombre("arbol");
 //        model.insertarregistro(jugador);
-//        List<jugador> lista = model.ObtenerRegistro();
+//        List<Jugador> lista = model.ObtenerRegistro();
 //        for (int i = 0; i < lista.size(); i++) {
-//            System.out.println(lista.get(i).getjugador());
+//            System.out.println(lista.get(i).getNombre());
 //        }
-//        jugador jugador2 = new jugador();
-//        jugador2.setjugador("arbol2");
-//        model.ActualizarRegistro(jugador.getId(), jugador2);
-//         model.EliminarRegistro(jugador);
+//        Jugador jugador2 = new Jugador();
+//        jugador2.setNombre("arbol2");
+//        //model.ActualizarRegistro(jugador.getId(), jugador2);
+//         //model.EliminarRegistro(jugador);
 //    }
 
 }

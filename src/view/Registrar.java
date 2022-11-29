@@ -43,12 +43,13 @@ public class Registrar extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        seleccionarRol = new javax.swing.JComboBox<>();
+        Edad = new javax.swing.JTextField();
+        Sexo = new javax.swing.JTextField();
+        Telefono = new javax.swing.JTextField();
+        Direccion = new javax.swing.JTextField();
+        Correo = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        Nickname = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(990, 910));
@@ -77,7 +78,7 @@ public class Registrar extends javax.swing.JPanel {
                 registrarActionPerformed(evt);
             }
         });
-        add(registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 510, -1, -1));
+        add(registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/ICONTRASEÑA.png"))); // NOI18N
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, -1));
@@ -89,32 +90,28 @@ public class Registrar extends javax.swing.JPanel {
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         jLabel5.setText("Edad");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
 
         jLabel6.setText("Sexo");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
 
         jLabel7.setText("Direccion");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, -1, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
 
         jLabel8.setText("Telefono");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, 20));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, 20));
 
         jLabel9.setText("Correo");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, -1, -1));
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 240, -1));
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 240, -1));
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 240, -1));
-        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 240, -1));
-        add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 390, 240, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, -1, -1));
+        add(Edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 240, -1));
+        add(Sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 240, -1));
+        add(Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 240, -1));
+        add(Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, 240, -1));
+        add(Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, 240, -1));
 
-        seleccionarRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jugador", "Admin", "Super Admin" }));
-        seleccionarRol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seleccionarRolActionPerformed(evt);
-            }
-        });
-        add(seleccionarRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, -1, -1));
+        jLabel10.setText("Nickname");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, -1, -1));
+        add(Nickname, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 240, -1));
 
         jLabel1.setBackground(new java.awt.Color(1, 39, 61));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/fondo2.jpg"))); // NOI18N
@@ -131,22 +128,32 @@ public class Registrar extends javax.swing.JPanel {
 
     private void registrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarMouseClicked
         Usuario usuario = new Usuario();
-        
+        Jugador jugador = new Jugador();
      
         usuario.setUser(this.jTextField1.getText());
         usuario.setPwd(this.jPasswordField1.getPassword().toString());
-        usuario.setIdUsuario(juador.getIdJugador());
+        usuario.setIdUsuario(jugador.getIdJugador());
+        jugador.setSexo(this.Sexo.getText());
+        jugador.setNombre(this.Nickname.getText());
+        jugador.setEdad(Integer.parseInt(this.Edad.getText()));
+        jugador.setDireccion(this.Direccion.getText());
+        jugador.setCorreo(this.Correo.getText());
+        jugador.setTelefono(this.Telefono.getText());
+        
         usuariocontroller.InsertarRegistro(usuario);
         
     }//GEN-LAST:event_registrarMouseClicked
 
-    private void seleccionarRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarRolActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_seleccionarRolActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Correo;
+    private javax.swing.JTextField Direccion;
+    private javax.swing.JTextField Edad;
+    private javax.swing.JTextField Nickname;
+    private javax.swing.JTextField Sexo;
+    private javax.swing.JTextField Telefono;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -157,12 +164,6 @@ public class Registrar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JButton registrar;
-    private javax.swing.JComboBox<String> seleccionarRol;
     // End of variables declaration//GEN-END:variables
 }

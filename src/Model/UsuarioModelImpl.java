@@ -19,11 +19,11 @@ public class UsuarioModelImpl implements IUsuarioModel {
     private Statement stm;
 
     @Override
-    public void insertarregistro(Usuario usuario) {
+    public void insertarregistro(Usuario usuario ) {
         try {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
-            String query = "insert into usuario(usuario,pdw,jugador_id) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"','1');";
+            String query = "insert into usuario(usuario,pdw,jugador_id) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"','"+usuario.getIdJugador()+"');";
             stm = connection.createStatement();
             stm.execute(query);
             stm.close();
