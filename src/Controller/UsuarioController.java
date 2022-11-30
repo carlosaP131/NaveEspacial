@@ -34,10 +34,11 @@ public class UsuarioController  extends RegistroControllerBase<Usuario> {
        List<Usuario> listausuario = service.ObtenerRegistro();
         modelo.setRowCount(0);
         for (Usuario usuario : listausuario) {
-            Object[] fila = new Object[3];
+            Object[] fila = new Object[4];
             fila[0] =String.valueOf(usuario.getIdUsuario());
             fila[1] = usuario.getUser();
             fila[2] = usuario.getIdJugador();
+            fila[3] = usuario.getRol();
             modelo.addRow(fila);
           
         }

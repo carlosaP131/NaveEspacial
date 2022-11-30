@@ -7,9 +7,9 @@ package Utilidades;
 
 
 public enum EnumValida {
-    Admin("Super Admin"),
+   ADMIN("Admin"),
     Invitado("Invitado"),
-    Jugador("Admin");
+    Jugador("Jugador");
     
     private final String tipo;
 
@@ -22,3 +22,5 @@ public enum EnumValida {
         return tipo;
     }
 }
+
+

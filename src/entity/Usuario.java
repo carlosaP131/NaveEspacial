@@ -15,6 +15,7 @@ public class Usuario implements IRegistroEntityBase{
     private String User;
     private String Pwd;
     private int idJugador;
+    private String Rol;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -46,6 +47,14 @@ public class Usuario implements IRegistroEntityBase{
 
     public void setIdJugador(int idJugador) {
         this.idJugador = idJugador;
+    }
+
+    public String getRol() {
+        return Rol;
+    }
+
+    public void setRol(String Rol) {
+        this.Rol = Rol;
     }
 
     @Override

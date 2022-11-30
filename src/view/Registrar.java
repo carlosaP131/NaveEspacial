@@ -9,22 +9,25 @@ import entity.Jugador;
 import entity.Usuario;
 import Controller.UsuarioController;
 import Model.UsuarioModelImpl;
+import Utilidades.EnumValida;
 
 /**
  *
  * @author labdessw09
  */
 public class Registrar extends javax.swing.JPanel {
-      Jugador juador =  new Jugador();
+
+    Jugador juador = new Jugador();
     /**
      * Creates new form InicioView
      */
     private UsuarioController usuariocontroller;
     private JugadorController jugadorcontroller;
+
     public Registrar() {
         initComponents();
-       usuariocontroller = new UsuarioController();
-       jugadorcontroller =  new JugadorController();
+        usuariocontroller = new UsuarioController();
+        jugadorcontroller = new JugadorController();
     }
 
     /**
@@ -138,19 +141,46 @@ public class Registrar extends javax.swing.JPanel {
         Usuario usuario = new Usuario();
         Jugador jugador = new Jugador();
         UsuarioModelImpl usuarioid = new UsuarioModelImpl();
-        
-        jugador.setSexo(this.Sexo.getText());
-        jugador.setNombre(this.Nickname.getText());
-        jugador.setEdad(Integer.parseInt(this.Edad.getText()));
-        jugador.setDireccion(this.Direccion.getText());
-        jugador.setCorreo(this.Correo.getText());
-        jugador.setTelefono(this.Telefono.getText());
-        jugadorcontroller.InsertarRegistro(jugador);
-        usuario.setUser(this.jTextField1.getText());
-        usuario.setPwd(this.jPasswordField1.getPassword().toString());
-        
-        usuariocontroller.InsertarRegistro(usuario);
-        
+
+        String tipo = this.Roles.getSelectedItem().toString();
+        if (tipo.compareTo(EnumValida.ADMIN.getValue()) == 0) {
+
+            jugador.setSexo(this.Sexo.getText());
+            jugador.setNombre(this.Nickname.getText());
+            jugador.setEdad(Integer.parseInt(this.Edad.getText()));
+            jugador.setDireccion(this.Direccion.getText());
+            jugador.setCorreo(this.Correo.getText());
+            jugador.setTelefono(this.Telefono.getText());
+            jugadorcontroller.InsertarRegistro(jugador);
+            usuario.setUser(this.jTextField1.getText());
+            usuario.setPwd(this.jPasswordField1.getPassword().toString());
+            usuario.setRol("Administrador");
+             usuariocontroller.InsertarRegistro(usuario);
+        }
+        if (tipo.compareTo(EnumValida.Jugador.getValue()) == 0) {
+
+            jugador.setSexo(this.Sexo.getText());
+            jugador.setNombre(this.Nickname.getText());
+            jugador.setEdad(Integer.parseInt(this.Edad.getText()));
+            jugador.setDireccion(this.Direccion.getText());
+            jugador.setCorreo(this.Correo.getText());
+            jugador.setTelefono(this.Telefono.getText());
+            jugadorcontroller.InsertarRegistro(jugador);
+            usuario.setUser(this.jTextField1.getText());
+            usuario.setPwd(this.jPasswordField1.getPassword().toString());
+            usuario.setRol("Jugador");
+             usuariocontroller.InsertarRegistro(usuario);
+        }
+        if (tipo.compareTo(EnumValida.Invitado.getValue()) == 0) {
+             usuario.setUser(this.jTextField1.getText());
+            usuario.setPwd(this.jPasswordField1.getPassword().toString());
+            usuario.setRol("Invitado");
+
+             usuariocontroller.InsertarRegistro(usuario);
+        }
+       
+
+
     }//GEN-LAST:event_registrarMouseClicked
 
 

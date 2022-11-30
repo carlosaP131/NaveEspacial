@@ -26,7 +26,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
         try {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
-            String query = "insert into usuario(usuario,pdw,jugador_id) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"',5);";
+            String query = "insert into usuario(usuario,pdw,jugador_id,privilegio) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"',5,'"+usuario.getRol()+"');";
             stm = connection.createStatement();
             stm.execute(query);
             stm.close();
