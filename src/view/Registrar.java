@@ -172,6 +172,13 @@ public class Registrar extends javax.swing.JPanel {
              usuariocontroller.InsertarRegistro(usuario);
         }
         if (tipo.compareTo(EnumValida.Invitado.getValue()) == 0) {
+             jugador.setSexo("NULL");
+            jugador.setNombre(this.Nickname.getText());
+            jugador.setEdad(0);
+            jugador.setDireccion("NULL");
+            jugador.setCorreo("NULL");
+            jugador.setTelefono("NULL");
+            jugadorcontroller.InsertarRegistro(jugador);
              usuario.setUser(this.jTextField1.getText());
             usuario.setPwd(this.jPasswordField1.getPassword().toString());
             usuario.setRol("Invitado");
