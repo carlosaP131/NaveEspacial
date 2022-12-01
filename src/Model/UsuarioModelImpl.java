@@ -22,11 +22,11 @@ public class UsuarioModelImpl implements IUsuarioModel {
     private int id_usuario;
     @Override
     public void insertarregistro(Usuario usuario ) {
-       id_usuario= jugador.getIdJugador();
+       id_usuario= 0;
         try {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
-            String query = "insert into usuario(usuario,pdw,jugador_id,privilegio) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"',5,'"+usuario.getRol()+"');";
+            String query = "insert into usuario(usuario,pdw,jugador_id,privilegio) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"',"+(id_usuario+1)+",'"+usuario.getRol()+"');";
             stm = connection.createStatement();
             stm.execute(query);
             stm.close();
