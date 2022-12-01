@@ -1,7 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/** **************************************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-11-2022 ***
+ *Fecha de actualización:31-11-2022
+ *Descripción: Clase controller del Usuario
+ **
+ * ************************************************************************************************ */
 package Controller;
 
 import Controller.base.RegistroControllerBase;
@@ -14,38 +17,42 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author labdessw09
+ * @author Carlos
  */
-public class UsuarioController  extends RegistroControllerBase<Usuario> {
-     private IUsuarioService service;
-  
-//instancia a servicio 
-//    IRolService service = new RolServiceImpl();
-//    
+public class UsuarioController extends RegistroControllerBase<Usuario> {
+
+    private IUsuarioService service;
+
+    /**
+     *Método para crear un usuario usando la instancia a la clase 
+     *service con el metodo crearActualisarRegistro 
+     * 
+     *@param usuario El parámetro Usuario es un objeto de tipo usuario
+     */
     public void InsertarRegistro(Usuario usuario) {
+        
         service = new UsuarioServiceImpl();
-//        service.InsertarRegistro(rol);
         super.setServise(service);
         super.setRegistro(usuario);
         super.crearActualizarRegistro();
     }
-  public void mostrar(DefaultTableModel modelo){
-      service = new UsuarioServiceImpl();
-       List<Usuario> listausuario = service.ObtenerRegistro();
+    /*
+    *Método para mostrar un usuario ya creado 
+    */
+    public void mostrar(DefaultTableModel modelo) {
+        service = new UsuarioServiceImpl();
+        List<Usuario> listausuario = service.ObtenerRegistro();
         modelo.setRowCount(0);
         for (Usuario usuario : listausuario) {
             Object[] fila = new Object[4];
-            fila[0] =String.valueOf(usuario.getIdUsuario());
+            fila[0] = String.valueOf(usuario.getIdUsuario());
             fila[1] = usuario.getUser();
             fila[2] = usuario.getIdJugador();
             fila[3] = usuario.getRol();
             modelo.addRow(fila);
-          
+
         }
-       
-   
-   
-  
-}
-   
+
+    }
+
 }

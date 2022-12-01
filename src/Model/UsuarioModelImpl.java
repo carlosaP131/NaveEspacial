@@ -15,14 +15,14 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 public class UsuarioModelImpl implements IUsuarioModel {
-
+    private Jugador jugador = new Jugador();
     private Conexion conexion;
     private Connection connection;
     private Statement stm;
-
+    private int id_usuario;
     @Override
     public void insertarregistro(Usuario usuario ) {
-       
+       id_usuario= jugador.getIdJugador();
         try {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
@@ -53,6 +53,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
                 usuario.setId(rs.getInt("id_usuario"));
                 usuario.setUser(rs.getString("usuario"));
                 usuario.setIdJugador(rs.getInt("jugador_id"));
+                usuario.setRol(rs.getString("privilegio"));
                 listarol.add(usuario);
             }
             stm.close();
