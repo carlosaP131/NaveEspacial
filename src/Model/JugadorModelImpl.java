@@ -17,7 +17,7 @@ public class JugadorModelImpl implements IJugadorModel {
     private Conexion conexion;
     private Connection connection;
     private Statement stm;
-
+     int id;
     @Override
     public void insertarregistro(Jugador jugador) {
         try {
@@ -128,6 +128,32 @@ public class JugadorModelImpl implements IJugadorModel {
         return null;
     }
 
+    public int regresarid (Jugador jugador){
+         try {
+         
+            ResultSet rs;
+            conexion = new Conexion();//se establece la conexion
+            connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
+            String query = "select id_jugador from jugador  where nombre='"+jugador.getNombre()+"';";
+            stm = connection.createStatement();
+            rs = stm.executeQuery(query);
+           while (rs.next()) {
+               
+                jugador.setIdJugador(rs.getInt(1));
+                  id = jugador.getIdJugador();
+               
+            }
+           stm.close();
+            connection.close();
+           return id;
+        } catch (SQLException e) {
+            System.err.println("Error:");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(JugadorModelImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+       
+    }
 //    public static void main(String[] args) throws ClassNotFoundException {
 //        IJugadorModel model = new JugadorModelImpl();
 //        Jugador jugador = new Jugador();

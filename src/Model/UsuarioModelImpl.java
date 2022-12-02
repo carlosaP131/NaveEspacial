@@ -11,26 +11,28 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.ResultSet;
-import java.util.Random;
+
 import javax.swing.JOptionPane;
 
 public class UsuarioModelImpl implements IUsuarioModel {
-    private Jugador jugador = new Jugador();
+    JugadorModelImpl jugador = new JugadorModelImpl();
     private Conexion conexion;
     private Connection connection;
     private Statement stm;
     private int id_usuario;
     @Override
-    public void insertarregistro(Usuario usuario ) {
-       id_usuario= 0;
+    public void insertarregistro(Usuario usuario) {
+      Jugador jugadoreg = new Jugador();
         try {
+            //id_usuario++;
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
-            String query = "insert into usuario(usuario,pdw,jugador_id,privilegio) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"',"+(id_usuario+1)+",'"+usuario.getRol()+"');";
+            String query = "insert into usuario(usuario,pdw,jugador_id,privilegio) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"',"+jugador.regresarid(jugadoreg)+",'"+usuario.getRol()+"');";
             stm = connection.createStatement();
             stm.execute(query);
             stm.close();
             connection.close();
+            //id_usuario= id_usuario;
         } catch (SQLException e) {
             System.err.println("Error:");
         } catch (ClassNotFoundException ex) {

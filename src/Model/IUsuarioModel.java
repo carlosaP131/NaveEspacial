@@ -2,6 +2,7 @@
 package Model;
 
 
+
 import entity.Usuario;
 import java.util.List;
 
