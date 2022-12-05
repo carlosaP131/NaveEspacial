@@ -16,8 +16,8 @@ import javax.swing.table.DefaultTableModel;
   
 
 public class Tabla_Usuario extends javax.swing.JPanel {
-          private UsuarioController usuariocontroller;
-           private DefaultTableModel modelo;
+          private final UsuarioController usuariocontroller;
+           private final DefaultTableModel modelo;
    
     public Tabla_Usuario() {
         initComponents();

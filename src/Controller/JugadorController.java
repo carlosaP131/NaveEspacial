@@ -11,9 +11,7 @@ import Controller.base.RegistroControllerBase;
 import Service.IJugadorService;
 import Service.JugadorServiceImpl;
 import entity.Jugador;
-import java.util.List;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Carlos Aurelio Alcántara Pérez

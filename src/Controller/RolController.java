@@ -11,9 +11,7 @@ import Controller.base.RegistroControllerBase;
 import Service.IRolService;
 import Service.RolServiceImpl;
 import entity.Rol;
-import java.util.List;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Carlos Aurelio Alcántara Pérez

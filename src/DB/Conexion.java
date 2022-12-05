@@ -17,13 +17,13 @@ import java.sql.SQLException;
 
 public class Conexion {
 
-    private String driver;
-    private String user;
-    private String pdw;
-    private String url;
-    private String ip;
-    private String puerto;
-    private String basedatos;
+    private final String driver;
+    private final String user;
+    private final String pdw;
+    private final String url;
+    private final String ip;
+    private final String puerto;
+    private final String basedatos;
     private Connection connection;
 
     public Conexion() {

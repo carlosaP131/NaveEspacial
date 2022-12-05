@@ -13,6 +13,7 @@ import entity.Usuario;
 import Controller.UsuarioController;
 import Model.UsuarioModelImpl;
 import Utilidades.EnumValida;
+import java.util.Arrays;
 /**
  *
  * @author Carlos Aurelio Alcántara Pérez
@@ -23,8 +24,8 @@ public class Registrar extends javax.swing.JPanel {
     /**
      * Creates new form InicioView
      */
-    private UsuarioController usuariocontroller;
-    private JugadorController jugadorcontroller;
+    private final UsuarioController usuariocontroller;
+    private final JugadorController jugadorcontroller;
 
     public Registrar() {
         initComponents();
@@ -155,8 +156,9 @@ public class Registrar extends javax.swing.JPanel {
             jugador.setTelefono(this.Telefono.getText());
             jugadorcontroller.InsertarRegistro(jugador);
             usuario.setUser(this.jTextField1.getText());
-            usuario.setPwd(this.jPasswordField1.getPassword().toString());
+            usuario.setPwd(Arrays.toString(this.jPasswordField1.getPassword()));
             usuario.setRol("Administrador");
+            
              usuariocontroller.InsertarRegistro(usuario);
         }
         if (tipo.compareTo(EnumValida.Jugador.getValue()) == 0) {
@@ -169,7 +171,7 @@ public class Registrar extends javax.swing.JPanel {
             jugador.setTelefono(this.Telefono.getText());
             jugadorcontroller.InsertarRegistro(jugador);
             usuario.setUser(this.jTextField1.getText());
-            usuario.setPwd(this.jPasswordField1.getPassword().toString());
+            usuario.setPwd(Arrays.toString(this.jPasswordField1.getPassword()));
             usuario.setRol("Jugador");
              usuariocontroller.InsertarRegistro(usuario);
         }
@@ -182,12 +184,12 @@ public class Registrar extends javax.swing.JPanel {
             jugador.setTelefono("NULL");
             jugadorcontroller.InsertarRegistro(jugador);
              usuario.setUser(this.jTextField1.getText());
-            usuario.setPwd(this.jPasswordField1.getPassword().toString());
+            usuario.setPwd(Arrays.toString(this.jPasswordField1.getPassword()));
             usuario.setRol("Invitado");
 
              usuariocontroller.InsertarRegistro(usuario);
         }
-       
+       usuario.setIdJugador(jugador.getIdJugador());
 
 
     }//GEN-LAST:event_registrarMouseClicked

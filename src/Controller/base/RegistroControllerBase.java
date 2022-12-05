@@ -12,6 +12,7 @@ import entity.base.IRegistroEntityBase;
 /**
  *
  * @author Carlos Aurelio Alcántara Pérez
+ * @param <T>
  */
 
 public abstract class RegistroControllerBase<T extends IRegistroEntityBase>{

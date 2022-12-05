@@ -11,7 +11,7 @@ import Controller.base.RegistroControllerBase;
 import Service.IUsuarioService;
 import Service.UsuarioServiceImpl;
 import entity.Usuario;
-import entity.Jugador;
+
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 

@@ -9,7 +9,7 @@ package Service;
 
 import Model.IUsuarioModel;
 import Model.UsuarioModelImpl;
-import entity.Jugador;
+
 import entity.Usuario;
 import java.util.List;
 
@@ -17,8 +17,15 @@ import java.util.List;
  *
  * @author Carlos Aurelio Alcántara Pérez
  */
+
 public class UsuarioServiceImpl implements  IUsuarioService{
      IUsuarioModel model = new UsuarioModelImpl();
+     
+    /**
+     *
+     * @param Registro
+     */
+    @Override
     public void InsertarRegistro(Usuario Registro ) {
         model.insertarregistro(Registro);
     }

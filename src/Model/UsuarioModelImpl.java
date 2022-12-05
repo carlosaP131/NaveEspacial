@@ -8,7 +8,6 @@
 package Model;
 
 import DB.Conexion;
-import entity.Jugador;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -29,15 +28,15 @@ public class UsuarioModelImpl implements IUsuarioModel {
     private Conexion conexion;
     private Connection connection;
     private Statement stm;
-    private int id_usuario;
+
     @Override
     public void insertarregistro(Usuario usuario) {
-      Jugador jugadoreg = new Jugador();
+      
         try {
            
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
-            String query = "insert into usuario(usuario,pdw,jugador_id,privilegio) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"',"+jugador.regresarid(jugadoreg)+",'"+usuario.getRol()+"');";
+            String query = "insert into usuario(usuario,pdw,jugador_id,privilegio) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"',"+'1'+",'"+usuario.getRol()+"');";
             stm = connection.createStatement();
             stm.execute(query);
             stm.close();
@@ -143,41 +142,6 @@ public class UsuarioModelImpl implements IUsuarioModel {
         return null;
     }
     
-//    public int idusuario(Jugador jugador){
-//        try {
-//            int id; 
-//            ResultSet rs;
-//            conexion = new Conexion();//se establece la conexion
-//            connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
-//            String query = "select id_jugador from jugador where nombre='"+jugador.getNombre()+"';";
-//            stm = connection.createStatement();
-//            rs = stm.executeQuery(query);
-//            rs.next();
-//            id = rs.getInt(1);
-//            stm.close();
-//            connection.close();
-//            return id;
-//        } catch (SQLException e) {
-//            System.err.println("Error:");
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(UsuarioModelImpl.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return 0;
-//    }
 
-//    public static void main(String[] args) throws ClassNotFoundException {
-//        IUsuarioModel model = new UsuarioModelImpl();
-//        Usuario rol = new Usuario();
-//        rol.setUser("arbol");
-//        model.insertarregistro(rol);
-//        List<Usuario> lista = model.ObtenerRegistro();
-//        for (int i = 0; i < lista.size(); i++) {
-//            System.out.println(lista.get(i).getUser());
-//        }
-//        Usuario rol2 = new Usuario();
-//        rol2.setUser("arbol2");
-//        model.ActualizarRegistro(rol2);
-//         model.EliminarRegistro(1);
-//    }
 
 }

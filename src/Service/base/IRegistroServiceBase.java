@@ -13,6 +13,7 @@ import java.util.List;
 /**
  *
  * @author Carlos Aurelio Alcántara Pérez
+ * @param <Usuario>
  */
 public interface IRegistroServiceBase<Usuario> {
 
