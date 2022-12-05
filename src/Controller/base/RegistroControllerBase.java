@@ -1,16 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controller.base;
 
 import Service.base.IRegistroServiceBase;
 import entity.base.IRegistroEntityBase;
 
-/**
- *
- * @author labdessw09
- */
+
 public abstract class RegistroControllerBase<T extends IRegistroEntityBase>{
     private T registro;
    private IRegistroServiceBase<T> servise;
