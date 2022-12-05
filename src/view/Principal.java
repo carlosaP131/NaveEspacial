@@ -6,7 +6,10 @@
  *
  * ****************************************************************************/
 package view;
-
+/**
+ *
+ * @author Carlos Aurelio Alcántara Pérez
+ */
 public class Principal extends javax.swing.JFrame {
     //corrdenadas
     private int xMouse;

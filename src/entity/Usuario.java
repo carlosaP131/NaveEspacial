@@ -6,7 +6,10 @@
  **
  * ****************************************************************************/
 package entity;
-
+/**
+ *
+ * @author Carlos Aurelio Alcántara Pérez
+ */
 import entity.base.IRegistroEntityBase;
 
 public class Usuario implements IRegistroEntityBase{

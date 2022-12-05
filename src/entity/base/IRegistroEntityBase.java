@@ -9,7 +9,7 @@ package entity.base;
 
 /**
  *
- * @author labdessw09
+ * @author Carlos Aurelio Alcántara Pérez
  */
 public interface IRegistroEntityBase {
     public int getId();

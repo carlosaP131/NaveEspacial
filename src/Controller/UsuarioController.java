@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Carlos
+ * @author Carlos Aurelio Alcántara Pérez
  */
 public class UsuarioController extends RegistroControllerBase<Usuario> {
 

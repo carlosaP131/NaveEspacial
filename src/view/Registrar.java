@@ -13,10 +13,9 @@ import entity.Usuario;
 import Controller.UsuarioController;
 import Model.UsuarioModelImpl;
 import Utilidades.EnumValida;
-
 /**
  *
- * @author labdessw09
+ * @author Carlos Aurelio Alcántara Pérez
  */
 public class Registrar extends javax.swing.JPanel {
 

@@ -14,7 +14,10 @@ import entity.Jugador;
 import java.util.List;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ *
+ * @author Carlos Aurelio Alcántara Pérez
+ */
 public class JugadorController extends RegistroControllerBase<Jugador> {
 
     private IJugadorService service;

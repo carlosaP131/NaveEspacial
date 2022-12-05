@@ -7,7 +7,10 @@
  * ****************************************************************************/
 package view;
 
-
+/**
+ *
+ * @author Carlos Aurelio Alcántara Pérez
+ */
 import Controller.UsuarioController;
 import javax.swing.table.DefaultTableModel;
   

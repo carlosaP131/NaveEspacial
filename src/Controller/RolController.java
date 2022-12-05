@@ -14,7 +14,10 @@ import entity.Rol;
 import java.util.List;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ *
+ * @author Carlos Aurelio Alcántara Pérez
+ */
 public class RolController extends RegistroControllerBase<Rol> {
 
     private IRolService service;

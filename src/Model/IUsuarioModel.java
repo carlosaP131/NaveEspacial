@@ -11,7 +11,10 @@ package Model;
 
 import entity.Usuario;
 import java.util.List;
-
+/**
+ *
+ * @author Carlos Aurelio Alcántara Pérez
+ */
 public interface IUsuarioModel {
     public void insertarregistro(Usuario usuario);
     public  List<Usuario> ObtenerRegistro();

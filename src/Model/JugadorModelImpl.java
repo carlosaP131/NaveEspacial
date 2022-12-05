@@ -18,7 +18,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-
+/**
+ *
+ * @author Carlos Aurelio Alcántara Pérez
+ */
 public class JugadorModelImpl implements IJugadorModel {
 
     private Conexion conexion;

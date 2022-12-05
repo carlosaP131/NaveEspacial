@@ -9,7 +9,7 @@ package entity;
 
 /**
  *
- * @author labdessw09
+ * @author Carlos Aurelio Alcántara Pérez
  */
 public class Persona {
     private String Nombre;

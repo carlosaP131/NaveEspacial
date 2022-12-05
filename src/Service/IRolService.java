@@ -11,7 +11,10 @@ import Service.base.IRegistroServiceBase;
 import entity.Rol;
 import java.util.List;
 import javax.swing.JTextField;
-
+/**
+ *
+ * @author Carlos Aurelio Alcántara Pérez
+ */
 public interface IRolService extends IRegistroServiceBase<Rol>{
   
 

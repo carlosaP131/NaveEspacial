@@ -10,7 +10,10 @@ package Model;
 import entity.Jugador;
 
 import java.util.List;
-
+/**
+ *
+ * @author Carlos Aurelio Alcántara Pérez
+ */
 public interface IJugadorModel {
     public void insertarregistro(Jugador jugador);
     public  List<Jugador> ObtenerRegistro();

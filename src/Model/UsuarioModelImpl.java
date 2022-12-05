@@ -20,7 +20,10 @@ import java.util.logging.Logger;
 import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
-
+/**
+ *
+ * @author Carlos Aurelio Alcántara Pérez
+ */
 public class UsuarioModelImpl implements IUsuarioModel {
     JugadorModelImpl jugador = new JugadorModelImpl();
     private Conexion conexion;

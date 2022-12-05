@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author labdessw09
+ * @author Carlos Aurelio Alcántara Pérez
  */
 public interface IRegistroServiceBase<Usuario> {
 

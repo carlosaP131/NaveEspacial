@@ -9,7 +9,10 @@ package Controller.base;
 
 import Service.base.IRegistroServiceBase;
 import entity.base.IRegistroEntityBase;
-
+/**
+ *
+ * @author Carlos Aurelio Alcántara Pérez
+ */
 
 public abstract class RegistroControllerBase<T extends IRegistroEntityBase>{
     private T registro;

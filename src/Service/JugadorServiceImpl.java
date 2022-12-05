@@ -13,7 +13,10 @@ import Model.JugadorModelImpl;
 import Model.JugadorModelImpl;
 import entity.Jugador;
 import java.util.List;
-
+/**
+ *
+ * @author Carlos Aurelio Alcántara Pérez
+ */
 
 public class JugadorServiceImpl implements IJugadorService {
 

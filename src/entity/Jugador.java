@@ -6,7 +6,10 @@
  **
  * ****************************************************************************/
 package entity;
-
+/**
+ *
+ * @author Carlos Aurelio Alcántara Pérez
+ */
 import entity.base.IRegistroEntityBase;
 
 public class Jugador extends Persona implements IRegistroEntityBase {

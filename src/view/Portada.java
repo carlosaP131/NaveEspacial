@@ -9,7 +9,7 @@ package view;
 
 /**
  *
- * @author labdessw09
+ * @author Carlos Aurelio Alcántara Pérez
  */
 public class Portada extends javax.swing.JPanel {
 
