@@ -1,4 +1,10 @@
-
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-11-2022 ***
+ *Fecha de actualización:31-11-2022
+ *Descripción:Clase enum para la validacion del combobox
+ **
+ * ****************************************************************************/
 package Utilidades;
 
 

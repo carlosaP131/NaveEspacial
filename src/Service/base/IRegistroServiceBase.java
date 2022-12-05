@@ -1,7 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-11-2022 ***
+ *Fecha de actualización:31-11-2022
+ *Descripción: Interfaz base para el service de las tres entidades 
+ **
+ * ****************************************************************************/
 package Service.base;
 
 import entity.Usuario;

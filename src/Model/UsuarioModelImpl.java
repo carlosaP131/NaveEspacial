@@ -1,3 +1,10 @@
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-11-2022 ***
+ *Fecha de actualización:31-11-2022
+ *Descripción: Model de la entidad Usuario 
+ *
+ * ****************************************************************************/
 package Model;
 
 import DB.Conexion;
@@ -24,7 +31,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
     public void insertarregistro(Usuario usuario) {
       Jugador jugadoreg = new Jugador();
         try {
-            //id_usuario++;
+           
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "insert into usuario(usuario,pdw,jugador_id,privilegio) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"',"+jugador.regresarid(jugadoreg)+",'"+usuario.getRol()+"');";

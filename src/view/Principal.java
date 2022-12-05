@@ -1,3 +1,10 @@
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-11-2022 ***
+ *Fecha de actualización:31-11-2022
+ *Descripción:Frame Principal para mostrar los paneles secundarios 
+ *
+ * ****************************************************************************/
 package view;
 
 public class Principal extends javax.swing.JFrame {

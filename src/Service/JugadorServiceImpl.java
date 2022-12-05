@@ -1,3 +1,10 @@
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-11-2022 ***
+ *Fecha de actualización:31-11-2022
+ *Descripción: Service Jugador
+ **
+ * ****************************************************************************/
 package Service;
 
 
@@ -12,34 +19,6 @@ public class JugadorServiceImpl implements IJugadorService {
 
     //realizar una instancia ala capa model 
     IJugadorModel model = new JugadorModelImpl();
-
-//    @Override
-//    public void InsertarRegistro(Jugador Jugador) {
-//        model.insertarregistro(Jugador);
-//
-//    }
-//
-//    @Override
-//    public List<Jugador> ObtenerRegistro() {
-//        return model.ObtenerRegistro();
-//
-//    }
-//
-//   // @Override
-//    public void ActualizarRegistro(Rol idJugador, Rol Jugadornuevo) {
-//        model.ActualizarRegistro(idJugador, Jugadornuevo);
-//    }
-//
-//    @Override
-//    public void EliminarRegistro(Rol Jugador) {
-//        model.EliminarRegistro(Jugador);
-//
-//    }
-//
-//    @Override
-//    public Rol BuscarRegistro(int id) {
-//        return model.BuscarRegistro(id);
-//    }
 
     @Override
     public void InsertarRegistro(Jugador Registro) {

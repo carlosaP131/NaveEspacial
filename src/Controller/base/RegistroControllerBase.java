@@ -1,4 +1,10 @@
-
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-11-2022 ***
+ *Fecha de actualización:31-11-2022
+ *Descripción: Clase generica para las clases controller
+ *
+ * ****************************************************************************/
 package Controller.base;
 
 import Service.base.IRegistroServiceBase;

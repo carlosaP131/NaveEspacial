@@ -1,7 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-11-2022 ***
+ *Fecha de actualización:31-11-2022
+ *Descripción: Interfaz del service Usuario
+ **
+ * ****************************************************************************/
 package Service;
 
 import Service.base.IRegistroServiceBase;
@@ -9,7 +12,7 @@ import entity.Usuario;
 
 /**
  *
- * @author labdessw09
+ * @author Carlos Aurelio Alcántara Pérez
  */
 public interface IUsuarioService extends IRegistroServiceBase<Usuario> {
     
