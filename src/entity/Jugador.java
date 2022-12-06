@@ -16,7 +16,7 @@ public class Jugador extends Persona implements IRegistroEntityBase {
 
     private int IdJugador;
     private int Puntos;
-
+    //geters y setters de Jugador 
     public int getIdJugador() {
         return IdJugador;
     }

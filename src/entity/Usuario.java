@@ -18,7 +18,7 @@ public class Usuario implements IRegistroEntityBase{
     private String Pwd;
     private int idJugador;
     private String Rol;
-
+    //geters y setters de Usuario
     public int getIdUsuario() {
         return idUsuario;
     }

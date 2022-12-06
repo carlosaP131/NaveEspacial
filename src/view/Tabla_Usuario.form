@@ -82,7 +82,7 @@
           <Color blue="3d" green="27" red="1" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/iEliminarBot.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iEliminarBot.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
@@ -101,7 +101,7 @@
           <Color blue="3d" green="27" red="1" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/iModificarBot.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iModificarBot.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
@@ -130,7 +130,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/iTablaUsuarioTitulo.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iTablaUsuarioTitulo.png"/>
         </Property>
       </Properties>
       <Constraints>

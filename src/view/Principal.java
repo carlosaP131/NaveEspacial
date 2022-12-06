@@ -45,7 +45,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Cerrar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,7 +58,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(1, 39, 61));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/MENU.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\MENU.png")); // NOI18N
 
         Biniciar.setBackground(new java.awt.Color(1, 39, 61));
         Biniciar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
@@ -142,7 +141,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(Bregistrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Bconsultar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 217, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -168,15 +167,9 @@ public class Principal extends javax.swing.JFrame {
                 CerrarMouseClicked(evt);
             }
         });
-        Cerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CerrarActionPerformed(evt);
-            }
-        });
         jPanel2.add(Cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, -1, -1));
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 53, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/FONDO4.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\FONDO4.png")); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 230, 55));
 
         Pprincipal.add(jPanel2, java.awt.BorderLayout.PAGE_START);
@@ -197,10 +190,6 @@ public class Principal extends javax.swing.JFrame {
         portada.setVisible(false);
         Pprincipal.validate();
     }//GEN-LAST:event_BiniciarMouseClicked
-
-    private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CerrarActionPerformed
 
     private void CerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CerrarMouseClicked
 
@@ -270,7 +259,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Cerrar;
     private javax.swing.JPanel Pprincipal;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;

@@ -27,7 +27,7 @@ public class RolModelImpl implements IRolModel {
     private Conexion conexion;
     private Connection connection;
     private Statement stm;
-
+    //se hace un override a los metodos de IRolModel
     @Override
     public void insertarregistro(Rol rol) {
         try {

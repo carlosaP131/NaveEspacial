@@ -16,6 +16,7 @@ import java.util.List;
  * @author Carlos Aurelio Alcántara Pérez
  */
 public interface IUsuarioModel {
+    //metodos abstractos del CRUD
     public void insertarregistro(Usuario usuario);
     public  List<Usuario> ObtenerRegistro();
    public void ActualizarRegistro(Usuario usuario);

@@ -24,7 +24,7 @@ public class Rol implements IRegistroEntityBase{
         this.idRol = idRol;
         this.rol = rol;
     }
-
+    //geters y setters de  Rol
     public int getIdRol() {
         return idRol;
     }

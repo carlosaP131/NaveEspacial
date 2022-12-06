@@ -21,7 +21,7 @@ public class JugadorServiceImpl implements IJugadorService {
 
     //realizar una instancia ala capa model 
     IJugadorModel model = new JugadorModelImpl();
-
+     //se hace un override a los metodos de IJugadorService
     @Override
     public void InsertarRegistro(Jugador Registro) {
                 model.insertarregistro(Registro);

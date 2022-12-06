@@ -14,6 +14,7 @@ import java.util.List;
  * @author Carlos Aurelio Alcántara Pérez
  */
 public interface IRolModel {
+    //metodos abstractos del CRUD
     public void insertarregistro(Rol rol);
     public  List<Rol> ObtenerRegistro();
    public void ActualizarRegistro(Rol rolnuevo);

@@ -17,7 +17,7 @@ import entity.Jugador;
  * @author Carlos Aurelio Alcántara Pérez
  */
 public class JugadorController extends RegistroControllerBase<Jugador> {
-
+    //Instancia al service de jugador 
     private IJugadorService service;
 
        public void ini(){
@@ -26,7 +26,7 @@ public class JugadorController extends RegistroControllerBase<Jugador> {
        }
   /*
   *
-  *
+  * metodo para insertar
   */
     public void InsertarRegistro(Jugador jugador) {
         ini();

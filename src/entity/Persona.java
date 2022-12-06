@@ -19,7 +19,8 @@ public class Persona {
     private String Correo;
     private String Direccion;
 
-
+    //geters y setters de Persona esta clase en especial es una clase abastracta
+    // ya que contiene parametros que se utlizan en usuario y jugador 
     public Persona() {
     }
 

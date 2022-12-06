@@ -16,9 +16,11 @@ import entity.base.IRegistroEntityBase;
  */
 
 public abstract class RegistroControllerBase<T extends IRegistroEntityBase>{
+   // Se crea una variable generica de tipo T
     private T registro;
+    //La instancia a sevise de tipo T para aceptar cada componente 
    private IRegistroServiceBase<T> servise;
-   
+   //Se implemetan todos los metodos del CRUD
     public void crearActualizarRegistro(){
        if(registro.getId()<1){
        
@@ -30,7 +32,7 @@ public abstract class RegistroControllerBase<T extends IRegistroEntityBase>{
     public void EliminarRegistro(int id){
         servise.EliminarRegistro(id);
     }
-    //Se escriben los demas metodos 
+    //Se crean los set´s y get´s
     public T getRegistro() {
         return registro;
     }

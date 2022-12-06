@@ -25,6 +25,7 @@ public class UsuarioServiceImpl implements  IUsuarioService{
      *
      * @param Registro
      */
+     //se hace un override a los metodos de IUsuarioService
     @Override
     public void InsertarRegistro(Usuario Registro ) {
         model.insertarregistro(Registro);

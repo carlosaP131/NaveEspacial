@@ -23,11 +23,12 @@ import javax.swing.JOptionPane;
  * @author Carlos Aurelio Alcántara Pérez
  */
 public class JugadorModelImpl implements IJugadorModel {
-
+    //Variables implementadas para almacenar la coneccion ala base de datos 
     private Conexion conexion;
     private Connection connection;
     private Statement stm;
      int id;
+     //se hace un override a los metodos de IJugadorModel
     @Override
     public void insertarregistro(Jugador jugador) {
         try {

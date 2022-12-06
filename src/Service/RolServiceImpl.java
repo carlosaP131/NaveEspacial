@@ -21,7 +21,7 @@ public class RolServiceImpl implements IRolService {
     //realizar una instancia ala capa model 
     IRolModel model = new RolModelImpl();
 
-
+    //se hace un override a los metodos de IRolService
     @Override
     public void InsertarRegistro(Rol Registro) {
                 model.insertarregistro(Registro);

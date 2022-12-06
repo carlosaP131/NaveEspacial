@@ -16,7 +16,9 @@ import java.sql.SQLException;
  */
 
 public class Conexion {
-
+    /* Variables para guardar y hacer mas accesible el cambio de parametros de 
+    *   de la base de datos 
+    */
     private final String driver;
     private final String user;
     private final String pdw;
@@ -27,13 +29,14 @@ public class Conexion {
     private Connection connection;
 
     public Conexion() {
-        this.driver = "com.mysql.cj.jdbc.Driver";
-        this.user = "root";
-        this.pdw = "root";
-        this.url = "jdbc:mysql://";
-        this.ip = "172.17.0.2";
-        this.puerto = "3306";
-        this.basedatos = "nave_espacial";
+        this.driver = "com.mysql.cj.jdbc.Driver";//Enlace del driver
+        this.user = "root";//usuario
+        this.pdw = "root";//contraseña
+        this.url = "jdbc:mysql://";//url Mysql
+        this.ip = "127.0.0.1";//ip
+        this.puerto = "3306";//puerto
+        this.basedatos = "nave_espacial";//base de datos
+        
     }
 
     public Connection getConnection() throws ClassNotFoundException {
