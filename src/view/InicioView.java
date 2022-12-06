@@ -32,9 +32,11 @@ public class InicioView extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setPreferredSize(new java.awt.Dimension(990, 910));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPasswordField1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
@@ -48,6 +50,7 @@ public class InicioView extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(1, 39, 61));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iINGRESAR.png"))); // NOI18N
         jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

@@ -58,19 +58,27 @@ public class Registrar extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(990, 910));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPasswordField1.setBackground(new java.awt.Color(1, 39, 61));
+        jPasswordField1.setForeground(new java.awt.Color(233, 74, 218));
+        jPasswordField1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
             }
         });
-        add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 240, -1));
+        add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 240, -1));
 
-        jTextField1.setText("INGRESA TU USUARIO");
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 240, -1));
+        jTextField1.setBackground(new java.awt.Color(1, 39, 61));
+        jTextField1.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(233, 74, 218));
+        jTextField1.setText("Ingresar Usuario");
+        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 240, -1));
 
         registrar.setBackground(new java.awt.Color(1, 39, 61));
         registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iRegistrarBot.png"))); // NOI18N
         registrar.setBorderPainted(false);
+        registrar.setContentAreaFilled(false);
         registrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registrarMouseClicked(evt);
@@ -81,45 +89,93 @@ public class Registrar extends javax.swing.JPanel {
                 registrarActionPerformed(evt);
             }
         });
-        add(registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 290, -1, -1));
+        add(registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, -1, -1));
 
         Lcontraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/ICONTRASEÑA.png"))); // NOI18N
+        Lcontraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         add(Lcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 150, -1));
 
         Lnombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/IUSUARIO.png"))); // NOI18N
-        add(Lnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 100, -1));
+        Lnombre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(Lnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 100, -1));
 
         LtituloReg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iRegistrarTitulo.png"))); // NOI18N
         add(LtituloReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 840, 60));
 
-        jLabel5.setText("Edad");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Iedad.png"))); // NOI18N
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
 
-        jLabel6.setText("Sexo");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Isexo.png"))); // NOI18N
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
 
-        jLabel7.setText("Direccion");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/IDireccion.png"))); // NOI18N
+        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, -1, -1));
 
-        jLabel8.setText("Telefono");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, 20));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Itelefono.png"))); // NOI18N
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, 20));
 
-        jLabel9.setText("Correo");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, -1, -1));
-        add(Edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 240, -1));
-        add(Sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 240, -1));
-        add(Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 240, -1));
-        add(Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, 240, -1));
-        add(Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, 240, -1));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/ICorreo.png"))); // NOI18N
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, -1, -1));
 
-        jLabel10.setText("Nickname");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, -1, -1));
-        add(Nickname, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 240, -1));
+        Edad.setBackground(new java.awt.Color(1, 39, 61));
+        Edad.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        Edad.setForeground(new java.awt.Color(233, 74, 218));
+        Edad.setText("Edad");
+        Edad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(Edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 240, -1));
 
+        Sexo.setBackground(new java.awt.Color(1, 39, 61));
+        Sexo.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        Sexo.setForeground(new java.awt.Color(233, 74, 218));
+        Sexo.setText("Sexo");
+        Sexo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(Sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 240, -1));
+
+        Telefono.setBackground(new java.awt.Color(1, 39, 61));
+        Telefono.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        Telefono.setForeground(new java.awt.Color(233, 74, 218));
+        Telefono.setText("Telefono");
+        Telefono.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 240, -1));
+
+        Direccion.setBackground(new java.awt.Color(1, 39, 61));
+        Direccion.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        Direccion.setForeground(new java.awt.Color(233, 74, 218));
+        Direccion.setText("Direccion");
+        Direccion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 240, -1));
+
+        Correo.setBackground(new java.awt.Color(1, 39, 61));
+        Correo.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        Correo.setForeground(new java.awt.Color(233, 74, 218));
+        Correo.setText("Correo");
+        Correo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, 240, -1));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Inickname.png"))); // NOI18N
+        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
+
+        Nickname.setBackground(new java.awt.Color(1, 39, 61));
+        Nickname.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        Nickname.setForeground(new java.awt.Color(233, 74, 218));
+        Nickname.setText("NickName");
+        Nickname.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(Nickname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 240, -1));
+
+        Roles.setForeground(new java.awt.Color(233, 74, 218));
         Roles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jugador", "Admin", "Invitado" }));
-        add(Roles, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, -1, -1));
+        Roles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(Roles, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(1, 39, 61));
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/fondo2.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 880));
     }// </editor-fold>//GEN-END:initComponents

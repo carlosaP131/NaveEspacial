@@ -14,10 +14,10 @@ public class Principal extends javax.swing.JFrame {
     //corrdenadas
     private int xMouse;
     private int yMouse;
-    InicioView inicio;
-    Portada portada;
-    Registrar regis;
-    Tabla_Usuario tUsuario;
+    InicioView inicio;// instancia de el panel de inicio de sesion 
+    Portada portada;//instancia de portada 
+    Registrar regis;//intancia de registrar usuario
+    Tabla_Usuario tUsuario;//instancia de tabla usuario
 
     public Principal() {
         initComponents();
@@ -48,7 +48,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(2147483647, 979));
         setMinimumSize(new java.awt.Dimension(990, 940));
         setUndecorated(true);
 
@@ -63,8 +62,9 @@ public class Principal extends javax.swing.JFrame {
         Biniciar.setBackground(new java.awt.Color(1, 39, 61));
         Biniciar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Biniciar.setForeground(new java.awt.Color(233, 74, 218));
-        Biniciar.setText("Iniciar Sesion");
+        Biniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/IinisesP.png"))); // NOI18N
         Biniciar.setBorderPainted(false);
+        Biniciar.setContentAreaFilled(false);
         Biniciar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BiniciarMouseClicked(evt);
@@ -79,14 +79,16 @@ public class Principal extends javax.swing.JFrame {
         Bjugar.setBackground(new java.awt.Color(1, 39, 61));
         Bjugar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Bjugar.setForeground(new java.awt.Color(233, 74, 218));
-        Bjugar.setText("Jugar");
+        Bjugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iJUGARp.png"))); // NOI18N
         Bjugar.setBorderPainted(false);
+        Bjugar.setContentAreaFilled(false);
 
         Bregistrar.setBackground(new java.awt.Color(1, 39, 61));
         Bregistrar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Bregistrar.setForeground(new java.awt.Color(233, 74, 218));
-        Bregistrar.setText("Registrar Usuario");
+        Bregistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/IRegP.png"))); // NOI18N
         Bregistrar.setBorderPainted(false);
+        Bregistrar.setContentAreaFilled(false);
         Bregistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BregistrarMouseClicked(evt);
@@ -96,8 +98,9 @@ public class Principal extends javax.swing.JFrame {
         Bconsultar.setBackground(new java.awt.Color(1, 39, 61));
         Bconsultar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Bconsultar.setForeground(new java.awt.Color(233, 74, 218));
-        Bconsultar.setText("Consultar Usuario");
+        Bconsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/ImostP.png"))); // NOI18N
         Bconsultar.setBorderPainted(false);
+        Bconsultar.setContentAreaFilled(false);
         Bconsultar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BconsultarMouseClicked(evt);
@@ -110,14 +113,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Bregistrar)
-                            .addComponent(Bconsultar)))
+                        .addComponent(Bregistrar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,6 +127,11 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(54, 54, 54)
                         .addComponent(Bjugar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Bconsultar)
+                .addContainerGap())
+            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,12 +141,12 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(69, 69, 69)
                 .addComponent(Biniciar)
                 .addGap(12, 12, 12)
-                .addComponent(Bjugar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Bjugar, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(Bregistrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(Bconsultar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -179,40 +184,10 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BiniciarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BiniciarActionPerformed
-
-    private void BiniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BiniciarMouseClicked
-
-        Pprincipal.add(inicio);
-        inicio.setVisible(true);
-        portada.setVisible(false);
-        Pprincipal.validate();
-    }//GEN-LAST:event_BiniciarMouseClicked
-
     private void CerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CerrarMouseClicked
 
         System.exit(0);
     }//GEN-LAST:event_CerrarMouseClicked
-
-    private void BregistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BregistrarMouseClicked
-        Pprincipal.add(regis);
-        inicio.setVisible(false);
-        portada.setVisible(false);
-        regis.setVisible(true);
-        Pprincipal.validate();
-       
-    }//GEN-LAST:event_BregistrarMouseClicked
-
-    private void BconsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BconsultarMouseClicked
-        Pprincipal.add(tUsuario);
-        inicio.setVisible(false);
-        portada.setVisible(false);
-        regis.setVisible(false);
-        tUsuario.setVisible(true);
-        Pprincipal.validate();
-    }//GEN-LAST:event_BconsultarMouseClicked
 
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
         xMouse = evt.getX();
@@ -224,6 +199,39 @@ public class Principal extends javax.swing.JFrame {
      int y = evt.getYOnScreen();
      this.setLocation(x-xMouse, y-yMouse);
     }//GEN-LAST:event_jPanel2MouseDragged
+
+    private void BconsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BconsultarMouseClicked
+        Pprincipal.add(tUsuario);
+        inicio.setVisible(false);
+        portada.setVisible(false);
+        regis.setVisible(false);
+        tUsuario.setVisible(true);
+        Pprincipal.validate();
+        deshabilitarBotones();
+    }//GEN-LAST:event_BconsultarMouseClicked
+
+    private void BregistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BregistrarMouseClicked
+        Pprincipal.add(regis);
+        inicio.setVisible(false);
+        portada.setVisible(false);
+        tUsuario.setVisible(false);
+        regis.setVisible(true);
+        Pprincipal.validate();
+    }//GEN-LAST:event_BregistrarMouseClicked
+
+    private void BiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BiniciarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BiniciarActionPerformed
+
+    private void BiniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BiniciarMouseClicked
+
+        Pprincipal.add(inicio);
+        inicio.setVisible(true);
+        portada.setVisible(false);
+        Pprincipal.validate();
+        regis.setVisible(false);
+        tUsuario.setVisible(false);
+    }//GEN-LAST:event_BiniciarMouseClicked
 
     public static void main(String args[]) {
 
@@ -250,7 +258,29 @@ public class Principal extends javax.swing.JFrame {
             }
         });
     }
-
+ private void deshabilitarBotones() {
+        if (Pprincipal.isVisible()) {
+            Bconsultar.setEnabled(true);
+            Biniciar.setEnabled(true);
+            Bjugar.setEnabled(true);
+            Bregistrar.setEnabled(true);
+        } else if (inicio.isVisible()) {
+            Bconsultar.setEnabled(false);
+            Biniciar.setEnabled(true);
+            Bjugar.setEnabled(true);
+            Bregistrar.setEnabled(true);
+        } else if (regis.isVisible()) {
+            Bconsultar.setEnabled(false);
+            Biniciar.setEnabled(true);
+            Bjugar.setEnabled(true);
+            Bregistrar.setEnabled(true);
+        } else if (tUsuario.isVisible()) {
+           Bconsultar.setEnabled(false);
+            Biniciar.setEnabled(true);
+            Bjugar.setEnabled(true);
+            Bregistrar.setEnabled(true);
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Bconsultar;
     private javax.swing.JButton Biniciar;
