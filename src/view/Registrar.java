@@ -34,8 +34,8 @@ public class Registrar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        Contraseña = new javax.swing.JPasswordField();
+        Usuario = new javax.swing.JTextField();
         registrar = new javax.swing.JButton();
         Lcontraseña = new javax.swing.JLabel();
         Lnombre = new javax.swing.JLabel();
@@ -58,22 +58,27 @@ public class Registrar extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(990, 910));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPasswordField1.setBackground(new java.awt.Color(1, 39, 61));
-        jPasswordField1.setForeground(new java.awt.Color(233, 74, 218));
-        jPasswordField1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        Contraseña.setBackground(new java.awt.Color(1, 39, 61));
+        Contraseña.setForeground(new java.awt.Color(233, 74, 218));
+        Contraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Contraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                ContraseñaActionPerformed(evt);
             }
         });
-        add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 240, -1));
+        add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 240, -1));
 
-        jTextField1.setBackground(new java.awt.Color(1, 39, 61));
-        jTextField1.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(233, 74, 218));
-        jTextField1.setText("Ingresar Usuario");
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 240, -1));
+        Usuario.setBackground(new java.awt.Color(1, 39, 61));
+        Usuario.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        Usuario.setForeground(new java.awt.Color(233, 74, 218));
+        Usuario.setText("Ingresar Usuario");
+        Usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UsuarioMouseClicked(evt);
+            }
+        });
+        add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 240, -1));
 
         registrar.setBackground(new java.awt.Color(1, 39, 61));
         registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iRegistrarBot.png"))); // NOI18N
@@ -127,6 +132,11 @@ public class Registrar extends javax.swing.JPanel {
         Edad.setForeground(new java.awt.Color(233, 74, 218));
         Edad.setText("Edad");
         Edad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Edad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EdadMouseClicked(evt);
+            }
+        });
         add(Edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 240, -1));
 
         Sexo.setBackground(new java.awt.Color(1, 39, 61));
@@ -134,6 +144,11 @@ public class Registrar extends javax.swing.JPanel {
         Sexo.setForeground(new java.awt.Color(233, 74, 218));
         Sexo.setText("Sexo");
         Sexo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Sexo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SexoMouseClicked(evt);
+            }
+        });
         add(Sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 240, -1));
 
         Telefono.setBackground(new java.awt.Color(1, 39, 61));
@@ -141,6 +156,11 @@ public class Registrar extends javax.swing.JPanel {
         Telefono.setForeground(new java.awt.Color(233, 74, 218));
         Telefono.setText("Telefono");
         Telefono.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Telefono.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TelefonoMouseClicked(evt);
+            }
+        });
         add(Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 240, -1));
 
         Direccion.setBackground(new java.awt.Color(1, 39, 61));
@@ -148,6 +168,11 @@ public class Registrar extends javax.swing.JPanel {
         Direccion.setForeground(new java.awt.Color(233, 74, 218));
         Direccion.setText("Direccion");
         Direccion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Direccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DireccionMouseClicked(evt);
+            }
+        });
         add(Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 240, -1));
 
         Correo.setBackground(new java.awt.Color(1, 39, 61));
@@ -155,6 +180,11 @@ public class Registrar extends javax.swing.JPanel {
         Correo.setForeground(new java.awt.Color(233, 74, 218));
         Correo.setText("Correo");
         Correo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Correo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CorreoMouseClicked(evt);
+            }
+        });
         add(Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, 240, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Inickname.png"))); // NOI18N
@@ -166,6 +196,11 @@ public class Registrar extends javax.swing.JPanel {
         Nickname.setForeground(new java.awt.Color(233, 74, 218));
         Nickname.setText("NickName");
         Nickname.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Nickname.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NicknameMouseClicked(evt);
+            }
+        });
         add(Nickname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 240, -1));
 
         Roles.setForeground(new java.awt.Color(233, 74, 218));
@@ -180,9 +215,9 @@ public class Registrar extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 880));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void ContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaActionPerformed
        
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_ContraseñaActionPerformed
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
       
@@ -205,8 +240,8 @@ public class Registrar extends javax.swing.JPanel {
             jugador.setTelefono(this.Telefono.getText());
             jugadorcontroller.InsertarRegistro(jugador);
             // se definen los usuarios
-            usuario.setUser(this.jTextField1.getText());
-            usuario.setPwd(Arrays.toString(this.jPasswordField1.getPassword()));
+            usuario.setUser(this.Usuario.getText());
+            usuario.setPwd(this.Contraseña.getText());
             usuario.setRol("Administrador");
             
              usuariocontroller.InsertarRegistro(usuario);
@@ -220,8 +255,8 @@ public class Registrar extends javax.swing.JPanel {
             jugador.setCorreo(this.Correo.getText());
             jugador.setTelefono(this.Telefono.getText());
             jugadorcontroller.InsertarRegistro(jugador);
-            usuario.setUser(this.jTextField1.getText());
-            usuario.setPwd(Arrays.toString(this.jPasswordField1.getPassword()));
+            usuario.setUser(this.Usuario.getText());
+            usuario.setPwd(this.Contraseña.getText());
             usuario.setRol("Jugador");
              usuariocontroller.InsertarRegistro(usuario);
         }
@@ -233,8 +268,8 @@ public class Registrar extends javax.swing.JPanel {
             jugador.setCorreo("NULL");
             jugador.setTelefono("NULL");
             jugadorcontroller.InsertarRegistro(jugador);
-             usuario.setUser(this.jTextField1.getText());
-            usuario.setPwd(Arrays.toString(this.jPasswordField1.getPassword()));
+             usuario.setUser(this.Usuario.getText());
+             usuario.setPwd(this.Contraseña.getText());
             usuario.setRol("Invitado");
 
              usuariocontroller.InsertarRegistro(usuario);
@@ -244,8 +279,37 @@ public class Registrar extends javax.swing.JPanel {
 
     }//GEN-LAST:event_registrarMouseClicked
 
+    private void UsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseClicked
+        Usuario.setText("");
+    }//GEN-LAST:event_UsuarioMouseClicked
+
+    private void NicknameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NicknameMouseClicked
+        Nickname.setText("");
+    }//GEN-LAST:event_NicknameMouseClicked
+
+    private void EdadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EdadMouseClicked
+        Edad.setText("");
+    }//GEN-LAST:event_EdadMouseClicked
+
+    private void SexoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SexoMouseClicked
+       Sexo.setText("");
+    }//GEN-LAST:event_SexoMouseClicked
+
+    private void TelefonoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TelefonoMouseClicked
+        Telefono.setText("");
+    }//GEN-LAST:event_TelefonoMouseClicked
+
+    private void DireccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DireccionMouseClicked
+        Direccion.setText("");
+    }//GEN-LAST:event_DireccionMouseClicked
+
+    private void CorreoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CorreoMouseClicked
+       Correo.setText("");
+    }//GEN-LAST:event_CorreoMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField Contraseña;
     private javax.swing.JTextField Correo;
     private javax.swing.JTextField Direccion;
     private javax.swing.JTextField Edad;
@@ -256,6 +320,7 @@ public class Registrar extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> Roles;
     private javax.swing.JTextField Sexo;
     private javax.swing.JTextField Telefono;
+    private javax.swing.JTextField Usuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel5;
@@ -263,8 +328,6 @@ public class Registrar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton registrar;
     // End of variables declaration//GEN-END:variables
 }
