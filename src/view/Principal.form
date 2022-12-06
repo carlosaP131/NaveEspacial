@@ -101,7 +101,7 @@
                       <Component id="Bregistrar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Bconsultar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="217" max="32767" attributes="0"/>
+                      <EmptySpace pref="231" max="32767" attributes="0"/>
                       <Component id="jLabel4" min="-2" pref="409" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -111,7 +111,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\MENU.png"/>
+                  <Image iconType="3" name="/resources/img/MENU.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -233,7 +233,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\FONDO4.png"/>
+                  <Image iconType="3" name="/resources/img/FONDO4.png"/>
                 </Property>
               </Properties>
               <Constraints>
