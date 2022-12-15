@@ -13,6 +13,7 @@ import Controller.UsuarioController;
 import Model.UsuarioModelImpl;
 import Utilidades.EnumValida;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Carlos Aurelio Alcántara Pérez
@@ -274,8 +275,9 @@ public class Registrar extends javax.swing.JPanel {
 
              usuariocontroller.InsertarRegistro(usuario);
         }
-       usuario.setIdJugador(jugador.getIdJugador());
-
+      
+     JOptionPane.showMessageDialog(null,
+             "Se registro un usuario");
 
     }//GEN-LAST:event_registrarMouseClicked
 

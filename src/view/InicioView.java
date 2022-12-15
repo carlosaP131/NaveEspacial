@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Carlos Aurelio Alcántara Pérez
+ * @author BALDOMERO SAINOS HERNANDEZ
  */
 public class InicioView extends javax.swing.JPanel {
 
@@ -44,6 +44,11 @@ public class InicioView extends javax.swing.JPanel {
         Contraseña.setBackground(new java.awt.Color(1, 39, 61));
         Contraseña.setForeground(new java.awt.Color(233, 74, 218));
         Contraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Contraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ContraseñaMouseClicked(evt);
+            }
+        });
         Contraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContraseñaActionPerformed(evt);
@@ -54,6 +59,11 @@ public class InicioView extends javax.swing.JPanel {
         Usuario.setBackground(new java.awt.Color(1, 39, 61));
         Usuario.setForeground(new java.awt.Color(233, 74, 218));
         Usuario.setText("INGRESA TU USUARIO");
+        Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UsuarioMouseClicked(evt);
+            }
+        });
         add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 240, -1));
 
         jButton1.setBackground(new java.awt.Color(1, 39, 61));
@@ -97,6 +107,14 @@ public class InicioView extends javax.swing.JPanel {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         ingresar();
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void UsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseClicked
+     Usuario.setText("");
+    }//GEN-LAST:event_UsuarioMouseClicked
+
+    private void ContraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ContraseñaMouseClicked
+        Contraseña.setText("");
+    }//GEN-LAST:event_ContraseñaMouseClicked
   public Connection Conectar() {
         Connection con = null;
         
@@ -120,12 +138,11 @@ public class InicioView extends javax.swing.JPanel {
         } else {
             try {
                 con1 = Conectar();
-                pst = con1.prepareStatement("select usuario,pdw from usuario where usuario='" + User + "' and pdw ='" + Pass + "'");
+                pst = con1.prepareStatement("select usuario,pdw from usuario where usuario='"+User+"' and pdw ='"+Pass+"'");
                 rs = pst.executeQuery();
                 if (rs.next()) {
                     JOptionPane.showMessageDialog(null, "Credenciales correctas");
-                   // this.dispose();
-                    //new Datos().setVisible(true);
+                  
                 } else {
                     JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
 
