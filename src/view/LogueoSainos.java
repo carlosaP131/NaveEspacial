@@ -1,6 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+/**
+ * Autor: Sainos Hernández Baldomero
+ * Fecha de creación: 08 de diciembre de 2022
+ * Fecha de actualización: 14 de diciembre de 2022
+ * Descripción:Jframe principal para ejecutar el logueo del programa.
  */
 package view;
 
