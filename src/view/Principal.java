@@ -57,7 +57,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(1, 39, 61));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/IMenuTITULO.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/MENU.png"))); // NOI18N
 
         Biniciar.setBackground(new java.awt.Color(1, 39, 61));
         Biniciar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
@@ -68,6 +68,11 @@ public class Principal extends javax.swing.JFrame {
         Biniciar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BiniciarMouseClicked(evt);
+            }
+        });
+        Biniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BiniciarActionPerformed(evt);
             }
         });
 
@@ -115,35 +120,32 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(Bjugar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Biniciar)
-                        .addGap(19, 19, 19))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(Bjugar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(Biniciar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Bconsultar)
-                            .addComponent(Bregistrar))
-                        .addGap(31, 31, 31))))
+                            .addComponent(Bregistrar))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(69, 69, 69)
                 .addComponent(Biniciar)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addComponent(Bjugar, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(Bregistrar)
                 .addGap(18, 18, 18)
                 .addComponent(Bconsultar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 263, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -215,6 +217,10 @@ public class Principal extends javax.swing.JFrame {
         regis.setVisible(true);
         Pprincipal.validate();
     }//GEN-LAST:event_BregistrarMouseClicked
+
+    private void BiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BiniciarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BiniciarActionPerformed
 
     private void BiniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BiniciarMouseClicked
 
