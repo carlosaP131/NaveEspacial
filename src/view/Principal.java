@@ -12,8 +12,8 @@ package view;
  */
 public class Principal extends javax.swing.JFrame {
     //corrdenadas
-    private int xMouse;//posicion mouse x
-    private int yMouse;//posicion mause y
+    private int xMouse;
+    private int yMouse;//posicion mause
     InicioView inicio;// instancia de el panel de inicio de sesion 
     Portada portada;//instancia de portada 
     Registrar regis;//intancia de registrar usuario
