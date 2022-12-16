@@ -29,6 +29,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         jfJuego = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnPlay.setText("PLAY");
@@ -68,7 +69,7 @@ public class PantallaJuego extends javax.swing.JFrame {
                 btbSalirMouseClicked(evt);
             }
         });
-        getContentPane().add(btbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(473, 220, 110, -1));
+        getContentPane().add(btbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(473, 220, 120, -1));
 
         jfJuego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/FONDOJUEGO.gif"))); // NOI18N
         getContentPane().add(jfJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
