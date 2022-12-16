@@ -21,28 +21,39 @@ public class PantallaJuego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnPlay = new javax.swing.JButton();
+        btnPausa = new javax.swing.JButton();
+        btnContinuar = new javax.swing.JButton();
         jfJuego = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, -1, -1));
+        btnPlay.setText("PLAY");
+        btnPlay.setPreferredSize(new java.awt.Dimension(115, 24));
+        btnPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 120, -1));
 
-        jButton2.setText("jButton2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, -1, -1));
+        btnPausa.setText("PAUSA");
+        btnPausa.setPreferredSize(new java.awt.Dimension(115, 24));
+        getContentPane().add(btnPausa, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 120, -1));
 
-        jButton3.setText("jButton3");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, -1, -1));
+        btnContinuar.setText("CONTINUAR");
+        getContentPane().add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, -1, -1));
 
         jfJuego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/FONDOJUEGO.gif"))); // NOI18N
         getContentPane().add(jfJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPlayActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -77,9 +88,9 @@ public class PantallaJuego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnContinuar;
+    private javax.swing.JButton btnPausa;
+    private javax.swing.JButton btnPlay;
     private javax.swing.JLabel jfJuego;
     // End of variables declaration//GEN-END:variables
 }
