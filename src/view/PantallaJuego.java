@@ -25,6 +25,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnPlay = new javax.swing.JButton();
         btnPausa = new javax.swing.JButton();
         btnContinuar = new javax.swing.JButton();
+        btbSalir = new javax.swing.JButton();
         jfJuego = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,11 +62,20 @@ public class PantallaJuego extends javax.swing.JFrame {
         });
         getContentPane().add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, 120, -1));
 
+        btbSalir.setText("SALIR");
+        btbSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btbSalirMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(473, 220, 110, -1));
+
         jfJuego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/FONDOJUEGO.gif"))); // NOI18N
         getContentPane().add(jfJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+   
     /*
     *Botón para poner en acción al juego.
     */
@@ -73,21 +83,29 @@ public class PantallaJuego extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPlayActionPerformed
     /*
-    *Botón para poner en pausar el juego.
+    *Botón para poner en acción el juego.
     */
     private void btnPlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPlayMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnPlayMouseClicked
     /*
-    *Botón para poner en continuar con el juego.
+    *Botón para poner pausa al juego.
     */
     private void btnPausaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPausaMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnPausaMouseClicked
-
+    /*
+    *Botón para poner continuar el juego.
+    */
     private void btnContinuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnContinuarMouseClicked
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_btnContinuarMouseClicked
+    /*
+    *Botón para salir del juego.
+    */
+    private void btbSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btbSalirMouseClicked
+     
+    }//GEN-LAST:event_btbSalirMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -122,6 +140,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btbSalir;
     private javax.swing.JButton btnContinuar;
     private javax.swing.JButton btnPausa;
     private javax.swing.JButton btnPlay;
