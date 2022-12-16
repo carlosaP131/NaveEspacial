@@ -28,7 +28,7 @@ public class Principal extends javax.swing.JFrame {
         tUsuario = new Tabla_Usuario();
         juego = new Juego();
         Pprincipal.add(portada);
-        inicio.setVisible(false);
+        
         portada.setVisible(true);
     }
 

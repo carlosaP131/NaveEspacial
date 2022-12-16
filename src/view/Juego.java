@@ -7,13 +7,21 @@
  * ****************************************************************************/
 package view;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Carlos Aurelio Alcántara Pérez
  */
-public class Juego extends javax.swing.JPanel {
-
-    
+public class Juego extends javax.swing.JPanel implements Runnable{
+    private int x;
+    private int y;
+    private Thread hilo;
     public Juego() {
         initComponents();
     }
@@ -36,4 +44,36 @@ public class Juego extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+public void paint(Graphics g) {
+        /**
+         * Cargar el fondo del panel
+         */ 
+        
+        
+        setOpaque(false);
+        super.paint(g);
+       
+        /**
+         * Crear el primer grafico para la pelota 2
+         */
+        Graphics2D g2d2 = (Graphics2D) g;
+        Toolkit t2 = Toolkit.getDefaultToolkit();
+        Image img = t2.getImage("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iNaveespacial.png");//Cargar imagen pelota1
+        g2d2.drawImage(img, x, y, this);
+        hilo = new Thread(this);
+        hilo.start();
+        try {
+
+            Thread.sleep(1);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        repaint();
+    }
+    @Override
+    public void run() {
+       
+    
+    }
 }
