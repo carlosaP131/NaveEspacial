@@ -50,21 +50,16 @@ public class Juego extends javax.swing.JPanel implements Runnable,MouseListener{
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 public void paint(Graphics g) {
-        /**
-         * Cargar el fondo del panel
-         */ 
-        
-        
         setOpaque(false);
         super.paint(g);
-       
-        /**
-         * Crear el primer grafico para la pelota 2
-         */
-        Graphics2D g2d2 = (Graphics2D) g;
+        Graphics2D Nave = (Graphics2D) g;
         Toolkit t2 = Toolkit.getDefaultToolkit();
-        Image img = t2.getImage("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iNaveespacial.png");//Cargar imagen pelota1
-        g2d2.drawImage(img, x, y, this);
+        Image imgnave = t2.getImage("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iNaveespacial.png");//Cargar imagen pelota1
+        Nave.drawImage(imgnave, x, y, this);
+        Graphics2D Bala = (Graphics2D) g;
+        Toolkit t2 = Toolkit.getDefaultToolkit();
+        Image imgbala = t2.getImage("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\i");//Cargar imagen pelota1
+        Bala.drawImage(imgbala, x, y, this);
         hilo = new Thread(this);
         hilo.start();
         try {
