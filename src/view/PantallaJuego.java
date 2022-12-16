@@ -26,6 +26,7 @@ public class PantallaJuego extends javax.swing.JFrame {
         btnPausa = new javax.swing.JButton();
         btnContinuar = new javax.swing.JButton();
         btbSalir = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jfJuego = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,6 +71,9 @@ public class PantallaJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(473, 220, 120, -1));
+
+        jToggleButton1.setText("jToggleButton1");
+        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, -1, -1));
 
         jfJuego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/FONDOJUEGO.gif"))); // NOI18N
         getContentPane().add(jfJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
@@ -145,6 +149,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     private javax.swing.JButton btnContinuar;
     private javax.swing.JButton btnPausa;
     private javax.swing.JButton btnPlay;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel jfJuego;
     // End of variables declaration//GEN-END:variables
 }
