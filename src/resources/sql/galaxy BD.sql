@@ -62,12 +62,13 @@ begin
     update rol set rol=rolnuev  where rol.idRol=idRolaux;
     end $
 
+-- Se crea el procedure Eliminar el rol del jugador.
    delimiter $    
 create procedure Eliminar(in idRolaux int)
 begin
    DELETE FROM rol WHERE idRol=idRolaux;
     end $ 
-    
+-- Se crea el procedure Mostrar el rol del jugador.    
    delimiter $    
 create procedure Mostrar()
 begin
