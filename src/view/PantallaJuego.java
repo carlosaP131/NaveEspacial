@@ -1,6 +1,15 @@
-
+/** ****************************************************************************
+ *Autor:Sainos Hernández Baldomero
+ *Fecha de creación: 16-12-2022 ***
+ *Fecha de actualización:16-12-2022***
+ *Descripción:Panel para la portada.
+ *
+ * ****************************************************************************/
 package view;
-
+/*
+*Pantalla para visualisar la pantalla donde el usuario va a interactuar con el 
+*juego que se va arealizar.
+*/
 public class PantallaJuego extends javax.swing.JFrame {
 
     public PantallaJuego() {
