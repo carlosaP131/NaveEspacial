@@ -105,7 +105,7 @@ public class PantallaJuego extends javax.swing.JFrame {
     *Botón para salir del juego.
     */
     private void btbSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btbSalirMouseClicked
-     
+        System.exit(0);
     }//GEN-LAST:event_btbSalirMouseClicked
 
     public static void main(String args[]) {
