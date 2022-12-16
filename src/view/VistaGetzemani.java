@@ -9,7 +9,7 @@ package view;
 
 public class VistaGetzemani extends javax.swing.JFrame {
 
-   
+   //comentarios
     public VistaGetzemani() {
         initComponents();
     }
