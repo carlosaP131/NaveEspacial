@@ -29,7 +29,7 @@ public class Conexion {
     public Conexion() {
         this.driver = "com.mysql.cj.jdbc.Driver";
         this.user = "root";
-        this.pdw = "root";
+        this.pdw = "sainos";
         this.url = "jdbc:mysql://";
         this.ip = "172.17.0.2";
         this.puerto = "3306";
