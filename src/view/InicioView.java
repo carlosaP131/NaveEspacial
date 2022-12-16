@@ -101,7 +101,7 @@ public class InicioView extends javax.swing.JPanel {
         Connection con = null;
         
         try {
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/nave_espacial", "root", "root");
+            con = DriverManager.getConnection("jdbc:mysql://172.17.0.2:3306/nave_espacial", "root", "root");
             System.out.println("Conexion exitosa");
         } catch (SQLException e) {
             System.out.println("Erorr de conexión" + e.toString());
