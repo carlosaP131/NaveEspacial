@@ -18,7 +18,7 @@ public class Principal extends javax.swing.JFrame {
     Portada portada;//instancia de portada 
     Registrar regis;//intancia de registrar usuario
     Tabla_Usuario tUsuario;//instancia de tabla usuario
-
+    Juego juego;
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -26,6 +26,7 @@ public class Principal extends javax.swing.JFrame {
         inicio = new InicioView();
         regis = new Registrar();
         tUsuario = new Tabla_Usuario();
+        juego = new Juego();
         Pprincipal.add(portada);
         inicio.setVisible(false);
         portada.setVisible(true);
@@ -82,6 +83,11 @@ public class Principal extends javax.swing.JFrame {
         Bjugar.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\IjUGAR.png")); // NOI18N
         Bjugar.setBorderPainted(false);
         Bjugar.setContentAreaFilled(false);
+        Bjugar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BjugarMouseClicked(evt);
+            }
+        });
 
         Bregistrar.setBackground(new java.awt.Color(1, 39, 61));
         Bregistrar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
@@ -232,6 +238,17 @@ public class Principal extends javax.swing.JFrame {
         regis.setVisible(false);
         tUsuario.setVisible(false);
     }//GEN-LAST:event_BiniciarMouseClicked
+
+    private void BjugarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BjugarMouseClicked
+       Pprincipal.add(juego);
+       Pprincipal.validate();
+        inicio.setVisible(false);
+        portada.setVisible(false);      
+        regis.setVisible(false);
+        tUsuario.setVisible(false);
+        juego.setVisible(true);
+        
+    }//GEN-LAST:event_BjugarMouseClicked
 
     public static void main(String args[]) {
 
