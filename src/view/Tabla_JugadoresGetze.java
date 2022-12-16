@@ -33,8 +33,8 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("jButton1");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        jButton1.setText("Buscar");
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
         jButton2.setText("jButton2");
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
@@ -42,7 +42,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Tabla usuario");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 280, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 280, -1));
 
         jButton3.setText("jButton3");
         add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
