@@ -58,7 +58,7 @@ public class PantallaJuego extends javax.swing.JFrame {
                 btnContinuarMouseClicked(evt);
             }
         });
-        getContentPane().add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, -1, -1));
+        getContentPane().add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, 120, -1));
 
         jfJuego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/FONDOJUEGO.gif"))); // NOI18N
         getContentPane().add(jfJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
