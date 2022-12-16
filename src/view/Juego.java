@@ -11,6 +11,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,9 +20,11 @@ import java.util.logging.Logger;
  *
  * @author Carlos Aurelio Alcántara Pérez
  */
-public class Juego extends javax.swing.JPanel implements Runnable{
+public class Juego extends javax.swing.JPanel implements Runnable,MouseMotionListener{
     private int x;
     private int y;
+    private int Mousex;
+    private int Mousey;
     private Thread hilo;
     public Juego() {
         initComponents();
@@ -75,5 +79,18 @@ public void paint(Graphics g) {
     public void run() {
        
     
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+       Mousex= e.getX();
+       Mousey = e.getY();
+       
+    
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
