@@ -8,12 +8,12 @@
 package Controller;
 
 import Controller.base.RegistroControllerBase;
-import Service.IUsuarioService;
 import Service.UsuarioServiceImpl;
 import entity.Usuario;
 
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import Service.IUsuarioService;
 
 /**
  *
