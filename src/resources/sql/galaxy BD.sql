@@ -1,6 +1,10 @@
+-- Se elimina la BD si ya existe.
 DROP database  if exists nave_espacial;
+-- Se crea la BD nave_espacial.
 create database nave_espacial;
+-- Empezamos a usar la BD nave_espacial.
 use nave_espacial;
+-- Defenimos los campos de la tabla y creamos la tabla rol.
 create table rol(
 idRol int auto_increment primary key, 
 rol varchar(20),
