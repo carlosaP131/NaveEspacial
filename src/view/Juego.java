@@ -53,6 +53,7 @@ public class Juego extends javax.swing.JPanel implements Runnable,MouseListener{
         jLabel2.setText("Puntaje :");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        jTextField1.setBackground(new java.awt.Color(1, 39, 61));
         jTextField1.setForeground(new java.awt.Color(233, 74, 218));
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 40, -1));
 
@@ -60,6 +61,8 @@ public class Juego extends javax.swing.JPanel implements Runnable,MouseListener{
         jLabel3.setText("Nivel:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
+        jTextField2.setEditable(false);
+        jTextField2.setBackground(new java.awt.Color(1, 39, 61));
         jTextField2.setForeground(new java.awt.Color(233, 74, 218));
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 30, -1));
 

@@ -63,7 +63,7 @@ public class Principal extends javax.swing.JFrame {
         Biniciar.setBackground(new java.awt.Color(1, 39, 61));
         Biniciar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Biniciar.setForeground(new java.awt.Color(233, 74, 218));
-        Biniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/IinisesP.png"))); // NOI18N
+        Biniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iIniciarSesionPrincipal.png"))); // NOI18N
         Biniciar.setBorderPainted(false);
         Biniciar.setContentAreaFilled(false);
         Biniciar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -133,10 +133,9 @@ public class Principal extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Bconsultar)
                             .addComponent(Bregistrar)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Biniciar)
-                        .addGap(7, 7, 7)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(Biniciar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -152,7 +151,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(Bregistrar)
                 .addGap(18, 18, 18)
                 .addComponent(Bconsultar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
