@@ -31,6 +31,11 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         btnPlay.setText("PLAY");
         btnPlay.setPreferredSize(new java.awt.Dimension(115, 24));
+        btnPlay.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPlayMouseClicked(evt);
+            }
+        });
         btnPlay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPlayActionPerformed(evt);
@@ -40,9 +45,19 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         btnPausa.setText("PAUSA");
         btnPausa.setPreferredSize(new java.awt.Dimension(115, 24));
+        btnPausa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPausaMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnPausa, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 120, -1));
 
         btnContinuar.setText("CONTINUAR");
+        btnContinuar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnContinuarMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, -1, -1));
 
         jfJuego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/FONDOJUEGO.gif"))); // NOI18N
@@ -54,6 +69,18 @@ public class PantallaJuego extends javax.swing.JFrame {
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPlayActionPerformed
+
+    private void btnPlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPlayMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPlayMouseClicked
+
+    private void btnPausaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPausaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPausaMouseClicked
+
+    private void btnContinuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnContinuarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnContinuarMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
