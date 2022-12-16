@@ -50,7 +50,7 @@ public class Registrar extends javax.swing.JPanel {
         Telefono = new javax.swing.JTextField();
         Direccion = new javax.swing.JTextField();
         Correo = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
+        Lnickname = new javax.swing.JLabel();
         Nickname = new javax.swing.JTextField();
         Roles = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
@@ -81,6 +81,7 @@ public class Registrar extends javax.swing.JPanel {
         add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 240, -1));
 
         registrar.setBackground(new java.awt.Color(1, 39, 61));
+        registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iRegistrarBot.png"))); // NOI18N
         registrar.setBorderPainted(false);
         registrar.setContentAreaFilled(false);
         registrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -118,6 +119,7 @@ public class Registrar extends javax.swing.JPanel {
         Ldireccion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Ldireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, -1, -1));
 
+        Ltelefono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Itelefono.png"))); // NOI18N
         Ltelefono.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Ltelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, 20));
 
@@ -185,8 +187,9 @@ public class Registrar extends javax.swing.JPanel {
         });
         add(Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, 240, -1));
 
-        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
+        Lnickname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Inickname.png"))); // NOI18N
+        Lnickname.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        add(Lnickname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
 
         Nickname.setBackground(new java.awt.Color(1, 39, 61));
         Nickname.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
@@ -314,6 +317,7 @@ public class Registrar extends javax.swing.JPanel {
     private javax.swing.JLabel Lcorreo;
     private javax.swing.JLabel Ldireccion;
     private javax.swing.JLabel Ledad;
+    private javax.swing.JLabel Lnickname;
     private javax.swing.JLabel Lnombre;
     private javax.swing.JLabel Lsexo;
     private javax.swing.JLabel Ltelefono;
@@ -324,7 +328,6 @@ public class Registrar extends javax.swing.JPanel {
     private javax.swing.JTextField Telefono;
     private javax.swing.JTextField Usuario;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JButton registrar;
     // End of variables declaration//GEN-END:variables
 }
