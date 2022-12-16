@@ -2,9 +2,9 @@
  *Autor:Carlos Aurelio Alcántara Pérez
  *Fecha de creación: 18-11-2022 ***
  *Fecha de actualización:31-11-2022
- *Descripción: Panel para mostrar usuarios 
+ *Descripción: Panel para mostrar usuarios
  **
- * ****************************************************************************/
+ * *************************************************************************** */
 package view;
 
 /**
@@ -13,17 +13,17 @@ package view;
  */
 import Controller.UsuarioController;
 import javax.swing.table.DefaultTableModel;
-  
 
 public class Tabla_Usuario extends javax.swing.JPanel {
-          private final UsuarioController usuariocontroller;
-           private final DefaultTableModel modelo;
-   
+
+    private final UsuarioController usuariocontroller;
+    private final DefaultTableModel modelo;
+    private int idUsuario;
     public Tabla_Usuario() {
         initComponents();
         modelo = (DefaultTableModel) jTable1.getModel();
-       usuariocontroller = new UsuarioController();
-       usuariocontroller.mostrar(modelo);
+        usuariocontroller = new UsuarioController();
+        usuariocontroller.mostrar(modelo);
     }
 
     @SuppressWarnings("unchecked")
@@ -32,6 +32,7 @@ public class Tabla_Usuario extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        Nombre = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -60,9 +61,17 @@ public class Tabla_Usuario extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
+
+        Nombre.setText("Nuevo Nombre ");
+        add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 130, -1));
 
         jButton2.setBackground(new java.awt.Color(1, 39, 61));
         jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iEliminarBot.png")); // NOI18N
@@ -106,19 +115,25 @@ public class Tabla_Usuario extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-       usuariocontroller.mostrar(modelo);
+        usuariocontroller.mostrar(modelo);
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        Nombre.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
+        idUsuario = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Nombre;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
