@@ -48,19 +48,20 @@ fechacreacion datetime,
 fechaactualizacion datetime,
 fechareliminacion datetime
 );
-
+-- Se crea el procedure Guardar el rol del jugador.
 delimiter $    
 create procedure Guardar(in rol varchar(20))
 begin
     insert into rol (rol) values (rol);
     end $
-    
+
+-- Se crea el procedure Actualizar el rol del jugador.
 delimiter $    
 create procedure Actualizar(in idRolaux int,rolnuev varchar(20))
 begin
     update rol set rol=rolnuev  where rol.idRol=idRolaux;
     end $
-    
+
    delimiter $    
 create procedure Eliminar(in idRolaux int)
 begin
