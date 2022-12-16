@@ -14,6 +14,7 @@ public class PantallaJuego extends javax.swing.JFrame {
 
     public PantallaJuego() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
   
