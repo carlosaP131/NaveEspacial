@@ -55,11 +55,27 @@ public void paint(Graphics g) {
         Graphics2D Nave = (Graphics2D) g;
         Toolkit tnave = Toolkit.getDefaultToolkit();
         Image imgnave = tnave.getImage("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iNaveespacial.png");//Cargar imagen pelota1
-        Nave.drawImage(imgnave, x, y, this);
+        Nave.drawImage(imgnave, x+10, y+30, this);
         Graphics2D Bala = (Graphics2D) g;
         Toolkit tbala = Toolkit.getDefaultToolkit();
         Image imgbala = tbala.getImage("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iLaser.png");//Cargar imagen pelota1
-        Bala.drawImage(imgbala, x+15, y+15, this);
+        Bala.drawImage(imgbala, x+80, y+120, this);
+        Graphics2D Mett1 = (Graphics2D) g;
+        Toolkit tMet1 = Toolkit.getDefaultToolkit();
+        Image imgmet1 = tMet1.getImage("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iMeteoritot1.png");//Cargar imagen pelota1
+        Mett1.drawImage(imgmet1, x+120, y+150, this);
+        Graphics2D Mett2 = (Graphics2D) g;
+        Toolkit tMet2 = Toolkit.getDefaultToolkit();
+        Image imgmet2 = tMet2.getImage("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iMeteoritot2.png");//Cargar imagen pelota1
+        Mett2.drawImage(imgmet2, x+150, y+200, this);
+        Graphics2D Mett3 = (Graphics2D) g;
+        Toolkit tMet3 = Toolkit.getDefaultToolkit();
+        Image imgmet3 = tMet3.getImage("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iMeteoritot3.png");//Cargar imagen pelota1
+        Mett3.drawImage(imgmet3, x+160, y+250, this);
+        Graphics2D Mett4 = (Graphics2D) g;
+        Toolkit tMet4 = Toolkit.getDefaultToolkit();
+        Image imgmet4 = tMet4.getImage("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iMeteoritot4.png");//Cargar imagen pelota1
+        Mett4.drawImage(imgmet4, x+135, y+300, this);
         hilo = new Thread(this);
         hilo.start();
         try {
