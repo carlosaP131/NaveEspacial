@@ -65,15 +65,21 @@ public class PantallaJuego extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /*
+    *Botón para poner en acción al juego.
+    */
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPlayActionPerformed
-
+    /*
+    *Botón para poner en pausar el juego.
+    */
     private void btnPlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPlayMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPlayMouseClicked
-
+    /*
+    *Botón para poner en continuar con el juego.
+    */
     private void btnPausaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPausaMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPausaMouseClicked
