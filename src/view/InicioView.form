@@ -69,7 +69,7 @@
           <Color blue="3d" green="27" red="1" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/iINGRESAR.png"/>
+          <Image iconType="3" name="/resources/img/iIngresar.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -87,7 +87,7 @@
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/ICONTRASE&#xd1;A.png"/>
+          <Image iconType="3" name="/resources/img/iContrase&#xf1;a.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -99,7 +99,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/InombreJugador.png"/>
+          <Image iconType="3" name="/resources/img/iNombreJugador.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -111,7 +111,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/iINICIAR.png"/>
+          <Image iconType="3" name="/resources/img/iIniciar.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -126,7 +126,7 @@
           <Color blue="3d" green="27" red="1" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/fondo2.jpg"/>
+          <Image iconType="3" name="/resources/img/iFondo2.jpg"/>
         </Property>
       </Properties>
       <Constraints>

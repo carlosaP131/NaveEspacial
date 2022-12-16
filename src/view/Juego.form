@@ -115,7 +115,7 @@
           <Color blue="3d" green="27" red="1" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/Fjuego2.jpg"/>
+          <Image iconType="3" name="/resources/img/iFondoJuego2.jpg"/>
         </Property>
       </Properties>
       <Constraints>
