@@ -53,13 +53,13 @@ public void paint(Graphics g) {
         setOpaque(false);
         super.paint(g);
         Graphics2D Nave = (Graphics2D) g;
-        Toolkit t2 = Toolkit.getDefaultToolkit();
-        Image imgnave = t2.getImage("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iNaveespacial.png");//Cargar imagen pelota1
+        Toolkit tnave = Toolkit.getDefaultToolkit();
+        Image imgnave = tnave.getImage("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iNaveespacial.png");//Cargar imagen pelota1
         Nave.drawImage(imgnave, x, y, this);
         Graphics2D Bala = (Graphics2D) g;
-        Toolkit t2 = Toolkit.getDefaultToolkit();
-        Image imgbala = t2.getImage("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\i");//Cargar imagen pelota1
-        Bala.drawImage(imgbala, x, y, this);
+        Toolkit tbala = Toolkit.getDefaultToolkit();
+        Image imgbala = tbala.getImage("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iLaser.png");//Cargar imagen pelota1
+        Bala.drawImage(imgbala, x+15, y+15, this);
         hilo = new Thread(this);
         hilo.start();
         try {
