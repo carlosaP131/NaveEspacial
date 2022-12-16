@@ -1,4 +1,9 @@
-
+/*
+*Autor: Getzemani Alejandro Gonzalez Cruz
+*Fecha de creación: 15 de diciembre del 2022
+*Fecha de modificación: 15 de diciembre del 2022
+*Descripción: vista
+ */
 package view;
 
 
