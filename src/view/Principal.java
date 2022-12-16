@@ -57,12 +57,12 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(1, 39, 61));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/MENU.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\MENU.png")); // NOI18N
 
         Biniciar.setBackground(new java.awt.Color(1, 39, 61));
         Biniciar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Biniciar.setForeground(new java.awt.Color(233, 74, 218));
-        Biniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/inises.png"))); // NOI18N
+        Biniciar.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\IinisesP.png")); // NOI18N
         Biniciar.setBorderPainted(false);
         Biniciar.setContentAreaFilled(false);
         Biniciar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -79,14 +79,14 @@ public class Principal extends javax.swing.JFrame {
         Bjugar.setBackground(new java.awt.Color(1, 39, 61));
         Bjugar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Bjugar.setForeground(new java.awt.Color(233, 74, 218));
-        Bjugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iJUGARp.png"))); // NOI18N
+        Bjugar.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\IjUGAR.png")); // NOI18N
         Bjugar.setBorderPainted(false);
         Bjugar.setContentAreaFilled(false);
 
         Bregistrar.setBackground(new java.awt.Color(1, 39, 61));
         Bregistrar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Bregistrar.setForeground(new java.awt.Color(233, 74, 218));
-        Bregistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/REG.png"))); // NOI18N
+        Bregistrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\REG.png")); // NOI18N
         Bregistrar.setBorderPainted(false);
         Bregistrar.setContentAreaFilled(false);
         Bregistrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -98,7 +98,7 @@ public class Principal extends javax.swing.JFrame {
         Bconsultar.setBackground(new java.awt.Color(1, 39, 61));
         Bconsultar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Bconsultar.setForeground(new java.awt.Color(233, 74, 218));
-        Bconsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/consul.png"))); // NOI18N
+        Bconsultar.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\consul.png")); // NOI18N
         Bconsultar.setBorderPainted(false);
         Bconsultar.setContentAreaFilled(false);
         Bconsultar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -107,7 +107,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/FONDO3.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\FONDO3.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -123,13 +123,14 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(54, 54, 54)
                         .addComponent(Bjugar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(Biniciar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Bconsultar)
-                            .addComponent(Bregistrar))))
+                            .addComponent(Bregistrar)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Biniciar)
+                        .addGap(7, 7, 7)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -137,15 +138,15 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addGap(69, 69, 69)
+                .addGap(63, 63, 63)
                 .addComponent(Biniciar)
-                .addGap(12, 12, 12)
+                .addGap(18, 18, 18)
                 .addComponent(Bjugar, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(Bregistrar)
                 .addGap(18, 18, 18)
                 .addComponent(Bconsultar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -173,7 +174,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel2.add(Cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/FONDO4.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\FONDO4.png")); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 250, 55));
 
         Pprincipal.add(jPanel2, java.awt.BorderLayout.PAGE_START);

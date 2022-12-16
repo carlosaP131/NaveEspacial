@@ -60,7 +60,7 @@ public class Registrar extends javax.swing.JPanel {
 
         Contraseña.setBackground(new java.awt.Color(1, 39, 61));
         Contraseña.setForeground(new java.awt.Color(233, 74, 218));
-        Contraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Contraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Contraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContraseñaActionPerformed(evt);
@@ -72,7 +72,7 @@ public class Registrar extends javax.swing.JPanel {
         Usuario.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Usuario.setForeground(new java.awt.Color(233, 74, 218));
         Usuario.setText("Ingresar Usuario");
-        Usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 UsuarioMouseClicked(evt);
@@ -81,7 +81,7 @@ public class Registrar extends javax.swing.JPanel {
         add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 240, -1));
 
         registrar.setBackground(new java.awt.Color(1, 39, 61));
-        registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iRegistrarBot.png"))); // NOI18N
+        registrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iRegistrarBot.png")); // NOI18N
         registrar.setBorderPainted(false);
         registrar.setContentAreaFilled(false);
         registrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -96,42 +96,42 @@ public class Registrar extends javax.swing.JPanel {
         });
         add(registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, -1, -1));
 
-        Lcontraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/ICONTRASEÑA.png"))); // NOI18N
-        Lcontraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Lcontraseña.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\ICONTRASEÑA.png")); // NOI18N
+        Lcontraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Lcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 150, -1));
 
-        Lnombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/IUSUARIO.png"))); // NOI18N
-        Lnombre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Lnombre.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\IUSUARIO.png")); // NOI18N
+        Lnombre.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Lnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 100, -1));
 
-        LtituloReg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iRegistrarTitulo.png"))); // NOI18N
+        LtituloReg.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iRegistrarTitulo.png")); // NOI18N
         add(LtituloReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 840, 60));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Iedad.png"))); // NOI18N
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Iedad.png")); // NOI18N
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Isexo.png"))); // NOI18N
-        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Isexo.png")); // NOI18N
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/IDireccion.png"))); // NOI18N
-        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\IDireccion.png")); // NOI18N
+        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, -1, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Itelefono.png"))); // NOI18N
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Itelefono.png")); // NOI18N
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, 20));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/ICorreo.png"))); // NOI18N
-        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\ICorreo.png")); // NOI18N
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, -1, -1));
 
         Edad.setBackground(new java.awt.Color(1, 39, 61));
         Edad.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Edad.setForeground(new java.awt.Color(233, 74, 218));
         Edad.setText("Edad");
-        Edad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Edad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Edad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 EdadMouseClicked(evt);
@@ -143,7 +143,7 @@ public class Registrar extends javax.swing.JPanel {
         Sexo.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Sexo.setForeground(new java.awt.Color(233, 74, 218));
         Sexo.setText("Sexo");
-        Sexo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Sexo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Sexo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SexoMouseClicked(evt);
@@ -155,7 +155,7 @@ public class Registrar extends javax.swing.JPanel {
         Telefono.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Telefono.setForeground(new java.awt.Color(233, 74, 218));
         Telefono.setText("Telefono");
-        Telefono.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Telefono.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Telefono.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TelefonoMouseClicked(evt);
@@ -167,7 +167,7 @@ public class Registrar extends javax.swing.JPanel {
         Direccion.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Direccion.setForeground(new java.awt.Color(233, 74, 218));
         Direccion.setText("Direccion");
-        Direccion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Direccion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Direccion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DireccionMouseClicked(evt);
@@ -179,7 +179,7 @@ public class Registrar extends javax.swing.JPanel {
         Correo.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Correo.setForeground(new java.awt.Color(233, 74, 218));
         Correo.setText("Correo");
-        Correo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Correo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Correo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CorreoMouseClicked(evt);
@@ -187,15 +187,15 @@ public class Registrar extends javax.swing.JPanel {
         });
         add(Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, 240, -1));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Inickname.png"))); // NOI18N
-        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Inickname.png")); // NOI18N
+        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
 
         Nickname.setBackground(new java.awt.Color(1, 39, 61));
         Nickname.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Nickname.setForeground(new java.awt.Color(233, 74, 218));
         Nickname.setText("NickName");
-        Nickname.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Nickname.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Nickname.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 NicknameMouseClicked(evt);
@@ -205,13 +205,13 @@ public class Registrar extends javax.swing.JPanel {
 
         Roles.setForeground(new java.awt.Color(233, 74, 218));
         Roles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jugador", "Admin", "Invitado" }));
-        Roles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Roles.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Roles, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(1, 39, 61));
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/fondo2.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\fondo2.jpg")); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 880));
     }// </editor-fold>//GEN-END:initComponents
 

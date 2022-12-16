@@ -65,7 +65,7 @@ public class Tabla_Usuario extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(1, 39, 61));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iEliminarBot.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iEliminarBot.png")); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +76,7 @@ public class Tabla_Usuario extends javax.swing.JPanel {
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(1, 39, 61));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iModificarBot.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iModificarBot.png")); // NOI18N
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +87,7 @@ public class Tabla_Usuario extends javax.swing.JPanel {
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         jButton3.setBackground(new java.awt.Color(1, 39, 61));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iMostrarB.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iMostrarB.png")); // NOI18N
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -97,7 +97,7 @@ public class Tabla_Usuario extends javax.swing.JPanel {
         });
         add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 130, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iTablaUsuarioTitulo.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iTablaUsuarioTitulo.png")); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(1, 39, 61));

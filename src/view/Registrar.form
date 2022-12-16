@@ -32,7 +32,7 @@
           <Color blue="da" green="4a" red="e9" type="rgb"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -57,7 +57,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Ingresar Usuario"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -75,7 +75,7 @@
           <Color blue="3d" green="27" red="1" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/iRegistrarBot.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iRegistrarBot.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -93,10 +93,10 @@
     <Component class="javax.swing.JLabel" name="Lcontrase&#xf1;a">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/ICONTRASE&#xd1;A.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\ICONTRASE&#xd1;A.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Constraints>
@@ -108,10 +108,10 @@
     <Component class="javax.swing.JLabel" name="Lnombre">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/IUSUARIO.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\IUSUARIO.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Constraints>
@@ -123,7 +123,7 @@
     <Component class="javax.swing.JLabel" name="LtituloReg">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/iRegistrarTitulo.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iRegistrarTitulo.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -135,10 +135,10 @@
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/Iedad.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Iedad.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Constraints>
@@ -150,10 +150,10 @@
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/Isexo.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Isexo.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Constraints>
@@ -165,10 +165,10 @@
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/IDireccion.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\IDireccion.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Constraints>
@@ -180,10 +180,10 @@
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/Itelefono.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Itelefono.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Constraints>
@@ -195,10 +195,10 @@
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/ICorreo.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\ICorreo.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Constraints>
@@ -220,7 +220,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Edad"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -245,7 +245,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Sexo"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -270,7 +270,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Telefono"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -295,7 +295,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Direccion"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -320,7 +320,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Correo"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -335,10 +335,10 @@
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/Inickname.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Inickname.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Constraints>
@@ -360,7 +360,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="NickName"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -385,7 +385,7 @@
           </StringArray>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -409,7 +409,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/fondo2.jpg"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\fondo2.jpg"/>
         </Property>
       </Properties>
       <Constraints>
