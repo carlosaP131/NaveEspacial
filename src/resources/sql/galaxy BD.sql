@@ -13,6 +13,7 @@ fechaactualizacion datetime,
 fechareliminacion datetime
 
 );
+-- Se crea la tabla jugador con sus respectivos campos.
 create table jugador(
 	id_jugador int auto_increment primary key,
     nombre varchar(20),
@@ -26,6 +27,7 @@ fechacreacion datetime,
 fechaactualizacion datetime,
 fechareliminacion datetime
 );
+-- Se crea la tabla usuario con sus respectivos campos.
 create table usuario(
 	id_usuario int  auto_increment primary key,
     usuario varchar(20),
@@ -36,6 +38,7 @@ fechacreacion datetime,
 fechaactualizacion datetime,
 fechareliminacion datetime
 );
+-- Se crea la tabla usuario_rol con sus respectivos campos.
 create table usuario_rol(
 	usuario_id int not null,
     rol_id int not null,
@@ -45,6 +48,7 @@ fechacreacion datetime,
 fechaactualizacion datetime,
 fechareliminacion datetime
 );
+
 delimiter $    
 create procedure Guardar(in rol varchar(20))
 begin
