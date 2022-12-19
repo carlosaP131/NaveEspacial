@@ -46,7 +46,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         jLabel2.setText("Tabla usuario");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 280, -1));
 
-        jButton3.setText("jButton3");
+        jButton3.setText("eliminar");
         add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
