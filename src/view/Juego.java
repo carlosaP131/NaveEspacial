@@ -2,17 +2,15 @@
  *Autor:Carlos Aurelio Alcántara Pérez
  *Fecha de creación: 18-11-2022 ***
  *Fecha de actualización:31-11-2022
- *Descripción:Panel para la portada 
+ *Descripción:Panel para la portada
  *
- * ****************************************************************************/
+ * *************************************************************************** */
 package view;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -23,23 +21,26 @@ import java.util.logging.Logger;
  *
  * @author Carlos Aurelio Alcántara Pérez
  */
-public class Juego extends javax.swing.JPanel implements Runnable,MouseMotionListener, MouseListener{
+public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionListener, MouseListener {
+
     private int x;
     private int Caer = 50;
-    private int M1ubicacion=250;
-    private int M2ubicacion=350;
-    private int M3ubicacion=450;
-    private int M4ubicacion=550;
+    private int M1ubicacion = 250;
+    private int M2ubicacion = 350;
+    private int M3ubicacion = 450;
+    private int M4ubicacion = 550;
     private int Balax;
     private int Balay;
+    private int Diametro = 30;
+    private int ya = 1;
     private Thread hilo;
+
     public Juego() {
         initComponents();
         this.addMouseMotionListener(this);//activar la escucha del gragged
         this.addMouseListener(this);
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -127,11 +128,11 @@ public void paint(Graphics g) {
         Graphics2D Bala = (Graphics2D) g;
         Toolkit tbala = Toolkit.getDefaultToolkit();
         Image imgbala = tbala.getImage("src/resources/img/iLaser.png");//Cargar imagen pelota1
-        Bala.drawImage(imgbala, Balax,Balay, this);
+        Bala.drawImage(imgbala, Balax, Balay, this);
         Graphics2D Mett1 = (Graphics2D) g;
         Toolkit tMet1 = Toolkit.getDefaultToolkit();
         Image imgmet1 = tMet1.getImage("src/resources/img/iMeteoritot1.png");//Cargar imagen pelota1
-        Mett1.drawImage(imgmet1, M1ubicacion,Caer, this);
+        Mett1.drawImage(imgmet1, M1ubicacion, Caer, this);
         Graphics2D Mett2 = (Graphics2D) g;
         Toolkit tMet2 = Toolkit.getDefaultToolkit();
         Image imgmet2 = tMet2.getImage("src/resources/img/iMeteoritot2.png");//Cargar imagen pelota1
@@ -143,7 +144,7 @@ public void paint(Graphics g) {
         Graphics2D Mett4 = (Graphics2D) g;
         Toolkit tMet4 = Toolkit.getDefaultToolkit();
         Image imgmet4 = tMet4.getImage("src/resources/img/iMeteoritot4.png");//Cargar imagen pelota1
-        Mett4.drawImage(imgmet4, M4ubicacion,Caer, this);
+        Mett4.drawImage(imgmet4, M4ubicacion, Caer, this);
         hilo = new Thread(this);
         hilo.start();
         try {
@@ -155,70 +156,62 @@ public void paint(Graphics g) {
 
         repaint();
     }
+
     @Override
     public void run() {
         mover();
-        Disparo(); 
+        Disparo();
     }
 
-    public void mover(){
-        
-       Caer++; 
-       
+    public void mover() {
+
+        Caer++;
+ 
       
-    }
-    public void Disparo(){
+          }
+
+    public void Disparo() {
         Balay--;
     }
-    
-   
 
-    
     @Override
     public void mouseDragged(MouseEvent me) {
-       
-   
-    
+
     }
 
     @Override
     public void mouseMoved(MouseEvent me) {
-        if ((me.getX()>=0 && me.getY()>=0) && (me.getX()<= this.getWidth()) && me.getY() <= this.getHeight()-100) {
+        if ((me.getX() >= 0 && me.getY() >= 0) && (me.getX() <= this.getWidth()) && me.getY() <= this.getHeight() - 100) {
             x = me.getX();
-          
-          
+
         }
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
-            Balax=me.getX();
-            Balay=me.getY();
-           
-            
+        Balax = me.getX();
+        Balay = me.getY();
+
     }
 
     @Override
     public void mousePressed(MouseEvent me) {
-        
+
     }
 
     @Override
     public void mouseReleased(MouseEvent me) {
-       
+
     }
 
     @Override
     public void mouseEntered(MouseEvent me) {
-        
+
     }
 
     @Override
     public void mouseExited(MouseEvent me) {
-       
+
     }
 
-   
-
-   
 }

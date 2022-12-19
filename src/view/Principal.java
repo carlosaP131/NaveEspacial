@@ -240,13 +240,12 @@ public class Principal extends javax.swing.JFrame {
 
     private void BjugarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BjugarMouseClicked
        Pprincipal.add(juego);
-       Pprincipal.validate();
         inicio.setVisible(false);
         portada.setVisible(false);      
         regis.setVisible(false);
         tUsuario.setVisible(false);
         juego.setVisible(true);
-        
+        Pprincipal.validate();
     }//GEN-LAST:event_BjugarMouseClicked
 
     public static void main(String args[]) {
