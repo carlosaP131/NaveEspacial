@@ -73,6 +73,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         jLabel3.setText("Logo usuaio");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("imagen de regreso");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
