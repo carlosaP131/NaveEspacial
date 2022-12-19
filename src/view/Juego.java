@@ -21,14 +21,14 @@ import java.util.logging.Logger;
  *
  * @author Carlos Aurelio Alcántara Pérez
  */
-public class Juego extends javax.swing.JPanel implements Runnable,MouseMotionListener,MouseListener{
+public class Juego extends javax.swing.JPanel implements Runnable,MouseMotionListener{
     private int x;
-    private int y;
+    private int Caer = 50;
     private Thread hilo;
     public Juego() {
         initComponents();
         this.addMouseMotionListener(this);//activar la escucha del gragged
-        this.addMouseListener(this);// activar la escucha del click
+        
     }
 
   
@@ -115,32 +115,32 @@ public void paint(Graphics g) {
         Graphics2D Nave = (Graphics2D) g;
         Toolkit tnave = Toolkit.getDefaultToolkit();
         Image imgnave = tnave.getImage("src/resources/img/iNaveespacial.png");//Cargar imagen pelota1
-        Nave.drawImage(imgnave, x, y, this);
+        Nave.drawImage(imgnave, x, 700, this);
         Graphics2D Bala = (Graphics2D) g;
         Toolkit tbala = Toolkit.getDefaultToolkit();
         Image imgbala = tbala.getImage("src/resources/img/iLaser.png");//Cargar imagen pelota1
-        Bala.drawImage(imgbala, 80, 120, this);
+        Bala.drawImage(imgbala, 80, Caer, this);
         Graphics2D Mett1 = (Graphics2D) g;
         Toolkit tMet1 = Toolkit.getDefaultToolkit();
         Image imgmet1 = tMet1.getImage("src/resources/img/iMeteoritot1.png");//Cargar imagen pelota1
-        Mett1.drawImage(imgmet1, 120, 150, this);
+        Mett1.drawImage(imgmet1, 320,Caer, this);
         Graphics2D Mett2 = (Graphics2D) g;
         Toolkit tMet2 = Toolkit.getDefaultToolkit();
         Image imgmet2 = tMet2.getImage("src/resources/img/iMeteoritot2.png");//Cargar imagen pelota1
-        Mett2.drawImage(imgmet2, 150, 200, this);
+        Mett2.drawImage(imgmet2, 450, Caer, this);
         Graphics2D Mett3 = (Graphics2D) g;
         Toolkit tMet3 = Toolkit.getDefaultToolkit();
         Image imgmet3 = tMet3.getImage("src/resources/img/iMeteoritot3.png");//Cargar imagen pelota1
-        Mett3.drawImage(imgmet3, 160, 250, this);
+        Mett3.drawImage(imgmet3, 560, Caer, this);
         Graphics2D Mett4 = (Graphics2D) g;
         Toolkit tMet4 = Toolkit.getDefaultToolkit();
         Image imgmet4 = tMet4.getImage("src/resources/img/iMeteoritot4.png");//Cargar imagen pelota1
-        Mett4.drawImage(imgmet4, 135,300, this);
+        Mett4.drawImage(imgmet4, 535,Caer, this);
         hilo = new Thread(this);
         hilo.start();
         try {
 
-            Thread.sleep(1);
+            Thread.sleep(8);
         } catch (InterruptedException ex) {
             Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -149,11 +149,16 @@ public void paint(Graphics g) {
     }
     @Override
     public void run() {
-       
+        mover();
     
     }
 
-    
+    public void mover(){
+        
+       Caer++; 
+       
+      
+    }
 
    
 
@@ -162,7 +167,7 @@ public void paint(Graphics g) {
     public void mouseDragged(MouseEvent me) {
        if ((me.getX()>=0 && me.getY()>=0) && (me.getX()<= this.getWidth()) && me.getY() <= this.getHeight()-100) {
             x = me.getX();
-            y = me.getY();
+          
           
         }
    
@@ -173,27 +178,5 @@ public void paint(Graphics g) {
     public void mouseMoved(MouseEvent me) {
        }
 
-    @Override
-    public void mouseClicked(MouseEvent me) {
-       x= me.getX();
-        y= me.getY();
-        
     
-    }
-
-    @Override
-    public void mousePressed(MouseEvent me) {
-       }
-
-    @Override
-    public void mouseReleased(MouseEvent me) {
-     }
-
-    @Override
-    public void mouseEntered(MouseEvent me) {
-     }
-
-    @Override
-    public void mouseExited(MouseEvent me) {
-     }
 }
