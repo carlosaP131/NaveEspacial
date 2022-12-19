@@ -38,7 +38,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         jButton1.setText("Buscar");
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
-        jButton2.setText("jButton2");
+        jButton2.setText("mostar");
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 36)); // NOI18N
