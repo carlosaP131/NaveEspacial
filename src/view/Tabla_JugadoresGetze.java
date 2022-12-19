@@ -1,5 +1,5 @@
 /** ****************************************************************************
- *Autor:Carlos Aurelio Alcántara Pérez
+ *Autor:Getzemani Alejandro Gonzalez Cruz
  *Fecha de creación: 18-11-2022 ***
  *Fecha de actualización:31-11-2022
  *Descripción:Panel para la portada 
