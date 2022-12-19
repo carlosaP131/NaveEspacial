@@ -21,11 +21,9 @@ import java.util.logging.Logger;
  *
  * @author Carlos Aurelio Alcántara Pérez
  */
-public class Juego extends javax.swing.JPanel implements Runnable,MouseListener{
+public class Juego extends javax.swing.JPanel implements Runnable,MouseMotionListener,MouseListener{
     private int x;
     private int y;
-    private int Mousex;
-    private int Mousey;
     private Thread hilo;
     public Juego() {
         initComponents();
@@ -115,7 +113,7 @@ public void paint(Graphics g) {
         Graphics2D Nave = (Graphics2D) g;
         Toolkit tnave = Toolkit.getDefaultToolkit();
         Image imgnave = tnave.getImage("src/resources/img/iNaveespacial.png");//Cargar imagen pelota1
-        Nave.drawImage(imgnave, x+10, y+30, this);
+        Nave.drawImage(imgnave, x+10, 350, this);
         Graphics2D Bala = (Graphics2D) g;
         Toolkit tbala = Toolkit.getDefaultToolkit();
         Image imgbala = tbala.getImage("src/resources/img/iLaser.png");//Cargar imagen pelota1
@@ -157,29 +155,47 @@ public void paint(Graphics g) {
 
    
 
+    
     @Override
-    public void mouseClicked(MouseEvent e) {
-     x= e.getX();
-      y = e.getY();
+    public void mouseDragged(MouseEvent me) {
+       if ((me.getX()>=0 && me.getY()>=0) && (me.getX()<= this.getWidth()) && me.getY() <= this.getHeight()-100) {
+            x = me.getX();
+            y = me.getY();
+            
+        }
+   
+    
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
+    public void mouseMoved(MouseEvent me) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
+    public void mouseClicked(MouseEvent me) {
+       x= me.getX();
+        y= me.getY();
+    
+    }
+
+    @Override
+    public void mousePressed(MouseEvent me) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
+    public void mouseReleased(MouseEvent me) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void mouseExited(MouseEvent e) {
+    public void mouseEntered(MouseEvent me) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mouseExited(MouseEvent me) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
