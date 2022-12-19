@@ -7,6 +7,8 @@
  * ****************************************************************************/
 package view;
 
+import Controller.JugadorController;
+import Controller.UsuarioController;
 import Model.UsuarioModelImpl;
 import entity.Jugador;
 import entity.Usuario;
@@ -20,6 +22,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
     
     public Tabla_JugadoresGetze() {
         initComponents();
+        
     }
 
   
