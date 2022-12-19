@@ -7,6 +7,7 @@
  * ****************************************************************************/
 package view;
 
+import Controller.UsuarioController;
 import Model.UsuarioModelImpl;
 import entity.Jugador;
 import entity.Usuario;
@@ -16,10 +17,11 @@ import entity.Usuario;
  * @author Getzemani Alejandro Gonzalez Cruz
  */
 public class Tabla_JugadoresGetze extends javax.swing.JPanel {
-
+  private  UsuarioController usuariocontroller;
     
     public Tabla_JugadoresGetze() {
         initComponents();
+        
         
     }
 
@@ -51,6 +53,11 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
         jButton2.setText("mostar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 36)); // NOI18N
@@ -105,6 +112,11 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         UsuarioModelImpl usuarioid = new UsuarioModelImpl();
 
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
