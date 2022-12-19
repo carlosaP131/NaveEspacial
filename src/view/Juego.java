@@ -27,6 +27,8 @@ public class Juego extends javax.swing.JPanel implements Runnable,MouseMotionLis
     private Thread hilo;
     public Juego() {
         initComponents();
+        this.addMouseMotionListener(this);//activar la escucha del gragged
+        this.addMouseListener(this);// activar la escucha del click
     }
 
   
@@ -113,27 +115,27 @@ public void paint(Graphics g) {
         Graphics2D Nave = (Graphics2D) g;
         Toolkit tnave = Toolkit.getDefaultToolkit();
         Image imgnave = tnave.getImage("src/resources/img/iNaveespacial.png");//Cargar imagen pelota1
-        Nave.drawImage(imgnave, x+10, 350, this);
+        Nave.drawImage(imgnave, x, y, this);
         Graphics2D Bala = (Graphics2D) g;
         Toolkit tbala = Toolkit.getDefaultToolkit();
         Image imgbala = tbala.getImage("src/resources/img/iLaser.png");//Cargar imagen pelota1
-        Bala.drawImage(imgbala, x+80, y+120, this);
+        Bala.drawImage(imgbala, 80, 120, this);
         Graphics2D Mett1 = (Graphics2D) g;
         Toolkit tMet1 = Toolkit.getDefaultToolkit();
         Image imgmet1 = tMet1.getImage("src/resources/img/iMeteoritot1.png");//Cargar imagen pelota1
-        Mett1.drawImage(imgmet1, x+120, y+150, this);
+        Mett1.drawImage(imgmet1, 120, 150, this);
         Graphics2D Mett2 = (Graphics2D) g;
         Toolkit tMet2 = Toolkit.getDefaultToolkit();
         Image imgmet2 = tMet2.getImage("src/resources/img/iMeteoritot2.png");//Cargar imagen pelota1
-        Mett2.drawImage(imgmet2, x+150, y+200, this);
+        Mett2.drawImage(imgmet2, 150, 200, this);
         Graphics2D Mett3 = (Graphics2D) g;
         Toolkit tMet3 = Toolkit.getDefaultToolkit();
         Image imgmet3 = tMet3.getImage("src/resources/img/iMeteoritot3.png");//Cargar imagen pelota1
-        Mett3.drawImage(imgmet3, x+160, y+250, this);
+        Mett3.drawImage(imgmet3, 160, 250, this);
         Graphics2D Mett4 = (Graphics2D) g;
         Toolkit tMet4 = Toolkit.getDefaultToolkit();
         Image imgmet4 = tMet4.getImage("src/resources/img/iMeteoritot4.png");//Cargar imagen pelota1
-        Mett4.drawImage(imgmet4, x+135, y+300, this);
+        Mett4.drawImage(imgmet4, 135,300, this);
         hilo = new Thread(this);
         hilo.start();
         try {
@@ -161,7 +163,7 @@ public void paint(Graphics g) {
        if ((me.getX()>=0 && me.getY()>=0) && (me.getX()<= this.getWidth()) && me.getY() <= this.getHeight()-100) {
             x = me.getX();
             y = me.getY();
-            
+          
         }
    
     
@@ -169,33 +171,29 @@ public void paint(Graphics g) {
 
     @Override
     public void mouseMoved(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+       }
 
     @Override
     public void mouseClicked(MouseEvent me) {
        x= me.getX();
         y= me.getY();
+        
     
     }
 
     @Override
     public void mousePressed(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+       }
 
     @Override
     public void mouseReleased(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+     }
 
     @Override
     public void mouseEntered(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+     }
 
     @Override
     public void mouseExited(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+     }
 }
