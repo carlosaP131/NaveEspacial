@@ -7,17 +7,17 @@
  * ****************************************************************************/
 package view;
 
-import Controller.UsuarioController;
-import Model.UsuarioModelImpl;
-import entity.Jugador;
-import entity.Usuario;
+//import Controller.UsuarioController;
+//import Model.UsuarioModelImpl;
+//import entity.Jugador;
+//import entity.Usuario;
 
 /**
  *
  * @author Getzemani Alejandro Gonzalez Cruz
  */
 public class Tabla_JugadoresGetze extends javax.swing.JPanel {
-  private  UsuarioController usuariocontroller;
+//  private  UsuarioController usuariocontroller;
     
     public Tabla_JugadoresGetze() {
         initComponents();
@@ -112,9 +112,9 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        Usuario usuario = new Usuario();
-        Jugador jugador = new Jugador();// se instancia jugador y usuario
-        UsuarioModelImpl usuarioid = new UsuarioModelImpl();
+//        Usuario usuario = new Usuario();
+//        Jugador jugador = new Jugador();// se instancia jugador y usuario
+//        UsuarioModelImpl usuarioid = new UsuarioModelImpl();
 
     }//GEN-LAST:event_jButton1MouseClicked
 
