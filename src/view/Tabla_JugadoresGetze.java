@@ -78,10 +78,11 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         jLabel5.setText("imagen de regreso");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
-        jLabel6.setText("jLabel6");
+        jLabel6.setText("icono de regreso");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(1, 39, 61));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/fondo2.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 880));
     }// </editor-fold>//GEN-END:initComponents
