@@ -1,12 +1,17 @@
 /** ****************************************************************************
- *Autor:Carlos Aurelio Alcántara Pérez
+ *Autores:Carlos Aurelio Alcántara Pérez Carlos Aurelio Alcántara Pérez,
+ *        & Baldomero Sainos Hernández.
  *Fecha de creación: 18-11-2022 ***
- *Fecha de actualización:31-11-2022
- *Descripción:Panel para la portada 
+ *Fecha de actualización:20-12-2022
+ *Descripción:Panel para la portada del juego, donde se va a mover los ateroides,
+ * naves y balas.
  *
- * ****************************************************************************/
+ * *************************************************************************** */
 package view;
 
+/**
+ * Importación de los paquetes.
+ */
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -20,26 +25,29 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author Carlos Aurelio Alcántara Pérez
+ * Clase donde se declaran las variables y se inicialización.
  */
-public class Juego extends javax.swing.JPanel implements Runnable,MouseMotionListener, MouseListener{
+public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionListener, MouseListener {
+
     private int x;
     private int Caer = 50;
-    private int M1ubicacion=250;
-    private int M2ubicacion=350;
-    private int M3ubicacion=450;
-    private int M4ubicacion=550;
+    private int M1ubicacion = 250;
+    private int M2ubicacion = 350;
+    private int M3ubicacion = 450;
+    private int M4ubicacion = 550;
     private int Balax;
     private int Balay;
     private Thread hilo;
+
+    /**
+     * Se activa la escucha del gragged.
+     */
     public Juego() {
         initComponents();
-        this.addMouseMotionListener(this);//activar la escucha del gragged
+        this.addMouseMotionListener(this);
         this.addMouseListener(this);
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -117,7 +125,11 @@ public class Juego extends javax.swing.JPanel implements Runnable,MouseMotionLis
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
-public void paint(Graphics g) {
+    /**
+     * Método paint para pintar la neve, la bla y los meteoritos para el juego,
+     * mediante hilos.
+     */
+    public void paint(Graphics g) {
         setOpaque(false);
         super.paint(g);
         Graphics2D Nave = (Graphics2D) g;
@@ -127,11 +139,11 @@ public void paint(Graphics g) {
         Graphics2D Bala = (Graphics2D) g;
         Toolkit tbala = Toolkit.getDefaultToolkit();
         Image imgbala = tbala.getImage("src/resources/img/iLaser.png");//Cargar imagen pelota1
-        Bala.drawImage(imgbala, Balax,Balay, this);
+        Bala.drawImage(imgbala, Balax, Balay, this);
         Graphics2D Mett1 = (Graphics2D) g;
         Toolkit tMet1 = Toolkit.getDefaultToolkit();
         Image imgmet1 = tMet1.getImage("src/resources/img/iMeteoritot1.png");//Cargar imagen pelota1
-        Mett1.drawImage(imgmet1, M1ubicacion,Caer, this);
+        Mett1.drawImage(imgmet1, M1ubicacion, Caer, this);
         Graphics2D Mett2 = (Graphics2D) g;
         Toolkit tMet2 = Toolkit.getDefaultToolkit();
         Image imgmet2 = tMet2.getImage("src/resources/img/iMeteoritot2.png");//Cargar imagen pelota1
@@ -143,7 +155,7 @@ public void paint(Graphics g) {
         Graphics2D Mett4 = (Graphics2D) g;
         Toolkit tMet4 = Toolkit.getDefaultToolkit();
         Image imgmet4 = tMet4.getImage("src/resources/img/iMeteoritot4.png");//Cargar imagen pelota1
-        Mett4.drawImage(imgmet4, M4ubicacion,Caer, this);
+        Mett4.drawImage(imgmet4, M4ubicacion, Caer, this);
         hilo = new Thread(this);
         hilo.start();
         try {
@@ -155,70 +167,73 @@ public void paint(Graphics g) {
 
         repaint();
     }
+    /**
+     * Método abstracto run para disparar y mover la neve, este método
+     * especifica realmente la tarea a realizar.
+     */
     @Override
     public void run() {
         mover();
-        Disparo(); 
+        Disparo();
     }
-
-    public void mover(){
-        
-       Caer++; 
-       
-      
+    /**
+     * Método mover donde se incrementa a caer.
+     */
+    public void mover() {
+        Caer++;
     }
-    public void Disparo(){
+    /**
+     * Método dispara las balas d ela nave.
+     */
+    public void Disparo() {
         Balay--;
     }
-    
-   
-
-    
+    /**
+     * Método abstracto para sobrescribir a mouseDragged.
+     */
     @Override
     public void mouseDragged(MouseEvent me) {
-       
-   
-    
-    }
 
+    }
+    /**
+     * Método abstracto controlar la nave con el mouse.
+     */
     @Override
     public void mouseMoved(MouseEvent me) {
-        if ((me.getX()>=0 && me.getY()>=0) && (me.getX()<= this.getWidth()) && me.getY() <= this.getHeight()-100) {
+        if ((me.getX() >= 0 && me.getY() >= 0) && (me.getX() <= this.getWidth()) && me.getY() <= this.getHeight() - 100) {
             x = me.getX();
-          
-          
+
         }
     }
-
+    /**
+     * Método abstracto controlar los disparos de nave con el mouse.
+     */
     @Override
     public void mouseClicked(MouseEvent me) {
-            Balax=me.getX();
-            Balay=me.getY();
-           
-            
-    }
+        Balax = me.getX();
+        Balay = me.getY();
 
+    }
+    /**
+     * Métodos abstractos que se implemetaran posteriormente.
+     */
     @Override
     public void mousePressed(MouseEvent me) {
-        
+
     }
 
     @Override
     public void mouseReleased(MouseEvent me) {
-       
+
     }
 
     @Override
     public void mouseEntered(MouseEvent me) {
-        
+
     }
 
     @Override
     public void mouseExited(MouseEvent me) {
-       
     }
 
-   
-
-   
 }

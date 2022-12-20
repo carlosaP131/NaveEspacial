@@ -1,25 +1,29 @@
 /** ****************************************************************************
- *Autor:Carlos Aurelio Alcántara Pérez Carlos Aurelio Alcántara Pérez & Baldomero Sainos Hernández.
+ *Autores:Carlos Aurelio Alcántara Pérez Carlos Aurelio Alcántara Pérez,
+ *        & Baldomero Sainos Hernández.
  *Fecha de creación: 18-11-2022 ***
  *Fecha de actualización:20-12-2022
- *Descripción:Panel para el inicio de sesion 
+ *Descripción:Panel para el inicio de sesion
  **
- * ****************************************************************************/
+ * *************************************************************************** */
 package view;
-
+/**
+ *Importación de los paquetes.
+ */
 
 import java.sql.*;
 import javax.swing.JOptionPane;
 
+/**
+ Clase para extender del JPanel e iniciar los componentes.
+ */
 public class InicioView extends javax.swing.JPanel {
 
- 
     public InicioView() {
         initComponents();
-       
+
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -44,7 +48,7 @@ public class InicioView extends javax.swing.JPanel {
                 ContraseñaActionPerformed(evt);
             }
         });
-        add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 240, -1));
+        add(Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 240, -1));
 
         Usuario.setBackground(new java.awt.Color(1, 39, 61));
         Usuario.setForeground(new java.awt.Color(233, 74, 218));
@@ -82,11 +86,11 @@ public class InicioView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaActionPerformed
-      
+
     }//GEN-LAST:event_ContraseñaActionPerformed
-    
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+
     }//GEN-LAST:event_jButton1ActionPerformed
     /**
      * Botón para ingresar en el JFrame logueo.
@@ -99,7 +103,7 @@ public class InicioView extends javax.swing.JPanel {
      */
     public Connection Conectar() {
         Connection con = null;
-        
+
         try {
             con = DriverManager.getConnection("jdbc:mysql://172.17.0.2:3306/nave_espacial", "root", "root");
             System.out.println("Conexion exitosa");
@@ -107,7 +111,8 @@ public class InicioView extends javax.swing.JPanel {
             System.out.println("Erorr de conexión" + e.toString());
         }
         return con;
-     }
+    }
+
     /**
      * Botón para ingresar en el JFrame principal y se ejecutan las consultas
      * para validar el usuario, si no coinciden nos envía una excepción.
