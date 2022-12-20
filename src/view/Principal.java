@@ -4,21 +4,22 @@
  *Fecha de actualización:20-12-2022
  *Descripción:Frame Principal para mostrar los paneles secundarios, juntamente
  * con el juego.
- * ****************************************************************************/
+ * *************************************************************************** */
 package view;
+
 /**
- *Clase principal que extiende el JFrame y se realizan las instancias a los 
- * Jframes. * 
+ * Clase principal que extiende el JFrame y se realizan las instancias a los
+ * Jframes. *
  */
 public class Principal extends javax.swing.JFrame {
-    //corrdenadas
-    private int xMouse;
+    private int xMouse; //corrdenadas
     private int yMouse;//Posición mause.
     InicioView inicio;// Instancia de el panel de inicio de sesión. 
     Portada portada;//Instancia de portada.
     Registrar regis;//Intancia de registrar usuario.
     Tabla_Usuario tUsuario;//instancia de tabla usuario.
     Juego juego;
+
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -28,7 +29,7 @@ public class Principal extends javax.swing.JFrame {
         tUsuario = new Tabla_Usuario();
         juego = new Juego();
         Pprincipal.add(portada);
-        
+
         portada.setVisible(true);
     }
 
@@ -185,29 +186,29 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     /**
-    *Botón para cerrar la aplicación.
-    */
+     * Botón para cerrar la aplicación.
+     */
     private void CerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CerrarMouseClicked
         System.exit(0);
     }//GEN-LAST:event_CerrarMouseClicked
     /**
-    *Botón para cerrar la aplicación.
-    */
+     * Botón para cerrar la aplicación.
+     */
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
         xMouse = evt.getX();
-         yMouse = evt.getY();
+        yMouse = evt.getY();
     }//GEN-LAST:event_jPanel2MousePressed
     /**
-    *Botón para cerrar la aplicación.
-    */
+     * Botón para cerrar la aplicación.
+     */
     private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
-     int x = evt.getXOnScreen();
-     int y = evt.getYOnScreen();
-     this.setLocation(x-xMouse, y-yMouse);
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_jPanel2MouseDragged
     /**
-    *Botón para hacer visible el JFrame consultar.
-    */
+     * Botón para hacer visible el JFrame consultar.
+     */
     private void BconsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BconsultarMouseClicked
         Pprincipal.add(tUsuario);
         inicio.setVisible(false);
@@ -218,8 +219,8 @@ public class Principal extends javax.swing.JFrame {
         deshabilitarBotones();
     }//GEN-LAST:event_BconsultarMouseClicked
     /**
-    *Botón para hacer visible el JFrame registrar.
-    */
+     * Botón para hacer visible el JFrame registrar.
+     */
     private void BregistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BregistrarMouseClicked
         Pprincipal.add(regis);
         inicio.setVisible(false);
@@ -229,14 +230,14 @@ public class Principal extends javax.swing.JFrame {
         Pprincipal.validate();
     }//GEN-LAST:event_BregistrarMouseClicked
     /**
-    *Botón para hacer visible el JFrame iniciar.
-    */
+     * Botón para hacer visible el JFrame iniciar.
+     */
     private void BiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BiniciarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BiniciarActionPerformed
     /**
-    *Botón para hacer visible el JFrame iniciar.
-    */
+     * Botón para hacer visible el JFrame iniciar.
+     */
     private void BiniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BiniciarMouseClicked
         Pprincipal.add(inicio);
         inicio.setVisible(true);
@@ -246,21 +247,21 @@ public class Principal extends javax.swing.JFrame {
         tUsuario.setVisible(false);
     }//GEN-LAST:event_BiniciarMouseClicked
     /**
-    *Botón para hacer visible el JFrame jugar.
-    */
+     * Botón para hacer visible el JFrame jugar.
+     */
     private void BjugarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BjugarMouseClicked
-       Pprincipal.add(juego);
-       Pprincipal.validate();
+        Pprincipal.add(juego);
+        Pprincipal.validate();
         inicio.setVisible(false);
-        portada.setVisible(false);      
+        portada.setVisible(false);
         regis.setVisible(false);
         tUsuario.setVisible(false);
         juego.setVisible(true);
-        
+
     }//GEN-LAST:event_BjugarMouseClicked
     /**
-    *Método principal.
-    */
+     * Método main para ejecutar el proyecto.
+     */
     public static void main(String args[]) {
 
         try {
@@ -286,10 +287,11 @@ public class Principal extends javax.swing.JFrame {
             }
         });
     }
+
     /**
-    *Clase para deshabilitar las funciones de los bótones.
-    */
- private void deshabilitarBotones() {
+     * Clase para deshabilitar las funciones de los bótones.
+     */
+    private void deshabilitarBotones() {
         if (Pprincipal.isVisible()) {
             Bconsultar.setEnabled(true);
             Biniciar.setEnabled(true);
@@ -306,7 +308,7 @@ public class Principal extends javax.swing.JFrame {
             Bjugar.setEnabled(true);
             Bregistrar.setEnabled(true);
         } else if (tUsuario.isVisible()) {
-           Bconsultar.setEnabled(false);
+            Bconsultar.setEnabled(false);
             Biniciar.setEnabled(true);
             Bjugar.setEnabled(true);
             Bregistrar.setEnabled(true);

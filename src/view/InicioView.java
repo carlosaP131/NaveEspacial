@@ -1,7 +1,7 @@
 /** ****************************************************************************
- *Autor:Carlos Aurelio Alcántara Pérez
+ *Autor:Carlos Aurelio Alcántara Pérez Carlos Aurelio Alcántara Pérez & Baldomero Sainos Hernández.
  *Fecha de creación: 18-11-2022 ***
- *Fecha de actualización:31-11-2022
+ *Fecha de actualización:20-12-2022
  *Descripción:Panel para el inicio de sesion 
  **
  * ****************************************************************************/
@@ -11,11 +11,6 @@ package view;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
-
-/**
- *
- * @author Carlos Aurelio Alcántara Pérez
- */
 public class InicioView extends javax.swing.JPanel {
 
  
@@ -89,15 +84,20 @@ public class InicioView extends javax.swing.JPanel {
     private void ContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaActionPerformed
       
     }//GEN-LAST:event_ContraseñaActionPerformed
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /**
+     * Botón para ingresar en el JFrame logueo.
+     */
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         ingresar();
     }//GEN-LAST:event_jButton1MouseClicked
-  public Connection Conectar() {
+    /**
+     * Conexión a la base de datos para poder ingresar al juego.
+     */
+    public Connection Conectar() {
         Connection con = null;
         
         try {
@@ -108,7 +108,10 @@ public class InicioView extends javax.swing.JPanel {
         }
         return con;
      }
-
+    /**
+     * Botón para ingresar en el JFrame principal y se ejecutan las consultas
+     * para validar el usuario, si no coinciden nos envía una excepción.
+     */
     public void ingresar() {
         Connection con1 = null;
         PreparedStatement pst = null;
@@ -124,8 +127,7 @@ public class InicioView extends javax.swing.JPanel {
                 rs = pst.executeQuery();
                 if (rs.next()) {
                     JOptionPane.showMessageDialog(null, "Credenciales correctas");
-                   // this.dispose();
-                    //new Datos().setVisible(true);
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
 
