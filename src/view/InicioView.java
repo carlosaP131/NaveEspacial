@@ -37,13 +37,13 @@ public class InicioView extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setPreferredSize(new java.awt.Dimension(990, 910));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Contraseña.setBackground(new java.awt.Color(1, 39, 61));
         Contraseña.setForeground(new java.awt.Color(233, 74, 218));
-        Contraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Contraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Contraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContraseñaActionPerformed(evt);
@@ -57,7 +57,7 @@ public class InicioView extends javax.swing.JPanel {
         add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 240, -1));
 
         jButton1.setBackground(new java.awt.Color(1, 39, 61));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iINGRESAR.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iIngresar.png"))); // NOI18N
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -72,17 +72,17 @@ public class InicioView extends javax.swing.JPanel {
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/ICONTRASEÑA.png"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, -1));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iContraseña.png"))); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 360, 250, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/IUSUARIO.png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iNombreJugador.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 250, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iINICIAR.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iIniciarSesionPrincipal.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, 90));
 
         jLabel1.setBackground(new java.awt.Color(1, 39, 61));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/fondo2.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iFondo2.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 880));
     }// </editor-fold>//GEN-END:initComponents
 

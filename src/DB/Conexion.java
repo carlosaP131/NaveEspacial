@@ -31,7 +31,7 @@ public class Conexion {
         this.user = "root";
         this.pdw = "sainos";
         this.url = "jdbc:mysql://";
-        this.ip = "172.17.0.2";
+        this.ip = "127.0.0.1";
         this.puerto = "3306";
         this.basedatos = "nave_espacial";
     }

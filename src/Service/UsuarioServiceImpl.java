@@ -7,11 +7,11 @@
  * ****************************************************************************/
 package Service;
 
-import Model.IUsuarioModel;
 import Model.UsuarioModelImpl;
 
 import entity.Usuario;
 import java.util.List;
+import Model.IUsuarioModel;
 
 /**
  *

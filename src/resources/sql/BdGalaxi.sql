@@ -1,10 +1,6 @@
--- Se elimina la BD si ya existe.
 DROP database  if exists nave_espacial;
--- Se crea la BD nave_espacial.
 create database nave_espacial;
--- Empezamos a usar la BD nave_espacial.
 use nave_espacial;
--- Defenimos los campos de la tabla y creamos la tabla rol.
 create table rol(
 idRol int auto_increment primary key, 
 rol varchar(20),
@@ -13,7 +9,6 @@ fechaactualizacion datetime,
 fechareliminacion datetime
 
 );
--- Se crea la tabla jugador con sus respectivos campos.
 create table jugador(
 	id_jugador int auto_increment primary key,
     nombre varchar(20),
@@ -27,7 +22,6 @@ fechacreacion datetime,
 fechaactualizacion datetime,
 fechareliminacion datetime
 );
--- Se crea la tabla usuario con sus respectivos campos.
 create table usuario(
 	id_usuario int  auto_increment primary key,
     usuario varchar(20),
@@ -38,7 +32,6 @@ fechacreacion datetime,
 fechaactualizacion datetime,
 fechareliminacion datetime
 );
--- Se crea la tabla usuario_rol con sus respectivos campos.
 create table usuario_rol(
 	usuario_id int not null,
     rol_id int not null,
@@ -48,27 +41,24 @@ fechacreacion datetime,
 fechaactualizacion datetime,
 fechareliminacion datetime
 );
--- Se crea el procedure Guardar el rol del jugador.
 delimiter $    
 create procedure Guardar(in rol varchar(20))
 begin
     insert into rol (rol) values (rol);
     end $
-
--- Se crea el procedure Actualizar el rol del jugador.
+    
 delimiter $    
 create procedure Actualizar(in idRolaux int,rolnuev varchar(20))
 begin
     update rol set rol=rolnuev  where rol.idRol=idRolaux;
     end $
-
--- Se crea el procedure Eliminar el rol del jugador.
+    
    delimiter $    
 create procedure Eliminar(in idRolaux int)
 begin
    DELETE FROM rol WHERE idRol=idRolaux;
     end $ 
--- Se crea el procedure Mostrar el rol del jugador.    
+    
    delimiter $    
 create procedure Mostrar()
 begin
