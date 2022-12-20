@@ -18,6 +18,7 @@ public class Principal extends javax.swing.JFrame {
     Portada portada;//instancia de portada 
     Registrar regis;//intancia de registrar usuario
     Tabla_Usuario tUsuario;//instancia de tabla usuario
+    Tabla_JugadoresGetze tJugadores;
 
     public Principal() {
         initComponents();
@@ -26,6 +27,7 @@ public class Principal extends javax.swing.JFrame {
         inicio = new InicioView();
         regis = new Registrar();
         tUsuario = new Tabla_Usuario();
+        tJugadores = new Tabla_JugadoresGetze();
         Pprincipal.add(portada);
         inicio.setVisible(false);
         portada.setVisible(true);
@@ -43,6 +45,7 @@ public class Principal extends javax.swing.JFrame {
         Bregistrar = new javax.swing.JButton();
         Bconsultar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Cerrar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -109,6 +112,13 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/FONDO3.png"))); // NOI18N
 
+        jButton1.setText("jButton1");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -129,7 +139,8 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Bconsultar)
-                            .addComponent(Bregistrar))))
+                            .addComponent(Bregistrar)
+                            .addComponent(jButton1))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -145,7 +156,9 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(Bregistrar)
                 .addGap(18, 18, 18)
                 .addComponent(Bconsultar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -232,6 +245,17 @@ public class Principal extends javax.swing.JFrame {
         tUsuario.setVisible(false);
     }//GEN-LAST:event_BiniciarMouseClicked
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        Pprincipal.add(tJugadores);
+        inicio.setVisible(false);
+        portada.setVisible(false);
+        regis.setVisible(false);
+        tJugadores.setVisible(true);
+        Pprincipal.validate();
+        
+    }//GEN-LAST:event_jButton1MouseClicked
+
     public static void main(String args[]) {
 
         try {
@@ -287,6 +311,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton Bregistrar;
     private javax.swing.JButton Cerrar;
     private javax.swing.JPanel Pprincipal;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
