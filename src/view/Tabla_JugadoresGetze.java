@@ -1,33 +1,38 @@
 /** ****************************************************************************
  *Autor:Getzemani Alejandro Gonzalez Cruz
- *Fecha de creación: 16-12-2022 
+ *Fecha de creación: 16-12-2022
  *Fecha de actualización:20-12-2022
- *Descripción:Panel para ver usuarios 
+ *Descripción:Panel para ver usuarios
  *
- * ****************************************************************************/
+ * *************************************************************************** */
 package view;
 
-
 import Controller.JugadorController;
+import com.mysql.cj.protocol.Resultset;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
 /**
  * @author Getzemani Alejandro Gonzalez Cruz
  */
 public class Tabla_JugadoresGetze extends javax.swing.JPanel {
+
     private final JugadorController jugadorController;
     private final DefaultTableModel modelo;
-    
+    Connection con;
+    Statement st;
+    Resultset rs;
+
     public Tabla_JugadoresGetze() {
         initComponents();
-        modelo= (DefaultTableModel) jTable1.getModel();
+        modelo = (DefaultTableModel) jTable1.getModel();
         jugadorController = new JugadorController();
         jugadorController.mostrar(modelo);
-  
-        
+
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -42,6 +47,8 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        nombre = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -91,6 +98,11 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
                 "id", "Jugador", "edad", "sexo", "correo", "puntos"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
@@ -111,6 +123,12 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         jLabel6.setText("icono de regreso");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
 
+        nombre.setText(" ");
+        add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 110, -1));
+
+        jTextField2.setText(" ");
+        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 110, -1));
+
         jLabel1.setBackground(new java.awt.Color(1, 39, 61));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/fondo2.jpg"))); // NOI18N
@@ -118,6 +136,21 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        String nombre1;
+        nombre1 = nombre.getText();
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/nave_espacial", "root", "CETI");
+            st = con.createStatement();
+            st.execute("DELETE FROM nave_espacial.jugador WHERE nombre='" + nombre1 + "'");
+            System.out.println("eliminado correctamente");
+            jugadorController.mostrar(modelo);
+            con.close();
+
+        } catch (Exception e) {
+            System.err.println("a" + e);
+        }
 
 
     }//GEN-LAST:event_jButton1MouseClicked
@@ -125,17 +158,40 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         jugadorController.mostrar(modelo);
-        
-        
+
+
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
+        String nombre1,nombre2;
+        nombre1=nombre.getText();
+        nombre2=jTextField2.getText();
+         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/nave_espacial", "root", "CETI");
+            st = con.createStatement();
+            st.execute("DELETE FROM nave_espacial.jugador WHERE nombre='" + nombre1 + "'");
+            System.out.println("eliminado correctamente");
+            jugadorController.mostrar(modelo);
+            con.close();
+
+        } catch (Exception e) {
+            System.err.println("a" + e);
+        }
+
+        
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+     nombre.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
+
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -150,5 +206,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField nombre;
     // End of variables declaration//GEN-END:variables
 }
