@@ -1,7 +1,7 @@
 /** ****************************************************************************
  *Autor:Getzemani Alejandro Gonzalez Cruz
  *Fecha de creación: 16-12-2022 
- *Fecha de actualización:19-12-2022
+ *Fecha de actualización:20-12-2022
  *Descripción:Panel para ver usuarios 
  *
  * ****************************************************************************/
