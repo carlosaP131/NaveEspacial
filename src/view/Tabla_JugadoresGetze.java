@@ -62,7 +62,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
-        jButton2.setText("mostar");
+        jButton2.setText("Mostar");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -73,7 +73,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Tabla usuario");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 280, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 280, -1));
 
         jButton3.setText("eliminar");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -85,13 +85,13 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "id", "Jugador", "edad", "sexo", "telefono", "correo", "puntos"
+                "id", "Jugador", "edad", "sexo", "correo", "puntos"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -100,7 +100,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("imagen de salida");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 20, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Logo usuaio");
