@@ -7,7 +7,6 @@
  * ****************************************************************************/
 package view;
 
-import Controller.JugadorController;
 
 import Controller.JugadorController;
 import javax.swing.table.DefaultTableModel;
