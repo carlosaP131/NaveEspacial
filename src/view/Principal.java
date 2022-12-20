@@ -16,16 +16,18 @@ public class Principal extends javax.swing.JFrame {
     private int yMouse;//Posición mause.
     InicioView inicio;// Instancia de el panel de inicio de sesión. 
     Portada portada;//Instancia de portada.
-    Registrar regis;//Intancia de registrar usuario.
+    Registrar registro;//Intancia de registrar usuario.
     Tabla_Usuario tUsuario;//instancia de tabla usuario.
     Juego juego;
-
+    /**
+     * Clase principal para instanciar a las otras vistas.
+     */
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(this);
         portada = new Portada();
         inicio = new InicioView();
-        regis = new Registrar();
+        registro = new Registrar();
         tUsuario = new Tabla_Usuario();
         juego = new Juego();
         Pprincipal.add(portada);
@@ -213,7 +215,7 @@ public class Principal extends javax.swing.JFrame {
         Pprincipal.add(tUsuario);
         inicio.setVisible(false);
         portada.setVisible(false);
-        regis.setVisible(false);
+        registro.setVisible(false);
         tUsuario.setVisible(true);
         Pprincipal.validate();
         deshabilitarBotones();
@@ -222,11 +224,11 @@ public class Principal extends javax.swing.JFrame {
      * Botón para hacer visible el JFrame registrar.
      */
     private void BregistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BregistrarMouseClicked
-        Pprincipal.add(regis);
+        Pprincipal.add(registro);
         inicio.setVisible(false);
         portada.setVisible(false);
         tUsuario.setVisible(false);
-        regis.setVisible(true);
+        registro.setVisible(true);
         Pprincipal.validate();
     }//GEN-LAST:event_BregistrarMouseClicked
     /**
@@ -243,7 +245,7 @@ public class Principal extends javax.swing.JFrame {
         inicio.setVisible(true);
         portada.setVisible(false);
         Pprincipal.validate();
-        regis.setVisible(false);
+        registro.setVisible(false);
         tUsuario.setVisible(false);
     }//GEN-LAST:event_BiniciarMouseClicked
     /**
@@ -254,7 +256,7 @@ public class Principal extends javax.swing.JFrame {
         Pprincipal.validate();
         inicio.setVisible(false);
         portada.setVisible(false);
-        regis.setVisible(false);
+        registro.setVisible(false);
         tUsuario.setVisible(false);
         juego.setVisible(true);
 
@@ -302,7 +304,7 @@ public class Principal extends javax.swing.JFrame {
             Biniciar.setEnabled(true);
             Bjugar.setEnabled(true);
             Bregistrar.setEnabled(true);
-        } else if (regis.isVisible()) {
+        } else if (registro.isVisible()) {
             Bconsultar.setEnabled(false);
             Biniciar.setEnabled(true);
             Bjugar.setEnabled(true);

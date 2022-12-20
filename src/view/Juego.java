@@ -1,6 +1,5 @@
 /** ****************************************************************************
- *Autores:Carlos Aurelio Alcántara Pérez Carlos Aurelio Alcántara Pérez,
- *        & Baldomero Sainos Hernández.
+ *Autores:Carlos Aurelio Alcántara Pérez & Baldomero Sainos Hernández.
  *Fecha de creación: 18-11-2022 ***
  *Fecha de actualización:20-12-2022
  *Descripción:Panel para la portada del juego, donde se va a mover los ateroides,
