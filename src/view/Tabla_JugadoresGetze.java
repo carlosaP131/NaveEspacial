@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Tabla_JugadoresGetze extends javax.swing.JPanel {
 //  private  UsuarioController usuariocontroller;
-    private JugadorController jugadorController;
+    private final JugadorController jugadorController;
     private final DefaultTableModel modelo;
     
     public Tabla_JugadoresGetze() {
