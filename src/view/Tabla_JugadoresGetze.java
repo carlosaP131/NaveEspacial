@@ -75,7 +75,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         jLabel2.setText("Tabla usuario");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 280, -1));
 
-        jButton3.setText("eliminar");
+        jButton3.setText("Eliminar");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
