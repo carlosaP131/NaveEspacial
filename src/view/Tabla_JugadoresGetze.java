@@ -30,6 +30,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         modelo = (DefaultTableModel) jTable1.getModel();
         jugadorController = new JugadorController();
         jugadorController.mostrar(modelo);
+        nombre.setEditable(false);
 
     }
 
@@ -174,6 +175,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
             st.execute("update jugador set nombre='" + nombre2  + "' where jugador.nombre='" + nombre1 + "';");
             System.out.println("Actualizado");
             jugadorController.mostrar(modelo);
+            
             con.close();
 
         } catch (Exception e) {
