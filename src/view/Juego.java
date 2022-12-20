@@ -32,11 +32,16 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
     private int Balax;
     private int Balay;
     private Thread hilo;
-
+    private boolean srtStp = true;
+    private int Nivel;
     public Juego() {
         initComponents();
         this.addMouseMotionListener(this);//activar la escucha del gragged
         this.addMouseListener(this);//activar el listener 
+         for (int i = 0; i < 900; i++) {
+            Nivel =  Nivel+i;
+            Jtnivel.setText(""+Nivel+"");
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -45,13 +50,13 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Jtpuntaje = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        Jtnivel = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Bpausa = new javax.swing.JButton();
+        Bplay = new javax.swing.JButton();
+        Breset = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,38 +68,48 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
         jLabel2.setText("Puntaje :");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(1, 39, 61));
-        jTextField1.setForeground(new java.awt.Color(233, 74, 218));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 40, -1));
+        Jtpuntaje.setBackground(new java.awt.Color(1, 39, 61));
+        Jtpuntaje.setForeground(new java.awt.Color(233, 74, 218));
+        jPanel1.add(Jtpuntaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 40, -1));
 
         jLabel3.setForeground(new java.awt.Color(233, 74, 218));
         jLabel3.setText("Nivel:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(1, 39, 61));
-        jTextField2.setForeground(new java.awt.Color(233, 74, 218));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 30, -1));
+        Jtnivel.setEditable(false);
+        Jtnivel.setBackground(new java.awt.Color(1, 39, 61));
+        Jtnivel.setForeground(new java.awt.Color(233, 74, 218));
+        jPanel1.add(Jtnivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 30, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(233, 74, 218));
         jLabel4.setText("GALAXI");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 140, 30));
 
-        jButton1.setText("Pausa");
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusPainted(false);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+        Bpausa.setText("Pausa");
+        Bpausa.setContentAreaFilled(false);
+        Bpausa.setFocusPainted(false);
+        Bpausa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BpausaMouseClicked(evt);
+            }
+        });
+        jPanel1.add(Bpausa, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
 
-        jButton2.setText("Play");
-        jButton2.setContentAreaFilled(false);
-        jButton2.setFocusPainted(false);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
+        Bplay.setText("Play");
+        Bplay.setContentAreaFilled(false);
+        Bplay.setFocusPainted(false);
+        Bplay.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BplayMouseClicked(evt);
+            }
+        });
+        jPanel1.add(Bplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
 
-        jButton3.setText("Reset");
-        jButton3.setContentAreaFilled(false);
-        jButton3.setFocusPainted(false);
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
+        Breset.setText("Reset");
+        Breset.setContentAreaFilled(false);
+        Breset.setFocusPainted(false);
+        jPanel1.add(Breset, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
@@ -103,18 +118,26 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 940));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BpausaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BpausaMouseClicked
+        setSrtStp(false);
+    }//GEN-LAST:event_BpausaMouseClicked
+
+    private void BplayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BplayMouseClicked
+        setSrtStp(true);
+    }//GEN-LAST:event_BplayMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton Bpausa;
+    private javax.swing.JButton Bplay;
+    private javax.swing.JButton Breset;
+    private javax.swing.JTextField Jtnivel;
+    private javax.swing.JTextField Jtpuntaje;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 public void paint(Graphics g) {
         setOpaque(false);
@@ -144,7 +167,12 @@ public void paint(Graphics g) {
         Image imgmet4 = tMet4.getImage("src/resources/img/iMeteoritot4.png");//Cargar imagen pelota1
         Mett4.drawImage(imgmet4, M4ubicacion, Caer, this);
         hilo = new Thread(this);
-        hilo.start();
+        if (srtStp) {
+            hilo.start();
+
+        } else {
+            hilo.interrupt();
+        }
         try {
 
             Thread.sleep(8);
@@ -159,6 +187,7 @@ public void paint(Graphics g) {
     public void run() {
         mover();
         Disparo();
+        
     }
 
     public void mover() {
@@ -213,5 +242,12 @@ public void paint(Graphics g) {
     public void mouseExited(MouseEvent me) {
 
     }
+   
+public void setSrtStp(boolean srtStp) {
+        this.srtStp = srtStp;
+    }
 
+    public boolean isSrtStp() {
+        return srtStp;
+    }
 }
