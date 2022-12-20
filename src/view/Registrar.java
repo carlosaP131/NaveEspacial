@@ -1,7 +1,8 @@
 /** ****************************************************************************
- *Autor:Carlos Aurelio Alcántara Pérez
- *Fecha de creación: 18-11-2022 
- *Fecha de actualización:31-11-2022
+ *Autores:Carlos Aurelio Alcántara Pérez Carlos Aurelio Alcántara Pérez,
+ *        & Baldomero Sainos Hernández.
+ *Fecha de creación: 18-11-2022 ***
+ *Fecha de actualización:20-12-2022
  *Descripción: Panel para Registrar Usuarios
  * ****************************************************************************/
 package view;
