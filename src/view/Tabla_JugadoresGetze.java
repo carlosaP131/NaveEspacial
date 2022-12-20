@@ -15,7 +15,6 @@ import javax.swing.table.DefaultTableModel;
  * @author Getzemani Alejandro Gonzalez Cruz
  */
 public class Tabla_JugadoresGetze extends javax.swing.JPanel {
-//  private  UsuarioController usuariocontroller;
     private final JugadorController jugadorController;
     private final DefaultTableModel modelo;
     
@@ -24,8 +23,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         modelo= (DefaultTableModel) jTable1.getModel();
         jugadorController = new JugadorController();
         jugadorController.mostrar(modelo);
-        
-        
+  
         
     }
 
