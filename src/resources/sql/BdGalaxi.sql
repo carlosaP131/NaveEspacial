@@ -67,7 +67,7 @@ begin
     
    delimiter $  
 
--- Creación del procedimiento almacenado para Eliminar.   
+-- Creación del procedimiento almacenado para Eliminar usuarios..   
 create procedure Eliminar(in idRolaux int)
 begin
    DELETE FROM rol WHERE idRol=idRolaux;
