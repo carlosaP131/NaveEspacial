@@ -12,6 +12,7 @@ package view;
  * Jframes. *
  */
 public class Principal extends javax.swing.JFrame {
+
     private int xMouse; //corrdenadas
     private int yMouse;//Posición mause.
     InicioView inicio;// Instancia de el panel de inicio de sesión. 
@@ -19,6 +20,7 @@ public class Principal extends javax.swing.JFrame {
     Registrar registro;//Intancia de registrar usuario.
     Tabla_Usuario tUsuario;//instancia de tabla usuario.
     Juego juego;
+
     /**
      * Clase principal para instanciar a las otras vistas.
      */
@@ -216,6 +218,7 @@ public class Principal extends javax.swing.JFrame {
         inicio.setVisible(false);
         portada.setVisible(false);
         registro.setVisible(false);
+        juego.setVisible(false);
         tUsuario.setVisible(true);
         Pprincipal.validate();
         deshabilitarBotones();
@@ -229,6 +232,7 @@ public class Principal extends javax.swing.JFrame {
         portada.setVisible(false);
         tUsuario.setVisible(false);
         registro.setVisible(true);
+        juego.setVisible(false);
         Pprincipal.validate();
     }//GEN-LAST:event_BregistrarMouseClicked
     /**
@@ -247,6 +251,7 @@ public class Principal extends javax.swing.JFrame {
         Pprincipal.validate();
         registro.setVisible(false);
         tUsuario.setVisible(false);
+        juego.setVisible(false);
     }//GEN-LAST:event_BiniciarMouseClicked
     /**
      * Botón para hacer visible el JFrame jugar.
