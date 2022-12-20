@@ -11,12 +11,7 @@ package view;
 import Controller.JugadorController;
 import javax.swing.table.DefaultTableModel;
 
-//import Model.UsuarioModelImpl;
-//import entity.Jugador;
-//import entity.Usuario;
-
 /**
- *
  * @author Getzemani Alejandro Gonzalez Cruz
  */
 public class Tabla_JugadoresGetze extends javax.swing.JPanel {
