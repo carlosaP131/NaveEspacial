@@ -7,7 +7,11 @@
  * ****************************************************************************/
 package view;
 
-//import Controller.UsuarioController;
+import Controller.JugadorController;
+
+import Controller.JugadorController;
+import javax.swing.table.DefaultTableModel;
+
 //import Model.UsuarioModelImpl;
 //import entity.Jugador;
 //import entity.Usuario;
@@ -18,9 +22,15 @@ package view;
  */
 public class Tabla_JugadoresGetze extends javax.swing.JPanel {
 //  private  UsuarioController usuariocontroller;
+    private JugadorController jugadorController;
+    private final DefaultTableModel modelo;
     
     public Tabla_JugadoresGetze() {
         initComponents();
+        modelo= (DefaultTableModel) jTable1.getModel();
+        jugadorController = new JugadorController();
+        jugadorController.mostrar(modelo);
+        
         
         
     }
@@ -75,18 +85,18 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "id", "Jugador", "Score"
+                "id", "Jugador", "edad", "sexo", "telefono", "correo", "puntos"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, -1, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("imagen de salida");
@@ -120,6 +130,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
+        jugadorController.mostrar(modelo);
         
         
     }//GEN-LAST:event_jButton2MouseClicked
