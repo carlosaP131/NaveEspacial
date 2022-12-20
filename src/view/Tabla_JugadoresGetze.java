@@ -113,10 +113,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-//        Usuario usuario = new Usuario();
-//        Jugador jugador = new Jugador();// se instancia jugador y usuario
-//        UsuarioModelImpl usuarioid = new UsuarioModelImpl();
+
 
     }//GEN-LAST:event_jButton1MouseClicked
 
