@@ -171,8 +171,8 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/nave_espacial", "root", "CETI");
             st = con.createStatement();
-            st.execute("DELETE FROM nave_espacial.jugador WHERE nombre='" + nombre1 + "'");
-            System.out.println("eliminado correctamente");
+            st.execute("update jugador set nombre='" + nombre2  + "' where jugador.nombre='" + nombre1 + "';");
+            System.out.println("Actualizado");
             jugadorController.mostrar(modelo);
             con.close();
 
