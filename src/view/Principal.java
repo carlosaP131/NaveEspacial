@@ -18,7 +18,7 @@ public class Principal extends javax.swing.JFrame {
     Portada portada;//instancia de portada 
     Registrar regis;//intancia de registrar usuario
     Tabla_Usuario tUsuario;//instancia de tabla usuario
-    Tabla_JugadoresGetze tJugadores;
+    Tabla_Jugadores tJugadores;
 
     public Principal() {
         initComponents();
@@ -27,7 +27,7 @@ public class Principal extends javax.swing.JFrame {
         inicio = new InicioView();
         regis = new Registrar();
         tUsuario = new Tabla_Usuario();
-        tJugadores = new Tabla_JugadoresGetze();
+        tJugadores = new Tabla_Jugadores();
         Pprincipal.add(portada);
         inicio.setVisible(false);
         portada.setVisible(true);

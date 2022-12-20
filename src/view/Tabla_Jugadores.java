@@ -2,7 +2,7 @@
  *Autor:Getzemani Alejandro Gonzalez Cruz
  *Fecha de creación: 16-12-2022
  *Fecha de actualización:20-12-2022
- *Descripción:Panel para ver usuarios
+ *Descripción:Panel para ver jugadores
  *
  * *************************************************************************** */
 package view;
@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 /**
  * @author Getzemani Alejandro Gonzalez Cruz
  */
-public class Tabla_JugadoresGetze extends javax.swing.JPanel {
+public class Tabla_Jugadores extends javax.swing.JPanel {
 
     private final JugadorController jugadorController;
     private final DefaultTableModel modelo;
@@ -25,7 +25,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
     Statement st;
     Resultset rs;
 
-    public Tabla_JugadoresGetze() {
+    public Tabla_Jugadores() {
         initComponents();
         modelo = (DefaultTableModel) jTable1.getModel();
         jugadorController = new JugadorController();
@@ -113,7 +113,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Logo usuaio");
+        jLabel3.setText("Logo usuario");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,24 +165,24 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
-        String nombre1,nombre2;
-        nombre1=nombre.getText();
-        nombre2=jTextField2.getText();
-         try {
+        String nombre1, nombre2;
+        nombre1 = nombre.getText();
+        nombre2 = jTextField2.getText();
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/nave_espacial", "root", "CETI");
             st = con.createStatement();
-            st.execute("update jugador set nombre='" + nombre2  + "' where jugador.nombre='" + nombre1 + "';");
+            st.execute("update jugador set nombre='" + nombre2 + "' where jugador.nombre='" + nombre1 + "';");
             System.out.println("Actualizado");
             jugadorController.mostrar(modelo);
-            
+
             con.close();
 
         } catch (Exception e) {
             System.err.println("a" + e);
         }
 
-        
+
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -191,7 +191,7 @@ public class Tabla_JugadoresGetze extends javax.swing.JPanel {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-     nombre.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
+        nombre.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
 
     }//GEN-LAST:event_jTable1MouseClicked
 
