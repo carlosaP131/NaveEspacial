@@ -1,3 +1,11 @@
+/** ****************************************************************************
+ *Autor:Sainos Hernández Baldomero
+ *Fecha de creación: 01-10-2022 ***
+ *Fecha de actualización:20-12-2022***
+ *Descripción:Panel para la portada.
+ *
+ * ****************************************************************************/
+
 -- Si ya existe la base de datos nave_espacial se elimina.
 DROP database  if exists nave_espacial;
 
@@ -51,7 +59,7 @@ fechareliminacion datetime
 );
 delimiter $  
 
--- Creación del procedimiento almacenado para Guardar.  
+-- Creación del procedimiento almacenado para Guardar usuarios.  
 create procedure Guardar(in rol varchar(20))
 begin
     insert into rol (rol) values (rol);
@@ -59,7 +67,7 @@ begin
     
 delimiter $    
 
--- Creación del procedimiento almacenado para Actualizar. 
+-- Creación del procedimiento almacenado para Actualizar usuarios. 
 create procedure Actualizar(in idRolaux int,rolnuev varchar(20))
 begin
     update rol set rol=rolnuev  where rol.idRol=idRolaux;
@@ -67,7 +75,7 @@ begin
     
    delimiter $  
 
--- Creación del procedimiento almacenado para Eliminar usuarios..   
+-- Creación del procedimiento almacenado para Eliminar usuarios.   
 create procedure Eliminar(in idRolaux int)
 begin
    DELETE FROM rol WHERE idRol=idRolaux;
