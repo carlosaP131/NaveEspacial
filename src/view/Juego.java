@@ -2,7 +2,7 @@
  *Autor:Carlos Aurelio Alcántara Pérez
  *Fecha de creación: 18-11-2022 ***
  *Fecha de actualización:31-11-2022
- *Descripción:Panel para la portada
+ *Descripción:Panel Juego
  *
  * *************************************************************************** */
 package view;
@@ -31,14 +31,12 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
     private int M4ubicacion = 550;
     private int Balax;
     private int Balay;
-    private int Diametro = 30;
-    private int ya = 1;
     private Thread hilo;
 
     public Juego() {
         initComponents();
         this.addMouseMotionListener(this);//activar la escucha del gragged
-        this.addMouseListener(this);
+        this.addMouseListener(this);//activar el listener 
     }
 
     @SuppressWarnings("unchecked")
@@ -183,14 +181,16 @@ public void paint(Graphics g) {
     public void mouseMoved(MouseEvent me) {
         if ((me.getX() >= 0 && me.getY() >= 0) && (me.getX() <= this.getWidth()) && me.getY() <= this.getHeight() - 100) {
             x = me.getX();
-
+            
         }
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        Balax = me.getX();
-        Balay = me.getY();
+        
+        Balax = x+50;
+        Balay = 700;
+     
 
     }
 
