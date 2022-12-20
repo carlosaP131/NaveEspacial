@@ -60,8 +60,12 @@ public class JugadorModelImpl implements IJugadorModel {
             rs = stm.executeQuery(query);
             while (rs.next()) {
                 Jugador jugador = new Jugador();
-                jugador.setIdJugador(rs.getInt(1));
-                jugador.setNombre(rs.getString(2));
+                jugador.setIdJugador(rs.getInt("id_jugador"));
+                jugador.setNombre(rs.getString("nombre"));
+                jugador.setEdad(rs.getInt("edad"));
+                jugador.setSexo(rs.getString("sexo"));
+                jugador.setCorreo("correo");
+                jugador.setPuntos(rs.getInt("puntos"));
                 listajugador.add(jugador);
             }
             stm.close();
