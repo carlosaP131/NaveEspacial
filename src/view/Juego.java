@@ -7,6 +7,7 @@
  * *************************************************************************** */
 package view;
 
+import Graficos.Assets;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
