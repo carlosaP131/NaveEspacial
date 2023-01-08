@@ -10,6 +10,7 @@ import java.awt.image.BufferedImage;
 public class Assets {
     public static BufferedImage player;
     public static void init(){
-        
+        player = Loader.Imageloader("/src/resources/img/Juego/iNaveespacial.png"); 
+                
     }
 }
