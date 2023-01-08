@@ -75,7 +75,7 @@
           <Color blue="3d" green="27" red="1" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iRegistrarBot.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Botones\iRegistrarBot.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -93,7 +93,7 @@
     <Component class="javax.swing.JLabel" name="Lcontrase&#xf1;a">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iContrase&#xf1;a.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Etiquetas\iContrase&#xf1;a.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
@@ -108,7 +108,7 @@
     <Component class="javax.swing.JLabel" name="Lnombre">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iNombreJugador.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Etiquetas\iNombreJugador.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
@@ -123,7 +123,7 @@
     <Component class="javax.swing.JLabel" name="LtituloReg">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iRegistrarTitulo.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Titulos\iRegistrarTitulo.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -135,7 +135,7 @@
     <Component class="javax.swing.JLabel" name="Ledad">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iEdad.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Etiquetas\iEdad.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
@@ -150,7 +150,7 @@
     <Component class="javax.swing.JLabel" name="Lsexo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iSexo.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Etiquetas\iSexo.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
@@ -165,7 +165,7 @@
     <Component class="javax.swing.JLabel" name="Ldireccion">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iDireccion.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Etiquetas\iDireccion.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
@@ -180,7 +180,7 @@
     <Component class="javax.swing.JLabel" name="Ltelefono">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iTelefono.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Etiquetas\iTelefono.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
@@ -195,7 +195,7 @@
     <Component class="javax.swing.JLabel" name="Lcorreo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iCorreo.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Etiquetas\iCorreo.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
@@ -335,7 +335,7 @@
     <Component class="javax.swing.JLabel" name="Lnickname">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iNickname.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Etiquetas\iNickname.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
@@ -409,7 +409,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iFondo2.jpg"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\fondos\iFondo2.jpg"/>
         </Property>
       </Properties>
       <Constraints>

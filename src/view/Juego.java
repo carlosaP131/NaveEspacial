@@ -33,15 +33,12 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
     private int Balay;
     private Thread hilo;
     private boolean srtStp = true;
-    private int Nivel;
+    private int Nivel = 0;
     public Juego() {
         initComponents();
         this.addMouseMotionListener(this);//activar la escucha del gragged
         this.addMouseListener(this);//activar el listener 
-         for (int i = 0; i < 900; i++) {
-            Nivel =  Nivel+i;
-            Jtnivel.setText(""+Nivel+"");
-        }
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -79,7 +76,7 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
         Jtnivel.setEditable(false);
         Jtnivel.setBackground(new java.awt.Color(1, 39, 61));
         Jtnivel.setForeground(new java.awt.Color(233, 74, 218));
-        jPanel1.add(Jtnivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 30, -1));
+        jPanel1.add(Jtnivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 50, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(233, 74, 218));
@@ -114,7 +111,7 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
         jLabel1.setBackground(new java.awt.Color(1, 39, 61));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iFondoJuego2.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Juego\\iFondoJuego2.jpg")); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 940));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -144,27 +141,27 @@ public void paint(Graphics g) {
         super.paint(g);
         Graphics2D Nave = (Graphics2D) g;
         Toolkit tnave = Toolkit.getDefaultToolkit();
-        Image imgnave = tnave.getImage("src/resources/img/iNaveespacial.png");//Cargar imagen pelota1
+        Image imgnave = tnave.getImage("src/resources/img/iNaveespacial.png");//Cargar imagen nave espacial
         Nave.drawImage(imgnave, x, 700, this);
         Graphics2D Bala = (Graphics2D) g;
         Toolkit tbala = Toolkit.getDefaultToolkit();
-        Image imgbala = tbala.getImage("src/resources/img/iLaser.png");//Cargar imagen pelota1
+        Image imgbala = tbala.getImage("src/resources/img/iLaser.png");//Cargar imagen Laser
         Bala.drawImage(imgbala, Balax, Balay, this);
         Graphics2D Mett1 = (Graphics2D) g;
         Toolkit tMet1 = Toolkit.getDefaultToolkit();
-        Image imgmet1 = tMet1.getImage("src/resources/img/iMeteoritot1.png");//Cargar imagen pelota1
+        Image imgmet1 = tMet1.getImage("src/resources/img/iMeteoritot1.png");//Cargar imagen Meteorito
         Mett1.drawImage(imgmet1, M1ubicacion, Caer, this);
         Graphics2D Mett2 = (Graphics2D) g;
         Toolkit tMet2 = Toolkit.getDefaultToolkit();
-        Image imgmet2 = tMet2.getImage("src/resources/img/iMeteoritot2.png");//Cargar imagen pelota1
+        Image imgmet2 = tMet2.getImage("src/resources/img/iMeteoritot2.png");//Cargar imagen Meteorito 2
         Mett2.drawImage(imgmet2, M2ubicacion, Caer, this);
         Graphics2D Mett3 = (Graphics2D) g;
         Toolkit tMet3 = Toolkit.getDefaultToolkit();
-        Image imgmet3 = tMet3.getImage("src/resources/img/iMeteoritot3.png");//Cargar imagen pelota1
+        Image imgmet3 = tMet3.getImage("src/resources/img/iMeteoritot3.png");//Cargar imagen Meteorito3
         Mett3.drawImage(imgmet3, M3ubicacion, Caer, this);
         Graphics2D Mett4 = (Graphics2D) g;
         Toolkit tMet4 = Toolkit.getDefaultToolkit();
-        Image imgmet4 = tMet4.getImage("src/resources/img/iMeteoritot4.png");//Cargar imagen pelota1
+        Image imgmet4 = tMet4.getImage("src/resources/img/iMeteoritot4.png");//Cargar imagen Meteorito4
         Mett4.drawImage(imgmet4, M4ubicacion, Caer, this);
         hilo = new Thread(this);
         if (srtStp) {
@@ -187,7 +184,7 @@ public void paint(Graphics g) {
     public void run() {
         mover();
         Disparo();
-        
+        aumentarnivel();
     }
 
     public void mover() {
@@ -250,4 +247,11 @@ public void setSrtStp(boolean srtStp) {
     public boolean isSrtStp() {
         return srtStp;
     }
+    
+    public void aumentarnivel(){
+     
+            Nivel =  Nivel++;
+         
+    }
+   
 }

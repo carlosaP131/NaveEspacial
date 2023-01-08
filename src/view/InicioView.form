@@ -63,20 +63,20 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="Iniciar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="3d" green="27" red="1" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iIngresar.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Botones\iIngresar.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="IniciarMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IniciarActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -87,7 +87,7 @@
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iContrase&#xf1;a.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Etiquetas\iContrase&#xf1;a.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -99,7 +99,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iNombreJugador.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Etiquetas\iNombreJugador.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -111,7 +111,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iIniciar.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Titulos\iIniciar.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -126,7 +126,7 @@
           <Color blue="3d" green="27" red="1" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iFondo2.jpg"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\fondos\iFondo2.jpg"/>
         </Property>
       </Properties>
       <Constraints>
