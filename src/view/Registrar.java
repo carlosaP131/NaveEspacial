@@ -96,18 +96,18 @@ public class Registrar extends javax.swing.JPanel {
         });
         add(registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, -1, -1));
 
-        Lcontraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iContraseña.png"))); // NOI18N
+        Lcontraseña.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iContraseña.png")); // NOI18N
         Lcontraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Lcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 150, -1));
 
-        Lnombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iNombreJugador.png"))); // NOI18N
+        Lnombre.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iNombreJugador.png")); // NOI18N
         Lnombre.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Lnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 100, -1));
 
-        LtituloReg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iRegistrarTitulo.png"))); // NOI18N
+        LtituloReg.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iRegistrarTitulo.png")); // NOI18N
         add(LtituloReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 840, 60));
 
-        Ledad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iEdad.png"))); // NOI18N
+        Ledad.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iEdad.png")); // NOI18N
         Ledad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Ledad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
 
@@ -187,7 +187,7 @@ public class Registrar extends javax.swing.JPanel {
         });
         add(Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, 240, -1));
 
-        Lnickname.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iNickname.png"))); // NOI18N
+        Lnickname.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iNickname.png")); // NOI18N
         Lnickname.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Lnickname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
 

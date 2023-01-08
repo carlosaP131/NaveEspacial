@@ -114,7 +114,7 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
         jLabel1.setBackground(new java.awt.Color(1, 39, 61));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iFondoJuego2.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iFondoJuego2.jpg")); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 940));
     }// </editor-fold>//GEN-END:initComponents
 
