@@ -74,19 +74,19 @@ public class Tabla_Usuario extends javax.swing.JPanel {
         add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 130, -1));
 
         Beliminar.setBackground(new java.awt.Color(1, 39, 61));
-        Beliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iEliminarBot.png"))); // NOI18N
+        Beliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iEliminarBot.png")); // NOI18N
         Beliminar.setBorderPainted(false);
         Beliminar.setContentAreaFilled(false);
-        add(Beliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+        add(Beliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
         Bmodificar.setBackground(new java.awt.Color(1, 39, 61));
-        Bmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iModificarBot.png"))); // NOI18N
+        Bmodificar.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iModificarBot.png")); // NOI18N
         Bmodificar.setBorderPainted(false);
         Bmodificar.setContentAreaFilled(false);
         add(Bmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         Bmostrar.setBackground(new java.awt.Color(1, 39, 61));
-        Bmostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iMostrarB.png"))); // NOI18N
+        Bmostrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iMostrarB.png")); // NOI18N
         Bmostrar.setBorderPainted(false);
         Bmostrar.setContentAreaFilled(false);
         Bmostrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -96,11 +96,11 @@ public class Tabla_Usuario extends javax.swing.JPanel {
         });
         add(Bmostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 130, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iTablaUsuarioTitulo.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iTablaUsuarioTitulo.png")); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(1, 39, 61));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/iFondo2.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\iFondo2.jpg")); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 880));
     }// </editor-fold>//GEN-END:initComponents
 

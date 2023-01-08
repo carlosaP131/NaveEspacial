@@ -75,7 +75,7 @@
           <Color blue="3d" green="27" red="1" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/iRegistrarBot.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iRegistrarBot.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -150,7 +150,7 @@
     <Component class="javax.swing.JLabel" name="Lsexo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/iSexo.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iSexo.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
@@ -165,7 +165,7 @@
     <Component class="javax.swing.JLabel" name="Ldireccion">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/iDireccion.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iDireccion.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
@@ -180,7 +180,7 @@
     <Component class="javax.swing.JLabel" name="Ltelefono">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/iTelefono.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iTelefono.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
@@ -195,7 +195,7 @@
     <Component class="javax.swing.JLabel" name="Lcorreo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/iCorreo.png"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iCorreo.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
@@ -409,7 +409,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/iFondo2.jpg"/>
+          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\iFondo2.jpg"/>
         </Property>
       </Properties>
       <Constraints>
