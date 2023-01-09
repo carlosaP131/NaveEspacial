@@ -1,25 +1,18 @@
-/** ****************************************************************************
- *Autor:Carlos Aurelio Alcántara Pérez
- *Fecha de creación: 18-11-2022 ***
- *Fecha de actualización:31-11-2022
- *Descripción:Panel Juego
- *
- * *************************************************************************** */
-package view;
 
+package view;
 import Graficos.Assets;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-
+import javax.swing.JFrame;
 /**
  *
- * @author Carlos Aurelio Alcántara Pérez
+ * @author carlos
  */
-public class Juego extends javax.swing.JPanel implements Runnable {
-public static final int WIDTH = 800, HEIGHT = 600;
+public class Juego extends JFrame implements Runnable{
+    public static final int WIDTH = 800, HEIGHT = 600;
 	private Canvas canvas;
 	private Thread thread;
 	private boolean running = false;
@@ -31,8 +24,16 @@ public static final int WIDTH = 800, HEIGHT = 600;
 	private double TARGETTIME = 1000000000/FPS;
 	private double delta = 0;
 	private int AVERAGEFPS = FPS;
-    public Juego() {
-      
+	
+	public Juego()
+	{
+		setTitle("Space Ship Game");
+		setSize(WIDTH, HEIGHT);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
+		setLocationRelativeTo(null);
+		setVisible(true);
+		
 		canvas = new Canvas();
 		
 		canvas.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -41,26 +42,17 @@ public static final int WIDTH = 800, HEIGHT = 600;
 		canvas.setFocusable(true);
 		
 		add(canvas);
-    }
+		
+	}
+	
+	
 
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
-        jLabel1 = new javax.swing.JLabel();
-
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setBackground(new java.awt.Color(1, 39, 61));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Juego\\iFondoJuego2.jpg")); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 940));
-    }// </editor-fold>//GEN-END:initComponents
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    // End of variables declaration//GEN-END:variables
-int x = 0;
+	public static void main(String[] args) {
+		new Juego().start();
+	}
+	
+	
+	int x = 0;
 	private void update(){
 		x++;
 	}
@@ -78,7 +70,9 @@ int x = 0;
 		
 		//-----------------------
 		
-		g.clearRect(0, 0, WIDTH, HEIGHT);
+		g.fillRect(0, 0, WIDTH, HEIGHT);
+		
+		g.drawImage(Assets.player, 0, 0, null);
 		
 		g.setColor(Color.BLACK);
 		
@@ -89,9 +83,10 @@ int x = 0;
 		bs.show();
 	}
 	
-	public void init(){
-            Assets.init();
-        }
+	private void init()
+	{
+		Assets.init();
+	}
 	@Override
 	public void run() {
 		
@@ -99,7 +94,7 @@ int x = 0;
 		long lastTime = System.nanoTime();
 		int frames = 0;
 		long time = 0;
-		init();
+                init();
 		while(running)
 		{
 			now = System.nanoTime();
@@ -146,4 +141,7 @@ int x = 0;
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
 }
