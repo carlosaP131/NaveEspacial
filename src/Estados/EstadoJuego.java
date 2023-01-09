@@ -2,6 +2,7 @@
 package Estados;
 
 import Graficos.Assets;
+import Math.Vector;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -10,12 +11,13 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
 /**
  *
  * @author carlos
  */
 public class EstadoJuego {
-    public static final Vector2D PLAYER_START_POSITION = new Vector2D(Constants.WIDTH/2 - Assets.player.getWidth()/2,
+    public static final Vector PLAYER_START_POSITION = new Vector(Constants.WIDTH/2 - Assets.player.getWidth()/2,
 			Constants.HEIGHT/2 - Assets.player.getHeight()/2);
 	
 	private Player player;
@@ -37,7 +39,7 @@ public class EstadoJuego {
 	
 	public GameState()
 	{
-		player = new Player(PLAYER_START_POSITION, new Vector2D(),
+		player = new Player(PLAYER_START_POSITION, new Vector(),
 				Constants.PLAYER_MAX_VEL, Assets.player, this);
 		
 		gameOverTimer = new Chronometer();
@@ -55,7 +57,7 @@ public class EstadoJuego {
 	}
 	
 	
-	public void addScore(int value, Vector2D position) {
+	public void addScore(int value, Vector position) {
 		score += value;
 		messages.add(new Message(position, true, "+"+value+" score", Color.WHITE, false, Assets.fontMed));
 	}
@@ -85,7 +87,7 @@ public class EstadoJuego {
 		for(int i = 0; i < size.quantity; i++){
 			movingObjects.add(new Meteor(
 					meteor.getPosition(),
-					new Vector2D(0, 1).setDirection(Math.random()*Math.PI*2),
+					new Vector(0, 1).setDirection(Math.random()*Math.PI*2),
 					Constants.METEOR_VEL*Math.random() + 1,
 					textures[(int)(Math.random()*textures.length)],
 					this,
@@ -97,7 +99,7 @@ public class EstadoJuego {
 	
 	private void startWave(){
 		
-		messages.add(new Message(new Vector2D(Constants.WIDTH/2, Constants.HEIGHT/2), false,
+		messages.add(new Message(new Vector(Constants.WIDTH/2, Constants.HEIGHT/2), false,
 				"WAVE "+waves, Color.WHITE, true, Assets.fontBig));
 		
 		double x, y;
@@ -110,8 +112,8 @@ public class EstadoJuego {
 			BufferedImage texture = Assets.bigs[(int)(Math.random()*Assets.bigs.length)];
 			
 			movingObjects.add(new Meteor(
-					new Vector2D(x, y),
-					new Vector2D(0, 1).setDirection(Math.random()*Math.PI*2),
+					new Vector(x, y),
+					new Vector(0, 1).setDirection(Math.random()*Math.PI*2),
 					Constants.METEOR_VEL*Math.random() + 1,
 					texture,
 					this,
@@ -122,11 +124,11 @@ public class EstadoJuego {
 		meteors ++;
 	}
 	
-	public void playExplosion(Vector2D position){
+	public void playExplosion(Vector position){
 		explosions.add(new Animation(
 				Assets.exp,
 				50,
-				position.subtract(new Vector2D(Assets.exp[0].getWidth()/2, Assets.exp[0].getHeight()/2))
+				position.subtract(new Vector(Assets.exp[0].getWidth()/2, Assets.exp[0].getHeight()/2))
 				));
 	}
 	
@@ -137,29 +139,29 @@ public class EstadoJuego {
 		double x = rand == 0 ? (Math.random()*Constants.WIDTH): Constants.WIDTH;
 		double y = rand == 0 ? Constants.HEIGHT : (Math.random()*Constants.HEIGHT);
 		
-		ArrayList<Vector2D> path = new ArrayList<Vector2D>();
+		ArrayList<Vector> path = new ArrayList<Vector>();
 		
 		double posX, posY;
 		
 		posX = Math.random()*Constants.WIDTH/2;
 		posY = Math.random()*Constants.HEIGHT/2;	
-		path.add(new Vector2D(posX, posY));
+		path.add(new Vector(posX, posY));
 
 		posX = Math.random()*(Constants.WIDTH/2) + Constants.WIDTH/2;
 		posY = Math.random()*Constants.HEIGHT/2;	
-		path.add(new Vector2D(posX, posY));
+		path.add(new Vector(posX, posY));
 		
 		posX = Math.random()*Constants.WIDTH/2;
 		posY = Math.random()*(Constants.HEIGHT/2) + Constants.HEIGHT/2;	
-		path.add(new Vector2D(posX, posY));
+		path.add(new Vector(posX, posY));
 		
 		posX = Math.random()*(Constants.WIDTH/2) + Constants.WIDTH/2;
 		posY = Math.random()*(Constants.HEIGHT/2) + Constants.HEIGHT/2;	
-		path.add(new Vector2D(posX, posY));
+		path.add(new Vector(posX, posY));
 		
 		movingObjects.add(new Ufo(
-				new Vector2D(x, y),
-				new Vector2D(),
+				new Vector(x, y),
+				new Vector(),
 				Constants.UFO_MAX_VEL,
 				Assets.ufo,
 				path,
@@ -253,7 +255,7 @@ public class EstadoJuego {
 	
 	private void drawScore(Graphics g) {
 		
-		Vector2D pos = new Vector2D(850, 25);
+		Vector pos = new Vector(850, 25);
 		
 		String scoreToString = Integer.toString(score);
 		
@@ -272,7 +274,7 @@ public class EstadoJuego {
 		if(lives < 1)
 			return;
 		
-		Vector2D livePosition = new Vector2D(25, 25);
+		Vector livePosition = new Vector(25, 25);
 		
 		g.drawImage(Assets.life, (int)livePosition.getX(), (int)livePosition.getY(), null);
 		
@@ -281,7 +283,7 @@ public class EstadoJuego {
 		
 		String livesToString = Integer.toString(lives);
 		
-		Vector2D pos = new Vector2D(livePosition.getX(), livePosition.getY());
+		Vector pos = new Vector(livePosition.getX(), livePosition.getY());
 		
 		for(int i = 0; i < livesToString.length(); i ++)
 		{

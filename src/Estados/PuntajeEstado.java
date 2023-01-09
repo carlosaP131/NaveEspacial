@@ -2,6 +2,7 @@
 package Estados;
 
 import Graficos.Assets;
+import Math.Vector;
 import Ui.Boton;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -80,11 +81,11 @@ private Boton returnButton;
 		Arrays.sort(auxArray, scoreComparator);
 		
 		
-		Vector2D scorePos = new Vector2D(
+		Vector scorePos = new Vector(
 				Constants.WIDTH / 2 - 200,
 				100
 				);
-		Vector2D datePos = new Vector2D(
+		Vector datePos = new Vector(
 				Constants.WIDTH / 2 + 200,
 				100
 				);

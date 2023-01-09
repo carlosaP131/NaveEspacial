@@ -2,6 +2,7 @@
 package Ui;
 
 import Graficos.Assets;
+import Math.Vector;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -58,7 +59,7 @@ public class Boton {
 		Text.drawText(
 				g,
 				text,
-				new Vector2D(
+				new Vector(
 						boundingBox.getX() + boundingBox.getWidth() / 2,
 						boundingBox.getY() + boundingBox.getHeight()),
 				true,
