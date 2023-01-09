@@ -71,10 +71,10 @@ public static BufferedImage player;
 			tinies[i] = Loader.Imageloader("tiny"+(i+1)+".png");
 		
 		for(int i = 0; i < exp.length; i++)
-			exp[i] = Loader.Imageloader("explosion"+i+".png ");
+			exp[i] = Loader.Imageloader("explocion"+i+".png ");
 		
-		/*for(int i = 0; i < numbers.length; i++)
-			numbers[i] = Loader.Imageloader("");*/
+		for(int i = 0; i < numbers.length; i++)
+			numbers[i] = Loader.Imageloader(""+i+"");
 		
 	}
 	
