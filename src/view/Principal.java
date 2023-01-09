@@ -93,6 +93,11 @@ public class Principal extends javax.swing.JFrame {
                 BjugarMouseClicked(evt);
             }
         });
+        Bjugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BjugarActionPerformed(evt);
+            }
+        });
 
         Bregistrar.setBackground(new java.awt.Color(1, 39, 61));
         Bregistrar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
@@ -266,6 +271,10 @@ public class Principal extends javax.swing.JFrame {
         juego.setVisible(true);
 
     }//GEN-LAST:event_BjugarMouseClicked
+
+    private void BjugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BjugarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BjugarActionPerformed
     /**
      * Método main para ejecutar el proyecto.
      */

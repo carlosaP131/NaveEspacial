@@ -20,6 +20,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -46,6 +47,45 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
         this.addMouseMotionListener(this);
         this.addMouseListener(this);
     }
+    
+    public class Score implements Comparable<Score>, Serializable {
+
+    private String name;
+    private int points;
+
+    public Score(String name, int score) {
+        this.name = name;
+        this.points = score;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    @Override
+    public int compareTo(Score o) {
+        if (this.points < o.points) {
+            return 1;
+        } else if (this.points > o.points) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+        
+}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
