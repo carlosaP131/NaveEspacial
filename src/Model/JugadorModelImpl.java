@@ -10,7 +10,7 @@ package Model;
 import DB.Conexion;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.Estadoment;
 import entity.Jugador;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class JugadorModelImpl implements IJugadorModel {
     //Variables implementadas para almacenar la coneccion ala base de datos 
     private Conexion conexion;
     private Connection connection;
-    private Statement stm;
+    private Estadoment stm;
      int id;
      //se hace un override a los metodos de IJugadorModel
     @Override
@@ -37,7 +37,7 @@ public class JugadorModelImpl implements IJugadorModel {
             String query = "insert into jugador(nombre,edad,sexo,telefono,correo,direccion,puntos)values('"
                     +jugador.getNombre()+"',"+jugador.getEdad()+",'"+jugador.getSexo()+"',"
                     + "'"+jugador.getTelefono()+"','"+jugador.getCorreo()+"','"+jugador.getDireccion()+"',"+jugador.getPuntos()+");";
-            stm = connection.createStatement();
+            stm = connection.createEstadoment();
             stm.execute(query);
             stm.close();
             connection.close();
@@ -56,7 +56,7 @@ public class JugadorModelImpl implements IJugadorModel {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "select * from jugador;";
-            stm = connection.createStatement();
+            stm = connection.createEstadoment();
             rs = stm.executeQuery(query);
             while (rs.next()) {
                 Jugador jugador = new Jugador();
@@ -83,7 +83,7 @@ public class JugadorModelImpl implements IJugadorModel {
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "call Actualizar('"+jugadornuevo.getIdJugador()+"','"+jugadornuevo.getNombre()+"');";
             ResultSet rs;
-            stm = connection.createStatement();
+            stm = connection.createEstadoment();
             stm.execute(query);
             JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
             stm.close();
@@ -103,7 +103,7 @@ public class JugadorModelImpl implements IJugadorModel {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "delete from jugador where id_jugador='"+jugador+"';";
-            stm = connection.createStatement();
+            stm = connection.createEstadoment();
             stm.execute(query);
             JOptionPane.showMessageDialog(null, "Usuario Eliminado");
             stm.close();
@@ -123,7 +123,7 @@ public class JugadorModelImpl implements IJugadorModel {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "call Buscar('"+id+"')";
-            stm = connection.createStatement();
+            stm = connection.createEstadoment();
             rs = stm.executeQuery(query);
             rs.next();
             jugador.setIdJugador(rs.getInt(1));
@@ -146,7 +146,7 @@ public class JugadorModelImpl implements IJugadorModel {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "select id_jugador from jugador  where nombre='"+jugador.getNombre()+"';";
-            stm = connection.createStatement();
+            stm = connection.createEstadoment();
             rs = stm.executeQuery(query);
            while (rs.next()) {
                

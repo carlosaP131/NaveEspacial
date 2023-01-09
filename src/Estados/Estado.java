@@ -13,9 +13,9 @@ import java.awt.Graphics;
 public abstract class Estado {
     private static Estado Estadoconcurrencia = null;
 	
-	public static Estado getCurrentState() {return Estadoconcurrencia;}
-	public static void changeState(Estado newState) {
-		Estadoconcurrencia = newState;
+	public static Estado getCurrentEstado() {return Estadoconcurrencia;}
+	public static void changeEstado(Estado newEstado) {
+		Estadoconcurrencia = newEstado;
 	}
 	
 	

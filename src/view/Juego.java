@@ -1,6 +1,9 @@
 
 package view;
+import Estados.Estado;
 import Graficos.Assets;
+import Input.KeyBoard;
+import Input.MouseInput;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -29,7 +32,7 @@ public class Juego extends JFrame implements Runnable{
 	private KeyBoard keyBoard;
 	private MouseInput mouseInput;
 	
-	public Window()
+	public Juego()
 	{
 		setTitle("Space Ship Game");
 		setSize(Constants.WIDTH, Constants.HEIGHT);
@@ -57,13 +60,13 @@ public class Juego extends JFrame implements Runnable{
 	
 
 	public static void main(String[] args) {
-		new Window().start();
+		new Juego().start();
 	}
 	
 	
 	private void update(){
 		keyBoard.update();
-		State.getCurrentState().update();
+		Estado.getCurrentEstado().update();
 	}
 
 	private void draw(){
@@ -83,7 +86,7 @@ public class Juego extends JFrame implements Runnable{
 		
 		g.fillRect(0, 0, Constants.WIDTH, Constants.HEIGHT);
 		
-		State.getCurrentState().draw(g);
+		Estado.getCurrentEstado().draw(g);
 		
 		g.setColor(Color.WHITE);
 		
@@ -108,7 +111,7 @@ public class Juego extends JFrame implements Runnable{
 		
 		
 		
-		State.changeState(new LoadingState(loadingThread));
+		
 	}
 	
 	

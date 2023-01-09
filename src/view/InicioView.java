@@ -26,7 +26,7 @@ public class InicioView extends javax.swing.JPanel {
 
    
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultEstado="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Contraseña = new javax.swing.JPasswordField();
@@ -111,7 +111,7 @@ public class InicioView extends javax.swing.JPanel {
 
     public void ingresar() {
         Connection con1 = null;
-        PreparedStatement pst = null;
+        PreparedEstadoment pst = null;
         ResultSet rs = null;
         String User = Usuario.getText();
         String Pass = Contraseña.getText();
@@ -120,7 +120,7 @@ public class InicioView extends javax.swing.JPanel {
         } else {
             try {
                 con1 = Conectar();
-                pst = con1.prepareStatement("select usuario,pdw from usuario where usuario='" + User + "' and pdw ='" + Pass + "'");
+                pst = con1.prepareEstadoment("select usuario,pdw from usuario where usuario='" + User + "' and pdw ='" + Pass + "'");
                 rs = pst.executeQuery();
                 if (rs.next()) {
                     JOptionPane.showMessageDialog(null, "Credenciales correctas");

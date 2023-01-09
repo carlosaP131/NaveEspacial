@@ -2,6 +2,7 @@
 package Ui;
 
 import Graficos.Assets;
+import Input.MouseInput;
 import Math.Vector;
 import java.awt.Color;
 import java.awt.Graphics;

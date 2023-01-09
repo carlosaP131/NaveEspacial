@@ -19,13 +19,13 @@ import java.util.PriorityQueue;
 public class PuntajeEstado extends Estado{
 private Boton returnButton;
 	
-	private PriorityQueue<ScoreData> highScores;
+	private PriorityQueue<PuntajeEstado> highScores;
 	
-	private Comparator<ScoreData> scoreComparator;
+	private Comparator<PuntajeEstado> scoreComparator;
 	
-	private ScoreData[] auxArray;
+	private PuntajeEstado[] auxArray;
 	
-	public ScoreState() {
+	public PuntajeEstado() {
 		returnButton = new Boton(
 				Assets.greyBtn,
 				Assets.blueBtn,
@@ -35,24 +35,24 @@ private Boton returnButton;
 				new Action() {
 					@Override
 					public void doAction() {
-						State.changeState(new MenuState());
+						Estado.changeEstado(new MenuEstado());
 					}
 				}
 			);
 		
-		scoreComparator = new Comparator<ScoreData>() {
+		scoreComparator = new Comparator<PuntajeEstado>() {
 			@Override
-			public int compare(ScoreData e1, ScoreData e2) {
+			public int compare(PuntajeEstado e1, PuntajeEstado e2) {
 				return e1.getScore() < e2.getScore() ? -1: e1.getScore() > e2.getScore() ? 1: 0;
 			}
 		};
 		
-		highScores = new PriorityQueue<ScoreData>(10, scoreComparator);
+		highScores = new PriorityQueue<PuntajeEstado>(10, scoreComparator);
 		
 		try {
-			ArrayList<ScoreData> dataList = JSONParser.readFile();
+			ArrayList<PuntajeEstado> dataList = JSONParser.readFile();
 			
-			for(ScoreData d: dataList) {
+			for(PuntajeEstado d: dataList) {
 				highScores.add(d);
 			}
 			
@@ -76,7 +76,7 @@ private Boton returnButton;
 	public void draw(Graphics g) {
 		returnButton.draw(g);
 		
-		auxArray = highScores.toArray(new ScoreData[highScores.size()]);
+		auxArray = highScores.toArray(new PuntajeEstado()[highScores.size()]);
 		
 		Arrays.sort(auxArray, scoreComparator);
 		
@@ -98,7 +98,7 @@ private Boton returnButton;
 		
 		for(int i = auxArray.length - 1; i > -1; i--) {
 			
-			ScoreData d = auxArray[i];
+			PuntajeEstado d = auxArray[i];
 			
 			Text.drawText(g, Integer.toString(d.getScore()), scorePos, true, Color.WHITE, Assets.fontMed);
 			Text.drawText(g, d.getDate(), datePos, true, Color.WHITE, Assets.fontMed);

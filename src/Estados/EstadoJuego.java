@@ -16,7 +16,7 @@ import java.util.ArrayList;
  *
  * @author carlos
  */
-public class EstadoJuego {
+public class EstadoJuego extends Estado {
     public static final Vector PLAYER_START_POSITION = new Vector(Constants.WIDTH/2 - Assets.player.getWidth()/2,
 			Constants.HEIGHT/2 - Assets.player.getHeight()/2);
 	
@@ -37,7 +37,7 @@ public class EstadoJuego {
 	
 	private Chronometer ufoSpawner;
 	
-	public GameState()
+	public GameEstado()
 	{
 		player = new Player(PLAYER_START_POSITION, new Vector(),
 				Constants.PLAYER_MAX_VEL, Assets.player, this);
@@ -198,8 +198,8 @@ public class EstadoJuego {
 		if(gameOver && !gameOverTimer.isRunning()) {
 			
 			try {
-				ArrayList<ScoreData> dataList = JSONParser.readFile();
-				dataList.add(new ScoreData(score));
+				ArrayList<PuntajeEstado> dataList = JSONParser.readFile();
+				dataList.add(new PuntajeEstado(score));
 				JSONParser.writeFile(dataList);
 				
 			} catch (IOException e) {
@@ -208,7 +208,7 @@ public class EstadoJuego {
 			
 			
 			
-			State.changeState(new MenuState());
+			Estado.changeEstado(new MenuEstado());
 		}
 		
 		

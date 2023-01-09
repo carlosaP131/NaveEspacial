@@ -10,7 +10,7 @@ package Model;
 import DB.Conexion;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.Estadoment;
 import entity.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
     JugadorModelImpl jugador = new JugadorModelImpl();
     private Conexion conexion;
     private Connection connection;
-    private Statement stm;
+    private Estadoment stm;
     //se hace un override a los metodos de IUsuarioModel
     @Override
     public void insertarregistro(Usuario usuario) {
@@ -37,7 +37,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "insert into usuario(usuario,pdw,jugador_id,privilegio) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"',"+1+",'"+usuario.getRol()+"');";
-            stm = connection.createStatement();
+            stm = connection.createEstadoment();
             stm.execute(query);
             stm.close();
             connection.close();
@@ -57,7 +57,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "select * from usuario;";
-            stm = connection.createStatement();
+            stm = connection.createEstadoment();
             rs = stm.executeQuery(query);
             while (rs.next()) {
                 Usuario usuario = new Usuario();
@@ -86,7 +86,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "call Actualizar('"+rolnuevo.getId()+"','"+rolnuevo.getUser()+"');";
             ResultSet rs;
-            stm = connection.createStatement();
+            stm = connection.createEstadoment();
             stm.execute(query);
             JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
             stm.close();
@@ -106,7 +106,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "call Eliminar('"+rol+"');";
-            stm = connection.createStatement();
+            stm = connection.createEstadoment();
             stm.execute(query);
             JOptionPane.showMessageDialog(null, "Usuario Eliminado");
             stm.close();
@@ -126,7 +126,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "call Buscar('"+id+"')";
-            stm = connection.createStatement();
+            stm = connection.createEstadoment();
             rs = stm.executeQuery(query);
             rs.next();
             rol.setId(rs.getInt(1));
