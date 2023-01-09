@@ -6,7 +6,7 @@ package Math;
  * @author carlos
  */
 public class Vector {
-    private double x,y;
+   private double x,y;
 	
 	public Vector(double x, double y)
 	{

@@ -1,9 +1,10 @@
 
 package view;
-import Estados.Estado;
+
+import Estados.EstadoJuego;
 import Graficos.Assets;
 import Input.KeyBoard;
-import Input.MouseInput;
+import Objetos.Constantes;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -15,7 +16,10 @@ import javax.swing.JFrame;
  * @author carlos
  */
 public class Juego extends JFrame implements Runnable{
-   private static final long serialVersionUID = 1L;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private Canvas canvas;
 	private Thread thread;
@@ -29,13 +33,13 @@ public class Juego extends JFrame implements Runnable{
 	private double delta = 0;
 	private int AVERAGEFPS = FPS;
 	
+	private EstadoJuego gameState;
 	private KeyBoard keyBoard;
-	private MouseInput mouseInput;
 	
 	public Juego()
 	{
 		setTitle("Space Ship Game");
-		setSize(Constants.WIDTH, Constants.HEIGHT);
+		setSize(Constantes.WIDTH, Constantes.HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setLocationRelativeTo(null);
@@ -43,17 +47,14 @@ public class Juego extends JFrame implements Runnable{
 		
 		canvas = new Canvas();
 		keyBoard = new KeyBoard();
-		mouseInput = new MouseInput();
 		
-		canvas.setPreferredSize(new Dimension(Constants.WIDTH, Constants.HEIGHT));
-		canvas.setMaximumSize(new Dimension(Constants.WIDTH, Constants.HEIGHT));
-		canvas.setMinimumSize(new Dimension(Constants.WIDTH, Constants.HEIGHT));
+		canvas.setPreferredSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
+		canvas.setMaximumSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
+		canvas.setMinimumSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
 		canvas.setFocusable(true);
 		
 		add(canvas);
 		canvas.addKeyListener(keyBoard);
-		canvas.addMouseListener(mouseInput);
-		canvas.addMouseMotionListener(mouseInput);
 		setVisible(true);
 	}
 	
@@ -66,7 +67,7 @@ public class Juego extends JFrame implements Runnable{
 	
 	private void update(){
 		keyBoard.update();
-		Estado.getCurrentEstado().update();
+		gameState.update();
 	}
 
 	private void draw(){
@@ -84,9 +85,9 @@ public class Juego extends JFrame implements Runnable{
 		
 		g.setColor(Color.BLACK);
 		
-		g.fillRect(0, 0, Constants.WIDTH, Constants.HEIGHT);
+		g.fillRect(0, 0, Constantes.WIDTH, Constantes.HEIGHT);
 		
-		Estado.getCurrentEstado().draw(g);
+		gameState.draw(g);
 		
 		g.setColor(Color.WHITE);
 		
@@ -100,18 +101,8 @@ public class Juego extends JFrame implements Runnable{
 	
 	private void init()
 	{
-		
-		Thread loadingThread = new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				Assets.init();
-			}
-		});
-		
-		
-		
-		
+		Assets.init();
+		gameState = new EstadoJuego();
 	}
 	
 	

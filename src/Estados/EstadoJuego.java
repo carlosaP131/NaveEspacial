@@ -1,8 +1,16 @@
 
 package Estados;
 
+import Graficos.Animacion;
 import Graficos.Assets;
 import Math.Vector;
+import Objetos.Constantes;
+import Objetos.Cronometro;
+import Objetos.JugadorJuego;
+import Objetos.Meteorito;
+import Objetos.Movimiento;
+import Objetos.Size;
+import Objetos.Ufo;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -16,53 +24,34 @@ import java.util.ArrayList;
  *
  * @author carlos
  */
-public class EstadoJuego extends Estado {
-    public static final Vector PLAYER_START_POSITION = new Vector(Constants.WIDTH/2 - Assets.player.getWidth()/2,
-			Constants.HEIGHT/2 - Assets.player.getHeight()/2);
-	
-	private Player player;
-	private ArrayList<MovingObject> movingObjects = new ArrayList<MovingObject>();
-	private ArrayList<Animation> explosions = new ArrayList<Animation>();
-	private ArrayList<Message> messages = new ArrayList<Message>();
+public class EstadoJuego {
+   
+	private JugadorJuego player;
+	private ArrayList<Movimiento> movingObjects = new ArrayList<Movimiento>();
+	private ArrayList<Animacion> explosions = new ArrayList<Animacion>();
 	
 	private int score = 0;
 	private int lives = 3;
 	
 	private int meteors;
-	private int waves = 1;
 	
-	private Sound backgroundMusic;
-	private Chronometer gameOverTimer;
-	private boolean gameOver;
-	
-	private Chronometer ufoSpawner;
-	
-	public GameEstado()
+	public EstadoJuego()
 	{
-		player = new Player(PLAYER_START_POSITION, new Vector(),
-				Constants.PLAYER_MAX_VEL, Assets.player, this);
+		player = new JugadorJuego(new Vector(Constantes.WIDTH/2 - Assets.player.getWidth()/2,
+				Constantes.HEIGHT/2 - Assets.player.getHeight()/2), new Vector(),
+				Constantes.PLAYER_MAX_VEL, Assets.player, this);
 		
-		gameOverTimer = new Chronometer();
-		gameOver = false;
 		movingObjects.add(player);
 		
 		meteors = 1;
 		startWave();
-		backgroundMusic = new Sound(Assets.backgroundMusic);
-		//backgroundMusic.loop();
-		backgroundMusic.changeVolume(-10.0f);
-		
-		ufoSpawner = new Chronometer();
-		ufoSpawner.run(Constants.UFO_SPAWN_RATE);
 	}
 	
-	
-	public void addScore(int value, Vector position) {
+	public void addScore(int value) {
 		score += value;
-		messages.add(new Message(position, true, "+"+value+" score", Color.WHITE, false, Assets.fontMed));
 	}
 	
-	public void divideMeteor(Meteor meteor){
+	public void  videMeteorito(Meteorito meteor){
 		
 		Size size = meteor.getSize();
 		
@@ -85,10 +74,10 @@ public class EstadoJuego extends Estado {
 		}
 		
 		for(int i = 0; i < size.quantity; i++){
-			movingObjects.add(new Meteor(
+			movingObjects.add(new Meteorito(
 					meteor.getPosition(),
 					new Vector(0, 1).setDirection(Math.random()*Math.PI*2),
-					Constants.METEOR_VEL*Math.random() + 1,
+					Constantes.METEOR_VEL*Math.random() + 1,
 					textures[(int)(Math.random()*textures.length)],
 					this,
 					newSize
@@ -99,22 +88,19 @@ public class EstadoJuego extends Estado {
 	
 	private void startWave(){
 		
-		messages.add(new Message(new Vector(Constants.WIDTH/2, Constants.HEIGHT/2), false,
-				"WAVE "+waves, Color.WHITE, true, Assets.fontBig));
-		
 		double x, y;
 		
 		for(int i = 0; i < meteors; i++){
 			 
-			x = i % 2 == 0 ? Math.random()*Constants.WIDTH : 0;
-			y = i % 2 == 0 ? 0 : Math.random()*Constants.HEIGHT;
+			x = i % 2 == 0 ? Math.random()*Constantes.WIDTH : 0;
+			y = i % 2 == 0 ? 0 : Math.random()*Constantes.HEIGHT;
 			
 			BufferedImage texture = Assets.bigs[(int)(Math.random()*Assets.bigs.length)];
 			
-			movingObjects.add(new Meteor(
+			movingObjects.add(new Meteorito(
 					new Vector(x, y),
 					new Vector(0, 1).setDirection(Math.random()*Math.PI*2),
-					Constants.METEOR_VEL*Math.random() + 1,
+					Constantes.METEOR_VEL*Math.random() + 1,
 					texture,
 					this,
 					Size.BIG
@@ -122,10 +108,11 @@ public class EstadoJuego extends Estado {
 			
 		}
 		meteors ++;
+		spawnUfo();
 	}
 	
 	public void playExplosion(Vector position){
-		explosions.add(new Animation(
+		explosions.add(new Animacion(
 				Assets.exp,
 				50,
 				position.subtract(new Vector(Assets.exp[0].getWidth()/2, Assets.exp[0].getHeight()/2))
@@ -136,33 +123,33 @@ public class EstadoJuego extends Estado {
 		
 		int rand = (int) (Math.random()*2);
 		
-		double x = rand == 0 ? (Math.random()*Constants.WIDTH): Constants.WIDTH;
-		double y = rand == 0 ? Constants.HEIGHT : (Math.random()*Constants.HEIGHT);
+		double x = rand == 0 ? (Math.random()*Constantes.WIDTH): Constantes.WIDTH;
+		double y = rand == 0 ? Constantes.HEIGHT : (Math.random()*Constantes.HEIGHT);
 		
 		ArrayList<Vector> path = new ArrayList<Vector>();
 		
 		double posX, posY;
 		
-		posX = Math.random()*Constants.WIDTH/2;
-		posY = Math.random()*Constants.HEIGHT/2;	
+		posX = Math.random()*Constantes.WIDTH/2;
+		posY = Math.random()*Constantes.HEIGHT/2;	
 		path.add(new Vector(posX, posY));
 
-		posX = Math.random()*(Constants.WIDTH/2) + Constants.WIDTH/2;
-		posY = Math.random()*Constants.HEIGHT/2;	
+		posX = Math.random()*(Constantes.WIDTH/2) + Constantes.WIDTH/2;
+		posY = Math.random()*Constantes.HEIGHT/2;	
 		path.add(new Vector(posX, posY));
 		
-		posX = Math.random()*Constants.WIDTH/2;
-		posY = Math.random()*(Constants.HEIGHT/2) + Constants.HEIGHT/2;	
+		posX = Math.random()*Constantes.WIDTH/2;
+		posY = Math.random()*(Constantes.HEIGHT/2) + Constantes.HEIGHT/2;	
 		path.add(new Vector(posX, posY));
 		
-		posX = Math.random()*(Constants.WIDTH/2) + Constants.WIDTH/2;
-		posY = Math.random()*(Constants.HEIGHT/2) + Constants.HEIGHT/2;	
+		posX = Math.random()*(Constantes.WIDTH/2) + Constantes.WIDTH/2;
+		posY = Math.random()*(Constantes.HEIGHT/2) + Constantes.HEIGHT/2;	
 		path.add(new Vector(posX, posY));
 		
 		movingObjects.add(new Ufo(
 				new Vector(x, y),
 				new Vector(),
-				Constants.UFO_MAX_VEL,
+				Constantes.UFO_MAX_VEL,
 				Assets.ufo,
 				path,
 				this
@@ -173,21 +160,11 @@ public class EstadoJuego extends Estado {
 	
 	public void update()
 	{
-		
-		for(int i = 0; i < movingObjects.size(); i++) {
-			
-			MovingObject mo = movingObjects.get(i);
-			
-			mo.update();
-			if(mo.isDead()) {
-				movingObjects.remove(i);
-				i--;
-			}
-			
-		}
+		for(int i = 0; i < movingObjects.size(); i++)
+			movingObjects.get(i).update();
 		
 		for(int i = 0; i < explosions.size(); i++){
-			Animation anim = explosions.get(i);
+			Animacion anim = explosions.get(i);
 			anim.update();
 			if(!anim.isRunning()){
 				explosions.remove(i);
@@ -195,33 +172,8 @@ public class EstadoJuego extends Estado {
 			
 		}
 		
-		if(gameOver && !gameOverTimer.isRunning()) {
-			
-			try {
-				ArrayList<PuntajeEstado> dataList = JSONParser.readFile();
-				dataList.add(new PuntajeEstado(score));
-				JSONParser.writeFile(dataList);
-				
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-			
-			
-			Estado.changeEstado(new MenuEstado());
-		}
-		
-		
-		if(!ufoSpawner.isRunning()) {
-			ufoSpawner.run(Constants.UFO_SPAWN_RATE);
-			spawnUfo();
-		}
-		
-		gameOverTimer.update();
-		ufoSpawner.update();
-		
 		for(int i = 0; i < movingObjects.size(); i++)
-			if(movingObjects.get(i) instanceof Meteor)
+			if(movingObjects.get(i) instanceof Meteorito)
 				return;
 		
 		startWave();
@@ -234,17 +186,11 @@ public class EstadoJuego extends Estado {
 		
 		g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
 		
-		for(int i = 0; i < messages.size(); i++) {
-			messages.get(i).draw(g2d);
-			if(messages.get(i).isDead())
-				messages.remove(i);
-		}
-		
 		for(int i = 0; i < movingObjects.size(); i++)
 			movingObjects.get(i).draw(g);
 		
 		for(int i = 0; i < explosions.size(); i++){
-			Animation anim = explosions.get(i);
+			Animacion anim = explosions.get(i);
 			g2d.drawImage(anim.getCurrentFrame(), (int)anim.getPosition().getX(), (int)anim.getPosition().getY(),
 					null);
 			
@@ -271,9 +217,6 @@ public class EstadoJuego extends Estado {
 	
 	private void drawLives(Graphics g){
 		
-		if(lives < 1)
-			return;
-		
 		Vector livePosition = new Vector(25, 25);
 		
 		g.drawImage(Assets.life, (int)livePosition.getX(), (int)livePosition.getY(), null);
@@ -298,35 +241,12 @@ public class EstadoJuego extends Estado {
 		
 	}
 	
-	public ArrayList<MovingObject> getMovingObjects() {
+	public ArrayList<Movimiento> getMovingObjects() {
 		return movingObjects;
 	}
 	
-	public ArrayList<Message> getMessages() {
-		return messages;
-	}
-	
-	public Player getPlayer() {
+	public JugadorJuego getPlayer() {
 		return player;
-	}
-	
-	public boolean subtractLife() {
-		lives --;
-		return lives > 0;
-	}
-	
-	public void gameOver() {
-		Message gameOverMsg = new Message(
-				PLAYER_START_POSITION,
-				true,
-				"GAME OVER",
-				Color.WHITE,
-				true,
-				Assets.fontBig);
-		
-		this.messages.add(gameOverMsg);
-		gameOverTimer.run(Constants.GAME_OVER_TIME);
-		gameOver = true;
 	}
 	
 }
