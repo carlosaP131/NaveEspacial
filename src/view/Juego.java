@@ -12,7 +12,8 @@ import javax.swing.JFrame;
  * @author carlos
  */
 public class Juego extends JFrame implements Runnable{
-    public static final int WIDTH = 800, HEIGHT = 600;
+   private static final long serialVersionUID = 1L;
+	
 	private Canvas canvas;
 	private Thread thread;
 	private boolean running = false;
@@ -25,36 +26,44 @@ public class Juego extends JFrame implements Runnable{
 	private double delta = 0;
 	private int AVERAGEFPS = FPS;
 	
-	public Juego()
+	private KeyBoard keyBoard;
+	private MouseInput mouseInput;
+	
+	public Window()
 	{
 		setTitle("Space Ship Game");
-		setSize(WIDTH, HEIGHT);
+		setSize(Constants.WIDTH, Constants.HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		setVisible(true);
+		
 		
 		canvas = new Canvas();
+		keyBoard = new KeyBoard();
+		mouseInput = new MouseInput();
 		
-		canvas.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-		canvas.setMaximumSize(new Dimension(WIDTH, HEIGHT));
-		canvas.setMinimumSize(new Dimension(WIDTH, HEIGHT));
+		canvas.setPreferredSize(new Dimension(Constants.WIDTH, Constants.HEIGHT));
+		canvas.setMaximumSize(new Dimension(Constants.WIDTH, Constants.HEIGHT));
+		canvas.setMinimumSize(new Dimension(Constants.WIDTH, Constants.HEIGHT));
 		canvas.setFocusable(true);
 		
 		add(canvas);
-		
+		canvas.addKeyListener(keyBoard);
+		canvas.addMouseListener(mouseInput);
+		canvas.addMouseMotionListener(mouseInput);
+		setVisible(true);
 	}
 	
 	
 
 	public static void main(String[] args) {
-		new Juego().start();
+		new Window().start();
 	}
 	
 	
-	int x = 0;
 	private void update(){
-		x++;
+		keyBoard.update();
+		State.getCurrentState().update();
 	}
 
 	private void draw(){
@@ -70,23 +79,39 @@ public class Juego extends JFrame implements Runnable{
 		
 		//-----------------------
 		
-		g.fillRect(0, 0, WIDTH, HEIGHT);
-		
-		g.drawImage(Assets.player, 0, 0, null);
-		
 		g.setColor(Color.BLACK);
+		
+		g.fillRect(0, 0, Constants.WIDTH, Constants.HEIGHT);
+		
+		State.getCurrentState().draw(g);
+		
+		g.setColor(Color.WHITE);
 		
 		g.drawString(""+AVERAGEFPS, 10, 20);
 		
 		//---------------------
+		
 		g.dispose();
 		bs.show();
 	}
 	
 	private void init()
 	{
-		Assets.init();
+		
+		Thread loadingThread = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				Assets.init();
+			}
+		});
+		
+		
+		
+		State.changeState(new LoadingState(loadingThread));
 	}
+	
+	
 	@Override
 	public void run() {
 		
@@ -94,7 +119,9 @@ public class Juego extends JFrame implements Runnable{
 		long lastTime = System.nanoTime();
 		int frames = 0;
 		long time = 0;
-                init();
+		
+		init();
+		
 		while(running)
 		{
 			now = System.nanoTime();
@@ -141,7 +168,4 @@ public class Juego extends JFrame implements Runnable{
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
 }
