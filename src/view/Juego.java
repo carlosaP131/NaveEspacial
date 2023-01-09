@@ -38,7 +38,7 @@ public class Juego extends JFrame implements Runnable{
 	
 	public Juego()
 	{
-		setTitle("Space Ship Game");
+		setTitle("Galaxi");
 		setSize(Constantes.WIDTH, Constantes.HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);

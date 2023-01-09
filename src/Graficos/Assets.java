@@ -44,37 +44,37 @@ public static BufferedImage player;
 	
 	public static void init()
 	{
-		player = Loader.Imageloader("/ships/player.png");
+		player = Loader.Imageloader("/src/resources/img/Juego/iNaveespacial.png");
 		
-		speed = Loader.Imageloader("/effects/fire08.png");
+		speed = Loader.Imageloader("/src/resources/img/Juego/fire08.png");
 		
-		blueLaser = Loader.Imageloader("/lasers/laserBlue01.png");
+		blueLaser = Loader.Imageloader("/src/resources/img/Juego/iLaser.png");
 		
-		greenLaser = Loader.Imageloader("/lasers/laserGreen11.png");
+		greenLaser = Loader.Imageloader("/src/resources/img/Juego/laserGreen11.png");
 		
-		redLaser = Loader.Imageloader("/lasers/laserRed01.png");
+		redLaser = Loader.Imageloader("/src/resources/img/Juego/laserRed01.png");
 		
-		ufo = Loader.Imageloader("/ships/ufo.png");
+		ufo = Loader.Imageloader("/src/resources/img/Juego/ufo.png");
 		
-		life = Loader.Imageloader("/others/life.png");
+		life = Loader.Imageloader("/src/resources/img/Juego/life.png");
 		
 		for(int i = 0; i < bigs.length; i++)
-			bigs[i] = Loader.Imageloader("/meteors/big"+(i+1)+".png");
+			bigs[i] = Loader.Imageloader("/src/resources/img/Juego/big"+(i+1)+".png");
 		
 		for(int i = 0; i < meds.length; i++)
-			meds[i] = Loader.Imageloader("/meteors/med"+(i+1)+".png");
+			meds[i] = Loader.Imageloader("/src/resources/img/Juego/med"+(i+1)+".png");
 		
 		for(int i = 0; i < smalls.length; i++)
-			smalls[i] = Loader.Imageloader("/meteors/small"+(i+1)+".png");
+			smalls[i] = Loader.Imageloader("/src/resources/img/Juego/small"+(i+1)+".png");
 		
 		for(int i = 0; i < tinies.length; i++)
 			tinies[i] = Loader.Imageloader("/meteors/tiny"+(i+1)+".png");
 		
 		for(int i = 0; i < exp.length; i++)
-			exp[i] = Loader.Imageloader("/explosion/"+i+".png");
+			exp[i] = Loader.Imageloader(" ");
 		
 		for(int i = 0; i < numbers.length; i++)
-			numbers[i] = Loader.Imageloader("/numbers/"+i+".png");
+			numbers[i] = Loader.Imageloader("");
 		
 	}
 	
