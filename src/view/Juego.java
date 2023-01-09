@@ -11,6 +11,7 @@ package view;
 /**
  * Importación de los paquetes.
  */
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -47,46 +48,46 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
         this.addMouseMotionListener(this);
         this.addMouseListener(this);
     }
-    
+    //En está clase de definirá el puntaje del juegog de las naves del jugador.
     public class Score implements Comparable<Score>, Serializable {
+        //Definición de las variables para el puntaje.
+        private String name;
+        private int points;
+        private int puntaje;
 
-    private String name;
-    private int points;
-    private int puntaje;
-
-    public Score(String name, int score) {
-        this.name = name;
-        this.points = score;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
-
-    @Override
-    public int compareTo(Score o) {
-        if (this.points < o.points) {
-            return 1;
-        } else if (this.points > o.points) {
-            return -1;
-        } else {
-            return 0;
+        public Score(String name, int score) {
+            this.name = name;
+            this.points = score;
         }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getPoints() {
+            return points;
+        }
+
+        public void setPoints(int points) {
+            this.points = points;
+        }
+        //Método abstracto para comparar el puntaje de los jugadores.
+        @Override
+        public int compareTo(Score o) {
+            if (this.points < o.points) {
+                return 1;
+            } else if (this.points > o.points) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+
     }
-        
-}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -170,6 +171,7 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
      * mediante hilos.
      */
     public void paint(Graphics g) {
+
         setOpaque(false);
         super.paint(g);
         Graphics2D Nave = (Graphics2D) g;
@@ -207,6 +209,7 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
 
         repaint();
     }
+
     /**
      * Método abstracto run para disparar y mover la neve, este método
      * especifica realmente la tarea a realizar.
@@ -216,18 +219,21 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
         mover();
         Disparo();
     }
+
     /**
      * Método mover donde se incrementa a caer.
      */
     public void mover() {
         Caer++;
     }
+
     /**
      * Método dispara las balas d ela nave.
      */
     public void Disparo() {
         Balay--;
     }
+
     /**
      * Método abstracto para sobrescribir a mouseDragged.
      */
@@ -235,6 +241,7 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
     public void mouseDragged(MouseEvent me) {
 
     }
+
     /**
      * Método abstracto controlar la nave con el mouse.
      */
@@ -245,6 +252,7 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
 
         }
     }
+
     /**
      * Método abstracto controlar los disparos de nave con el mouse.
      */
@@ -254,6 +262,7 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
         Balay = me.getY();
 
     }
+
     /**
      * Métodos abstractos que se implemetaran posteriormente.
      */
