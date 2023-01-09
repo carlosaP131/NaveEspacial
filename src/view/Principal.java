@@ -1,7 +1,7 @@
 /** ****************************************************************************
  *Autores:Carlos Aurelio Alcántara Pérez & Baldomero Sainos Hernández.
  *Fecha de creación: 18-11-2022 ***
- *Fecha de actualización:20-12-2022
+ *Fecha de actualización:209-01-2023
  *Descripción:Frame Principal para mostrar los paneles secundarios, juntamente
  * con el juego.
  * *************************************************************************** */
