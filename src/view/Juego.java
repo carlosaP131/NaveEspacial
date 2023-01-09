@@ -52,6 +52,7 @@ public class Juego extends javax.swing.JPanel implements Runnable, MouseMotionLi
 
     private String name;
     private int points;
+    private int puntaje;
 
     public Score(String name, int score) {
         this.name = name;
