@@ -10,7 +10,7 @@ package Model;
 import DB.Conexion;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Estadoment;
+import java.sql.Statement;
 import entity.Rol;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class RolModelImpl implements IRolModel {
 
     private Conexion conexion;
     private Connection connection;
-    private Estadoment stm;
+    private Statement stm;
     //se hace un override a los metodos de IRolModel
     @Override
     public void insertarregistro(Rol rol) {
@@ -34,7 +34,7 @@ public class RolModelImpl implements IRolModel {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "call Guardar('"+rol.getRol()+"');";
-            stm = connection.createEstadoment();
+            stm = connection.createStatement();
             stm.execute(query);
             stm.close();
             connection.close();
@@ -53,7 +53,7 @@ public class RolModelImpl implements IRolModel {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "call Mostrar;";
-            stm = connection.createEstadoment();
+            stm = connection.createStatement();
             rs = stm.executeQuery(query);
             while (rs.next()) {
                 Rol rol = new Rol();
@@ -80,7 +80,7 @@ public class RolModelImpl implements IRolModel {
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "call Actualizar('"+rolnuevo.getIdRol()+"','"+rolnuevo.getRol()+"');";
             ResultSet rs;
-            stm = connection.createEstadoment();
+            stm = connection.createStatement();
             stm.execute(query);
             JOptionPane.showMessageDialog(null, "Actualizacion Exitosa");
             stm.close();
@@ -100,7 +100,7 @@ public class RolModelImpl implements IRolModel {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "call Eliminar('"+rol.getIdRol()+"');";
-            stm = connection.createEstadoment();
+            stm = connection.createStatement();
             stm.execute(query);
             JOptionPane.showMessageDialog(null, "Usuario Eliminado");
             stm.close();
@@ -120,7 +120,7 @@ public class RolModelImpl implements IRolModel {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
             String query = "call Buscar('"+id+"')";
-            stm = connection.createEstadoment();
+            stm = connection.createStatement();
             rs = stm.executeQuery(query);
             rs.next();
             rol.setIdRol(rs.getInt(1));
