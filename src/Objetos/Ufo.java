@@ -1,9 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/** ****************************************************************************
+ *Autor:Sainos hernández Baldomero.
+ *Fecha de creación: 02-01-2023 ***
+ *Fecha de actualización: 12-01-2023
+ *Descripción:Panel para el inicio de sesion 
+ **
+ * ****************************************************************************/
 package Objetos;
-
+// Importación de librerias.
 import Estados.EstadoJuego;
 import Graficos.Assets;
 import Math.Vector;
@@ -13,10 +16,6 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-/**
- *
- * @author labdessw09
- */
 public class Ufo extends Movimiento{
 	
 	private ArrayList<Vector> path;
@@ -83,7 +82,7 @@ public class Ufo extends Movimiento{
 				|| position.getX() < 0 || position.getY() < 0)
 			Destroy();
 		
-		// shoot
+		// Disparo
 		
 		if(!fireRate.isRunning()) {
 			

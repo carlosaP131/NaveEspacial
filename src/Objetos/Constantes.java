@@ -34,7 +34,7 @@ public class Constantes {
 	public static final double UFO_MASS = 60;
 	
 	public static final int UFO_MAX_VEL = 3;
-	
-	public static long UFO_FIRE_RATE = 1000;
+	// ufo
+	public static long UFO_ANGLE_RANGE = 1000;
 	
 }
