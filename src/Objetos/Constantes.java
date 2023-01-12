@@ -34,7 +34,12 @@ public class Constantes {
 	public static final double UFO_MASS = 60;
 	
 	public static final int UFO_MAX_VEL = 3;
-	// ufo
-	public static long UFO_ANGLE_RANGE = 1000;
+	
+	public static long UFO_FIRE_RATE = 1000;
+        
+        public static double UFO_ANGLE_RANGE = Math.PI / 2;
+	
+	public static final int UFO_SCORE = 40;
+	
 	
 }

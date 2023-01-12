@@ -92,15 +92,18 @@ public class Ufo extends Movimiento{
 			
 			double currentAngle = toPlayer.getAngle();
 			
-			double newAngle = Math.random()*(Math.PI) - Math.PI/2 + currentAngle;
+			currentAngle += Math.random()*Constantes.UFO_ANGLE_RANGE - Constantes.UFO_ANGLE_RANGE / 2;
 			
-			toPlayer = toPlayer.setDirection(newAngle);
+			if(toPlayer.getX() < 0)
+				currentAngle = -currentAngle + Math.PI;
+			
+			toPlayer = toPlayer.setDirection(currentAngle);
 			
 			Bala laser = new Bala(
 					getCenter().add(toPlayer.scale(width)),
 					toPlayer,
 					Constantes.LASER_VEL,
-					newAngle + Math.PI/2,
+					currentAngle + Math.PI/2,
 					Assets.redLaser,
 					gameState
 					);
