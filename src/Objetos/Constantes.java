@@ -1,4 +1,10 @@
-
+/** ****************************************************************************
+ *Autor:Carlos Sainos Hernández Baldomero
+ *Fecha de creación: 25/12/2022 ***
+ *Fecha de actualización:13/01/2023
+ *Descripción:Clase para definir las constantes del juego.
+ *
+ * ****************************************************************************/
 package Objetos;
 
 /**
@@ -42,6 +48,8 @@ public class Constantes {
         public static double UFO_ANGLE_RANGE = Math.PI / 2;
 	
 	public static final int UFO_SCORE = 40;
+        //
+        public static final int  SPAWNING_TIME = 2;
 	
 	
 }

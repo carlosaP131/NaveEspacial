@@ -1,7 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/** ****************************************************************************
+ *Autor:Carlos Sainos Hernández Baldomero
+ *Fecha de creación: 25/12/2022 ***
+ *Fecha de actualización:13/01/2023
+ *Descripción:Clase para drestrosay el meteorito.
+ * ****************************************************************************/
 package Objetos;
 
 import Estados.EstadoJuego;

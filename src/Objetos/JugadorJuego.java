@@ -1,4 +1,10 @@
-
+/** ****************************************************************************
+ *Autor:Carlos Sainos Hernández Baldomero
+ *Fecha de creación: 25/12/2022 ***
+ *Fecha de actualización:13/01/2023
+ *Descripción:Clase para controlar las vidas del jugador y que reaparezaca.
+ *
+ * ****************************************************************************/
 package Objetos;
 
 import Estados.EstadoJuego;
@@ -20,14 +26,21 @@ public class JugadorJuego extends Movimiento {
 
 	private boolean accelerating = false;
 	private Cronometro fireRate;
+        private boolean spawing, visible;
+        private Cronometro spawbTime, flickerTime;
 
 	public JugadorJuego(Vector position, Vector velocity, double maxVel, BufferedImage texture, EstadoJuego gameState) {
 		super(position, velocity, maxVel, texture, gameState);
 		heading = new Vector(0, 1);
 		acceleration = new Vector();
 		fireRate = new Cronometro();
+                spawbTime  =new Cronometro();
+                flickerTime = new Cronometro();
+                
 	}
-	
+	/* Método abstracto para que la neve vuelve a reaparecer y controlar sus 
+        vidas, pero cuando esta reapareciendo el jugador no puede disparar y 
+        tampoco puede moriri poruqe esta reapareciendo.*/
 	@Override
 	public void update() 
 	{
@@ -83,8 +96,16 @@ public class JugadorJuego extends Movimiento {
 		
 		
 		fireRate.update();
+                spawbTime.update();
+                fireRate.update();
 		collidesWith();
 	}
+        
+    @Override
+    public void Destroy(){
+        spawing  = true;
+        spawbTime.run(Constantes.SPAWNING_TIME);
+    }
 	
 	
 	@Override
