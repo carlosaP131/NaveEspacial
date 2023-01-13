@@ -119,6 +119,13 @@ public class Ufo extends Movimiento{
 		collidesWith();
 		fireRate.update();
 	}
+        
+        @Override
+	public void Destroy() {
+            // ESTADO JUEGO
+		gameState.addScore(Constantes.UFO_SCORE);
+		super.Destroy();
+	}
 
 	@Override
 	public void draw(Graphics g) {

@@ -1,5 +1,5 @@
 /** ****************************************************************************
- *Autor:Carlos Aurelio Alcántara Pérez
+ *Autor:Carlos Sainos Hernández Baldomero
  *Fecha de creación: 18-11-2022 ***
  *Fecha de actualización:31-11-2022
  *Descripción: Clase conexion para conectar a base de datos 

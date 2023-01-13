@@ -51,7 +51,7 @@ public class EstadoJuego {
 		score += value;
 	}
 	
-	public void  videMeteorito(Meteorito meteor){
+	public void  divideMeteorito(Meteorito meteor){
 		
 		Size size = meteor.getSize();
 		

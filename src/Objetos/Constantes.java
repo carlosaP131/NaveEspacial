@@ -26,6 +26,8 @@ public class Constantes {
 	// Meteor properties
 	
 	public static final double METEOR_VEL = 2.0;
+        
+        public static final int METEOR_SCORE = 20;
 	
 	// Ufo properties
 	
