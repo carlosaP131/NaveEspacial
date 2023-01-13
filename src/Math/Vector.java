@@ -1,4 +1,11 @@
-
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 5-01-2023 ***
+ *Fecha de actualización:13-12-2023
+ *Descripción: Clase para los diferentes movimientos de cada objeto llamese metorito
+ * nave espacial o nave enemiga
+ *
+ * ****************************************************************************/
 package Math;
 
 /**

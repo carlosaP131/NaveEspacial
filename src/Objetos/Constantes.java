@@ -1,3 +1,10 @@
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 5-01-2023 ***
+ *Fecha de actualización:13-12-2023
+ *Descripción: Clase para ahorrar espacion en las demas clases 
+ *
+ * ****************************************************************************/
 package Objetos;
 
 /**

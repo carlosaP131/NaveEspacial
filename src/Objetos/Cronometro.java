@@ -1,9 +1,15 @@
-
+/** ****************************************************************************
+ *Autor:Baldomero Sainos Hernandez
+ *Fecha de creación: 5-01-2023 ***
+ *Fecha de actualización:13-12-2023
+ *Descripción: Clase que cuenta el tiempo 
+ *
+ * ****************************************************************************/
 package Objetos;
 
 /**
  *
- * @author labdessw09
+ * @author Sainos
  */
 public class Cronometro {
     private long delta, lastTime;

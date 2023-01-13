@@ -1,4 +1,10 @@
-
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 5-01-2023 ***
+ *Fecha de actualización:13-12-2023
+ *Descripción: Esta clase es para ver en que estado se encuentra el juego 
+ *
+ * ****************************************************************************/
 package Estados;
 
 import Graficos.Animacion;

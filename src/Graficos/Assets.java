@@ -1,4 +1,10 @@
-
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 5-01-2023 ***
+ *Fecha de actualización:13-12-2023
+ *Descripción: Los asset son todos los enlaces o rutaas de los archivos del juego 
+ *
+ * ****************************************************************************/
 package Graficos;
 
 import java.awt.Font;

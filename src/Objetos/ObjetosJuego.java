@@ -1,4 +1,9 @@
-
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 5-01-2023 ***
+ *Fecha de actualización:13-12-2023
+ *Descripción: Clase abstracta para los objetos y su posicion junto con su textura 
+ * ****************************************************************************/
 package Objetos;
 
 import Math.Vector;
