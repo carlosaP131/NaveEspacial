@@ -55,6 +55,13 @@ public abstract class Movimiento extends ObjetosJuego {
 	
 	private void objectCollision(Movimiento a, Movimiento b){
 		
+		if(a instanceof JugadorJuego && ((JugadorJuego)a).isSpawning()) {
+			return;
+		}
+		if(b instanceof JugadorJuego && ((JugadorJuego)b).isSpawning()) {
+			return;
+		}
+		
 		if(!(a instanceof Meteorito && b instanceof Meteorito)){
 			a.Destroy();
 			b.Destroy();

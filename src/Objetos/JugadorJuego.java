@@ -26,15 +26,17 @@ public class JugadorJuego extends Movimiento {
 
 	private boolean accelerating = false;
 	private Cronometro fireRate;
-        private boolean spawing, visible;
-        private Cronometro spawbTime, flickerTime;
+        
+        private boolean spawning, visible;
+	
+	private Cronometro spawnTime, flickerTime; //flickerTime parpadear
 
 	public JugadorJuego(Vector position, Vector velocity, double maxVel, BufferedImage texture, EstadoJuego gameState) {
 		super(position, velocity, maxVel, texture, gameState);
 		heading = new Vector(0, 1);
 		acceleration = new Vector();
 		fireRate = new Cronometro();
-                spawbTime  =new Cronometro();
+                spawnTime  =new Cronometro();
                 flickerTime = new Cronometro();
                 
 	}
@@ -43,7 +45,24 @@ public class JugadorJuego extends Movimiento {
         tampoco puede moriri poruqe esta reapareciendo.*/
 	@Override
 	public void update() 
-	{
+	{   
+            //Condicion para ocultar y reaparecer a la neve cunado es atropellado por un meteorito.
+            // En la segundo if se controla que cunado va apareciendo no puede disparar.
+                if(!spawnTime.isRunning()) {
+			spawning = false;
+			visible = true;
+		}
+		
+		if(spawning) {
+			
+			if(!flickerTime.isRunning()) {
+				
+				flickerTime.run(Constantes.FLICKER_TIME);
+				visible = !visible;
+				
+			}
+			
+		}
 		
 		
 		if(KeyBoard.SHOOT &&  !fireRate.isRunning())
@@ -96,20 +115,25 @@ public class JugadorJuego extends Movimiento {
 		
 		
 		fireRate.update();
-                spawbTime.update();
+                spawnTime.update();
                 fireRate.update();
 		collidesWith();
 	}
         
     @Override
     public void Destroy(){
-        spawing  = true;
-        spawbTime.run(Constantes.SPAWNING_TIME);
+        spawning = true;
+		spawnTime.run(Constantes.SPAWNING_TIME);
+		//resetValues();
+		//gameState.subtractLife();
     }
 	
 	
 	@Override
 	public void draw(Graphics g) {
+            
+            if(!visible)
+			return;
 		
 		Graphics2D g2d = (Graphics2D)g;
 		
@@ -136,5 +160,11 @@ public class JugadorJuego extends Movimiento {
 		g2d.drawImage(texture, at, null);
 		
 	}
+        //Método para que los objetos sepan si el jugador esta en ese tiempo o no.
+        public boolean isSpawning() {return spawning;
+        
+        }
 	
 }
+	
+

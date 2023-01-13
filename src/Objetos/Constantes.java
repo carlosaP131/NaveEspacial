@@ -24,6 +24,8 @@ public class Constantes {
 	public static final double DELTAANGLE = 0.1;
 	public static final double ACC = 0.2;
 	public static final double PLAYER_MAX_VEL = 7.0;
+        public static final long FLICKER_TIME = 200;
+	public static final long SPAWNING_TIME = 3000;
 	
 	// Laser properties
 	
@@ -48,8 +50,6 @@ public class Constantes {
         public static double UFO_ANGLE_RANGE = Math.PI / 2;
 	
 	public static final int UFO_SCORE = 40;
-        //
-        public static final int  SPAWNING_TIME = 2;
 	
 	
 }
