@@ -7,6 +7,7 @@ import Math.Vector;
 import Objetos.Constantes;
 import Objetos.Cronometro;
 import Objetos.JugadorJuego;
+import Objetos.Mensaje;
 import Objetos.Meteorito;
 import Objetos.Movimiento;
 import Objetos.Size;
@@ -29,12 +30,12 @@ public class EstadoJuego {
 	private JugadorJuego player;
 	private ArrayList<Movimiento> movingObjects = new ArrayList<Movimiento>();
 	private ArrayList<Animacion> explosions = new ArrayList<Animacion>();
-	
+	private ArrayList<Mensaje> messages = new ArrayList<Mensaje>();
 	private int score = 0;
 	private int lives = 3;
 	
 	private int meteors;
-	
+	private int waves = 1;
 	public EstadoJuego()
 	{
 		player = new JugadorJuego(new Vector(Constantes.WIDTH/2 - Assets.player.getWidth()/2,
@@ -47,8 +48,9 @@ public class EstadoJuego {
 		startWave();
 	}
 	
-	public void addScore(int value) {
+	public void addScore(int value, Vector position) {
 		score += value;
+                messages.add(new Mensaje(position, true, "+"+value+" score", Color.WHITE, false, Assets.fontMed, this));
 	}
 	
 	public void  videMeteorito(Meteorito meteor){
@@ -87,7 +89,8 @@ public class EstadoJuego {
 	
 	
 	private void startWave(){
-		
+		messages.add(new Mensaje(new Vector(Constantes.WIDTH/2, Constantes.HEIGHT/2), false,
+				"Nivel "+waves, Color.WHITE, true, Assets.fontBig, this));
 		double x, y;
 		
 		for(int i = 0; i < meteors; i++){
@@ -185,6 +188,8 @@ public class EstadoJuego {
 		Graphics2D g2d = (Graphics2D)g;
 		
 		g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+                for(int i = 0; i < messages.size(); i++)
+			messages.get(i).draw(g2d);
 		
 		for(int i = 0; i < movingObjects.size(); i++)
 			movingObjects.get(i).draw(g);
@@ -244,9 +249,11 @@ public class EstadoJuego {
 	public ArrayList<Movimiento> getMovingObjects() {
 		return movingObjects;
 	}
-	
+	public ArrayList<Mensaje> getMessages() {
+		return messages;
+	}
 	public JugadorJuego getPlayer() {
 		return player;
 	}
-	
+	public void subtractLife() {lives --;}
 }

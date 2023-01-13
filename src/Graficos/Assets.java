@@ -4,14 +4,16 @@ package Graficos;
 import java.awt.Font;
 import java.awt.image.BufferedImage;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
  *
  * @author carlos
  */
 public class Assets {
-    
-public static BufferedImage player;
+
+	
+	public static BufferedImage player;
 	
 	// effects
 	
@@ -42,40 +44,58 @@ public static BufferedImage player;
 	
 	public static BufferedImage life;
 	
-	public static void init()
+	// fonts
+	
+	public static Font fontBig;
+	public static Font fontMed;
+	
+	public static Clip backgroundMusic, explosion, playerLoose, playerShoot, ufoShoot;
+	
+	// ui
+	
+	public static BufferedImage blueBtn;
+	public static BufferedImage greyBtn;
+	
+	public static void init() throws UnsupportedAudioFileException
 	{
-		player = Loader.Imageloader("iNaveespacial.png");
+		player = Loader.ImageLoader("iNaveespacial.png");
 		
-		speed = Loader.Imageloader("fire08.png");
+		speed = Loader.ImageLoader("fire08.png");
 		
-		blueLaser = Loader.Imageloader("iLaser.png");
+		blueLaser = Loader.ImageLoader("iLaser.png");
 		
-		greenLaser = Loader.Imageloader("laserGreen11.png");
+		greenLaser = Loader.ImageLoader("laserGreen11.png");
 		
-		redLaser = Loader.Imageloader("laserRed01.png");
+		redLaser = Loader.ImageLoader("laserRed01.png");
 		
-		ufo = Loader.Imageloader("ufo.png");
+		ufo = Loader.ImageLoader("ufo.png");
 		
-		life = Loader.Imageloader("life.png");
+		life = Loader.ImageLoader("life.png");
 		
 		for(int i = 0; i < bigs.length; i++)
-			bigs[i] = Loader.Imageloader("big"+(i+1)+".png");
+			bigs[i] = Loader.ImageLoader("big"+(i+1)+".png");
 		
 		for(int i = 0; i < meds.length; i++)
-			meds[i] = Loader.Imageloader("med"+(i+1)+".png");
+			meds[i] = Loader.ImageLoader("med"+(i+1)+".png");
 		
 		for(int i = 0; i < smalls.length; i++)
-			smalls[i] = Loader.Imageloader("small"+(i+1)+".png");
+			smalls[i] = Loader.ImageLoader("small"+(i+1)+".png");
 		
 		for(int i = 0; i < tinies.length; i++)
-			tinies[i] = Loader.Imageloader("tiny"+(i+1)+".png");
+			tinies[i] = Loader.ImageLoader("tiny"+(i+1)+".png");
 		
 		for(int i = 0; i < exp.length; i++)
-			exp[i] = Loader.Imageloader("exp"+i+".png");
+			exp[i] = Loader.ImageLoader("exp"+i+".png");
 		
 		for(int i = 0; i < numbers.length; i++)
-			numbers[i] = Loader.Imageloader(""+i+".png");
+			numbers[i] = Loader.ImageLoader(""+i+".png");
+		backgroundMusic = Loader.loadSound("backgroundMusic.wav");
+		explosion = Loader.loadSound("explosion.wav");
+		playerLoose = Loader.loadSound("playerLoose.wav");
+		playerShoot = Loader.loadSound("playerShoot.wav");
+		ufoShoot = Loader.loadSound("ufoShoot.wav");
 		
+	
 	}
 	
 }

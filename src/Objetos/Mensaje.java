@@ -5,6 +5,7 @@
 package Objetos;
 
 import Estados.EstadoJuego;
+import Graficos.Textos;
 import Math.Vector;
 import java.awt.AlphaComposite;
 import java.awt.Color;
@@ -47,7 +48,7 @@ public class Mensaje {
 		
 		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
 		
-		Text.drawText(g2d, text, position, center, color, font);
+		Textos.drawText(g2d, text, position, center, color, font);
 		
 		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1));
 		
