@@ -124,9 +124,17 @@ public class JugadorJuego extends Movimiento {
     public void Destroy(){
         spawning = true;
 		spawnTime.run(Constantes.SPAWNING_TIME);
-		//resetValues();
-		//gameState.subtractLife();
+		resetValues();
+		gameState.subtractLife();
     }
+    // Método para restar una vida al jugador.
+    private void resetValues() {
+		
+		angle = 0;
+		velocity = new Vector();
+		position = new Vector(Constantes.WIDTH/2 - Assets.player.getWidth()/2,
+				Constantes.HEIGHT/2 - Assets.player.getHeight()/2);
+	}
 	
 	
 	@Override

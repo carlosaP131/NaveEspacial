@@ -247,5 +247,10 @@ public class EstadoJuego {
     public JugadorJuego getPlayer() {
         return player;
     }
-
+    // Método para restar una vida al jugador.
+    public void subtractLife() {lives --;
+    
+    }
+	
 }
+
