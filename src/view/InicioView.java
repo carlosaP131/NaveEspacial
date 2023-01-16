@@ -26,7 +26,7 @@ public class InicioView extends javax.swing.JPanel {
 
    
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultEstado="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Contraseña = new javax.swing.JPasswordField();
@@ -57,7 +57,7 @@ public class InicioView extends javax.swing.JPanel {
         add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 240, -1));
 
         Iniciar.setBackground(new java.awt.Color(1, 39, 61));
-        Iniciar.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Botones\\iIngresar.png")); // NOI18N
+        Iniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Botones/iIngresar.png"))); // NOI18N
         Iniciar.setBorderPainted(false);
         Iniciar.setContentAreaFilled(false);
         Iniciar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -72,17 +72,17 @@ public class InicioView extends javax.swing.JPanel {
         });
         add(Iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Etiquetas\\iContraseña.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Etiquetas/iContraseña.png"))); // NOI18N
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Etiquetas\\iNombreJugador.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Etiquetas/iNombreJugador.png"))); // NOI18N
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 100, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Titulos\\iIniciar.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Titulos/iIniciar.png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(1, 39, 61));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\fondos\\iFondo2.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/fondos/iFondo2.jpg"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 880));
     }// </editor-fold>//GEN-END:initComponents
 
