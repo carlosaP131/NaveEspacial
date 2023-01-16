@@ -1,4 +1,11 @@
-
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *      Sainos Hernández Baldomero.
+ *Fecha de creación: 25- 11-2022 ***
+ *Fecha de actualización:31-11-2022
+ *Descripción:Panel para el inicio de sesion 
+ **
+ * ****************************************************************************/
 package view;
 
 import Estados.EstadoJuego;
