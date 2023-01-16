@@ -10,6 +10,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 /**
  *
@@ -99,7 +102,7 @@ public class Juego extends JFrame implements Runnable{
 		bs.show();
 	}
 	
-	private void init()
+	private void init() throws UnsupportedAudioFileException
 	{
 		Assets.init();
 		gameState = new EstadoJuego();
@@ -114,7 +117,11 @@ public class Juego extends JFrame implements Runnable{
 		int frames = 0;
 		long time = 0;
 		
-		init();
+            try {
+                init();
+            } catch (UnsupportedAudioFileException ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
 		
 		while(running)
 		{
