@@ -13,10 +13,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
-/**
- *
- * @author labdessw09
- */
+
 public class Bala extends Movimiento {
    public Bala(Vector position, Vector velocity, double maxVel, double angle, BufferedImage texture, EstadoJuego gameState) {
 		super(position, velocity, maxVel, texture, gameState);
