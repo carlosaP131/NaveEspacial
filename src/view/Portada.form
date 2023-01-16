@@ -21,7 +21,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\Titulos\iTitulo.png"/>
+          <Image iconType="3" name="/resources/img/Titulos/iTitulo.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -36,7 +36,7 @@
           <Color blue="3d" green="27" red="1" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\carlos\Downloads\NaveEspacial\src\resources\img\fondos\iFondo2.jpg"/>
+          <Image iconType="3" name="/resources/img/fondos/iFondo2.jpg"/>
         </Property>
       </Properties>
       <Constraints>

@@ -33,7 +33,7 @@ public class Principal extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultEstado="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Pprincipal = new javax.swing.JPanel();
@@ -58,12 +58,12 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(1, 39, 61));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Titulos\\iMenu.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Titulos/iMenu.png"))); // NOI18N
 
         Biniciar.setBackground(new java.awt.Color(1, 39, 61));
         Biniciar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Biniciar.setForeground(new java.awt.Color(233, 74, 218));
-        Biniciar.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Botones\\iIniciarSesionPrincipal.png")); // NOI18N
+        Biniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Botones/iIniciarSesionPrincipal.png"))); // NOI18N
         Biniciar.setBorderPainted(false);
         Biniciar.setContentAreaFilled(false);
         Biniciar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -80,7 +80,7 @@ public class Principal extends javax.swing.JFrame {
         Bjugar.setBackground(new java.awt.Color(1, 39, 61));
         Bjugar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Bjugar.setForeground(new java.awt.Color(233, 74, 218));
-        Bjugar.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Botones\\iJugar.png")); // NOI18N
+        Bjugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Botones/iJugar.png"))); // NOI18N
         Bjugar.setBorderPainted(false);
         Bjugar.setContentAreaFilled(false);
         Bjugar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -92,7 +92,7 @@ public class Principal extends javax.swing.JFrame {
         Bregistrar.setBackground(new java.awt.Color(1, 39, 61));
         Bregistrar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Bregistrar.setForeground(new java.awt.Color(233, 74, 218));
-        Bregistrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Botones\\iRegistrarBot.png")); // NOI18N
+        Bregistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Botones/iRegistrarBot.png"))); // NOI18N
         Bregistrar.setBorderPainted(false);
         Bregistrar.setContentAreaFilled(false);
         Bregistrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -104,7 +104,7 @@ public class Principal extends javax.swing.JFrame {
         Bconsultar.setBackground(new java.awt.Color(1, 39, 61));
         Bconsultar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         Bconsultar.setForeground(new java.awt.Color(233, 74, 218));
-        Bconsultar.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\Etiquetas\\iConsultarUsuario.png")); // NOI18N
+        Bconsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Botones/iMostrarB.png"))); // NOI18N
         Bconsultar.setBorderPainted(false);
         Bconsultar.setContentAreaFilled(false);
         Bconsultar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -113,7 +113,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\fondos\\iFondo3.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/fondos/iFondo3.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,7 +151,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(Bregistrar)
                 .addGap(18, 18, 18)
                 .addComponent(Bconsultar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -179,7 +179,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel2.add(Cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\carlos\\Downloads\\NaveEspacial\\src\\resources\\img\\fondos\\iFondo4.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/fondos/iFondo4.png"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 250, 55));
 
         Pprincipal.add(jPanel2, java.awt.BorderLayout.PAGE_START);

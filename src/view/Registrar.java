@@ -81,6 +81,7 @@ public class Registrar extends javax.swing.JPanel {
         add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 240, -1));
 
         registrar.setBackground(new java.awt.Color(1, 39, 61));
+        registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Botones/iRegistrarBot.png"))); // NOI18N
         registrar.setBorderPainted(false);
         registrar.setContentAreaFilled(false);
         registrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -95,25 +96,34 @@ public class Registrar extends javax.swing.JPanel {
         });
         add(registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, -1, -1));
 
+        Lcontraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Etiquetas/iContraseña.png"))); // NOI18N
         Lcontraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Lcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 150, -1));
 
+        Lnombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Etiquetas/iNombreJugador.png"))); // NOI18N
         Lnombre.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Lnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 100, -1));
+
+        LtituloReg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Titulos/iRegistrarTitulo.png"))); // NOI18N
         add(LtituloReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 840, 60));
 
+        Ledad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Etiquetas/iEdad.png"))); // NOI18N
         Ledad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Ledad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
 
+        Lsexo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Etiquetas/iSexo.png"))); // NOI18N
         Lsexo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Lsexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
 
+        Ldireccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Etiquetas/iDireccion.png"))); // NOI18N
         Ldireccion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Ldireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, -1, -1));
 
+        Ltelefono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Etiquetas/iTelefono.png"))); // NOI18N
         Ltelefono.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Ltelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, 20));
 
+        Lcorreo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/Etiquetas/iCorreo.png"))); // NOI18N
         Lcorreo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Lcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, -1, -1));
 
