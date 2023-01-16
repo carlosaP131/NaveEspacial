@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author labdessw09
+ * @author Carlos
  */
 public abstract class Movimiento extends ObjetosJuego {
     protected Vector velocity;
