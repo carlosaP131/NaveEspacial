@@ -12,10 +12,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 
-/**
- *
- * @author Carlos Aurelio Alcántara Pérez
- */
+
 public class InicioView extends javax.swing.JPanel {
 
  
