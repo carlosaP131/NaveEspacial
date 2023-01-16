@@ -18,14 +18,9 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
-/**
- *
- * @author carlos
- */
+ 
 public class Juego extends JFrame implements Runnable{
-  /**
-	 * 
-	 */
+    //Declaracion de las variables.
 	private static final long serialVersionUID = 1L;
 	
 	private Canvas canvas;

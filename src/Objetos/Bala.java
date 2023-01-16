@@ -1,7 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 25- 11-2022 ***
+ *Fecha de actualización:31-11-2022
+ *Descripción:Panel para el inicio de sesion 
+ **
+ * ****************************************************************************/
 package Objetos;
 import Estados.EstadoJuego;
 import Math.Vector;
@@ -24,7 +27,7 @@ public class Bala extends Movimiento {
 	@Override
 	public void update() {
 		position = position.add(velocity);
-		if(position.getX() < 0 || position.getX() > Constantes.WIDTH ||
+		if(position.getX()< 0 || position.getX() > Constantes.WIDTH ||
 				position.getY() < 0 || position.getY() > Constantes.HEIGHT){
 			Destroy();
 		}
