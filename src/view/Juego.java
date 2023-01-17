@@ -16,7 +16,12 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
  
 public class Juego extends JFrame implements Runnable{
@@ -37,6 +42,8 @@ public class Juego extends JFrame implements Runnable{
 	
 	private EstadoJuego gameState;
 	private KeyBoard keyBoard;
+        
+       
 	
 	public Juego()
 	{
@@ -58,6 +65,8 @@ public class Juego extends JFrame implements Runnable{
 		add(canvas);
 		canvas.addKeyListener(keyBoard);
 		setVisible(true);
+                
+               
 	}
 	
 	
@@ -84,8 +93,8 @@ public class Juego extends JFrame implements Runnable{
 		g = bs.getDrawGraphics();
 		
 		//-----------------------
-		
-		g.setColor(Color.BLACK);
+                
+		g.setColor(Color.BLpppUE);
 		
 		g.fillRect(0, 0, Constantes.WIDTH, Constantes.HEIGHT);
 		

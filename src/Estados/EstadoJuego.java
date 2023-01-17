@@ -15,8 +15,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -27,6 +29,7 @@ public class EstadoJuego {
     private JugadorJuego player;
     private ArrayList<Movimiento> movingObjects = new ArrayList<Movimiento>();
     private ArrayList<Animacion> explosions = new ArrayList<Animacion>();
+    
 
     private int score = 0;
     private int lives = 3;
@@ -37,6 +40,8 @@ public class EstadoJuego {
         player = new JugadorJuego(new Vector(Constantes.WIDTH / 2 - Assets.player.getWidth() / 2,
                 Constantes.HEIGHT / 2 - Assets.player.getHeight() / 2), new Vector(),
                 Constantes.PLAYER_MAX_VEL, Assets.player, this);
+        
+        
 
         movingObjects.add(player);
 
