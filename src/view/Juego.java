@@ -16,8 +16,6 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -43,7 +41,7 @@ public class Juego extends JFrame implements Runnable{
 	private EstadoJuego gameState;
 	private KeyBoard keyBoard;
         
-       
+        private BufferedImage imgFondo;
 	
 	public Juego()
 	{
@@ -66,7 +64,12 @@ public class Juego extends JFrame implements Runnable{
 		canvas.addKeyListener(keyBoard);
 		setVisible(true);
                 
-               
+//                try {
+//            File archivo = new File("./src/resources/img/fondos/espacio.jpg");
+//            imgFondo = ImageIO.read(archivo);
+//        } catch (Exception e) {
+//            System.err.println("Error: " + e.getMessage());
+//        }
 	}
 	
 	
@@ -93,8 +96,12 @@ public class Juego extends JFrame implements Runnable{
 		g = bs.getDrawGraphics();
 		
 		//-----------------------
-                
-		g.setColor(Color.BLpppUE);
+		
+                // Asignación del fondo del juego
+              //  g.drawImage(imgFondo, 0, 0, this);
+                //this.setOpaque(false);
+                //super.paint(g);
+		g.setColor(Color.BLACK);
 		
 		g.fillRect(0, 0, Constantes.WIDTH, Constantes.HEIGHT);
 		
