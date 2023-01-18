@@ -78,7 +78,7 @@ public class Juego extends JFrame implements Runnable {
     public static void main(String[] args) {
         new Juego().start();
     }
-
+    //Método actualizar
     private void update() {
         keyBoard.update();
         gameState.update();
