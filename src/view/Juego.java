@@ -66,12 +66,13 @@ public class Juego extends JFrame implements Runnable {
         canvas.addKeyListener(keyBoard);
         setVisible(true);
 
-//                try {
-//            File archivo = new File("./src/resources/img/fondos/espacio.jpg");
-//            imgFondo = ImageIO.read(archivo);
-//        } catch (Exception e) {
-//            System.err.println("Error: " + e.getMessage());
-//        }
+                try {
+            File archivo = new File("src/view/espacio1.jpg");
+            imgFondo = ImageIO.read(archivo);
+                    System.err.println("Archivo encontrado: " + archivo.getAbsolutePath());
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
     }
 
     public static void main(String[] args) {
@@ -82,6 +83,7 @@ public class Juego extends JFrame implements Runnable {
         keyBoard.update();
         gameState.update();
     }
+    
 
     private void draw() {
         bs = canvas.getBufferStrategy();
@@ -95,12 +97,17 @@ public class Juego extends JFrame implements Runnable {
 
         //-----------------------
         // Asignación del fondo del juego
-        //  g.drawImage(imgFondo, 0, 0, this);
+        g.drawImage(imgFondo, 0, 0, this);
+        //g.dispose();
+        
+        
+        
         //this.setOpaque(false);
         //super.paint(g);
-        g.setColor(Color.BLACK);
+        //g.setColor(Color.ORANGE);
 
-        g.fillRect(0, 0, Constantes.WIDTH, Constantes.HEIGHT);
+        //revisar esta línea de código
+        //g.fillRect(0, 0, Constantes.WIDTH, Constantes.HEIGHT);
 
         gameState.draw(g);
 
