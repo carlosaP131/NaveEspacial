@@ -16,7 +16,10 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-
+/**
+ * En esta clase estan todos los try-catch que ocuparemos 
+ * @author carlos
+ */
 public class Loader {
   public static BufferedImage ImageLoader(String path)
 	{

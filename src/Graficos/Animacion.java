@@ -12,33 +12,49 @@ import java.awt.image.BufferedImage;
 
 /**
  *
- * @author labdessw09
+ * @author Carlos
  */
 public class Animacion {
-    
-	private BufferedImage[] frames;
-	private int velocity;
+        /**
+         * Se declara un Bufferedimage para mostrar las imagenes
+         * dos variables int para la velocidad y el control de los ciclos 
+         * un boleano para la pausa y reanudacion del juego una instancia de la 
+         * clase vector para saber la posicion en donde sera puesta la animacion
+         * y una variable long para el tiempo 
+         */
+	private final BufferedImage[] frames;
+	private final int velocidad;
 	private int index;
 	private boolean running;
-	private Vector position;
+	private final Vector posicion;
 	private long time, lastTime;
-	
+	/**
+         * Constructor que recive tres variables la imagen la velocidad y la posicion
+         * @param frames
+         * @param velocity
+         * @param position 
+         */
 	public Animacion (BufferedImage[] frames, int velocity, Vector position){
-		this.frames = frames;
-		this.velocity = velocity;
-		this.position = position;
+            /**
+             *Declaracion de las variables 
+             */
+            this.frames = frames;
+		this.velocidad = velocity;
+		this.posicion = position;
 		index = 0;
 		running = true;
 		time = 0;
 		lastTime = System.currentTimeMillis();
 	}
-	
+	/**
+         * metodo de actualizacion de estados 
+         */
 	public void update(){
 		
 		time += System.currentTimeMillis() - lastTime;
 		lastTime = System.currentTimeMillis();
 		
-		if(time > velocity){
+		if(time > velocidad){
 			time  = 0;
 			index ++;
 			if(index >= frames.length){
@@ -46,15 +62,24 @@ public class Animacion {
 			}
 		}
 	}
-
+        /**
+         * metodo para saber si esta corriendo el juego
+         * @return 
+         */
 	public boolean isRunning() {
 		return running;
 	}
-
+        /**
+         * metodo para obtener la posicion 
+         * @return 
+         */
 	public Vector getPosition() {
-		return position;
+		return posicion;
 	}
-	
+	/**
+         * Metodo para obtener la imagen 
+         * @return 
+         */
 	public BufferedImage getCurrentFrame(){
 		return frames[index];
 	}

@@ -14,8 +14,8 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 
 /**
- *
- * @author labdessw09
+ *En sesta Clase solo se crean textos 
+ * @author carlos
  */
 public class Textos {
     public static void drawText(Graphics g, String text, Vector pos, boolean center, Color color, Font font) {
