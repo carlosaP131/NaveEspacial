@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
 import graphics.Assets;
 import graphics.Sound;
-import input.KeyBoard;
+import Ainput.KeyBoard;
 import math.Vector2D;
 import states.GameState;
 
