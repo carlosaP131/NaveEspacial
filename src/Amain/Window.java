@@ -14,9 +14,9 @@ import input.MouseInput;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
-import states.LoadingState;
-import states.MenuState;
-import states.State;
+import Astates.LoadingState;
+import Astates.MenuState;
+import Astates.State;
 
 
 public class Window extends JFrame implements Runnable{

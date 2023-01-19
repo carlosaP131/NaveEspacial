@@ -9,7 +9,7 @@ import graphics.Assets;
 import graphics.Sound;
 import Ainput.KeyBoard;
 import math.Vector2D;
-import states.GameState;
+import Astates.GameState;
 
 public class Player extends MovingObject{
 	

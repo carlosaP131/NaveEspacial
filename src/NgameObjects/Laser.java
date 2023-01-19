@@ -6,7 +6,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
 import math.Vector2D;
-import states.GameState;
+import Astates.GameState;
 
 public class Laser extends MovingObject{
 

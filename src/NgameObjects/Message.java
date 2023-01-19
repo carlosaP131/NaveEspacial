@@ -7,7 +7,7 @@ import java.awt.Graphics2D;
 
 import graphics.Text;
 import math.Vector2D;
-import states.GameState;
+import Astates.GameState;
 
 public class Message {
 	private float alpha;

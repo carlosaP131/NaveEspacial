@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import graphics.Assets;
 import graphics.Sound;
 import math.Vector2D;
-import states.GameState;
+import Astates.GameState;
 
 public abstract class MovingObject extends GameObject{
 	
