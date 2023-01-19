@@ -24,6 +24,8 @@ public class Constantes {
     public static final double PLAYER_MAX_VEL = 7.0;
     public static final long FLICKER_TIME = 200;
     public static final long SPAWNING_TIME = 3000;
+    public static final long GAME_OVER_TIME = 3000;
+	
     // Laser properties
 
     public static final double LASER_VEL = 15.0;
@@ -44,6 +46,6 @@ public class Constantes {
     public static final int UFO_SCORE = 40;
 
     public static long UFO_FIRE_RATE = 1000;
-    
+    	public static final long UFO_SPAWN_RATE = 10000;
 
 }

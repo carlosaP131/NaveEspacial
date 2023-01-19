@@ -29,16 +29,16 @@ public class Mensaje {
 	private boolean fade;
 	private Font font;
 	private final float deltaAlpha = 0.01f;
-	
+	private boolean dead;
 	public Mensaje(Vector position, boolean fade, String text, Color color,
-			boolean center, Font font, EstadoJuego gameState) {
+			boolean center, Font font) {
 		this.font = font;
-		this.gameState = gameState;
 		this.text = text;
 		this.position = position;
 		this.fade = fade;
 		this.color = color;
 		this.center = center;
+		this.dead = false;
 		
 		if(fade)
 			alpha = 1;
@@ -73,5 +73,5 @@ public class Mensaje {
 		
 		
 	}
-	
+	public boolean isDead() {return dead;}
 }

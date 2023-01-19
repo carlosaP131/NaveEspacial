@@ -12,6 +12,7 @@ import Graficos.Assets;
 import Graficos.Sonidos;
 import Math.Vector;
 import Objetos.Constantes;
+import Objetos.Cronometro;
 import Objetos.JugadorJuego;
 import Objetos.Mensaje;
 import Objetos.Meteorito;
@@ -48,7 +49,9 @@ public class EstadoJuego {
     private int meteoritos;
     private int Niveles = 1;
     private Sonidos backgroundMusic;
-
+    private Cronometro gameOverTimer;
+    private boolean gameOver;
+    private Cronometro ufoSpawner;
     /**
      * Constructor
      */
@@ -68,6 +71,8 @@ public class EstadoJuego {
         backgroundMusic = new Sonidos(Assets.backgroundMusic);
         //backgroundMusic.loop();
         backgroundMusic.changeVolume(-10.0f);
+        ufoSpawner = new Cronometro();
+        ufoSpawner.run(Constantes.UFO_SPAWN_RATE);
     }
 
     /**
@@ -81,7 +86,7 @@ public class EstadoJuego {
         Puntaje += value;
         messages.add(
                 new Mensaje(position, true, "+" + value + " score", Color.WHITE,
-                        false, Assets.fontMed, this));
+                        false, Assets.fontMed));
     }
 
     /**
@@ -130,10 +135,10 @@ public class EstadoJuego {
      */
     private void startWave() {
         messages.add(
-            new Mensaje(new Vector(Constantes.WIDTH / 2, Constantes.HEIGHT / 2),
+                new Mensaje(new Vector(Constantes.WIDTH / 2, Constantes.HEIGHT / 2),
                         false,
-           "Nivel " + Niveles, Color.WHITE, true, Assets.fontBig,
-                    this));
+                        "Nivel " + Niveles, Color.WHITE, true, Assets.fontBig
+                     ));
         double x, y;
 
         for (int i = 0; i < meteoritos; i++) {
@@ -166,7 +171,7 @@ public class EstadoJuego {
         explosions.add(new Animacion(
                 Assets.exp,
                 50,
-               position.subtract(new Vector(Assets.exp[0].getWidth() / 2,
+                position.subtract(new Vector(Assets.exp[0].getWidth() / 2,
                         Assets.exp[0].getHeight() / 2))
         ));
     }
@@ -234,6 +239,21 @@ public class EstadoJuego {
                 return;
             }
         }
+        
+
+        if (!ufoSpawner.isRunning()) {
+            ufoSpawner.run(Constantes.UFO_SPAWN_RATE);
+            spawnUfo();
+        }
+
+        gameOverTimer.update();
+        ufoSpawner.update();
+
+        for (int i = 0; i < movingObjects.size(); i++) {
+            if (movingObjects.get(i) instanceof Meteorito) {
+                return;
+            }
+        }
 
         startWave();
 
@@ -259,8 +279,8 @@ public class EstadoJuego {
 
         for (int i = 0; i < explosions.size(); i++) {
             Animacion anim = explosions.get(i);
-            g2d.drawImage(anim.getCurrentFrame(), 
-               (int) anim.getPosition().getX(), (int) anim.getPosition().getY(),
+            g2d.drawImage(anim.getCurrentFrame(),
+                    (int) anim.getPosition().getX(), (int) anim.getPosition().getY(),
                     null);
 
         }
@@ -281,8 +301,7 @@ public class EstadoJuego {
 
         for (int i = 0; i < scoreToString.length(); i++) {
 
-            g.drawImage(Assets.numbers[Integer.parseInt
-            (scoreToString.substring(i, i + 1))],
+            g.drawImage(Assets.numbers[Integer.parseInt(scoreToString.substring(i, i + 1))],
                     (int) pos.getX(), (int) pos.getY(), null);
             pos.setX(pos.getX() + 20);
 
@@ -337,4 +356,5 @@ public class EstadoJuego {
     public void subtractLife() {
         Vidas--;
     }
+   
 }

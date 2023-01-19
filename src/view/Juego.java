@@ -72,7 +72,7 @@ public class Juego extends JFrame implements Runnable {
         setLocationRelativeTo(null);//centrar en la pantalla 
 
         canvas = new Canvas();//declaracion del canvas
-        keyBoard = new KeyBoard();//declaracion de la clase de las teclas  
+        keyBoard = new KeyBoard();//declaracion de la clase de las teclas 
         /**
          * Esta es la dimencion del fondo y del mismo frame
          */
