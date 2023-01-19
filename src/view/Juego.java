@@ -1,4 +1,5 @@
 package view;
+//Importación de librerias.
 
 import Estados.EstadoJuego;
 import Graficos.Assets;
@@ -9,8 +10,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 
@@ -28,8 +32,8 @@ public class Juego extends JFrame implements Runnable {
     // Canvas nos sirve para cargar el fondo 
     private Canvas canvas;
     // thred es el hilo para los objetos con movimiento 
-    private Thread thread; 
-     //esta declaracion booleana nos sirvepara pausar los hilos 
+    private Thread thread;
+    //esta declaracion booleana nos sirvepara pausar los hilos 
     private boolean running = false;
     //crea las imagenes
     private BufferStrategy bs;
@@ -41,20 +45,25 @@ public class Juego extends JFrame implements Runnable {
     //angulo de los objetos 
     private double delta = 0;
     //nivel de fps
-    private int AVERAGEFPS = FPS;   
+    private int AVERAGEFPS = FPS;
     /*
     * Istancia de la clase EstadoJuego que nos ayuda a saber en que estado se 
     * encuentran nuestros objetos 
-    */
-  
+     */
+
     private EstadoJuego gameState;
     /*
       Instancia para las teclas de juego 
-    */
+     */
     private KeyBoard keyBoard;
     /*
+      Instancia para el fondo del juego 
+     */
+    private BufferedImage imgFondo;
+
+    /*
     *constructor 
-    */
+     */
     public Juego() {
         setTitle("Galaxi");//titulo
         setSize(Constantes.WIDTH, Constantes.HEIGHT);//tamaño del frame 
@@ -63,10 +72,10 @@ public class Juego extends JFrame implements Runnable {
         setLocationRelativeTo(null);//centrar en la pantalla 
 
         canvas = new Canvas();//declaracion del canvas
-        keyBoard = new KeyBoard();//declaracion de la clase de las teclas 
-       /**
-        * Esta es la dimencion del fondo y del mismo frame 
-        */
+        keyBoard = new KeyBoard();//declaracion de la clase de las teclas  
+        /**
+         * Esta es la dimencion del fondo y del mismo frame
+         */
         canvas.setPreferredSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
         canvas.setMaximumSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
         canvas.setMinimumSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
@@ -75,23 +84,34 @@ public class Juego extends JFrame implements Runnable {
         add(canvas);
         canvas.addKeyListener(keyBoard);
         setVisible(true);
+        //Bloque try para cargar la imagen de fondo del juego
+        try {
+            File archivo = new File("src/Graficos/iJuego2.jpg");
+            imgFondo = ImageIO.read(archivo);
+        } catch (Exception e) {
+            System.out.println("Error : " + e.getMessage());
+        }
     }
+
     /**
-    * Metodo main
-    * @param args 
-    */
+     * Metodo main
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         new Juego().start();
     }
+
     /**
-     * Actualiza los estados del juego y las teclas precionadas 
+     * Actualiza los estados del juego y las teclas precionadas
      */
     private void update() {
         keyBoard.update();
         gameState.update();
     }
+
     /**
-     * Metodo para dibujar las imagenes 
+     * Metodo para dibujar las imagenes
      */
     private void draw() {
         bs = canvas.getBufferStrategy();
@@ -102,12 +122,12 @@ public class Juego extends JFrame implements Runnable {
         }
 
         g = bs.getDrawGraphics();
-
-        //-----------------------
-        g.setColor(Color.BLACK);
-
+        
+        // Asignación de fondo al juego.
         g.fillRect(0, 0, Constantes.WIDTH, Constantes.HEIGHT);
-
+        
+        g.drawImage(imgFondo, 0, 0, this);
+        
         gameState.draw(g);
 
         g.setColor(Color.WHITE);
@@ -118,16 +138,19 @@ public class Juego extends JFrame implements Runnable {
         g.dispose();
         bs.show();
     }
+
     /**
-     * Cargar las direcciones de todos los elementos a usar 
-     * @throws UnsupportedAudioFileException 
+     * Cargar las direcciones de todos los elementos a usar
+     *
+     * @throws UnsupportedAudioFileException
      */
     private void init() throws UnsupportedAudioFileException {
         Assets.init();
         gameState = new EstadoJuego();
     }
+
     /**
-     * Metodo para ejecutar los Hilos 
+     * Metodo para ejecutar los Hilos
      */
     @Override
     public void run() {
@@ -166,6 +189,7 @@ public class Juego extends JFrame implements Runnable {
 
         stop();
     }
+
     /**
      * Metodo para comenzar el juego
      */
@@ -176,8 +200,9 @@ public class Juego extends JFrame implements Runnable {
         running = true;
 
     }
+
     /**
-     * Metodo para parar el juego 
+     * Metodo para parar el juego
      */
     private void stop() {
         try {

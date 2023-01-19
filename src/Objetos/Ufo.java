@@ -94,9 +94,15 @@ public class Ufo extends Movimiento{
 			
 			toPlayer = toPlayer.normalize();
 			
-			double currentAngle = toPlayer.getAngle();
+			double newAngle = toPlayer.getAngle();
 			
-			double newAngle = Math.random()*(Math.PI) - Math.PI/2 + currentAngle;
+		//	double newAngle = Math.random()*(Math.PI) - Math.PI/2 + currentAngle;
+                       
+                        newAngle += Math.random()*Constantes.UFO_ANGLE_RANGE - Constantes.UFO_ANGLE_RANGE / 2;
+			
+			if(toPlayer.getX() < 0)
+				newAngle = -newAngle + Math.PI;
+                        
 			
 			toPlayer = toPlayer.setDirection(newAngle);
 			
@@ -119,6 +125,12 @@ public class Ufo extends Movimiento{
 		
 		collidesWith();
 		fireRate.update();
+	}
+        
+        @Override
+	public void Destroy() {
+		gameState.addScore(Constantes.UFO_SCORE, position);
+		super.Destroy();
 	}
 
 	@Override

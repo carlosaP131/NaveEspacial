@@ -44,5 +44,6 @@ public class Constantes {
     public static final int UFO_SCORE = 40;
 
     public static long UFO_FIRE_RATE = 1000;
+    
 
 }

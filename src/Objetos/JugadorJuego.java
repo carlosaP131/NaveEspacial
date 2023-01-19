@@ -10,6 +10,7 @@ package Objetos;
 
 import Estados.EstadoJuego;
 import Graficos.Assets;
+import Graficos.Sonidos;
 import Input.KeyBoard;
 import Math.Vector;
 import java.awt.Graphics;
@@ -29,17 +30,58 @@ public class JugadorJuego extends Movimiento {
 
     private boolean accelerating = false;
     private Cronometro fireRate;
-
+    private boolean spawning, visible;
+	
+	private Cronometro spawnTime, flickerTime;
+	
+	private Sonidos shoot, loose;
     public JugadorJuego(Vector position, Vector velocity, double maxVel, BufferedImage texture, EstadoJuego gameState) {
-        super(position, velocity, maxVel, texture, gameState);
-        heading = new Vector(0, 1);
-        acceleration = new Vector();
-        fireRate = new Cronometro();
+       super(position, velocity, maxVel, texture, gameState);
+		heading = new Vector(0, 1);
+		acceleration = new Vector();
+		fireRate = new Cronometro();
+		spawnTime = new Cronometro();
+		flickerTime = new Cronometro();
+		shoot = new Sonidos(Assets.playerShoot);
+		loose = new Sonidos(Assets.playerLoose);
     }
     //Método sobreescrito para la bala.
     @Override
     public void update() {
-
+        if(!spawnTime.isRunning()) {
+			spawning = false;
+			visible = true;
+		}
+		
+		if(spawning) {
+			
+			if(!flickerTime.isRunning()) {
+				
+				flickerTime.run(Constantes.FLICKER_TIME);
+				visible = !visible;
+				
+			}
+			
+		}
+		
+		if(KeyBoard.SHOOT &&  !fireRate.isRunning() && !spawning)
+		{		
+			gameState.getMovingObjects().add(0,new Bala(
+					getCenter().add(heading.scale(width)),
+					heading,
+					Constantes.LASER_VEL,
+					angle,
+					Assets.blueLaser,
+					gameState
+					));
+			fireRate.run(Constantes.FIRERATE);
+			shoot.play();
+		}
+		
+		if(shoot.getFramePosition() > 8500) {
+			shoot.stop();
+		}
+		
         if (KeyBoard.SHOOT && !fireRate.isRunning()) {
             gameState.getMovingObjects().add(0, new Bala(
                     getCenter().add(heading.scale(width)),
@@ -94,7 +136,21 @@ public class JugadorJuego extends Movimiento {
         fireRate.update();
         collidesWith();
     }
-
+@Override
+	public void Destroy() {
+		spawning = true;
+		spawnTime.run(Constantes.SPAWNING_TIME);
+		loose.play();
+		resetValues();
+		gameState.subtractLife();
+	}
+	
+	private void resetValues() {
+		
+		angle = 0;
+		velocity = new Vector();
+		position = EstadoJuego.PLAYER_START_POSITION;
+	}
     @Override
     public void draw(Graphics g) {
 

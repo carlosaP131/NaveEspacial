@@ -9,6 +9,7 @@ package Estados;
 
 import Graficos.Animacion;
 import Graficos.Assets;
+import Graficos.Sonidos;
 import Math.Vector;
 import Objetos.Constantes;
 import Objetos.JugadorJuego;
@@ -33,8 +34,10 @@ public class EstadoJuego {
         /**
          * Esta clase se encarga de ver en que estado esta el juego 
          * se declaran las variables de instancias a otras clases y cuatro ints 
-         * que son el puntaje,las vidas,los meteoritos en pantalla y los niveles 
+         * que son el puntaje, las vidas, los meteoritos en pantalla y los niveles 
          */
+    public static final Vector PLAYER_START_POSITION = new Vector(Constantes.WIDTH/2 - Assets.Jugador.getWidth()/2,
+			Constantes.HEIGHT/2 - Assets.Jugador.getHeight()/2);
 	private JugadorJuego Jugador;
 	private ArrayList<Movimiento> movingObjects = new ArrayList<Movimiento>();
 	private ArrayList<Animacion> explosions = new ArrayList<Animacion>();
@@ -43,6 +46,7 @@ public class EstadoJuego {
 	private int Vidas = 3;
 	private int meteoritos;
 	private int Niveles = 1;
+        private Sonidos backgroundMusic;
         /**
          * Constructor
          */
@@ -53,27 +57,28 @@ public class EstadoJuego {
              * ya que si el jugador muere se le resetea una vida y se crea otro 
              * asi hasta que se terminen sus vidas
              */
-		Jugador = new JugadorJuego(new Vector(Constantes.WIDTH/2 - Assets.Jugador.getWidth()/2,
-				Constantes.HEIGHT/2 - Assets.Jugador.getHeight()/2), new Vector(),
+		Jugador = new JugadorJuego(PLAYER_START_POSITION, new Vector(),
 				Constantes.PLAYER_MAX_VEL, Assets.Jugador, this);
 		
 		movingObjects.add(Jugador);
-		/**
-                 * meteritos creados 
-                 */
+		
 		meteoritos = 1;
 		startWave();
+		backgroundMusic = new Sonidos(Assets.backgroundMusic);
+		//backgroundMusic.loop();
+		backgroundMusic.changeVolume(-10.0f);
 	}
 	/**
          * Este metodo aumenta el puntaje se recive el valor del puntaje 
          * y tambien la posicion donde se mostrara
-         * @param value
-         * @param position 
+         * @param value : Valor del puntaje del jugador
+         * @param position :Posicion donde se mostrara el meensaje
          */
+        
 	public void addScore(int value, Vector position) {
 		Puntaje += value;
                 messages.add(new Mensaje(position, true, "+"+value+" score", Color.WHITE, false, Assets.fontMed, this));
-	}
+	}   
 	/**
          * divide los meteoritos si recibe un disparo el tamaño es la mitad del 
          * meteorito anterior

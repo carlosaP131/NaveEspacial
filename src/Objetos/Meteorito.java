@@ -48,7 +48,8 @@ public class Meteorito extends Movimiento{
 	
 	@Override
 	public void Destroy(){
-	
+	gameState.divideMeteorito(this);
+		gameState.addScore(Constantes.METEOR_SCORE, position);
 		super.Destroy();
 	}
 	
