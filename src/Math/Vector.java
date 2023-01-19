@@ -9,39 +9,61 @@
 package Math;
 
 /**
- *
+ *Clase para los calculos de las posiciones de los objetos
  * @author carlos
  */
 public class Vector {
    private double x,y;
-	
+	/**
+         * Constructor con parametros 
+         * @param x
+         * @param y 
+         */
 	public Vector(double x, double y)
 	{
 		this.x = x;
 		this.y = y;
 	}
-	
+	/**
+         * contructor vacio para inicialisacion
+         */
 	public Vector()
 	{
 		x = 0;
 		y = 0;
 	}	
-	
+	/**
+         * crear un nuevo vector
+         * @param v
+         * @return 
+         */
 	public Vector add(Vector v)
 	{
 		return new Vector(x + v.getX(), y + v.getY());
 	}
-	
+	/**
+         * quitar un vector
+         * @param v
+         * @return 
+         */
 	public Vector subtract(Vector v)
 	{
 		return new Vector(x - v.getX(), y - v.getY());
 	}
-	
+	/**
+         * escalar el vector
+         * @param value
+         * @return 
+         */
 	public Vector scale(double value)
 	{
 		return new Vector(x*value, y*value);
 	}
-	
+	/**
+         * limite del vector
+         * @param value
+         * @return 
+         */
 	public Vector limit(double value)
 	{
 		if(getMagnitude() > value)
@@ -50,7 +72,10 @@ public class Vector {
 		}
 		return this;
 	}
-	
+	/**
+         * normalizacion
+         * @return 
+         */
 	public Vector normalize()
 	{
 		double magnitude = getMagnitude();

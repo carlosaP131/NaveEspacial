@@ -11,7 +11,6 @@ import Graficos.Animacion;
 import Graficos.Assets;
 import Math.Vector;
 import Objetos.Constantes;
-import Objetos.Cronometro;
 import Objetos.JugadorJuego;
 import Objetos.Mensaje;
 import Objetos.Meteorito;
@@ -23,7 +22,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -32,34 +30,56 @@ import java.util.ArrayList;
  * @author carlos
  */
 public class EstadoJuego {
-   
-	private JugadorJuego player;
+        /**
+         * Esta clase se encarga de ver en que estado esta el juego 
+         * se declaran las variables de instancias a otras clases y cuatro ints 
+         * que son el puntaje,las vidas,los meteoritos en pantalla y los niveles 
+         */
+	private JugadorJuego Jugador;
 	private ArrayList<Movimiento> movingObjects = new ArrayList<Movimiento>();
 	private ArrayList<Animacion> explosions = new ArrayList<Animacion>();
 	private ArrayList<Mensaje> messages = new ArrayList<Mensaje>();
-	private int score = 0;
-	private int lives = 3;
-	
-	private int meteors;
-	private int waves = 1;
+	private int Puntaje= 0;
+	private int Vidas = 3;
+	private int meteoritos;
+	private int Niveles = 1;
+        /**
+         * Constructor
+         */
 	public EstadoJuego()
 	{
-		player = new JugadorJuego(new Vector(Constantes.WIDTH/2 - Assets.Jugador.getWidth()/2,
+            /**
+             * Se crea un nuevo jugador cada que se actualize el estado esto 
+             * ya que si el jugador muere se le resetea una vida y se crea otro 
+             * asi hasta que se terminen sus vidas
+             */
+		Jugador = new JugadorJuego(new Vector(Constantes.WIDTH/2 - Assets.Jugador.getWidth()/2,
 				Constantes.HEIGHT/2 - Assets.Jugador.getHeight()/2), new Vector(),
 				Constantes.PLAYER_MAX_VEL, Assets.Jugador, this);
 		
-		movingObjects.add(player);
-		
-		meteors = 1;
+		movingObjects.add(Jugador);
+		/**
+                 * meteritos creados 
+                 */
+		meteoritos = 1;
 		startWave();
 	}
-	
+	/**
+         * Este metodo aumenta el puntaje se recive el valor del puntaje 
+         * y tambien la posicion donde se mostrara
+         * @param value
+         * @param position 
+         */
 	public void addScore(int value, Vector position) {
-		score += value;
+		Puntaje += value;
                 messages.add(new Mensaje(position, true, "+"+value+" score", Color.WHITE, false, Assets.fontMed, this));
 	}
-	
-	public void  videMeteorito(Meteorito meteor){
+	/**
+         * divide los meteoritos si recibe un disparo el tamaño es la mitad del 
+         * meteorito anterior
+         * @param meteor 
+         */
+	public void  divideMeteorito(Meteorito meteor){
 		
 		Size size = meteor.getSize();
 		
@@ -93,13 +113,16 @@ public class EstadoJuego {
 		}
 	}
 	
-	
+	/**
+         * Iniciar los niveles al igual que las vidas este metodo solo es para 
+         * mostrar un texto e igual para aumentar el numero de meteoritos 
+         */
 	private void startWave(){
 		messages.add(new Mensaje(new Vector(Constantes.WIDTH/2, Constantes.HEIGHT/2), false,
-				"Nivel "+waves, Color.WHITE, true, Assets.fontBig, this));
+				"Nivel "+Niveles, Color.WHITE, true, Assets.fontBig, this));
 		double x, y;
 		
-		for(int i = 0; i < meteors; i++){
+		for(int i = 0; i < meteoritos; i++){
 			 
 			x = i % 2 == 0 ? Math.random()*Constantes.WIDTH : 0;
 			y = i % 2 == 0 ? 0 : Math.random()*Constantes.HEIGHT;
@@ -116,10 +139,13 @@ public class EstadoJuego {
 					));
 			
 		}
-		meteors ++;
+		meteoritos ++;
 		spawnUfo();
 	}
-	
+	/**
+         * reproduce las explociones
+         * @param position 
+         */
 	public void playExplosion(Vector position){
 		explosions.add(new Animacion(
 				Assets.exp,
@@ -127,7 +153,9 @@ public class EstadoJuego {
 				position.subtract(new Vector(Assets.exp[0].getWidth()/2, Assets.exp[0].getHeight()/2))
 				));
 	}
-	
+	/**
+         * espawnea enemigos en una posicion random
+         */
 	private void spawnUfo(){
 		
 		int rand = (int) (Math.random()*2);
@@ -166,7 +194,9 @@ public class EstadoJuego {
 		
 	}
 
-	
+	/**
+         * actualiza el estado de el juego  
+         */
 	public void update()
 	{
 		for(int i = 0; i < movingObjects.size(); i++)
@@ -188,7 +218,10 @@ public class EstadoJuego {
 		startWave();
 		
 	}
-	
+	/**
+         * dibuja los objetos 
+         * @param g 
+         */
 	public void draw(Graphics g)
 	{	
 		Graphics2D g2d = (Graphics2D)g;
@@ -209,12 +242,15 @@ public class EstadoJuego {
 		drawScore(g);
 		drawLives(g);
 	}
-	
+	/**
+         * dibuja el puntaje
+         * @param g 
+         */
 	private void drawScore(Graphics g) {
 		
 		Vector pos = new Vector(850, 25);
 		
-		String scoreToString = Integer.toString(score);
+		String scoreToString = Integer.toString(Puntaje);
 		
 		for(int i = 0; i < scoreToString.length(); i++) {
 			
@@ -225,7 +261,10 @@ public class EstadoJuego {
 		}
 		
 	}
-	
+	/**
+         * dibuja las vidas 
+         * @param g 
+         */
 	private void drawLives(Graphics g){
 		
 		Vector livePosition = new Vector(25, 25);
@@ -235,7 +274,7 @@ public class EstadoJuego {
 		g.drawImage(Assets.numbers[10], (int)livePosition.getX() + 40,
 				(int)livePosition.getY() + 5, null);
 		
-		String livesToString = Integer.toString(lives);
+		String livesToString = Integer.toString(Vidas);
 		
 		Vector pos = new Vector(livePosition.getX(), livePosition.getY());
 		
@@ -259,7 +298,7 @@ public class EstadoJuego {
 		return messages;
 	}
 	public JugadorJuego getPlayer() {
-		return player;
+		return Jugador;
 	}
-	public void subtractLife() {lives --;}
+	public void subtractLife() {Vidas --;}
 }
