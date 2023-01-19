@@ -67,7 +67,7 @@ public class Juego extends JFrame implements Runnable {
         setVisible(true);
 
                 try {
-            File archivo = new File("src/view/espacio1.jpg");
+            File archivo = new File("src/view/ss.jpg");
             imgFondo = ImageIO.read(archivo);
                     System.err.println("Archivo encontrado: " + archivo.getAbsolutePath());
         } catch (Exception e) {
@@ -96,6 +96,7 @@ public class Juego extends JFrame implements Runnable {
         g = bs.getDrawGraphics();
 
         //-----------------------
+        g.fillRect(0, 0, Constantes.WIDTH, Constantes.HEIGHT);
         // Asignación del fondo del juego
         g.drawImage(imgFondo, 0, 0, this);
         //g.dispose();
@@ -107,7 +108,7 @@ public class Juego extends JFrame implements Runnable {
         //g.setColor(Color.ORANGE);
 
         //revisar esta línea de código
-        //g.fillRect(0, 0, Constantes.WIDTH, Constantes.HEIGHT);
+        //g.fillRect(0, 0, Constantes.WIDTH, Constantes.HEIGHT); esta linea es para las balas
 
         gameState.draw(g);
 
