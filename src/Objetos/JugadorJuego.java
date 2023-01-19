@@ -109,8 +109,8 @@ public class JugadorJuego extends Movimiento {
         at2.rotate(angle, width / 2 - 5, -10);
 
         if (accelerating) {
-            g2d.drawImage(Assets.speed, at1, null);
-            g2d.drawImage(Assets.speed, at2, null);
+            g2d.drawImage(Assets.Postcombustion, at1, null);
+            g2d.drawImage(Assets.Postcombustion, at2, null);
         }
 
         at = AffineTransform.getTranslateInstance(position.getX(), position.getY());

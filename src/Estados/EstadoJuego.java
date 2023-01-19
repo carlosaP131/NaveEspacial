@@ -44,9 +44,9 @@ public class EstadoJuego {
 	private int waves = 1;
 	public EstadoJuego()
 	{
-		player = new JugadorJuego(new Vector(Constantes.WIDTH/2 - Assets.player.getWidth()/2,
-				Constantes.HEIGHT/2 - Assets.player.getHeight()/2), new Vector(),
-				Constantes.PLAYER_MAX_VEL, Assets.player, this);
+		player = new JugadorJuego(new Vector(Constantes.WIDTH/2 - Assets.Jugador.getWidth()/2,
+				Constantes.HEIGHT/2 - Assets.Jugador.getHeight()/2), new Vector(),
+				Constantes.PLAYER_MAX_VEL, Assets.Jugador, this);
 		
 		movingObjects.add(player);
 		
