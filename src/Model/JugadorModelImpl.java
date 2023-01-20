@@ -64,7 +64,7 @@ public class JugadorModelImpl implements IJugadorModel {
                 jugador.setNombre(rs.getString("nombre"));
                 jugador.setEdad(rs.getInt("edad"));
                 jugador.setSexo(rs.getString("sexo"));
-                jugador.setCorreo("correo");
+                jugador.setCorreo(rs.getString("correo"));
                 jugador.setPuntos(rs.getInt("puntos"));
                 listajugador.add(jugador);
             }
