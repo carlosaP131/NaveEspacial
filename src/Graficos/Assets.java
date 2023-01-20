@@ -1,123 +1,121 @@
-/** ****************************************************************************
- *Autor:Carlos Aurelio Alcántara Pérez
- *Fecha de creación: 5-01-2023 ***
- *Fecha de actualización:13-12-2023
- *Descripción: Los asset son todos los enlaces o rutaas de los archivos del juego
- *
- * *************************************************************************** */
 package Graficos;
 
 import java.awt.Font;
 import java.awt.image.BufferedImage;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.UnsupportedAudioFileException;
 
-/**
- *
- * @author carlos
- */
+import javax.sound.sampled.Clip;
+
 public class Assets {
 
-    /**
-     * Ocuparemos la clase Bufferedimage ya que esta nos brinda una funcion para
-     * guardar las imagenes en memoria y asi ahorrar tiempo de ejecucion
-     * esta declaracion es para la nave 
-     */
-    public static BufferedImage Jugador;
+    public static boolean loaded = false;
+    public static float contar = 0;
+    public static float MAX_COUNT = 46;
 
-    /**
-     * Esta Para los efectos 
-     * 
-     */
-    public static BufferedImage Postcombustion;
+    public static BufferedImage jugador;
 
-    /**
-     * Esta para las explociones 
-     */
+    // effects
+    public static BufferedImage velocidad;
+
+    // explosion
     public static BufferedImage[] exp = new BufferedImage[9];
 
-        /**
-         * para los diferentes tipos de balas aliadas o enemigas 
-         */
-    public static BufferedImage blueLaser, greenLaser, redLaser;
+    // lasers
+    public static BufferedImage laserAzul, laserVerde, laserRojo;
 
-    /**
-     * Esta Para los Meteoritos
-     * 
-     */
-    public static BufferedImage[] bigs = new BufferedImage[4];
-    public static BufferedImage[] meds = new BufferedImage[2];
-    public static BufferedImage[] smalls = new BufferedImage[2];
-    public static BufferedImage[] tinies = new BufferedImage[2];
+    // Meteors
+    public static BufferedImage[] grandre = new BufferedImage[4];
+    public static BufferedImage[] mediano = new BufferedImage[2];
+    public static BufferedImage[] pequeño = new BufferedImage[2];
+    public static BufferedImage[] diminutas = new BufferedImage[2];
 
-    /**
-     * Esta Para los Enemigos 
-     */
+    // ufo
     public static BufferedImage ufo;
 
-    /**
-     * Numeros que se mostraran en pantalla 
-     */
-    public static BufferedImage[] numbers = new BufferedImage[11];
-    /**
-     * Las vidas del jugador 
-     */
-    public static BufferedImage life;
+    // numbers
+    public static BufferedImage[] numeros = new BufferedImage[11];
 
-    /**
-     * Tamaño de los mensajes mostrados 
-     */
+    public static BufferedImage vidas;
+
+    // fonts
     public static Font fontBig;
     public static Font fontMed;
 
-    public static Clip backgroundMusic, explosion, playerLoose, playerShoot, ufoShoot;
+    public static Clip musicaFondo, explosion, jugadorSuelto, jugadorDispador, ovniDispara;
 
- 
+    // ui
+    public static BufferedImage btnAzul;
+    public static BufferedImage btnGris;
 
-    public static void init() throws UnsupportedAudioFileException {
-        Jugador = Loader.ImageLoader("iNaveespacial.png");
+    public static void init() {
+        jugador = loadImage("/ImagenesObjetos/iNaveespacial.png");//Agregale una l a iNaveespacial y la imagen cambiara de tamaño.
 
-        Postcombustion = Loader.ImageLoader("fire08.png");
+        velocidad = loadImage("/ImagenesObjetos/fire08.png");
 
-        blueLaser = Loader.ImageLoader("iLaser.png");
+        laserAzul = loadImage("/ImagenesObjetos/laserGreen11.png");
 
-        greenLaser = Loader.ImageLoader("laserGreen11.png");
+        laserVerde = loadImage("/ImagenesObjetos/laserGreen11.png");
 
-        redLaser = Loader.ImageLoader("laserRed01.png");
+        laserRojo = loadImage("/ImagenesObjetos/laserRed01.png");
 
-        ufo = Loader.ImageLoader("ufo.png");
+        ufo = loadImage("/ImagenesObjetos/ufo.png");
 
-        life = Loader.ImageLoader("life.png");
+        vidas = loadImage("/ImagenesObjetos/life.png");
 
-        for (int i = 0; i < bigs.length; i++) {
-            bigs[i] = Loader.ImageLoader("big" + (i + 1) + ".png");
+        fontBig = loadFont("/fonts/futureFont.ttf", 42);
+
+        fontMed = loadFont("/fonts/futureFont.ttf", 20);
+
+        for (int i = 0; i < grandre.length; i++) {
+            grandre[i] = loadImage("/ImagenesObjetos/big" + (i + 1) + ".png");
         }
 
-        for (int i = 0; i < meds.length; i++) {
-            meds[i] = Loader.ImageLoader("med" + (i + 1) + ".png");
+        for (int i = 0; i < mediano.length; i++) {
+            mediano[i] = loadImage("/ImagenesObjetos/med" + (i + 1) + ".png");
         }
 
-        for (int i = 0; i < smalls.length; i++) {
-            smalls[i] = Loader.ImageLoader("small" + (i + 1) + ".png");
+        for (int i = 0; i < pequeño.length; i++) {
+            pequeño[i] = loadImage("/ImagenesObjetos/small" + (i + 1) + ".png");
         }
 
-        for (int i = 0; i < tinies.length; i++) {
-            tinies[i] = Loader.ImageLoader("tiny" + (i + 1) + ".png");
+        for (int i = 0; i < diminutas.length; i++) {
+            diminutas[i] = loadImage("/ImagenesObjetos/tiny" + (i + 1) + ".png");
         }
 
         for (int i = 0; i < exp.length; i++) {
-            exp[i] = Loader.ImageLoader("exp" + i + ".png");
+            exp[i] = loadImage("/ImagenesExplosion/" + i + ".png");
         }
 
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = Loader.ImageLoader("" + i + ".png");
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] = loadImage("/ImagenesNumeros/" + i + ".png");
         }
-        backgroundMusic = Loader.loadSound("backgroundMusic.wav");
-        explosion = Loader.loadSound("explosion.wav");
-        playerLoose = Loader.loadSound("playerLoose.wav");
-        playerShoot = Loader.loadSound("playerShoot.wav");
-        ufoShoot = Loader.loadSound("ufoShoot.wav");
 
+        musicaFondo = loadSound("/Sonido/backgroundMusic.wav");
+        explosion = loadSound("/Sonido/explosion.wav");
+        jugadorSuelto = loadSound("/Sonido/playerLoose.wav");
+        jugadorDispador = loadSound("/Sonido/playerShoot.wav");
+        ovniDispara = loadSound("/Sonido/ufoShoot.wav");
+
+        btnGris = loadImage("/ImagenesObjetos/grey_button.png");
+        btnAzul = loadImage("/ImagenesObjetos/blue_button.png");
+
+        // ===========================================================
+        loaded = true;
+
+    }
+
+    public static BufferedImage loadImage(String path) {
+        contar++;
+        return Cargador.ImageLoader(path);
+    }
+
+    public static Font loadFont(String path, int size) {
+        contar++;
+        return Cargador.loadFont(path, size);
+    }
+
+    public static Clip loadSound(String path) {
+        contar++;
+        return Cargador.loadSound(path);
     }
 
 }

@@ -1,90 +1,52 @@
-/** ****************************************************************************
- *Autor:Carlos Aurelio Alcántara Pérez
- *Fecha de creación: 5-01-2023 ***
- *Fecha de actualización:13-12-2023
- *Descripción: Clase de animaciones
- *
- * ****************************************************************************/
 package Graficos;
 
-import Math.Vector;
 import java.awt.image.BufferedImage;
 
-/**
- *
- * @author Carlos
- */
+import Calculos.Vector2D;
+
 public class Animacion {
-        /**
-         * Se declara un Bufferedimage para mostrar las imagenes
-         * dos variables int para la velocidad y el control de los ciclos 
-         * un boleano para la pausa y reanudacion del juego una instancia de la 
-         * clase vector para saber la posicion en donde sera puesta la animacion
-         * y una variable long para el tiempo 
-         */
-	private final BufferedImage[] frames;
-	private final int velocidad;
-	private int index;
-	private boolean running;
-	private final Vector posicion;
-	private long time, lastTime;
-	/**
-         * Constructor que recive tres variables la imagen la velocidad y la posicion
-         * @param frames
-         * @param velocity
-         * @param position 
-         */
-	public Animacion (BufferedImage[] frames, int velocity, Vector position){
-            /**
-             *Declaracion de las variables 
-             */
-            this.frames = frames;
-		this.velocidad = velocity;
-		this.posicion = position;
-		index = 0;
-		running = true;
-		time = 0;
-		lastTime = System.currentTimeMillis();
-	}
-	/**
-         * metodo de actualizacion de estados 
-         */
-	public void update(){
-		
-		time += System.currentTimeMillis() - lastTime;
-		lastTime = System.currentTimeMillis();
-		
-		if(time > velocidad){
-			time  = 0;
-			index ++;
-			if(index >= frames.length){
-				running = false;
-			}
-		}
-	}
-        /**
-         * metodo para saber si esta corriendo el juego
-         * @return 
-         */
-	public boolean isRunning() {
-		return running;
-	}
-        /**
-         * metodo para obtener la posicion 
-         * @return 
-         */
-	public Vector getPosition() {
-		return posicion;
-	}
-	/**
-         * Metodo para obtener la imagen 
-         * @return 
-         */
-	public BufferedImage getCurrentFrame(){
-		return frames[index];
-	}
-	
-	
-	
-	
+
+    private BufferedImage[] frames;
+    private int velocidad;
+    private int indice;
+    private boolean running;
+    private Vector2D posicion;
+    private long tiempo, tiempoFinal;
+
+    public Animacion(BufferedImage[] frames, int velocity, Vector2D position) {
+        this.frames = frames;
+        this.velocidad = velocity;
+        this.posicion = position;
+        indice = 0;
+        running = true;
+        tiempo = 0;
+        tiempoFinal = System.currentTimeMillis();
+    }
+
+    public void update() {
+
+        tiempo += System.currentTimeMillis() - tiempoFinal;
+        tiempoFinal = System.currentTimeMillis();
+
+        if (tiempo > velocidad) {
+            tiempo = 0;
+            indice++;
+            if (indice >= frames.length) {
+                running = false;
+            }
+        }
+    }
+
+    public boolean isRunning() {
+        return running;
+    }
+
+    public Vector2D getPosition() {
+        return posicion;
+    }
+
+    public BufferedImage getCurrentFrame() {
+        return frames[indice];
+    }
+
 }

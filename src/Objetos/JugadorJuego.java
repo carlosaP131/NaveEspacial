@@ -1,107 +1,85 @@
-/** ****************************************************************************
- *Autor:Carlos Aurelio Alcántara Pérez
- *Fecha de creación: 5-01-2023 ***
- *Fecha de actualización:13-12-2023
- *Descripción: Clase para la tener el control de la nave como las balas,
- *la acelerción, la posición y la velocidad.
- *
- * *************************************************************************** */
 package Objetos;
 
-import Estados.EstadoJuego;
-import Graficos.Assets;
-import Graficos.Sonidos;
-import Input.KeyBoard;
-import Math.Vector;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
-/**
- *
- * @author labdessw09
- */
-public class JugadorJuego extends Movimiento {
+import Graficos.Assets;
+import Graficos.Sonidos;
+import input.Teclas;
+import Calculos.Vector2D;
+import Estados.EstadoJuego;
 
-    //Declaración de las variables.
-    private Vector heading;
-    private Vector acceleration;
+public class JugadorJuego extends MovimientoObjetos {
+
+    private Vector2D heading;
+    private Vector2D acceleration;
 
     private boolean accelerating = false;
-    private Cronometro fireRate;
+    private Cronometro velocidadFuego;
+
     private boolean spawning, visible;
-	
-	private Cronometro spawnTime, flickerTime;
-	
-	private Sonidos shoot, loose;
-    public JugadorJuego(Vector position, Vector velocity, double maxVel, BufferedImage texture, EstadoJuego gameState) {
-       super(position, velocity, maxVel, texture, gameState);
-		heading = new Vector(0, 1);
-		acceleration = new Vector();
-		fireRate = new Cronometro();
-		spawnTime = new Cronometro();
-		flickerTime = new Cronometro();
-		shoot = new Sonidos(Assets.playerShoot);
-		loose = new Sonidos(Assets.playerLoose);
+
+    private Cronometro spawnTime, flickerTime;
+
+    private Sonidos shoot, loose;
+
+    public JugadorJuego(Vector2D position, Vector2D velocity, double maxVel, BufferedImage texture, EstadoJuego gameState) {
+        super(position, velocity, maxVel, texture, gameState);
+        heading = new Vector2D(0, 1);
+        acceleration = new Vector2D();
+        velocidadFuego = new Cronometro();
+        spawnTime = new Cronometro();
+        flickerTime = new Cronometro();
+        shoot = new Sonidos(Assets.jugadorDispador);
+        loose = new Sonidos(Assets.jugadorSuelto);
     }
-    //Método sobreescrito para la bala.
+
     @Override
     public void update() {
-        if(!spawnTime.isRunning()) {
-			spawning = false;
-			visible = true;
-		}
-		
-		if(spawning) {
-			
-			if(!flickerTime.isRunning()) {
-				
-				flickerTime.run(Constantes.FLICKER_TIME);
-				visible = !visible;
-				
-			}
-			
-		}
-		
-		if(KeyBoard.SHOOT &&  !fireRate.isRunning() && !spawning)
-		{		
-			gameState.getMovingObjects().add(0,new Bala(
-					getCenter().add(heading.scale(width)),
-					heading,
-					Constantes.LASER_VEL,
-					angle,
-					Assets.blueLaser,
-					gameState
-					));
-			fireRate.run(Constantes.FIRERATE);
-			shoot.play();
-		}
-		
-		if(shoot.getFramePosition() > 8500) {
-			shoot.stop();
-		}
-		
-        if (KeyBoard.SHOOT && !fireRate.isRunning()) {
-            gameState.getMovingObjects().add(0, new Bala(
+
+        if (!spawnTime.isRunning()) {
+            spawning = false;
+            visible = true;
+        }
+
+        if (spawning) {
+
+            if (!flickerTime.isRunning()) {
+
+                flickerTime.run(Constantes.FLICKER_TIME);
+                visible = !visible;
+
+            }
+
+        }
+
+        if (Teclas.SHOOT && !velocidadFuego.isRunning() && !spawning) {
+            gameState.getMovingObjects().add(0, new Laser(
                     getCenter().add(heading.scale(width)),
                     heading,
                     Constantes.LASER_VEL,
                     angle,
-                    Assets.blueLaser,
+                    Assets.laserAzul,
                     gameState
             ));
-            fireRate.run(Constantes.FIRERATE);
+            velocidadFuego.run(Constantes.FIRERATE);
+            shoot.play();
         }
 
-        if (KeyBoard.RIGHT) {
+        if (shoot.getFramePosition() > 8500) {
+            shoot.stop();
+        }
+
+        if (Teclas.RIGHT) {
             angle += Constantes.DELTAANGLE;
         }
-        if (KeyBoard.LEFT) {
+        if (Teclas.LEFT) {
             angle -= Constantes.DELTAANGLE;
         }
 
-        if (KeyBoard.UP) {
+        if (Teclas.UP) {
             acceleration = heading.scale(Constantes.ACC);
             accelerating = true;
         } else {
@@ -126,33 +104,45 @@ public class JugadorJuego extends Movimiento {
             position.setY(0);
         }
 
-        if (position.getX() < 0) {
+        if (position.getX() < -width) {
             position.setX(Constantes.WIDTH);
         }
-        if (position.getY() < 0) {
+        if (position.getY() < -height) {
             position.setY(Constantes.HEIGHT);
         }
 
-        fireRate.update();
+        velocidadFuego.update();
+        spawnTime.update();
+        flickerTime.update();
         collidesWith();
     }
-@Override
-	public void Destroy() {
-		spawning = true;
-		spawnTime.run(Constantes.SPAWNING_TIME);
-		loose.play();
-		resetValues();
-		gameState.subtractLife();
-	}
-	
-	private void resetValues() {
-		
-		angle = 0;
-		velocity = new Vector();
-		position = EstadoJuego.PLAYER_START_POSITION;
-	}
+
+    @Override
+    public void Destroy() {
+        spawning = true;
+        spawnTime.run(Constantes.SPAWNING_TIME);
+        loose.play();
+        if (!gameState.subtractLife()) {
+            gameState.gameOver();
+            super.Destroy();
+        }
+        resetValues();
+
+    }
+
+    private void resetValues() {
+
+        angle = 0;
+        velocity = new Vector2D();
+        position = EstadoJuego.PLAYER_START_POSITION;
+    }
+
     @Override
     public void draw(Graphics g) {
+
+        if (!visible) {
+            return;
+        }
 
         Graphics2D g2d = (Graphics2D) g;
 
@@ -165,8 +155,8 @@ public class JugadorJuego extends Movimiento {
         at2.rotate(angle, width / 2 - 5, -10);
 
         if (accelerating) {
-            g2d.drawImage(Assets.Postcombustion, at1, null);
-            g2d.drawImage(Assets.Postcombustion, at2, null);
+            g2d.drawImage(Assets.velocidad, at1, null);
+            g2d.drawImage(Assets.velocidad, at2, null);
         }
 
         at = AffineTransform.getTranslateInstance(position.getX(), position.getY());
@@ -175,6 +165,10 @@ public class JugadorJuego extends Movimiento {
 
         g2d.drawImage(texture, at, null);
 
+    }
+
+    public boolean isSpawning() {
+        return spawning;
     }
 
 }

@@ -1,16 +1,5 @@
-/** ****************************************************************************
- *Autor:Carlos Aurelio Alcántara Pérez
- *Fecha de creación: 5-01-2023 ***
- *Fecha de actualización:13-12-2023
- *Descripción: Clase para ahorrar espacion en las demas clases 
- *
- * ****************************************************************************/
 package Objetos;
 
-/**
- *
- * @author labdessw09
- */
 public class Constantes {
 
     // frame dimensions
@@ -25,27 +14,41 @@ public class Constantes {
     public static final long FLICKER_TIME = 200;
     public static final long SPAWNING_TIME = 3000;
     public static final long GAME_OVER_TIME = 3000;
-	
-    // Laser properties
 
+    // Laser properties
     public static final double LASER_VEL = 15.0;
 
     // Meteor properties
     public static final double METEOR_VEL = 2.0;
-    public static final int METEOR_SCORE = 20;
-    // Ufo properties
 
+    public static final int METEOR_SCORE = 20;
+
+    // Ufo properties
     public static final int NODE_RADIUS = 160;
 
     public static final double UFO_MASS = 60;
 
     public static final int UFO_MAX_VEL = 3;
 
+    public static long UFO_FIRE_RATE = 1000;
+
     public static double UFO_ANGLE_RANGE = Math.PI / 2;
-    
+
     public static final int UFO_SCORE = 40;
 
-    public static long UFO_FIRE_RATE = 1000;
-    	public static final long UFO_SPAWN_RATE = 10000;
+    public static final long UFO_SPAWN_RATE = 10000;
+
+    public static final String PLAY = "Jugar";
+
+    public static final String EXIT = "Salir";
+
+    public static final int LOADING_BAR_WIDTH = 500;
+    public static final int LOADING_BAR_HEIGHT = 50;
+
+    public static final String RETURN = "menu";
+    public static final String HIGH_SCORES = "Mayor Puntaje";
+
+    public static final String SCORE = "Puntuación";
+    public static final String DATE = "Fecha";
 
 }

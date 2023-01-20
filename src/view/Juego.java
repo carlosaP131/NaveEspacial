@@ -1,81 +1,55 @@
 package view;
-//Importación de librerias.
 
-import Estados.EstadoJuego;
-import Graficos.Assets;
-import Input.KeyBoard;
-import Objetos.Constantes;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.sound.sampled.UnsupportedAudioFileException;
+
 import javax.swing.JFrame;
 
-/**
- *
- * @author carlos
- */
+import Objetos.Constantes;
+import Graficos.Assets;
+import input.Teclas;
+import input.MovimientoMouse;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+import Estados.EstadoCarga;
+import Estados.Estado;
+
 public class Juego extends JFrame implements Runnable {
 
-    /**
-     * Se declaran las estancias a las diferentes clases a ocupar y variables
-     * locales
-     */
     private static final long serialVersionUID = 1L;
-    // Canvas nos sirve para cargar el fondo 
-    private Canvas canvas;
-    // thred es el hilo para los objetos con movimiento 
-    private Thread thread;
-    //esta declaracion booleana nos sirvepara pausar los hilos 
-    private boolean running = false;
-    //crea las imagenes
-    private BufferStrategy bs;
-    //clase grapis para mostrar(dibujar) las imagenes
-    private Graphics g;
-    //imagenes por segundo que se  mostraran en pantalla 
-    private final int FPS = 60;
-    private double TARGETTIME = 1000000000 / FPS;
-    //angulo de los objetos 
-    private double delta = 0;
-    //nivel de fps
-    private int AVERAGEFPS = FPS;
-    /*
-    * Istancia de la clase EstadoJuego que nos ayuda a saber en que estado se 
-    * encuentran nuestros objetos 
-     */
 
-    private EstadoJuego gameState;
-    /*
-      Instancia para las teclas de juego 
-     */
-    private KeyBoard keyBoard;
-    /*
-      Instancia para el fondo del juego 
-     */
+    private Canvas canvas;
+    private Thread hilo;
+    private boolean running = false;
+
+    private BufferStrategy bs;
+    private Graphics g;
+
+    private final int FPS = 60;
+    private double tiempo = 1000000000 / FPS;
+    private double delta = 0;
+    private int promedioFPS = FPS;
+
+    private Teclas keyBoard;
+    private MovimientoMouse mouseInput;
+
     private BufferedImage imgFondo;
 
-    /*
-    *constructor 
-     */
     public Juego() {
-        setTitle("Galaxi");//titulo
-        setSize(Constantes.WIDTH, Constantes.HEIGHT);//tamaño del frame 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//cerrado del frame 
-        setResizable(false);//no se puede hacer mas grande 
-        setLocationRelativeTo(null);//centrar en la pantalla 
+        setTitle("Juego de Nave & Ateroides");
+        setSize(Constantes.WIDTH, Constantes.HEIGHT);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+        setLocationRelativeTo(null);
 
-        canvas = new Canvas();//declaracion del canvas
-        keyBoard = new KeyBoard();//declaracion de la clase de las teclas 
-        /**
-         * Esta es la dimencion del fondo y del mismo frame
-         */
+        canvas = new Canvas();
+        keyBoard = new Teclas();
+        mouseInput = new MovimientoMouse();
+
         canvas.setPreferredSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
         canvas.setMaximumSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
         canvas.setMinimumSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
@@ -83,36 +57,26 @@ public class Juego extends JFrame implements Runnable {
 
         add(canvas);
         canvas.addKeyListener(keyBoard);
+        canvas.addMouseListener(mouseInput);
+        canvas.addMouseMotionListener(mouseInput);
         setVisible(true);
-        //Bloque try para cargar la imagen de fondo del juego
         try {
-            File archivo = new File("src/Graficos/iJuego2.jpg");
+            File archivo = new File("src/ImagenesObjetos/image.jpg");
             imgFondo = ImageIO.read(archivo);
         } catch (Exception e) {
-            System.out.println("Error : " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
         }
     }
 
-    /**
-     * Metodo main
-     *
-     * @param args
-     */
     public static void main(String[] args) {
         new Juego().start();
     }
 
-    /**
-     * Actualiza los estados del juego y las teclas precionadas
-     */
     private void update() {
         keyBoard.update();
-        gameState.update();
+        Estado.getCurrentState().update();
     }
 
-    /**
-     * Metodo para dibujar las imagenes
-     */
     private void draw() {
         bs = canvas.getBufferStrategy();
 
@@ -122,36 +86,36 @@ public class Juego extends JFrame implements Runnable {
         }
 
         g = bs.getDrawGraphics();
-        
-        // Asignación de fondo al juego.
+
+        //-----------------------
         g.fillRect(0, 0, Constantes.WIDTH, Constantes.HEIGHT);
-        
+
         g.drawImage(imgFondo, 0, 0, this);
-        
-        gameState.draw(g);
+
+        Estado.getCurrentState().draw(g);
 
         g.setColor(Color.WHITE);
 
-        g.drawString("" + AVERAGEFPS, 10, 20);
+        g.drawString("" + promedioFPS, 10, 20);
 
         //---------------------
         g.dispose();
         bs.show();
     }
 
-    /**
-     * Cargar las direcciones de todos los elementos a usar
-     *
-     * @throws UnsupportedAudioFileException
-     */
-    private void init() throws UnsupportedAudioFileException {
-        Assets.init();
-        gameState = new EstadoJuego();
+    private void init() {
+
+        Thread loadingThread = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                Assets.init();
+            }
+        });
+
+        Estado.changeState(new EstadoCarga(loadingThread));
     }
 
-    /**
-     * Metodo para ejecutar los Hilos
-     */
     @Override
     public void run() {
 
@@ -160,15 +124,11 @@ public class Juego extends JFrame implements Runnable {
         int frames = 0;
         long time = 0;
 
-        try {
-            init();
-        } catch (UnsupportedAudioFileException ex) {
-            Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        init();
 
         while (running) {
             now = System.nanoTime();
-            delta += (now - lastTime) / TARGETTIME;
+            delta += (now - lastTime) / tiempo;
             time += (now - lastTime);
             lastTime = now;
 
@@ -179,7 +139,7 @@ public class Juego extends JFrame implements Runnable {
                 frames++;
             }
             if (time >= 1000000000) {
-                AVERAGEFPS = frames;
+                promedioFPS = frames;
                 frames = 0;
                 time = 0;
 
@@ -190,23 +150,17 @@ public class Juego extends JFrame implements Runnable {
         stop();
     }
 
-    /**
-     * Metodo para comenzar el juego
-     */
     private void start() {
 
-        thread = new Thread(this);
-        thread.start();
+        hilo = new Thread(this);
+        hilo.start();
         running = true;
 
     }
 
-    /**
-     * Metodo para parar el juego
-     */
     private void stop() {
         try {
-            thread.join();
+            hilo.join();
             running = false;
         } catch (InterruptedException e) {
             e.printStackTrace();

@@ -1,24 +1,5 @@
-/** ****************************************************************************
- *Autor:Carlos Aurelio Alcántara Pérez
- *Fecha de creación: 5-01-2023 ***
- *Fecha de actualización:13-12-2023
- *Descripción: Esta clase es para ver en que estado se encuentra el juego
- *
- * *************************************************************************** */
 package Estados;
 
-import Graficos.Animacion;
-import Graficos.Assets;
-import Graficos.Sonidos;
-import Math.Vector;
-import Objetos.Constantes;
-import Objetos.Cronometro;
-import Objetos.JugadorJuego;
-import Objetos.Mensaje;
-import Objetos.Meteorito;
-import Objetos.Movimiento;
-import Objetos.Size;
-import Objetos.Ufo;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -26,101 +7,115 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-/**
- *
- * @author carlos
- */
-public class EstadoJuego {
+import Objetos.Cronometro;
+import Objetos.Constantes;
+import Objetos.Mensajes;
+import Objetos.Meteoritos;
+import Objetos.MovimientoObjetos;
+import Objetos.JugadorJuego;
+import Objetos.Tamaño;
+import Objetos.EnemigoUfo;
+import Graficos.Animacion;
+import Graficos.Assets;
+import Graficos.Sonidos;
+import Calculos.Vector2D;
+import DB.Conexion;
+import entity.Jugador;
+import Objetos.JugadorJuego;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-    /**
-     * Esta clase se encarga de ver en que estado esta el juego se declaran las
-     * variables de instancias a otras clases y cuatro ints que son el puntaje,
-     * las vidas, los meteoritos en pantalla y los niveles
-     */
-    public static final Vector PLAYER_START_POSITION
-            = new Vector(Constantes.WIDTH / 2 - Assets.Jugador.getWidth() / 2,
-                    Constantes.HEIGHT / 2 - Assets.Jugador.getHeight() / 2);
-    private JugadorJuego Jugador;
-    private ArrayList<Movimiento> movingObjects = new ArrayList<Movimiento>();
+public class EstadoJuego extends Estado {
+
+    public static final Vector2D PLAYER_START_POSITION = new Vector2D(Constantes.WIDTH / 2 - Assets.jugador.getWidth() / 2,
+            Constantes.HEIGHT / 2 - Assets.jugador.getHeight() / 2);
+
+    private JugadorJuego jugador;
+    private Jugador Jugadorbase;
+    private Conexion conexion;
+    private Connection connection;
+    private Statement stm;
+    private ArrayList<MovimientoObjetos> movingObjects = new ArrayList<MovimientoObjetos>();
     private ArrayList<Animacion> explosions = new ArrayList<Animacion>();
-    private ArrayList<Mensaje> messages = new ArrayList<Mensaje>();
-    private int Puntaje = 0;
-    private int Vidas = 3;
-    private int meteoritos;
-    private int Niveles = 1;
-    private Sonidos backgroundMusic;
-    private Cronometro gameOverTimer;
-    private boolean gameOver;
-    private Cronometro ufoSpawner;
-    /**
-     * Constructor
-     */
-    public EstadoJuego() {
-        /**
-         * Se crea un nuevo jugador cada que se actualize el estado esto ya que
-         * si el jugador muere se le resetea una vida y se crea otro asi hasta
-         * que se terminen sus vidas
-         */
-        Jugador = new JugadorJuego(PLAYER_START_POSITION, new Vector(),
-                Constantes.PLAYER_MAX_VEL, Assets.Jugador, this);
+    private ArrayList<Mensajes> messages = new ArrayList<Mensajes>();
 
-        movingObjects.add(Jugador);
+    private int puntaje = 0;
+    private int vidas = 3;
+
+    private int meteoritos;
+    private int ondas = 1;
+
+    private Sonidos backgroundMusic;
+    private Cronometro temporizadorJuego;
+    private boolean juegoTerminado;
+
+    private Cronometro generadorOvnis;
+
+    public EstadoJuego() {
+        jugador = new JugadorJuego(PLAYER_START_POSITION, new Vector2D(),
+                Constantes.PLAYER_MAX_VEL, Assets.jugador, this);
+
+        temporizadorJuego = new Cronometro();
+        juegoTerminado = false;
+        movingObjects.add(jugador);
 
         meteoritos = 1;
         startWave();
-        backgroundMusic = new Sonidos(Assets.backgroundMusic);
-        //backgroundMusic.loop();
+        backgroundMusic = new Sonidos(Assets.musicaFondo);
+        backgroundMusic.loop();//Aqui se sctiva la música.
         backgroundMusic.changeVolume(-10.0f);
-        ufoSpawner = new Cronometro();
-        ufoSpawner.run(Constantes.UFO_SPAWN_RATE);
+
+        generadorOvnis = new Cronometro();
+        generadorOvnis.run(Constantes.UFO_SPAWN_RATE);
     }
 
-    /**
-     * Este metodo aumenta el puntaje se recive el valor del puntaje y tambien
-     * la posicion donde se mostrara
-     *
-     * @param value : Valor del puntaje del jugador
-     * @param position :Posicion donde se mostrara el meensaje
-     */
-    public void addScore(int value, Vector position) {
-        Puntaje += value;
-        messages.add(
-                new Mensaje(position, true, "+" + value + " score", Color.WHITE,
-                        false, Assets.fontMed));
+    public void addScore(int value, Vector2D position) {
+        puntaje += value;
+        messages.add(new Mensajes(position, true, "+" + value + " puntos", Color.WHITE, false, Assets.fontMed));
+         try {
+            conexion = new Conexion();//se establece la conexion
+            connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
+            String query = "call ActualizarPuntaje("+Jugadorbase.getId()+","+puntaje+");";
+            stm = connection.createStatement();
+            stm.execute(query);
+            stm.close();
+            connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error:");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(EstadoJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    /**
-     * divide los meteoritos si recibe un disparo el tamaño es la mitad del
-     * meteorito anterior
-     *
-     * @param meteor
-     */
-    public void divideMeteorito(Meteorito meteor) {
+    public void divideMeteor(Meteoritos meteor) {
 
-        Size size = meteor.getSize();
+        Tamaño size = meteor.getSize();
 
         BufferedImage[] textures = size.textures;
 
-        Size newSize = null;
+        Tamaño newSize = null;
 
         switch (size) {
             case BIG:
-                newSize = Size.MED;
+                newSize = Tamaño.MED;
                 break;
             case MED:
-                newSize = Size.SMALL;
+                newSize = Tamaño.SMALL;
                 break;
             case SMALL:
-                newSize = Size.TINY;
+                newSize = Tamaño.TINY;
                 break;
             default:
                 return;
         }
 
         for (int i = 0; i < size.quantity; i++) {
-            movingObjects.add(new Meteorito(
+            movingObjects.add(new Meteoritos(
                     meteor.getPosition(),
-                    new Vector(0, 1).setDirection(Math.random() * Math.PI * 2),
+                    new Vector2D(0, 1).setDirection(Math.random() * Math.PI * 2),
                     Constantes.METEOR_VEL * Math.random() + 1,
                     textures[(int) (Math.random() * textures.length)],
                     this,
@@ -129,16 +124,11 @@ public class EstadoJuego {
         }
     }
 
-    /**
-     * Iniciar los niveles al igual que las vidas este metodo solo es para
-     * mostrar un texto e igual para aumentar el numero de meteoritos
-     */
     private void startWave() {
-        messages.add(
-                new Mensaje(new Vector(Constantes.WIDTH / 2, Constantes.HEIGHT / 2),
-                        false,
-                        "Nivel " + Niveles, Color.WHITE, true, Assets.fontBig
-                     ));
+
+        messages.add(new Mensajes(new Vector2D(Constantes.WIDTH / 2, Constantes.HEIGHT / 2), false,
+                "Nueva onda de meteoritos " + ondas, Color.WHITE, true, Assets.fontBig));
+
         double x, y;
 
         for (int i = 0; i < meteoritos; i++) {
@@ -146,39 +136,29 @@ public class EstadoJuego {
             x = i % 2 == 0 ? Math.random() * Constantes.WIDTH : 0;
             y = i % 2 == 0 ? 0 : Math.random() * Constantes.HEIGHT;
 
-            BufferedImage texture = Assets.bigs[(int) (Math.random() * Assets.bigs.length)];
+            BufferedImage texture = Assets.grandre[(int) (Math.random() * Assets.grandre.length)];
 
-            movingObjects.add(new Meteorito(
-                    new Vector(x, y),
-                    new Vector(0, 1).setDirection(Math.random() * Math.PI * 2),
+            movingObjects.add(new Meteoritos(
+                    new Vector2D(x, y),
+                    new Vector2D(0, 1).setDirection(Math.random() * Math.PI * 2),
                     Constantes.METEOR_VEL * Math.random() + 1,
                     texture,
                     this,
-                    Size.BIG
+                    Tamaño.BIG
             ));
 
         }
         meteoritos++;
-        spawnUfo();
     }
 
-    /**
-     * reproduce las explociones
-     *
-     * @param position
-     */
-    public void playExplosion(Vector position) {
+    public void playExplosion(Vector2D position) {
         explosions.add(new Animacion(
                 Assets.exp,
                 50,
-                position.subtract(new Vector(Assets.exp[0].getWidth() / 2,
-                        Assets.exp[0].getHeight() / 2))
+                position.subtract(new Vector2D(Assets.exp[0].getWidth() / 2, Assets.exp[0].getHeight() / 2))
         ));
     }
 
-    /**
-     * espawnea enemigos en una posicion random
-     */
     private void spawnUfo() {
 
         int rand = (int) (Math.random() * 2);
@@ -186,29 +166,29 @@ public class EstadoJuego {
         double x = rand == 0 ? (Math.random() * Constantes.WIDTH) : Constantes.WIDTH;
         double y = rand == 0 ? Constantes.HEIGHT : (Math.random() * Constantes.HEIGHT);
 
-        ArrayList<Vector> path = new ArrayList<Vector>();
+        ArrayList<Vector2D> path = new ArrayList<Vector2D>();
 
         double posX, posY;
 
         posX = Math.random() * Constantes.WIDTH / 2;
         posY = Math.random() * Constantes.HEIGHT / 2;
-        path.add(new Vector(posX, posY));
+        path.add(new Vector2D(posX, posY));
 
         posX = Math.random() * (Constantes.WIDTH / 2) + Constantes.WIDTH / 2;
         posY = Math.random() * Constantes.HEIGHT / 2;
-        path.add(new Vector(posX, posY));
+        path.add(new Vector2D(posX, posY));
 
         posX = Math.random() * Constantes.WIDTH / 2;
         posY = Math.random() * (Constantes.HEIGHT / 2) + Constantes.HEIGHT / 2;
-        path.add(new Vector(posX, posY));
+        path.add(new Vector2D(posX, posY));
 
         posX = Math.random() * (Constantes.WIDTH / 2) + Constantes.WIDTH / 2;
         posY = Math.random() * (Constantes.HEIGHT / 2) + Constantes.HEIGHT / 2;
-        path.add(new Vector(posX, posY));
+        path.add(new Vector2D(posX, posY));
 
-        movingObjects.add(new Ufo(
-                new Vector(x, y),
-                new Vector(),
+        movingObjects.add(new EnemigoUfo(
+                new Vector2D(x, y),
+                new Vector2D(),
                 Constantes.UFO_MAX_VEL,
                 Assets.ufo,
                 path,
@@ -217,12 +197,18 @@ public class EstadoJuego {
 
     }
 
-    /**
-     * actualiza el estado de el juego
-     */
     public void update() {
+
         for (int i = 0; i < movingObjects.size(); i++) {
-            movingObjects.get(i).update();
+
+            MovimientoObjetos mo = movingObjects.get(i);
+
+            mo.update();
+            if (mo.isDead()) {
+                movingObjects.remove(i);
+                i--;
+            }
+
         }
 
         for (int i = 0; i < explosions.size(); i++) {
@@ -234,23 +220,20 @@ public class EstadoJuego {
 
         }
 
-        for (int i = 0; i < movingObjects.size(); i++) {
-            if (movingObjects.get(i) instanceof Meteorito) {
-                return;
-            }
+        if (juegoTerminado && !temporizadorJuego.isRunning()) {
+            Estado.changeState(new EstadoMenu());
         }
-        
 
-        if (!ufoSpawner.isRunning()) {
-            ufoSpawner.run(Constantes.UFO_SPAWN_RATE);
+        if (!generadorOvnis.isRunning()) {
+            generadorOvnis.run(Constantes.UFO_SPAWN_RATE);
             spawnUfo();
         }
 
-        gameOverTimer.update();
-        ufoSpawner.update();
+        temporizadorJuego.update();
+        generadorOvnis.update();
 
         for (int i = 0; i < movingObjects.size(); i++) {
-            if (movingObjects.get(i) instanceof Meteorito) {
+            if (movingObjects.get(i) instanceof Meteoritos) {
                 return;
             }
         }
@@ -259,18 +242,16 @@ public class EstadoJuego {
 
     }
 
-    /**
-     * dibuja los objetos
-     *
-     * @param g
-     */
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
 
-        g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
-                RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+
         for (int i = 0; i < messages.size(); i++) {
             messages.get(i).draw(g2d);
+            if (messages.get(i).isDead()) {
+                messages.remove(i);
+            }
         }
 
         for (int i = 0; i < movingObjects.size(); i++) {
@@ -279,8 +260,7 @@ public class EstadoJuego {
 
         for (int i = 0; i < explosions.size(); i++) {
             Animacion anim = explosions.get(i);
-            g2d.drawImage(anim.getCurrentFrame(),
-                    (int) anim.getPosition().getX(), (int) anim.getPosition().getY(),
+            g2d.drawImage(anim.getCurrentFrame(), (int) anim.getPosition().getX(), (int) anim.getPosition().getY(),
                     null);
 
         }
@@ -288,20 +268,15 @@ public class EstadoJuego {
         drawLives(g);
     }
 
-    /**
-     * dibuja el puntaje
-     *
-     * @param g
-     */
     private void drawScore(Graphics g) {
 
-        Vector pos = new Vector(850, 25);
+        Vector2D pos = new Vector2D(850, 25);
 
-        String scoreToString = Integer.toString(Puntaje);
+        String scoreToString = Integer.toString(puntaje);
 
         for (int i = 0; i < scoreToString.length(); i++) {
 
-            g.drawImage(Assets.numbers[Integer.parseInt(scoreToString.substring(i, i + 1))],
+            g.drawImage(Assets.numeros[Integer.parseInt(scoreToString.substring(i, i + 1))],
                     (int) pos.getX(), (int) pos.getY(), null);
             pos.setX(pos.getX() + 20);
 
@@ -309,24 +284,22 @@ public class EstadoJuego {
 
     }
 
-    /**
-     * dibuja las vidas
-     *
-     * @param g
-     */
     private void drawLives(Graphics g) {
 
-        Vector livePosition = new Vector(25, 25);
+        if (vidas < 1) {
+            return;
+        }
 
-        g.drawImage(Assets.life, (int) livePosition.getX(),
-                (int) livePosition.getY(), null);
+        Vector2D livePosition = new Vector2D(25, 25);
 
-        g.drawImage(Assets.numbers[10], (int) livePosition.getX() + 40,
+        g.drawImage(Assets.vidas, (int) livePosition.getX(), (int) livePosition.getY(), null);
+
+        g.drawImage(Assets.numeros[10], (int) livePosition.getX() + 40,
                 (int) livePosition.getY() + 5, null);
 
-        String livesToString = Integer.toString(Vidas);
+        String livesToString = Integer.toString(vidas);
 
-        Vector pos = new Vector(livePosition.getX(), livePosition.getY());
+        Vector2D pos = new Vector2D(livePosition.getX(), livePosition.getY());
 
         for (int i = 0; i < livesToString.length(); i++) {
             int number = Integer.parseInt(livesToString.substring(i, i + 1));
@@ -334,27 +307,42 @@ public class EstadoJuego {
             if (number <= 0) {
                 break;
             }
-            g.drawImage(Assets.numbers[number],
+            g.drawImage(Assets.numeros[number],
                     (int) pos.getX() + 60, (int) pos.getY() + 5, null);
             pos.setX(pos.getX() + 20);
         }
 
     }
 
-    public ArrayList<Movimiento> getMovingObjects() {
+    public ArrayList<MovimientoObjetos> getMovingObjects() {
         return movingObjects;
     }
 
-    public ArrayList<Mensaje> getMessages() {
+    public ArrayList<Mensajes> getMessages() {
         return messages;
     }
 
     public JugadorJuego getPlayer() {
-        return Jugador;
+        return jugador;
     }
 
-    public void subtractLife() {
-        Vidas--;
+    public boolean subtractLife() {
+        vidas--;
+        return vidas > 0;
     }
-   
+
+    public void gameOver() {
+        Mensajes gameOverMsg = new Mensajes(
+                PLAYER_START_POSITION,
+                true,
+                "GAME OVER",
+                Color.WHITE,
+                true,
+                Assets.fontBig);
+
+        this.messages.add(gameOverMsg);
+        temporizadorJuego.run(Constantes.GAME_OVER_TIME);
+        juegoTerminado = true;
+    }
+
 }
