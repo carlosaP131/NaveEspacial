@@ -3,7 +3,7 @@ package view;
 public class Menu extends javax.swing.JFrame {
 
     TablaUsuario tablaUsuario;
-    RegistrarUsu registrar;
+    RegistrarUsuario registrar;
     TablaJugador tablaJugador;
     Juego juego;
 
@@ -124,7 +124,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
-        registrar = new RegistrarUsu();
+        registrar = new RegistrarUsuario();
         this.setVisible(false);
         registrar.setVisible(true);
     }//GEN-LAST:event_jButton5MouseClicked

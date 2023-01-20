@@ -7,13 +7,13 @@ import Utilidades.EnumValida;
 import entity.Jugador;
 import entity.Usuario;
 
-public class RegistrarUsu extends javax.swing.JFrame {
+public class RegistrarUsuario extends javax.swing.JFrame {
 
     Login login;
     private final UsuarioController usuariocontroller;
     private final JugadorController jugadorcontroller;
 
-    public RegistrarUsu() {
+    public RegistrarUsuario() {
         usuariocontroller = new UsuarioController();
         jugadorcontroller = new JugadorController();
         
@@ -239,7 +239,7 @@ public class RegistrarUsu extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistrarUsu().setVisible(true);
+                new RegistrarUsuario().setVisible(true);
             }
         });
     }
