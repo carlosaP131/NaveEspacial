@@ -78,7 +78,7 @@ public class EstadoJuego extends Estado {
          try {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
-            String query = "call ActualizarPuntaje("+Jugadorbase.getId()+","+puntaje+");";
+            String query = "call ActualizarPuntaje("+Jugadorbase.getIdJugador()+","+puntaje+");";
             stm = connection.createStatement();
             stm.execute(query);
             stm.close();
