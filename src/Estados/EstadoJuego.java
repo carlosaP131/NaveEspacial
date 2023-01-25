@@ -20,11 +20,15 @@ import Graficos.Assets;
 import Graficos.Sonidos;
 import Calculos.Vector2D;
 import DB.Conexion;
+import Model.RolModelImpl;
 import entity.Jugador;
 import Objetos.JugadorJuego;
+import entity.Rol;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,7 +38,6 @@ public class EstadoJuego extends Estado {
             Constantes.HEIGHT / 2 - Assets.jugador.getHeight() / 2);
 
     private JugadorJuego jugador;
-    private Jugador Jugadorbase;
     private Conexion conexion;
     private Connection connection;
     private Statement stm;
@@ -72,22 +75,39 @@ public class EstadoJuego extends Estado {
         generadorOvnis.run(Constantes.UFO_SPAWN_RATE);
     }
 
-    public void addScore(int value, Vector2D position) {
+    public void addScore(int value, Vector2D position ) {
         puntaje += value;
         messages.add(new Mensajes(position, true, "+" + value + " puntos", Color.WHITE, false, Assets.fontMed));
          try {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
-            String query = "call ActualizarPuntaje("+Jugadorbase.getIdJugador()+","+puntaje+");";
+            String query = "call ActualizarPuntaje("+obtenerID()+","+puntaje+");";
+             System.out.println("---: " + query);
             stm = connection.createStatement();
             stm.execute(query);
             stm.close();
             connection.close();
         } catch (SQLException e) {
-            System.err.println("Error:");
+            System.err.println("Error: "+ e.getMessage());
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(EstadoJuego.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(EstadoJuego.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public int obtenerID(){
+        int idaux= 4;
+        try {
+            int id = 0;
+            ResultSet rs;
+            String query = "select id_jugador from jugador where id_jugador="+idaux+";";
+            stm = connection.createStatement();
+            rs = stm.executeQuery(query);
+            rs.next();
+             id =  rs.getInt("id_jugador"); 
+            return id;
+        } catch (SQLException e) {
+            System.err.println("Error:");
+        }
+        return 6;
     }
 
     public void divideMeteor(Meteoritos meteor) {
@@ -127,7 +147,7 @@ public class EstadoJuego extends Estado {
     private void startWave() {
 
         messages.add(new Mensajes(new Vector2D(Constantes.WIDTH / 2, Constantes.HEIGHT / 2), false,
-                "Nueva onda de meteoritos " + ondas, Color.WHITE, true, Assets.fontBig));
+                "Nueva ronda de meteoritos " + ondas, Color.WHITE, true, Assets.fontBig));
 
         double x, y;
 

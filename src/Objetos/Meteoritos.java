@@ -7,11 +7,14 @@ import java.awt.image.BufferedImage;
 
 import Calculos.Vector2D;
 import Estados.EstadoJuego;
+import entity.Jugador;
 
 public class Meteoritos extends MovimientoObjetos {
 
     private Tamaño size;
-
+    
+    private Jugador jugador;
+            
     public Meteoritos(Vector2D position, Vector2D velocity, double maxVel, BufferedImage texture, EstadoJuego gameState, Tamaño size) {
         super(position, velocity, maxVel, texture, gameState);
         this.size = size;

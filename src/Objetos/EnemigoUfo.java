@@ -10,13 +10,16 @@ import Graficos.Assets;
 import Graficos.Sonidos;
 import Calculos.Vector2D;
 import Estados.EstadoJuego;
+import entity.Jugador;
 
 public class EnemigoUfo extends MovimientoObjetos {
 
     private ArrayList<Vector2D> path;
 
     private Vector2D currentNode;
-
+    
+    private Jugador jugador;
+    
     private int index;
 
     private boolean following;
