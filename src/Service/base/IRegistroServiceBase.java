@@ -7,7 +7,6 @@
  * ****************************************************************************/
 package Service.base;
 
-import entity.Usuario;
 import java.util.List;
 
 /**
@@ -26,4 +25,6 @@ public interface IRegistroServiceBase<Usuario> {
     public void EliminarRegistro(int id);
 
     public Usuario BuscarRegistro(int id);
+    public void ActulaizarPuntaje(Usuario Registro,int Puntaje);
+           
 }

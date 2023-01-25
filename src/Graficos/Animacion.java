@@ -1,59 +1,52 @@
-
 package Graficos;
 
-import Math.Vector;
 import java.awt.image.BufferedImage;
 
-/**
- *
- * @author labdessw09
- */
+import Calculos.Vector2D;
+
 public class Animacion {
-    
-	private BufferedImage[] frames;
-	private int velocity;
-	private int index;
-	private boolean running;
-	private Vector position;
-	private long time, lastTime;
-	
-	public Animacion (BufferedImage[] frames, int velocity, Vector position){
-		this.frames = frames;
-		this.velocity = velocity;
-		this.position = position;
-		index = 0;
-		running = true;
-		time = 0;
-		lastTime = System.currentTimeMillis();
-	}
-	
-	public void update(){
-		
-		time += System.currentTimeMillis() - lastTime;
-		lastTime = System.currentTimeMillis();
-		
-		if(time > velocity){
-			time  = 0;
-			index ++;
-			if(index >= frames.length){
-				running = false;
-			}
-		}
-	}
 
-	public boolean isRunning() {
-		return running;
-	}
+    private BufferedImage[] frames;
+    private int velocidad;
+    private int indice;
+    private boolean running;
+    private Vector2D posicion;
+    private long tiempo, tiempoFinal;
 
-	public Vector getPosition() {
-		return position;
-	}
-	
-	public BufferedImage getCurrentFrame(){
-		return frames[index];
-	}
-	
-	
-	
-	
+    public Animacion(BufferedImage[] frames, int velocity, Vector2D position) {
+        this.frames = frames;
+        this.velocidad = velocity;
+        this.posicion = position;
+        indice = 0;
+        running = true;
+        tiempo = 0;
+        tiempoFinal = System.currentTimeMillis();
+    }
+
+    public void update() {
+
+        tiempo += System.currentTimeMillis() - tiempoFinal;
+        tiempoFinal = System.currentTimeMillis();
+
+        if (tiempo > velocidad) {
+            tiempo = 0;
+            indice++;
+            if (indice >= frames.length) {
+                running = false;
+            }
+        }
+    }
+
+    public boolean isRunning() {
+        return running;
+    }
+
+    public Vector2D getPosition() {
+        return posicion;
+    }
+
+    public BufferedImage getCurrentFrame() {
+        return frames[indice];
+    }
+
 }

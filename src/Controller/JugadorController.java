@@ -34,5 +34,7 @@ public class JugadorController extends RegistroControllerBase<Jugador> {
         super.setRegistro(jugador);
         super.crearActualizarRegistro();
     }
-
+    public void ActualizarPuntaje(Jugador jugador ,int Puntaje){
+        service.ActulaizarPuntaje(jugador, Puntaje);
+    }
 }

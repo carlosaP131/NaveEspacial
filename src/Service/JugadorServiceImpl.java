@@ -47,4 +47,9 @@ public class JugadorServiceImpl implements IJugadorService {
        return model.BuscarRegistro(id);
     }
 
+    @Override
+    public void ActulaizarPuntaje(Jugador Registro, int Puntaje) {
+      model.ActualizarPuntaje(Registro, Puntaje);
+    }
+
 }

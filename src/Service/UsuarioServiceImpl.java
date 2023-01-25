@@ -51,6 +51,10 @@ public class UsuarioServiceImpl implements  IUsuarioService{
        return model.BuscarRegistro(id);
     }
 
+    @Override
+    public void ActulaizarPuntaje(Usuario Registro, int Puntaje) {
+       }
+
    
 
 }

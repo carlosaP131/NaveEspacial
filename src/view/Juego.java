@@ -1,75 +1,68 @@
-/** ****************************************************************************
- *Autor:Carlos Aurelio Alcántara Pérez
- *      Sainos Hernández Baldomero.
- *Fecha de creación: 25- 11-2022 ***
- *Fecha de actualización:31-11-2022
- *Descripción:Panel para el inicio de sesion
- **
- * *************************************************************************** */
 package view;
 
-import Estados.EstadoJuego;
-import Graficos.Assets;
-import Input.KeyBoard;
-import Objetos.Constantes;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+
+import javax.swing.JFrame;
+
+import Objetos.Constantes;
+import Graficos.Assets;
+import input.Teclas;
+import input.MovimientoMouse;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
+import Estados.EstadoCarga;
+import Estados.Estado;
 
 public class Juego extends JFrame implements Runnable {
 
-    //Declaracion de las variables.
     private static final long serialVersionUID = 1L;
 
     private Canvas canvas;
-    private Thread thread;
+    private Thread hilo;
     private boolean running = false;
 
     private BufferStrategy bs;
     private Graphics g;
 
     private final int FPS = 60;
-    private double TARGETTIME = 1000000000 / FPS;
+    private double tiempo = 1000000000 / FPS;
     private double delta = 0;
-    private int AVERAGEFPS = FPS;
+    private int promedioFPS = FPS;
 
-    private EstadoJuego gameState;
-    private KeyBoard keyBoard;
+    private Teclas keyBoard;
+    private MovimientoMouse mouseInput;
 
     private BufferedImage imgFondo;
 
     public Juego() {
-        setTitle("Galaxi");
+        setTitle("Juego de Nave & Ateroides");
         setSize(Constantes.WIDTH, Constantes.HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
 
         canvas = new Canvas();
-        keyBoard = new KeyBoard();
+        keyBoard = new Teclas();
+        mouseInput = new MovimientoMouse();
 
-        canvas.setPreferredSize(new Dimension(Constantes.WIDTH,
-                Constantes.HEIGHT));
-        canvas.setMaximumSize(new Dimension(Constantes.WIDTH,
-                Constantes.HEIGHT));
-        canvas.setMinimumSize(new Dimension(Constantes.WIDTH,
-                Constantes.HEIGHT));
+        canvas.setPreferredSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
+        canvas.setMaximumSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
+        canvas.setMinimumSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
         canvas.setFocusable(true);
 
         add(canvas);
         canvas.addKeyListener(keyBoard);
+        canvas.addMouseListener(mouseInput);
+        canvas.addMouseMotionListener(mouseInput);
         setVisible(true);
-
-                try {
-            File archivo = new File("src/view/ss.jpg");
+        try {
+            File archivo = new File("src/ImagenesObjetos/image.jpg");
             imgFondo = ImageIO.read(archivo);
-                    System.err.println("Archivo encontrado: " + archivo.getAbsolutePath());
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
@@ -78,12 +71,11 @@ public class Juego extends JFrame implements Runnable {
     public static void main(String[] args) {
         new Juego().start();
     }
-    //Método actualizar
+
     private void update() {
         keyBoard.update();
-        gameState.update();
+        Estado.getCurrentState().update();
     }
-    
 
     private void draw() {
         bs = canvas.getBufferStrategy();
@@ -97,24 +89,14 @@ public class Juego extends JFrame implements Runnable {
 
         //-----------------------
         g.fillRect(0, 0, Constantes.WIDTH, Constantes.HEIGHT);
-        // Asignación del fondo del juego
+
         g.drawImage(imgFondo, 0, 0, this);
-        //g.dispose();
-        
-        
-        
-        //this.setOpaque(false);
-        //super.paint(g);
-        //g.setColor(Color.ORANGE);
 
-        //revisar esta línea de código
-        //g.fillRect(0, 0, Constantes.WIDTH, Constantes.HEIGHT); esta linea es para las balas
-
-        gameState.draw(g);
+        Estado.getCurrentState().draw(g);
 
         g.setColor(Color.WHITE);
 
-        g.drawString("" + AVERAGEFPS, 10, 20);
+        g.drawString("" + promedioFPS, 10, 20);
 
         //---------------------
         g.dispose();
@@ -122,21 +104,31 @@ public class Juego extends JFrame implements Runnable {
     }
 
     private void init() {
-        Assets.init();
-        gameState = new EstadoJuego();
+
+        Thread loadingThread = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                Assets.init();
+            }
+        });
+
+        Estado.changeState(new EstadoCarga(loadingThread));
     }
 
     @Override
     public void run() {
+
         long now = 0;
         long lastTime = System.nanoTime();
         int frames = 0;
         long time = 0;
+
         init();
 
         while (running) {
             now = System.nanoTime();
-            delta += (now - lastTime) / TARGETTIME;
+            delta += (now - lastTime) / tiempo;
             time += (now - lastTime);
             lastTime = now;
 
@@ -147,9 +139,10 @@ public class Juego extends JFrame implements Runnable {
                 frames++;
             }
             if (time >= 1000000000) {
-                AVERAGEFPS = frames;
+                promedioFPS = frames;
                 frames = 0;
                 time = 0;
+
             }
 
         }
@@ -158,15 +151,16 @@ public class Juego extends JFrame implements Runnable {
     }
 
     private void start() {
-        thread = new Thread(this);
-        thread.start();
+
+        hilo = new Thread(this);
+        hilo.start();
         running = true;
 
     }
 
     private void stop() {
         try {
-            thread.join();
+            hilo.join();
             running = false;
         } catch (InterruptedException e) {
             e.printStackTrace();

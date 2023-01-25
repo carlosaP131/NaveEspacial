@@ -21,6 +21,6 @@ public interface IJugadorModel {
    public void ActualizarRegistro(Jugador jugadornuevo);
    public void EliminarRegistro(int jugador);
    public Jugador BuscarRegistro(int jugador);
-    
+   public void ActualizarPuntaje(Jugador jugador,int Puntaje ); 
     
 }

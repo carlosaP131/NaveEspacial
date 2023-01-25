@@ -135,7 +135,7 @@ public class RolModelImpl implements IRolModel {
         }
         return null;
     }
-
+    
     public static void main(String[] args) throws ClassNotFoundException {
         IRolModel model = new RolModelImpl();
         Rol rol = new Rol();

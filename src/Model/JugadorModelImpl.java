@@ -165,9 +165,10 @@ public class JugadorModelImpl implements IJugadorModel {
         return 0;
        
     }
-//    public static void main(String[] args) throws ClassNotFoundException {
-//        IJugadorModel model = new JugadorModelImpl();
-//        Jugador jugador = new Jugador();
+    public static void main(String[] args) throws ClassNotFoundException {
+        IJugadorModel model = new JugadorModelImpl();
+        Jugador jugador = new Jugador();
+       
 //        jugador.setNombre("arbol");
 //        jugador.setCorreo("hjdkasuyakda");
 //        jugador.setEdad(15);
@@ -180,10 +181,26 @@ public class JugadorModelImpl implements IJugadorModel {
 //        for (int i = 0; i < lista.size(); i++) {
 //            System.out.println(lista.get(i).getNombre());
 //        }
-//        Jugador jugador2 = new Jugador();
-//        jugador2.setNombre("arbol2");
-//        model.ActualizarRegistro(jugador.getId(), jugador2);
-//         model.EliminarRegistro(jugador);
-//    }
+        model.ActualizarPuntaje(jugador, 200);
+    }
+
+    @Override
+    public void ActualizarPuntaje(Jugador jugador, int Puntaje) {
+       try {
+            conexion = new Conexion();//se establece la conexion
+            connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
+            String query = "call ActualizarPuntaje("+jugador.getId()+","+Puntaje+");";
+            stm = connection.createStatement();
+            stm.execute(query);
+            stm.close();
+            connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error:");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(JugadorModelImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
 
 }

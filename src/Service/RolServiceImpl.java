@@ -47,4 +47,9 @@ public class RolServiceImpl implements IRolService {
        return model.BuscarRegistro(id);
     }
 
+    @Override
+    public void ActulaizarPuntaje(Rol Registro, int Puntaje) {
+        
+    }
+
 }
