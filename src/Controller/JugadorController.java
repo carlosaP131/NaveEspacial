@@ -11,6 +11,8 @@ import Controller.base.RegistroControllerBase;
 import Service.JugadorServiceImpl;
 import entity.Jugador;
 import Service.IJugadorService;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -34,5 +36,21 @@ public class JugadorController extends RegistroControllerBase<Jugador> {
         super.setRegistro(jugador);
         super.crearActualizarRegistro();
     }
+    public void mostrar(DefaultTableModel modelo) {
+        service = new JugadorServiceImpl();
+        List<Jugador> listajugador = service.ObtenerRegistro();
+        modelo.setRowCount(0);
+        for (Jugador jugador : listajugador) {
+            Object[] fila = new Object[11];
+            fila[0] = String.valueOf(jugador.getIdJugador());
+            fila[1] = jugador.getNombre();
+            fila[2] = jugador.getEdad();
+            fila[3] = jugador.getCorreo();
+            fila[4] = jugador.getPuntos();
 
+            modelo.addRow(fila);
+
+        }
+
+    }
 }
