@@ -1,3 +1,10 @@
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-11-2022 
+ *Fecha de actualización:4-01-2023
+ *Descripción: Clase Abstracta para los estados de carga para el menu de inicio
+ **
+ * ****************************************************************************/
 package Estados;
 
 import java.awt.Color;
@@ -13,17 +20,25 @@ import Graficos.Texto;
 import Calculos.Vector2D;
 
 public class EstadoCarga extends Estado {
-
+    /**
+     * Variable Thread para los hilos variable Font para los fondos 
+     *
+     */
     private Thread hiloDeCarga;
 
     private Font font;
-
+    /**
+     * Constructor con parametros 
+     * @param loadingThread Resive el Hilo de carga
+     */
     public EstadoCarga(Thread loadingThread) {
         this.hiloDeCarga = loadingThread;
         this.hiloDeCarga.start();
         font = Cargador.loadFont("/fonts/futureFont.ttf", 38);
     }
-
+    /**
+     * Actualizar el estado este metodo viene de la clase abstracta Estado
+     */
     @Override
     public void update() {
         if (Assets.loaded) {
@@ -36,7 +51,10 @@ public class EstadoCarga extends Estado {
         }
 
     }
-
+    /**
+     * Dibuja la barra de carga 
+     * @param g 
+     */
     @Override
     public void draw(Graphics g) {
         GradientPaint gp = new GradientPaint(
