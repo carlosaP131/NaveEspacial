@@ -1,3 +1,10 @@
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-11-2022 
+ *Fecha de actualización:4-01-2023
+ *Descripción: Clase para los botones del menu 
+ **
+ * ****************************************************************************/
 package InterfazUsuario;
 
 import java.awt.Color;
@@ -11,14 +18,24 @@ import input.MovimientoMouse;
 import Calculos.Vector2D;
 
 public class Boton {
-
+    /**
+     * Variiables para los botones 
+     */
     private BufferedImage mouseOutImg;
     private BufferedImage mouseInImg;
     private boolean mouseIn;
     private Rectangle boundingBox;
     private Accion action;
     private String text;
-
+    /**
+     * Constructor con parametros 
+     * @param mouseOutImg
+     * @param mouseInImg
+     * @param x
+     * @param y
+     * @param text
+     * @param action 
+     */
     public Boton(
             BufferedImage mouseOutImg,
             BufferedImage mouseInImg,
@@ -29,7 +46,8 @@ public class Boton {
         this.mouseInImg = mouseInImg;
         this.mouseOutImg = mouseOutImg;
         this.text = text;
-        boundingBox = new Rectangle(x, y, mouseInImg.getWidth(), mouseInImg.getHeight());
+        boundingBox = new Rectangle(x, y, mouseInImg.getWidth(), 
+                mouseInImg.getHeight());
         this.action = action;
     }
 
