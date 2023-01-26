@@ -1,3 +1,10 @@
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-11-2022 
+ *Fecha de actualización:4-01-2023
+ *Descripción: Clase Abstracta para los Puntajes
+ **
+ * ****************************************************************************/
 package Estados;
 
 import java.awt.Color;
@@ -15,7 +22,9 @@ import InterfazUsuario.Boton;
 import InterfazUsuario.Accion;
 
 public class Puntaje extends Estado {
-
+    /**
+     * 
+     */
     private Boton btnRegreso;
 
     private PriorityQueue<Puntuaciones> puntuacionAlta;

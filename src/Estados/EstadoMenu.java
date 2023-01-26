@@ -1,3 +1,10 @@
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-11-2022 
+ *Fecha de actualización:4-01-2023
+ *Descripción: Clase  para los estados del menu
+ **
+ * ****************************************************************************/
 package Estados;
 
 import java.awt.Graphics;
@@ -7,11 +14,18 @@ import Objetos.Constantes;
 import Graficos.Assets;
 import InterfazUsuario.Boton;
 import InterfazUsuario.Accion;
-
+/**
+ * 
+ * @author Carlos Aurelio Alcantara Perez 
+ */
 public class EstadoMenu extends Estado {
-
+    /**
+     * Variable para los botones
+     */
     private ArrayList<Boton> botones;
-
+    /**
+     * Constructor sin parametros
+     */
     public EstadoMenu() {
         botones = new ArrayList<Boton>();
 
@@ -58,14 +72,19 @@ public class EstadoMenu extends Estado {
         ));
 
     }
-
+    /**
+     * Actualizar el estado
+     */
     @Override
     public void update() {
         for (Boton b : botones) {
             b.update();
         }
     }
-
+    /**
+     * Dibuja los botones 
+     * @param g 
+     */
     @Override
     public void draw(Graphics g) {
         for (Boton b : botones) {
