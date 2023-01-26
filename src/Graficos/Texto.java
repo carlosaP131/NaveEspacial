@@ -1,3 +1,10 @@
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-11-2022 
+ *Fecha de actualización:4-01-2023
+ *Descripción: Clase para cargar los textos 
+ **
+ * ****************************************************************************/
 package Graficos;
 
 import java.awt.Color;
