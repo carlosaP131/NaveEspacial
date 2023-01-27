@@ -30,7 +30,7 @@ public class JugadorController extends RegistroControllerBase<Jugador> {
   *
   * metodo para insertar
   */
-    public void InsertarRegistro(Jugador jugador) {
+    public void insertarRegistro(Jugador jugador) {
         ini();
 
         super.setRegistro(jugador);
@@ -38,7 +38,7 @@ public class JugadorController extends RegistroControllerBase<Jugador> {
     }
     public void mostrar(DefaultTableModel modelo) {
         service = new JugadorServiceImpl();
-        List<Jugador> listajugador = service.ObtenerRegistro();
+        List<Jugador> listajugador = service.obtenerRegistro();
         modelo.setRowCount(0);
         for (Jugador jugador : listajugador) {
             Object[] fila = new Object[11];

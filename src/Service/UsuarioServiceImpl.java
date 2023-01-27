@@ -27,27 +27,27 @@ public class UsuarioServiceImpl implements  IUsuarioService{
      */
      //se hace un override a los metodos de IUsuarioService
     @Override
-    public void InsertarRegistro(Usuario Registro ) {
+    public void insertarRegistro(Usuario Registro ) {
         model.insertarregistro(Registro);
     }
 
     @Override
-    public List<Usuario> ObtenerRegistro() {
+    public List<Usuario> obtenerRegistro() {
         return model.ObtenerRegistro();
     }
 
     @Override
-    public void ActualizarRegistro(Usuario idRegistro) {
+    public void actualizarRegistro(Usuario idRegistro) {
         model.ActualizarRegistro( idRegistro);
     }
 
     @Override
-    public void EliminarRegistro(int id) {
+    public void eliminarRegistro(int id) {
         model.EliminarRegistro(id);
     }
 
     @Override
-    public Usuario BuscarRegistro(int id) {
+    public Usuario buscarRegistro(int id) {
        return model.BuscarRegistro(id);
     }
 

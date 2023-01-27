@@ -1,3 +1,10 @@
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-12-2022 
+ *Fecha de actualización:4-01-2023
+ *Descripción:Clase con los parametros del enemigo 
+ **
+ * ****************************************************************************/
 package Objetos;
 
 import java.awt.Graphics;
@@ -13,7 +20,9 @@ import Estados.EstadoJuego;
 import entity.Jugador;
 
 public class EnemigoUfo extends MovimientoObjetos {
-
+    /**
+     * Variables 
+     */
     private ArrayList<Vector2D> path;
 
     private Vector2D currentNode;
@@ -82,7 +91,7 @@ public class EnemigoUfo extends MovimientoObjetos {
 
         if (position.getX() > Constantes.WIDTH || position.getY() > Constantes.HEIGHT
                 || position.getX() < -width || position.getY() < -height) {
-            Destroy();
+            destroy();
         }
 
         // shoot
@@ -131,9 +140,9 @@ public class EnemigoUfo extends MovimientoObjetos {
     }
 
     @Override
-    public void Destroy() {
+    public void destroy() {
         gameState.addScore(Constantes.UFO_SCORE, position);
-        super.Destroy();
+        super.destroy();
     }
 
     @Override

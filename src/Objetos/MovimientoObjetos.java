@@ -66,12 +66,12 @@ public abstract class MovimientoObjetos extends ObjteosJuego {
 
         if (!(a instanceof Meteoritos && b instanceof Meteoritos)) {
             gameState.playExplosion(getCenter());
-            a.Destroy();
-            b.Destroy();
+            a.destroy();
+            b.destroy();
         }
     }
 
-    protected void Destroy() {
+    protected void destroy() {
         Dead = true;
         if (!(this instanceof Laser)) {
             explosion.play();

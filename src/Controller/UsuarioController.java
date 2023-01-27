@@ -29,7 +29,7 @@ public class UsuarioController extends RegistroControllerBase<Usuario> {
      * 
      *@param usuario El parámetro Usuario es un objeto de tipo usuario
      */
-    public void InsertarRegistro(Usuario usuario) {
+    public void insertarRegistro(Usuario usuario) {
         
         service = new UsuarioServiceImpl();
         super.setServise(service);
@@ -41,7 +41,7 @@ public class UsuarioController extends RegistroControllerBase<Usuario> {
     */
     public void mostrar(DefaultTableModel modelo) {
         service = new UsuarioServiceImpl();
-        List<Usuario> listausuario = service.ObtenerRegistro();
+        List<Usuario> listausuario = service.obtenerRegistro();
         modelo.setRowCount(0);
         for (Usuario usuario : listausuario) {
             Object[] fila = new Object[4];

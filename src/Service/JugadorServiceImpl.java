@@ -23,27 +23,27 @@ public class JugadorServiceImpl implements IJugadorService {
     IJugadorModel model = new JugadorModelImpl();
      //se hace un override a los metodos de IJugadorService
     @Override
-    public void InsertarRegistro(Jugador Registro) {
+    public void insertarRegistro(Jugador Registro) {
                 model.insertarregistro(Registro);
     }
 
     @Override
-    public List<Jugador> ObtenerRegistro() {
+    public List<Jugador> obtenerRegistro() {
       return  model.ObtenerRegistro();
     }
 
     @Override
-    public void ActualizarRegistro(Jugador  Registro) {
-    //    model.ActualizarRegistro();
+    public void actualizarRegistro(Jugador  Registro) {
+    //    model.actualizarRegistro();
     }
 
     @Override
-    public void EliminarRegistro(int Registro) {
+    public void eliminarRegistro(int Registro) {
             model.EliminarRegistro(Registro);
     }
 
     @Override
-    public Jugador BuscarRegistro(int id) {
+    public Jugador buscarRegistro(int id) {
        return model.BuscarRegistro(id);
     }
 

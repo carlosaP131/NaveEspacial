@@ -50,7 +50,9 @@ public class Boton {
                 mouseInImg.getHeight());
         this.action = action;
     }
-
+    /**
+     * Actualiza el estado 
+     */
     public void update() {
 
         if (boundingBox.contains(MovimientoMouse.X, MovimientoMouse.Y)) {
@@ -63,7 +65,10 @@ public class Boton {
             action.doAction();
         }
     }
-
+    /**
+     * Dibujar el boton
+     * @param g 
+     */
     public void draw(Graphics g) {
 
         if (mouseIn) {

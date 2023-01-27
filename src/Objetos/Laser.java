@@ -21,7 +21,7 @@ public class Laser extends MovimientoObjetos {
         position = position.add(velocity);
         if (position.getX() < 0 || position.getX() > Constantes.WIDTH
                 || position.getY() < 0 || position.getY() > Constantes.HEIGHT) {
-            Destroy();
+            destroy();
         }
 
         collidesWith();

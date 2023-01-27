@@ -23,27 +23,27 @@ public class RolServiceImpl implements IRolService {
 
     //se hace un override a los metodos de IRolService
     @Override
-    public void InsertarRegistro(Rol Registro) {
+    public void insertarRegistro(Rol Registro) {
                 model.insertarregistro(Registro);
     }
 
     @Override
-    public List<Rol> ObtenerRegistro() {
+    public List<Rol> obtenerRegistro() {
       return  model.ObtenerRegistro();
     }
 
     @Override
-    public void ActualizarRegistro(Rol  Registro) {
+    public void actualizarRegistro(Rol  Registro) {
         model.ActualizarRegistro( Registro);
     }
 
     @Override
-    public void EliminarRegistro(int Registro) {
+    public void eliminarRegistro(int Registro) {
             model.BuscarRegistro(Registro);
     }
 
     @Override
-    public Rol BuscarRegistro(int id) {
+    public Rol buscarRegistro(int id) {
        return model.BuscarRegistro(id);
     }
 

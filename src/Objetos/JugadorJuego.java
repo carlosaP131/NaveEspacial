@@ -118,13 +118,13 @@ public class JugadorJuego extends MovimientoObjetos {
     }
 
     @Override
-    public void Destroy() {
+    public void destroy() {
         spawning = true;
         spawnTime.run(Constantes.SPAWNING_TIME);
         loose.play();
         if (!gameState.subtractLife()) {
             gameState.gameOver();
-            super.Destroy();
+            super.destroy();
         }
         resetValues();
 

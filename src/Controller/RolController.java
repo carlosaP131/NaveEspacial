@@ -29,7 +29,7 @@ public class RolController extends RegistroControllerBase<Rol> {
    */     
 
    
-    public void CrearActualizarRegistro(Rol rol) {
+    public void crearActualizarRegistro(Rol rol) {
         //ini();
         super.setRegistro(rol);
         super.crearActualizarRegistro();

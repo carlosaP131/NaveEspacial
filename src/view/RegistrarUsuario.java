@@ -203,24 +203,24 @@ public class RegistrarUsuario extends javax.swing.JFrame {
             jugador.setNombre(this.Nickname.getText());
             jugador.setEdad(Integer.parseInt(this.Edad.getText()));
             jugador.setCorreo(this.Correo.getText());
-            jugadorcontroller.InsertarRegistro(jugador);
+            jugadorcontroller.insertarRegistro(jugador);
             // se definen los usuarios
             usuario.setUser(this.Usuario.getText());
             usuario.setPwd(this.Contraseña.getText());
             usuario.setRol("Administrador");
             
-             usuariocontroller.InsertarRegistro(usuario);
+             usuariocontroller.insertarRegistro(usuario);
         }
         if (tipo.compareTo(EnumValida.Jugador.getValue()) == 0) {
 
             jugador.setNombre(this.Nickname.getText());
             jugador.setEdad(Integer.parseInt(this.Edad.getText()));
             jugador.setCorreo(this.Correo.getText());
-            jugadorcontroller.InsertarRegistro(jugador);
+            jugadorcontroller.insertarRegistro(jugador);
             usuario.setUser(this.Usuario.getText());
             usuario.setPwd(this.Contraseña.getText());
             usuario.setRol("Jugador");
-             usuariocontroller.InsertarRegistro(usuario);
+             usuariocontroller.insertarRegistro(usuario);
         }
         if (tipo.compareTo(EnumValida.Invitado.getValue()) == 0) {
              jugador.setSexo("NULL");
@@ -229,12 +229,12 @@ public class RegistrarUsuario extends javax.swing.JFrame {
             jugador.setDireccion("NULL");
             jugador.setCorreo("NULL");
             jugador.setTelefono("NULL");
-            jugadorcontroller.InsertarRegistro(jugador);
+            jugadorcontroller.insertarRegistro(jugador);
              usuario.setUser(this.Usuario.getText());
              usuario.setPwd(this.Contraseña.getText());
             usuario.setRol("Invitado");
 
-             usuariocontroller.InsertarRegistro(usuario);
+             usuariocontroller.insertarRegistro(usuario);
         }
        usuario.setIdJugador(jugador.getIdJugador());
         

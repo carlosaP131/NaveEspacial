@@ -24,13 +24,13 @@ public abstract class RegistroControllerBase<T extends IRegistroEntityBase>{
     public void crearActualizarRegistro(){
        if(registro.getId()<1){
        
-        servise.InsertarRegistro(registro);
+        servise.insertarRegistro(registro);
        }else{
-           servise.ActualizarRegistro(registro);
+           servise.actualizarRegistro(registro);
        }
     }
-    public void EliminarRegistro(int id){
-        servise.EliminarRegistro(id);
+    public void eliminarRegistro(int id){
+        servise.eliminarRegistro(id);
     }
     //Se crean los set´s y get´s
     public T getRegistro() {

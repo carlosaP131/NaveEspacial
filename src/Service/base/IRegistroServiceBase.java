@@ -17,13 +17,13 @@ import java.util.List;
  */
 public interface IRegistroServiceBase<Usuario> {
 
-    public void InsertarRegistro(Usuario Registro);
+    public void insertarRegistro(Usuario Registro);
 
-    public List<Usuario> ObtenerRegistro();
+    public List<Usuario> obtenerRegistro();
 
-    public void ActualizarRegistro(Usuario idRegistro);
+    public void actualizarRegistro(Usuario idRegistro);
 
-    public void EliminarRegistro(int id);
+    public void eliminarRegistro(int id);
 
-    public Usuario BuscarRegistro(int id);
+    public Usuario buscarRegistro(int id);
 }
