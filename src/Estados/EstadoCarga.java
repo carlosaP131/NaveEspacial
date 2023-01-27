@@ -34,7 +34,7 @@ public class EstadoCarga extends Estado {
     public EstadoCarga(Thread loadingThread) {
         this.hiloDeCarga = loadingThread;
         this.hiloDeCarga.start();
-        font = Cargador.loadFont("/fonts/futureFont.ttf", 38);
+        font = Cargador.loadFont("/Fonts/futureFont.ttf", 38);
     }
     /**
      * Actualizar el estado este metodo viene de la clase abstracta Estado

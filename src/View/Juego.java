@@ -72,12 +72,12 @@ public class Juego extends JFrame implements Runnable {
         new Juego().start();
     }
 
-    private void update() {
+    public void update() {
         keyBoard.update();
         Estado.getCurrentState().update();
     }
 
-    private void draw() {
+    public void draw() {
         bs = canvas.getBufferStrategy();
 
         if (bs == null) {
@@ -103,7 +103,7 @@ public class Juego extends JFrame implements Runnable {
         bs.show();
     }
 
-    private void init() {
+    public void init() {
 
         Thread loadingThread = new Thread(new Runnable() {
 
@@ -150,7 +150,7 @@ public class Juego extends JFrame implements Runnable {
         stop();
     }
 
-    private void start() {
+    public void start() {
 
         hilo = new Thread(this);
         hilo.start();
@@ -158,7 +158,7 @@ public class Juego extends JFrame implements Runnable {
 
     }
 
-    private void stop() {
+    public void stop() {
         try {
             hilo.join();
             running = false;

@@ -68,9 +68,9 @@ public class Assets {
 
         vidas = loadImage("/ImagenesObjetos/life.png");
 
-        fontBig = loadFont("/fonts/futureFont.ttf", 42);
+        fontBig = loadFont("/Fonts/futureFont.ttf", 42);
 
-        fontMed = loadFont("/fonts/futureFont.ttf", 20);
+        fontMed = loadFont("/Fonts/futureFont.ttf", 20);
 
         for (int i = 0; i < grandre.length; i++) {
             grandre[i] = loadImage("/ImagenesObjetos/big" + (i + 1) + ".png");

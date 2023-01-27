@@ -137,9 +137,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-       juego = new Juego();
-        this.setVisible(false);
-        juego.setVisible(true);
+      new Juego().start();
+      this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     public static void main(String args[]) {
