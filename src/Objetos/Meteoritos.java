@@ -2,8 +2,7 @@
  *Autor:Carlos Aurelio Alcántara Pérez
  *Fecha de creación: 18-12-2022 
  *Fecha de actualización:4-01-2023
- *Descripción:Clase Vector2D esta clase se encarga de los calculos nesesarios 
- * para las posiciones de los objetos 
+ *Descripción:Clase para los meteoritos 
  **
  * ****************************************************************************/
 package Objetos;
@@ -15,13 +14,11 @@ import java.awt.image.BufferedImage;
 
 import Calculos.Vector2D;
 import Estados.EstadoJuego;
-import Entity.Jugador;
 
 public class Meteoritos extends MovimientoObjetos {
 
     private Tamaño size;
-    
-    private Jugador jugador;
+   
             
     public Meteoritos(Vector2D position, Vector2D velocity, double maxVel, 
             BufferedImage texture, EstadoJuego gameState, Tamaño size) {
