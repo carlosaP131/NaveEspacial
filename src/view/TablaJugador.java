@@ -3,10 +3,12 @@ package view;
 
 import Controller.JugadorController;
 import com.mysql.cj.protocol.Resultset;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
+
 
 
 public class TablaJugador extends javax.swing.JFrame {
@@ -24,6 +26,16 @@ public class TablaJugador extends javax.swing.JFrame {
         jugadorController = new JugadorController();
         jugadorController.mostrar(modelo);
         nombre.setEditable(false);
+        TablaJugador.getTableHeader().setBackground(Color.BLUE);
+        TablaJugador.setShowGrid(false);
+        TablaJugador.setOpaque(false);
+//        jScrollPane1.setBorder(null);
+//        jScrollPane1.getViewport().setBackground(Color.WHITE);
+        jScrollPane1.setOpaque(false);
+        jScrollPane1.getViewport().setOpaque(false);
+        
+//        TablaJugador.setRowHeight(40);
+//        TablaJugador.setBorder(null);
         
         
     }
@@ -54,6 +66,8 @@ public class TablaJugador extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/casa.png"))); // NOI18N
         jLabel1.setText("1");
+        jLabel1.setToolTipText("Menu");
+        jLabel1.setFocusable(false);
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -62,6 +76,7 @@ public class TablaJugador extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 30, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar_1.png"))); // NOI18N
+        jLabel3.setToolTipText("Eliminar");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -70,6 +85,7 @@ public class TablaJugador extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/sincronizar.png"))); // NOI18N
+        jLabel4.setToolTipText("Actualizar");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
@@ -78,6 +94,7 @@ public class TablaJugador extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/actualizar-base-de-datos.png"))); // NOI18N
+        jLabel5.setToolTipText("Actualizar Tabla");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
@@ -107,6 +124,7 @@ public class TablaJugador extends javax.swing.JFrame {
                 "Id", "Jugador", "Edad", "Correo", "Score", "Fecha"
             }
         ));
+        TablaJugador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TablaJugador.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TablaJugadorMouseClicked(evt);
@@ -135,7 +153,7 @@ public class TablaJugador extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 0, 102));
-        jLabel8.setText("Tabla jugador");
+        jLabel8.setText(" jugador");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 300, -1));
 
         cosa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tablla1.png"))); // NOI18N
@@ -186,9 +204,11 @@ public class TablaJugador extends javax.swing.JFrame {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/nave_espacial", "root", "CETI");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"
+                    + "nave_espacial", "root", "CETI");
             st = con.createStatement();
-            st.execute("DELETE FROM nave_espacial.jugador WHERE nombre='" + nombre1 + "'");
+            st.execute("DELETE FROM nave_espacial.jugador WHERE nombre='" +
+                    nombre1 + "'");
             System.out.println("eliminado correctamente");
             jugadorController.mostrar(modelo);
             con.close();
@@ -201,7 +221,8 @@ public class TablaJugador extends javax.swing.JFrame {
 
     private void TablaJugadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaJugadorMouseClicked
         // TODO add your handling code here:
-        nombre.setText(TablaJugador.getValueAt(TablaJugador.getSelectedRow(), 1).toString());
+        nombre.setText(TablaJugador.getValueAt(TablaJugador.
+                getSelectedRow(), 1).toString());
 
     }//GEN-LAST:event_TablaJugadorMouseClicked
 
@@ -212,9 +233,11 @@ public class TablaJugador extends javax.swing.JFrame {
         nombre2 = jTextField2.getText();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/nave_espacial", "root", "CETI");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"
+                    + "nave_espacial", "root", "CETI");
             st = con.createStatement();
-            st.execute("update jugador set nombre='" + nombre2 + "' where jugador.nombre='" + nombre1 + "';");
+            st.execute("update jugador set nombre='" + nombre2 + "' where"
+                    + " jugador.nombre='" + nombre1 + "';");
             System.out.println("Actualizado");
             jugadorController.mostrar(modelo);
 

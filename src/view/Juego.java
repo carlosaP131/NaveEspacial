@@ -45,7 +45,7 @@ public class Juego extends JFrame implements Runnable {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
-        setLayout(null);
+
         canvas = new Canvas();
         keyBoard = new Teclas();
         mouseInput = new MovimientoMouse();

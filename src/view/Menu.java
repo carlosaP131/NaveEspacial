@@ -1,15 +1,16 @@
 package view;
 
+
 public class Menu extends javax.swing.JFrame {
 
     TablaUsuario tablaUsuario;
     RegistrarUsuario registrar;
     TablaJugador tablaJugador;
     Juego juego;
-
+    private static int botonJugar = 0;
     public Menu() {
         initComponents();
-
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -137,18 +138,26 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-       juego = new Juego();
+        botonJugar = 1;
+       
         this.setVisible(false);
         juego.setVisible(true);
+        
+       
     }//GEN-LAST:event_jButton1MouseClicked
 
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
+            
             public void run() {
                 new Menu().setVisible(true);
+               
+                
             }
+            
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
