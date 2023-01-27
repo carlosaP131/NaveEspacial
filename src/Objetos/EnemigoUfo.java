@@ -17,7 +17,7 @@ import Graficos.Assets;
 import Graficos.Sonidos;
 import Calculos.Vector2D;
 import Estados.EstadoJuego;
-import entity.Jugador;
+import Entity.Jugador;
 
 public class EnemigoUfo extends MovimientoObjetos {
     /**
@@ -37,7 +37,8 @@ public class EnemigoUfo extends MovimientoObjetos {
 
     private Sonidos shoot;
 
-    public EnemigoUfo(Vector2D position, Vector2D velocity, double maxVel, BufferedImage texture,
+    public EnemigoUfo(Vector2D position, Vector2D velocity, 
+            double maxVel, BufferedImage texture,
             ArrayList<Vector2D> path, EstadoJuego gameState) {
         super(position, velocity, maxVel, texture, gameState);
         this.path = path;
@@ -51,7 +52,8 @@ public class EnemigoUfo extends MovimientoObjetos {
     private Vector2D pathFollowing() {
         currentNode = path.get(index);
 
-        double distanceToNode = currentNode.subtract(getCenter()).getMagnitude();
+        double distanceToNode = currentNode.subtract(
+                getCenter()).getMagnitude();
 
         if (distanceToNode < Constantes.NODE_RADIUS) {
             index++;
@@ -89,7 +91,8 @@ public class EnemigoUfo extends MovimientoObjetos {
 
         position = position.add(velocity);
 
-        if (position.getX() > Constantes.WIDTH || position.getY() > Constantes.HEIGHT
+        if (position.getX() > Constantes.WIDTH || position.getY() >
+                Constantes.HEIGHT
                 || position.getX() < -width || position.getY() < -height) {
             destroy();
         }
@@ -97,13 +100,15 @@ public class EnemigoUfo extends MovimientoObjetos {
         // shoot
         if (!fireRate.isRunning()) {
 
-            Vector2D toPlayer = gameState.getPlayer().getCenter().subtract(getCenter());
+            Vector2D toPlayer = gameState.getPlayer().getCenter().subtract
+        (getCenter());
 
             toPlayer = toPlayer.normalize();
 
             double currentAngle = toPlayer.getAngle();
 
-            currentAngle += Math.random() * Constantes.UFO_ANGLE_RANGE - Constantes.UFO_ANGLE_RANGE / 2;
+            currentAngle += Math.random() * Constantes.UFO_ANGLE_RANGE -
+                    Constantes.UFO_ANGLE_RANGE / 2;
 
             if (toPlayer.getX() < 0) {
                 currentAngle = -currentAngle + Math.PI;
@@ -150,7 +155,8 @@ public class EnemigoUfo extends MovimientoObjetos {
 
         Graphics2D g2d = (Graphics2D) g;
 
-        at = AffineTransform.getTranslateInstance(position.getX(), position.getY());
+        at = AffineTransform.getTranslateInstance(position.getX(),
+                position.getY());
 
         at.rotate(angle, width / 2, height / 2);
 

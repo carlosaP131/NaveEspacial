@@ -16,7 +16,7 @@ import java.util.PriorityQueue;
 import Objetos.Constantes;
 import Graficos.Assets;
 import Graficos.Texto;
-import input.Puntuaciones;
+import Input.Puntuaciones;
 import Calculos.Vector2D;
 import InterfazUsuario.Boton;
 import InterfazUsuario.Accion;

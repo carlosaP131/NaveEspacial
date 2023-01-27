@@ -7,7 +7,7 @@
  * ****************************************************************************/
 package Service;
 
-import entity.Usuario;
+import Entity.Usuario;
 import Service.base.IRegistroServiceBase;
 
 /**

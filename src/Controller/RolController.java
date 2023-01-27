@@ -9,7 +9,7 @@ package Controller;
 
 import Controller.base.RegistroControllerBase;
 import Service.RolServiceImpl;
-import entity.Rol;
+import Entity.Rol;
 import Service.IRolService;
 
 /**

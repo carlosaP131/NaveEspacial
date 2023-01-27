@@ -14,7 +14,7 @@ import java.awt.image.BufferedImage;
 
 import Graficos.Assets;
 import Graficos.Texto;
-import input.MovimientoMouse;
+import Input.MovimientoMouse;
 import Calculos.Vector2D;
 
 public class Boton {

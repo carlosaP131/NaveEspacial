@@ -11,7 +11,7 @@ import DB.Conexion;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import entity.Rol;
+import Entity.Rol;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;

@@ -8,7 +8,7 @@
 package Service;
 
 import Model.RolModelImpl;
-import entity.Rol;
+import Entity.Rol;
 import java.util.List;
 import Model.IRolModel;
 

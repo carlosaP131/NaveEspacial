@@ -1,3 +1,11 @@
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-12-2022 
+ *Fecha de actualización:4-01-2023
+ *Descripción:Clase Vector2D esta clase se encarga de los calculos nesesarios 
+ * para las posiciones de los objetos 
+ **
+ * ****************************************************************************/
 package Objetos;
 
 import java.awt.Graphics;
@@ -7,7 +15,7 @@ import java.awt.image.BufferedImage;
 
 import Calculos.Vector2D;
 import Estados.EstadoJuego;
-import entity.Jugador;
+import Entity.Jugador;
 
 public class Meteoritos extends MovimientoObjetos {
 
@@ -15,7 +23,8 @@ public class Meteoritos extends MovimientoObjetos {
     
     private Jugador jugador;
             
-    public Meteoritos(Vector2D position, Vector2D velocity, double maxVel, BufferedImage texture, EstadoJuego gameState, Tamaño size) {
+    public Meteoritos(Vector2D position, Vector2D velocity, double maxVel, 
+            BufferedImage texture, EstadoJuego gameState, Tamaño size) {
         super(position, velocity, maxVel, texture, gameState);
         this.size = size;
         this.velocity = velocity.scale(maxVel);
@@ -56,7 +65,8 @@ public class Meteoritos extends MovimientoObjetos {
 
         Graphics2D g2d = (Graphics2D) g;
 
-        at = AffineTransform.getTranslateInstance(position.getX(), position.getY());
+        at = AffineTransform.getTranslateInstance(position.getX(),
+                position.getY());
 
         at.rotate(angle, width / 2, height / 2);
 

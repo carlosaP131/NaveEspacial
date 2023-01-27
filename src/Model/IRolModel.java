@@ -7,7 +7,7 @@
  * ****************************************************************************/
 package Model;
 
-import entity.Rol;
+import Entity.Rol;
 import java.util.List;
 /**
  *

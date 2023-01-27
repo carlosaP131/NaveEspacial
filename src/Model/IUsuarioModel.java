@@ -9,7 +9,7 @@ package Model;
 
 
 
-import entity.Usuario;
+import Entity.Usuario;
 import java.util.List;
 /**
  *

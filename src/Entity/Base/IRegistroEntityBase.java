@@ -2,20 +2,17 @@
  *Autor:Carlos Aurelio Alcántara Pérez
  *Fecha de creación: 18-11-2022 ***
  *Fecha de actualización:31-11-2022
- *Descripción: Interfaz del service Jugador
+ *Descripción:Interfaz para las clases entity
  **
  * ****************************************************************************/
-package Service;
-
-import Entity.Jugador;
-import Service.base.IRegistroServiceBase;
+package Entity.Base;
 
 /**
  *
  * @author Carlos Aurelio Alcántara Pérez
  */
-public interface IJugadorService extends IRegistroServiceBase<Jugador>{
-  
-
-   
+public interface IRegistroEntityBase {
+    public int getId();
+    public void setId(int id);
+    
 }

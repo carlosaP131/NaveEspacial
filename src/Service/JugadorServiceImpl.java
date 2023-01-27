@@ -9,7 +9,7 @@ package Service;
 
 
 import Model.JugadorModelImpl;
-import entity.Jugador;
+import Entity.Jugador;
 import java.util.List;
 import Model.IJugadorModel;
 /**

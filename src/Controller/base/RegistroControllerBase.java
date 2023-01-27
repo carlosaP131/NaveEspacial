@@ -7,7 +7,7 @@
  * ****************************************************************************/
 package Controller.base;
 
-import entity.base.IRegistroEntityBase;
+import Entity.Base.IRegistroEntityBase;
 import Service.base.IRegistroServiceBase;
 /**
  *

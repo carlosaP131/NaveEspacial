@@ -9,7 +9,7 @@ package Service;
 
 import Model.UsuarioModelImpl;
 
-import entity.Usuario;
+import Entity.Usuario;
 import java.util.List;
 import Model.IUsuarioModel;
 

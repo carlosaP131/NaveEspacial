@@ -1,4 +1,10 @@
-
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-12-2022 
+ *Fecha de actualización:4-01-2023
+ *Descripción:Clase para los mensajes en pantalla  
+ **
+ * ****************************************************************************/
 package Objetos;
 
 import java.awt.AlphaComposite;

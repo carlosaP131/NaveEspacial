@@ -7,7 +7,7 @@
  * ****************************************************************************/
 package Service;
 
-import entity.Rol;
+import Entity.Rol;
 import Service.base.IRegistroServiceBase;
 
 /**

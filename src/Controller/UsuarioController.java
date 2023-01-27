@@ -9,7 +9,7 @@ package Controller;
 
 import Controller.base.RegistroControllerBase;
 import Service.UsuarioServiceImpl;
-import entity.Usuario;
+import Entity.Usuario;
 
 import java.util.List;
 import javax.swing.table.DefaultTableModel;

@@ -9,7 +9,7 @@ package Controller;
 
 import Controller.base.RegistroControllerBase;
 import Service.JugadorServiceImpl;
-import entity.Jugador;
+import Entity.Jugador;
 import Service.IJugadorService;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;

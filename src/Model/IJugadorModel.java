@@ -7,7 +7,7 @@
  * ****************************************************************************/
 package Model;
 
-import entity.Jugador;
+import Entity.Jugador;
 
 import java.util.List;
 /**

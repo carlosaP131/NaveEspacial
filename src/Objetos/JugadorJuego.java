@@ -1,3 +1,10 @@
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-12-2022 
+ *Fecha de actualización:4-01-2023
+ *Descripción:Clase del jugador dentro del juego  
+ **
+ * ****************************************************************************/
 package Objetos;
 
 import java.awt.Graphics;
@@ -7,7 +14,7 @@ import java.awt.image.BufferedImage;
 
 import Graficos.Assets;
 import Graficos.Sonidos;
-import input.Teclas;
+import Input.Teclas;
 import Calculos.Vector2D;
 import Estados.EstadoJuego;
 
@@ -25,7 +32,8 @@ public class JugadorJuego extends MovimientoObjetos {
 
     private Sonidos shoot, loose;
 
-    public JugadorJuego(Vector2D position, Vector2D velocity, double maxVel, BufferedImage texture, EstadoJuego gameState) {
+    public JugadorJuego(Vector2D position, Vector2D velocity, double maxVel, 
+            BufferedImage texture, EstadoJuego gameState) {
         super(position, velocity, maxVel, texture, gameState);
         heading = new Vector2D(0, 1);
         acceleration = new Vector2D();
@@ -84,7 +92,9 @@ public class JugadorJuego extends MovimientoObjetos {
             accelerating = true;
         } else {
             if (velocity.getMagnitude() != 0) {
-                acceleration = (velocity.scale(-1).normalize()).scale(Constantes.ACC / 2);
+                acceleration = (
+                        velocity.scale(-1).normalize()).
+                        scale(Constantes.ACC / 2);
             }
             accelerating = false;
         }
@@ -146,10 +156,12 @@ public class JugadorJuego extends MovimientoObjetos {
 
         Graphics2D g2d = (Graphics2D) g;
 
-        AffineTransform at1 = AffineTransform.getTranslateInstance(position.getX() + width / 2 + 5,
+        AffineTransform at1 = AffineTransform.getTranslateInstance
+                (position.getX() + width / 2 + 5,
                 position.getY() + height / 2 + 10);
 
-        AffineTransform at2 = AffineTransform.getTranslateInstance(position.getX() + 5, position.getY() + height / 2 + 10);
+        AffineTransform at2 = AffineTransform.getTranslateInstance(
+                position.getX() + 5, position.getY() + height / 2 + 10);
 
         at1.rotate(angle, -5, -10);
         at2.rotate(angle, width / 2 - 5, -10);
@@ -159,7 +171,8 @@ public class JugadorJuego extends MovimientoObjetos {
             g2d.drawImage(Assets.velocidad, at2, null);
         }
 
-        at = AffineTransform.getTranslateInstance(position.getX(), position.getY());
+        at = AffineTransform.getTranslateInstance(position.getX(),
+                position.getY());
 
         at.rotate(angle, width / 2, height / 2);
 

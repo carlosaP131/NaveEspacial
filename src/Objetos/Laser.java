@@ -1,3 +1,10 @@
+/** ****************************************************************************
+ *Autor:Carlos Aurelio Alcántara Pérez
+ *Fecha de creación: 18-12-2022 
+ *Fecha de actualización:4-01-2023
+ *Descripción:Clase para las balas  
+ **
+ * ****************************************************************************/
 package Objetos;
 
 import java.awt.Graphics;
@@ -10,7 +17,8 @@ import Estados.EstadoJuego;
 
 public class Laser extends MovimientoObjetos {
 
-    public Laser(Vector2D position, Vector2D velocity, double maxVel, double angle, BufferedImage texture, EstadoJuego gameState) {
+    public Laser(Vector2D position, Vector2D velocity, double maxVel, 
+            double angle, BufferedImage texture, EstadoJuego gameState) {
         super(position, velocity, maxVel, texture, gameState);
         this.angle = angle;
         this.velocity = velocity.scale(maxVel);
@@ -32,7 +40,8 @@ public class Laser extends MovimientoObjetos {
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
 
-        at = AffineTransform.getTranslateInstance(position.getX() - width / 2, position.getY());
+        at = AffineTransform.getTranslateInstance(position.getX() - width / 2,
+                position.getY());
 
         at.rotate(angle, width / 2, 0);
 
@@ -42,7 +51,8 @@ public class Laser extends MovimientoObjetos {
 
     @Override
     public Vector2D getCenter() {
-        return new Vector2D(position.getX() + width / 2, position.getY() + width / 2);
+        return new Vector2D(position.getX() + width / 2, position.getY() + width
+                / 2);
     }
 
 }
