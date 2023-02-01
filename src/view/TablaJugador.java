@@ -26,7 +26,12 @@ public class TablaJugador extends javax.swing.JFrame {
         jugadorController = new JugadorController();
         jugadorController.mostrar(modelo);
         nombre.setEditable(false);
-        TablaJugador.getTableHeader().setBackground(Color.BLUE);
+        TablaJugador.getTableHeader().setBackground(Color.decode("#b380cc"));
+        TablaJugador.setSelectionBackground(Color.decode("#66ffff"));
+        TablaJugador.setSelectionBackground(Color.decode("#ffdcd8"));
+
+        TablaJugador.getTableHeader().setForeground(Color.WHITE);
+        TablaJugador.setForeground(Color.decode("#d6abb1"));
         TablaJugador.setShowGrid(false);
         TablaJugador.setOpaque(false);
 //        jScrollPane1.setBorder(null);

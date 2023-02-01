@@ -1,13 +1,26 @@
 package view;
 
 
+import com.sun.jdi.connect.spi.Connection;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+import reporte.Conexion;
+
 public class Menu extends javax.swing.JFrame {
+    
+      private Connection conection;
+    private Conexion conexion;
 
     TablaUsuario tablaUsuario;
     RegistrarUsuario registrar;
     TablaJugador tablaJugador;
     Juego juego;
     private static int botonJugar = 0;
+    
+    
     public Menu() {
         initComponents();
         
@@ -24,6 +37,7 @@ public class Menu extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -89,6 +103,19 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 170, -1));
 
+        jButton2.setText("reporte");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 160, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/menu_1.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -146,6 +173,29 @@ public class Menu extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+         try {
+            conexion = new Conexion();
+            //conection = (Connection) conexion.getConnection();
+            String path="/home/labingsw06/Documentos/reportes-con-jasper/src/main/java/unsis/app/reportes/appreportes/report1.jasper";
+            JasperReport jr=null;
+            System.out.println("xgqsxgjksbx");
+            jr=(JasperReport) JRLoader.loadObjectFromFile(path);
+            System.out.println("kkkkkk");
+            JasperPrint jp=JasperFillManager.fillReport(jr,null,conexion.getConnection());
+            JasperViewer jv= new JasperViewer(jp);
+            jv.setVisible(true);
+            jv.setTitle(path);
+            conexion.close();
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -162,6 +212,7 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
