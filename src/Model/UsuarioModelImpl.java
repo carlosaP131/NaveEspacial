@@ -39,11 +39,12 @@ public class UsuarioModelImpl implements IUsuarioModel {
             String query = "insert into usuario(usuario,pdw,jugador_id,privilegio) values ('"+usuario.getUser()+"','"+usuario.getPwd()+"',"+1+",'"+usuario.getRol()+"');";
             stm = connection.createStatement();
             stm.execute(query);
+            System.out.println(stm);
             stm.close();
             connection.close();
             //id_usuario= id_usuario;
         } catch (SQLException e) {
-            System.err.println("Error:");
+            System.err.println("Error:"+e.getMessage());
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(UsuarioModelImpl.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -12,7 +12,12 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
     RegistrarUsuario registrar;
     Menu menu;
-
+        Connection con1 = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String User;
+        String Pass;
+        int id;
     public Login() {
         initComponents();
     
@@ -176,7 +181,7 @@ public class Login extends javax.swing.JFrame {
         Connection con = null;
         
         try {
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/nave_espacial", "root", "CETI");
+            con = DriverManager.getConnection("jdbc:mysql://172.17.0.2:3306/nave_espacial", "root", "root");
             System.out.println("Conexion exitosa");
             
         } catch (SQLException e) {
@@ -189,11 +194,9 @@ public class Login extends javax.swing.JFrame {
     
     
     public void ingresar() {
-        Connection con1 = null;
-        PreparedStatement pst = null;
-        ResultSet rs = null;
-        String User = Usuario.getText();
-        String Pass = Contraseña.getText();
+    
+        User = Usuario.getText();
+        Pass = Contraseña.getText();
         if (User.equals("") || Pass.equals("")) {
             JOptionPane.showMessageDialog(this, "Uno o más campos estan vacios");
         } else {
@@ -205,7 +208,7 @@ public class Login extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Credenciales correctas");
                    // this.dispose();
                     //new Datos().setVisible(true);
-                     menu = new Menu();
+                     menu = new Menu(id);
         this.setVisible(false);
         menu.setVisible(true);
                 } else {
@@ -221,8 +224,33 @@ public class Login extends javax.swing.JFrame {
         }
 
     }
+    public int obtenerID() {
+       
+        
+       id = 0;
+                
+            try {
+               
+                con1 = Conectar();
+                String query = "select jugador_id from usuario where usuario='"+User+"' and pdw='"+Pass+"';";
+                    pst = con1.prepareStatement(query);
+                rs = pst.executeQuery();
+                 //rs.next();
+                 rs.next();
+            id = rs.getInt("jugador_id");
+            return id;
+                }
+
+             catch (SQLException e) {
+                System.out.println("Error de conexión" + e.toString());
+
+            }
+            
+        
+            return 0;
     
-    
+    }
+
     
     public static void main(String args[]) {
         

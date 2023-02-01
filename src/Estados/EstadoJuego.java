@@ -26,6 +26,7 @@ import Graficos.Sonidos;
 import Calculos.Vector2D;
 import DB.Conexion;
 import Objetos.JugadorJuego;
+import View.Login;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -64,6 +65,7 @@ public class EstadoJuego extends Estado {
     private Cronometro temporizadorJuego;
     private boolean juegoTerminado;
     private Cronometro generadorOvnis;
+    private Login id;
     /**
      * Constructor sin parametros
      */
@@ -96,7 +98,7 @@ public class EstadoJuego extends Estado {
         try {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
-            String query = "call ActualizarPuntaje(" + obtenerID() + "," + puntaje + ");";
+             String query = "call ActualizarPuntaje(" +obtenerID()+"," + puntaje + ");";
             System.out.println("---: " + query);
             stm = connection.createStatement();
             stm.execute(query);
@@ -113,7 +115,7 @@ public class EstadoJuego extends Estado {
      * @return Regresa un int que es el Id del jugador 
      */
     public int obtenerID() {
-        int idaux = 4;
+        int idaux = 2;
         try {
             int id = 0;
             ResultSet rs;
@@ -127,7 +129,7 @@ public class EstadoJuego extends Estado {
         } catch (SQLException e) {
             System.err.println("Error:");
         }
-        return 6;
+        return 1;
     }
     /**
      * Divide los meteoritos ala mitad

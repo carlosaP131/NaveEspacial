@@ -6,10 +6,16 @@ public class Menu extends javax.swing.JFrame {
     RegistrarUsuario registrar;
     TablaJugador tablaJugador;
     Juego juego;
+    int idJugador;
 
     public Menu() {
         initComponents();
 
+    }
+
+    Menu(int id) {
+        initComponents();
+        idJugador=id;
     }
 
     @SuppressWarnings("unchecked")
@@ -137,7 +143,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-      new Juego().start();
+      new Juego(idJugador).start();
       this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 

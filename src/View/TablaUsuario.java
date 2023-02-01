@@ -175,7 +175,7 @@ public class TablaUsuario extends javax.swing.JFrame {
         nombre2 = jTextField1.getText();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/nave_espacial", "root", "CETI");
+            con = DriverManager.getConnection("jdbc:mysql://172.17.0.2:3306/nave_espacial", "root", "root");
             st = con.createStatement();
             st.execute("update usuario set usuario='" + nombre2 + "' where usuario.usuario='" + nombre1 + "';");
 //            st.execute("DELETE FROM nave_espacial.usuario WHERE usuario='" + nombre1 + "'");
@@ -195,7 +195,7 @@ public class TablaUsuario extends javax.swing.JFrame {
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/nave_espacial","root","CETI");
+            con=DriverManager.getConnection("jdbc:mysql://172.17.0.2:3306/nave_espacial","root","root");
             st=con.createStatement();                    
             st.execute("DELETE FROM nave_espacial.usuario WHERE usuario='" + nombre1 + "'");
             System.out.println("eliminado correctamente");

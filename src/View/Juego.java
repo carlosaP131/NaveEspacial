@@ -38,6 +38,7 @@ public class Juego extends JFrame implements Runnable {
     private MovimientoMouse mouseInput;
 
     private BufferedImage imgFondo;
+    int idJugador;
 
     public Juego() {
         setTitle("Juego de Nave & Ateroides");
@@ -70,6 +71,36 @@ public class Juego extends JFrame implements Runnable {
 
     public static void main(String[] args) {
         new Juego().start();
+    }
+
+    Juego(int idJugador) {
+        this.idJugador=idJugador;
+        setTitle("Juego de Nave & Ateroides");
+        setSize(Constantes.WIDTH, Constantes.HEIGHT);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+        setLocationRelativeTo(null);
+
+        canvas = new Canvas();
+        keyBoard = new Teclas();
+        mouseInput = new MovimientoMouse();
+
+        canvas.setPreferredSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
+        canvas.setMaximumSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
+        canvas.setMinimumSize(new Dimension(Constantes.WIDTH, Constantes.HEIGHT));
+        canvas.setFocusable(true);
+
+        add(canvas);
+        canvas.addKeyListener(keyBoard);
+        canvas.addMouseListener(mouseInput);
+        canvas.addMouseMotionListener(mouseInput);
+        setVisible(true);
+        try {
+            File archivo = new File("src/ImagenesObjetos/image.jpg");
+            imgFondo = ImageIO.read(archivo);
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
     }
 
     public void update() {

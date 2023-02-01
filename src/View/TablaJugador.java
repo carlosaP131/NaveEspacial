@@ -191,8 +191,8 @@ public class TablaJugador extends javax.swing.JFrame {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"
-                    + "nave_espacial", "root", "CETI");
+            con = DriverManager.getConnection("jdbc:mysql://172.17.0.2:3306/"
+                    + "nave_espacial", "root", "root");
             st = con.createStatement();
             st.execute("DELETE FROM nave_espacial.jugador WHERE nombre='" +
                     nombre1 + "'");
@@ -220,8 +220,8 @@ public class TablaJugador extends javax.swing.JFrame {
         nombre2 = jTextField2.getText();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"
-                    + "nave_espacial", "root", "CETI");
+            con = DriverManager.getConnection("jdbc:mysql://172.17.0.2:3306/"
+                    + "nave_espacial", "root", "root");
             st = con.createStatement();
             st.execute("update jugador set nombre='" + nombre2 + "' where"
                     + " jugador.nombre='" + nombre1 + "';");

@@ -34,15 +34,14 @@ public class JugadorModelImpl implements IJugadorModel {
         try {
             conexion = new Conexion();//se establece la conexion
             connection = conexion.getConnection();//se obtiene la conexion de la base de datos 
-            String query = "insert into jugador(nombre,edad,sexo,telefono,correo,direccion,puntos)values('"
-                    +jugador.getNombre()+"',"+jugador.getEdad()+",'"+jugador.getSexo()+"',"
-                    + "'"+jugador.getTelefono()+"','"+jugador.getCorreo()+"','"+jugador.getDireccion()+"',"+jugador.getPuntos()+");";
+            String query = "insert into jugador(nombre,edad,correo,puntos)values('"
+                    +jugador.getNombre()+"',"+jugador.getEdad()+",'"+jugador.getCorreo()+"',"+jugador.getPuntos()+");";
             stm = connection.createStatement();
             stm.execute(query);
             stm.close();
             connection.close();
         } catch (SQLException e) {
-            System.err.println("Error:");
+            System.err.println("Error:"+e.getMessage());
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(JugadorModelImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
